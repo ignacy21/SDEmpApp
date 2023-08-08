@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="future flyway data for test">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SDEmpEapp_usage_simulation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company_job_ad.sql" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="future flyway data for test - adding job_advertisement">
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/_EntityMarker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CandidateJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/_JPARepositoriesMarker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/V1_1__SDEP_company.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/V1_2__SDEP_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/V2_1__init_SDEA_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V2_1__init_SDEA_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company_job_ad.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company_job_ad.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V2_1__init_SDEA_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V2_1__init_SDEA_data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +35,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -45,25 +56,32 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/air/Desktop/SDEmpApp/src/main/resources/flyway.migrations"
+    "last_opened_file_path": "/Users/air/Desktop/SDEmpApp",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="PrepareExampleDataForDatabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SDEmpApp.PrepareExampleDataForDatabase" />
+      <option name="MAIN_CLASS_NAME" value="esle.PrepareExampleDataForDatabase" />
       <module name="SDEmpApp.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SDEmpApp.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691427542837</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="future flyway data for test - adding job_advertisement">
+      <created>1691508850440</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691508850440</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +134,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="future flyway data for test" />
-    <option name="LAST_COMMIT_MESSAGE" value="future flyway data for test" />
+    <MESSAGE value="future flyway data for test - adding job_advertisement" />
+    <option name="LAST_COMMIT_MESSAGE" value="future flyway data for test - adding job_advertisement" />
   </component>
 </project>
