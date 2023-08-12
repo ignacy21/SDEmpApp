@@ -4,23 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="future flyway data for test - adding job_advertisement">
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/_EntityMarker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CandidateJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/_JPARepositoriesMarker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/FileDataPreparationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/Keys.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndMapFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Candidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/SDEmpApp_usage_simulation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/notes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company_job_ad.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company_job_ad.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V2_1__init_SDEA_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V2_1__init_SDEA_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -56,7 +53,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/air/Desktop/SDEmpApp",
+    "last_opened_file_path": "/Users/air/Desktop/SDEmpApp/src/main/java/SDEmpApp/domain",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -64,6 +61,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/SDEmpApp/domain" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
@@ -75,7 +73,14 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SDEmpApp.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PrepareExampleDataForDatabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="esle.PrepareExampleDataForDatabase" />
       <module name="SDEmpApp.main" />
@@ -91,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.PrepareExampleDataForDatabase" />
       </list>
     </recent_temporary>
@@ -118,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691508850440</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity">
+      <created>1691513281901</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691513281901</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="future flyway data for test" />
     <MESSAGE value="future flyway data for test - adding job_advertisement" />
-    <option name="LAST_COMMIT_MESSAGE" value="future flyway data for test - adding job_advertisement" />
+    <MESSAGE value="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity" />
   </component>
 </project>

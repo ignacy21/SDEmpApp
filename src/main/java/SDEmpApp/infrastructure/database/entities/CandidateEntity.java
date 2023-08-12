@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "candidate_id")
+@EqualsAndHashCode(of = "candidateId")
 @Table(name = "candidate")
 public class CandidateEntity {
 

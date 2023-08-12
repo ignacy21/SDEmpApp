@@ -12,13 +12,14 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "companyId")
 @Table(name = "company")
 public class CompanyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "company_id")
-    private Integer company_id;
+    private Integer companyId;
 
     @Column(name = "name")
     private String name;

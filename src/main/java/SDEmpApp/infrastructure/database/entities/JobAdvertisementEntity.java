@@ -7,10 +7,10 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(of = {"jobAdvertisementId", "localization", "languages", "skillsNeeded", "duties", "formOfWork"})
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "job_advertisement_id")
+@EqualsAndHashCode(of = "jobAdvertisementId")
 @Table(name = "job_advertisement")
 public class JobAdvertisementEntity {
 
