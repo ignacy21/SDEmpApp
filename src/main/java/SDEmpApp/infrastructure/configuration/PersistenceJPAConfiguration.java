@@ -1,7 +1,7 @@
 package SDEmpApp.infrastructure.configuration;
 
 import SDEmpApp.infrastructure.database.entities._EntityMarker;
-import SDEmpApp.infrastructure.database.repository._JPARepositoriesMarker;
+import SDEmpApp.infrastructure.database.repository.jpa._JPARepositoriesMarker;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.AllArgsConstructor;
 import org.flywaydb.core.Flyway;

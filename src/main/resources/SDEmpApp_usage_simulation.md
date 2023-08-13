@@ -1,11 +1,10 @@
 CREATE -> COMPANY -> IGNACY'S COMPANY;Warsaw;The best company ever!!!
+CREATE -> COMPANY -> IGOR'S COMPANY;Warsaw;The best company ever!!!
+CREATE -> COMPANY -> STANISLAW'S COMPANY;Warsaw;The best company ever!!!
 
-[//]: # (CREATE -> CANDIDATE -> ignacy;ignacowski;STUDENT;777 777 777;ignacy.ignacowski@gmail.com;linkedin_link;git_link;cv;every language;:&#41;;FIT;FIT;every;humble student;UNEMPLOYED)
-CREATE -> CANDIDATE -> 1
-CREATE -> CANDIDATE -> 2
-CREATE -> CANDIDATE -> 3
+CREATE -> CANDIDATE -> ignacy;ignacowski;STUDENT;777 777 777;ignacy.ignacowski@gmail.com;linkedin_link;git_link;cv;every language;:);FIT;FIT;0 >= 1;humble student;UNEMPLOYED
 
-CRETE -> JOB_ADVERTISEMENT -> Warsaw;English, Hungarian;Java, Hibernate, SQL, Spring Boot;working with relational databases;HYBRID;0
+CREATE -> JOB_ADVERTISEMENT -> Warsaw;English, Hungarian;Java, Hibernate, SQL, Spring Boot;working with relational databases;HYBRID;0
 
 
 FIND -> COMPANY -> loc_1;language_1;skills;form of work

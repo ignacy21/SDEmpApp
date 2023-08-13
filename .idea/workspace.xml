@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/FileDataPreparationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/Keys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndMapFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Candidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SDEmpApp_usage_simulation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/notes.md" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/FileDataPreparationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndMapFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndPrepareFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CandidateJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CandidateJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/_JPARepositoriesMarker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/_JPARepositoriesMarker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SDEmpApp_usage_simulation.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SDEmpApp_usage_simulation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -49,16 +53,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/air/Desktop/SDEmpApp/src/main/java/SDEmpApp/domain",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/air/Desktop/SDEmpApp/src/main/java/SDEmpApp/domain&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/SDEmpApp/domain" />
@@ -82,7 +86,7 @@
       </method>
     </configuration>
     <configuration name="PrepareExampleDataForDatabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="esle.PrepareExampleDataForDatabase" />
+      <option name="MAIN_CLASS_NAME" value="_else.PrepareExampleDataForDatabase" />
       <module name="SDEmpApp.main" />
       <extension name="coverage">
         <pattern>
@@ -131,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691513281901</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)">
+      <created>1691861282435</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691861282435</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,6 +160,7 @@
     <MESSAGE value="future flyway data for test" />
     <MESSAGE value="future flyway data for test - adding job_advertisement" />
     <MESSAGE value="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity" />
+    <MESSAGE value="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)" />
   </component>
 </project>

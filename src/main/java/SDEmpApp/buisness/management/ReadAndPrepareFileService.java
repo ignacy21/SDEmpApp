@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Getter
-public class ReadAndMapFile {
+public class ReadAndPrepareFileService {
 
     private static final Map<String, Map<String, List<String>>> inputData;
 
@@ -45,8 +45,7 @@ public class ReadAndMapFile {
                 ));
     }
 
-    @SuppressWarnings("SuspiciousMethodCalls")
-    public static Map<String, List<String>> getData(Keys.MainCommand command1, Keys.SecondCommand command2) {
-        return inputData.get(command1);
+    public List<String> getData(Keys.MainCommand command1, Keys.SecondCommand command2) {
+        return inputData.get(command1.toString()).get(command2.toString());
     }
 }

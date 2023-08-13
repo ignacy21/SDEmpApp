@@ -1,4 +1,4 @@
-package SDEmpApp.infrastructure.database.repository;
+package SDEmpApp.infrastructure.database.repository.jpa;
 
 import SDEmpApp.infrastructure.database.entities.CandidateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CandidateJpaRepository extends JpaRepository<CandidateEntity, Integer> {
+
 }

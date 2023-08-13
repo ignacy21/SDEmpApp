@@ -1,6 +1,5 @@
 package SDEmpApp.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 
 
