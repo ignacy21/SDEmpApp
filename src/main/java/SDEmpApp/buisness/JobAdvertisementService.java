@@ -1,32 +1,40 @@
 package SDEmpApp.buisness;
 
+import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.buisness.management.Keys;
 import SDEmpApp.buisness.management.ReadAndPrepareFileService;
-import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
+import SDEmpApp.domain.JobAdvertisement;
+import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
+import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
 
 import java.util.List;
 
 public class JobAdvertisementService {
 
     private ReadAndPrepareFileService fileService;
+    private JobAdvertisementDAO jobAdvertisementDAO;
+    private CompanyJpaRepository companyJpaRepository;
+    private CompanyEntityMapper companyEntityMapper;
 
-    public List<JobAdvertisementEntity> prepareJobAdvertisementToCreateMap() {
+    public List<JobAdvertisement> prepareJobAdvertisementToCreateMap() {
         List<String> inputData = fileService.getData(Keys.MainCommand.CREATE, Keys.SecondCommand.JOB_ADVERTISEMENT);
-        return inputData.stream()
+        List<JobAdvertisement> jobAdvertisements = inputData.stream()
                 .map(line -> line.split(";"))
                 .map(this::createJobAdvertisement)
                 .toList();
+        jobAdvertisements.forEach(jobAdvertisement -> jobAdvertisementDAO.createJobAdvertisement(jobAdvertisement));
+        return jobAdvertisements;
     }
 
-    private JobAdvertisementEntity createJobAdvertisement(String[] strings) {
-        return JobAdvertisementEntity.builder()
+    private  JobAdvertisement createJobAdvertisement(String[] strings) {
+        return JobAdvertisement.builder()
                 .localization(strings[0])
                 .languages(strings[1])
                 .skillsNeeded(strings[2])
                 .duties(strings[3])
                 .formOfWork(strings[4])
-//                .company()
-//                TODO
+                .company(companyEntityMapper
+                        .mapFromEntity(companyJpaRepository.findById(Integer.parseInt(strings[5])).orElseThrow()))
                 .build();
     }
 }

@@ -11,7 +11,7 @@ public class CompanyService {
 
     private ReadAndPrepareFileService fileService;
     private CompanyDAO companyDAO;
-//    private JobAdvertisementService jobAdvertisementService;
+    private JobAdvertisementService jobAdvertisementService;
 
     public List<Company> createCompanies() {
         List<String> inputData = fileService.getData(Keys.MainCommand.CREATE, Keys.SecondCommand.COMPANY);

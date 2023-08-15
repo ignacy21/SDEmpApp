@@ -1,5 +1,6 @@
 package SDEmpApp.buisness;
 
+import SDEmpApp.buisness.DAO.CandidateDAO;
 import SDEmpApp.buisness.management.Keys;
 import SDEmpApp.buisness.management.ReadAndPrepareFileService;
 import SDEmpApp.domain.Candidate;
@@ -9,14 +10,17 @@ import java.util.List;
 public class CandidateService {
 
     private ReadAndPrepareFileService fileService;
+    private CandidateDAO candidateDAO;
 
-    public List<Candidate> prepareCandidatesToCreateMap() {
+    public List<Candidate> createCandidates() {
 
         List<String> inputData = fileService.getData(Keys.MainCommand.CREATE, Keys.SecondCommand.CANDIDATE);
-        return inputData.stream()
+        List<Candidate> candidates = inputData.stream()
                 .map(line -> line.split(";"))
                 .map(CandidateService::createCandidate)
                 .toList();
+        candidates.forEach(candidateDAO::createCandidate);
+        return candidates;
     }
 
     private static Candidate createCandidate(String[] candidateData) {
