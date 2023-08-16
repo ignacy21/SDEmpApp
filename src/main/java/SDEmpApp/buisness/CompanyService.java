@@ -4,14 +4,18 @@ import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.buisness.management.Keys;
 import SDEmpApp.buisness.management.ReadAndPrepareFileService;
 import SDEmpApp.domain.Company;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class CompanyService {
 
-    private ReadAndPrepareFileService fileService;
-    private CompanyDAO companyDAO;
-    private JobAdvertisementService jobAdvertisementService;
+    private final ReadAndPrepareFileService fileService;
+    private final CompanyDAO companyDAO;
+    private final JobAdvertisementService jobAdvertisementService;
 
     public List<Company> createCompanies() {
         List<String> inputData = fileService.getData(Keys.MainCommand.CREATE, Keys.SecondCommand.COMPANY);
@@ -20,7 +24,7 @@ public class CompanyService {
                 .map(line -> line.split(";"))
                 .map(CompanyService::putTogetherCompany)
                 .toList();
-        list.forEach(company -> companyDAO.createCompany(company));
+        list.forEach(companyDAO::createCompany);
         return createCompanies();
     }
 

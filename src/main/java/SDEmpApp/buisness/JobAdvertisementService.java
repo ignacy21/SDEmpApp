@@ -6,23 +6,27 @@ import SDEmpApp.buisness.management.ReadAndPrepareFileService;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class JobAdvertisementService {
 
-    private ReadAndPrepareFileService fileService;
-    private JobAdvertisementDAO jobAdvertisementDAO;
-    private CompanyJpaRepository companyJpaRepository;
-    private CompanyEntityMapper companyEntityMapper;
+    private final ReadAndPrepareFileService fileService;
+    private final JobAdvertisementDAO jobAdvertisementDAO;
+    private final CompanyJpaRepository companyJpaRepository;
+    private final CompanyEntityMapper companyEntityMapper;
 
-    public List<JobAdvertisement> prepareJobAdvertisementToCreateMap() {
+    public List<JobAdvertisement> createJobAdvertisements() {
         List<String> inputData = fileService.getData(Keys.MainCommand.CREATE, Keys.SecondCommand.JOB_ADVERTISEMENT);
         List<JobAdvertisement> jobAdvertisements = inputData.stream()
                 .map(line -> line.split(";"))
                 .map(this::createJobAdvertisement)
                 .toList();
-        jobAdvertisements.forEach(jobAdvertisement -> jobAdvertisementDAO.createJobAdvertisement(jobAdvertisement));
+        jobAdvertisements.forEach(jobAdvertisementDAO::createJobAdvertisement);
         return jobAdvertisements;
     }
 

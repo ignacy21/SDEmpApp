@@ -1,6 +1,6 @@
 package SDEmpApp.buisness.management;
 
-import lombok.Getter;
+import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Getter
+@Service
 public class ReadAndPrepareFileService {
 
     private static final Map<String, Map<String, List<String>>> inputData;
