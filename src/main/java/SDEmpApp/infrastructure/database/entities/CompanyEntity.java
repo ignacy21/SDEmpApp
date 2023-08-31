@@ -30,6 +30,6 @@ public class CompanyEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")
     private List<JobAdvertisementEntity> jobAdvertisementEntities;
 }

@@ -4,12 +4,14 @@ import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.buisness.management.Keys;
 import SDEmpApp.buisness.management.ReadAndPrepareFileService;
 import SDEmpApp.domain.JobAdvertisement;
+import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -31,14 +33,19 @@ public class JobAdvertisementService {
     }
 
     private  JobAdvertisement createJobAdvertisement(String[] strings) {
-        return JobAdvertisement.builder()
-                .localization(strings[0])
-                .languages(strings[1])
-                .skillsNeeded(strings[2])
-                .duties(strings[3])
-                .formOfWork(strings[4])
-                .company(companyEntityMapper
-                        .mapFromEntity(companyJpaRepository.findById(Integer.parseInt(strings[5])).orElseThrow()))
-                .build();
+        try {
+            CompanyEntity companyEntity = companyJpaRepository.findById(Integer.parseInt(strings[5])).orElseThrow();
+            return JobAdvertisement.builder()
+                    .localization(strings[0])
+                    .languages(strings[1])
+                    .skillsNeeded(strings[2])
+                    .duties(strings[3])
+                    .formOfWork(strings[4])
+                    .company(companyEntityMapper
+                            .mapFromEntity(companyEntity))
+                    .build();
+        } catch (NoSuchElementException exception) {
+            throw new RuntimeException("### THERE IS NO SUCH COMPANY (company_id: [" + strings[5] + "])");
+        }
     }
 }

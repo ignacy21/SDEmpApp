@@ -1,9 +1,10 @@
 package SDEmpApp;
 
+import SDEmpApp.buisness.CandidateService;
 import SDEmpApp.buisness.CompanyService;
+import SDEmpApp.buisness.JobAdvertisementService;
+import SDEmpApp.buisness.PurgeService;
 import SDEmpApp.infrastructure.configuration.ApplicationConfiguration;
-import SDEmpApp.infrastructure.database.repository.CompanyRepository;
-import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.MethodOrderer;
@@ -37,13 +38,35 @@ public class SDEmpAppTest {
     }
 
     private CompanyService companyService;
-
+    private CandidateService candidateService;
+    private JobAdvertisementService jobAdvertisementService;
+    private PurgeService purgeService;
 
     @Test
     @Order(1)
+    void purge() {
+        log.info("### 1 -- PURGE");
+        purgeService.purge();
+    }
+
+    @Test
+    @Order(2)
     void createCompany() {
         log.info("### 1 -- CREATE COMPANY");
         companyService.createCompanies();
+    }
+    @Test
+    @Order(3)
+    void createCandidate() {
+        log.info("### 1 -- CREATE CANDIDATES");
+        candidateService.createCandidates();
+    }
+
+    @Test
+    @Order(4)
+    void createJobAdvertisement() {
+        log.info("### 1 -- CREATE JOB ADVERTISEMENTS");
+        jobAdvertisementService.createJobAdvertisements();
     }
 
 

@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Creating DAOs and Repositories&#10;Adding mappers form domain to entities">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/ComponentScanMarker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/ApplicationConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SDEmpApp/SDEmpAppTest.java" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/PurgeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V2_1__init_SDEmpApp_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndPrepareFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndPrepareFileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SDEmpApp_usage_simulation.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SDEmpApp_usage_simulation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_company.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_1__SDEP_company_job_ad.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_company_job_ad.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V1_2__SDEP_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_2__SDEmpApp_candidate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway.migrations/V2_1__init_SDEA_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SDEmpApp/SDEmpAppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SDEmpApp/SDEmpAppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +42,17 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="SDEmpApp" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SDEmpApp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SDEmpApp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -57,6 +71,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,10 +86,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/air/Desktop/SDEmpApp/src/main/java/SDEmpApp/domain&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/air/Desktop/IntellijProjects/SDEmpApp&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -89,7 +105,10 @@
       <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
+      <recent name="$PROJECT_DIR$/src/main/resources/flyway" />
+      <recent name="$PROJECT_DIR$/src/main/resources/db.migrations" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -98,41 +117,47 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle clean build" />
+      <command value="gradle clean" />
+      <command value="gradle build" />
+      <command value="gradle flyway:migrate" />
+      <command value="gradle flywayMigrate" />
+      <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SDEmpApp [clean build]">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SDEmpApp.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PrepareExampleDataForDatabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_else.PrepareExampleDataForDatabase" />
-      <module name="SDEmpApp.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SDEmpApp [clean build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="JUnit.SDEmpAppTest">
+    <configuration name="SDEmpApp [:flywayMigrate]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--stacktrace" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value=":flywayMigrate" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
             <option value="build" />
           </list>
         </option>
@@ -144,7 +169,7 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="SDEmpAppTest.createCompany" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SDEmpApp [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -155,25 +180,55 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;SDEmpApp.SDEmpAppTest.createCompany&quot;" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
+    </configuration>
+    <configuration name="SDEmpAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDEmpApp.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SDEmpApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SDEmpApp" />
+      <option name="MAIN_CLASS_NAME" value="SDEmpApp.SDEmpAppTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SDEmpAppTest.createCompany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDEmpApp.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SDEmpApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SDEmpApp" />
+      <option name="MAIN_CLASS_NAME" value="SDEmpApp.SDEmpAppTest" />
+      <option name="METHOD_NAME" value="createCompany" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SDEmpApp [clean build]" />
-        <item itemvalue="Gradle.SDEmpAppTest.createCompany" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.PrepareExampleDataForDatabase" />
+        <item itemvalue="JUnit.SDEmpAppTest" />
+        <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
+        <item itemvalue="Gradle.SDEmpApp [build]" />
+        <item itemvalue="Gradle.SDEmpApp [clean]" />
+        <item itemvalue="Gradle.SDEmpApp [:flywayMigrate]" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692128409436</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong">
+      <created>1692207211997</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692207211997</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +311,7 @@
     <MESSAGE value="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)" />
     <MESSAGE value="Creating Services for each Domain&#10;Moving methods from one class to Services&#10;Fixing little errors" />
     <MESSAGE value="Creating DAOs and Repositories&#10;Adding mappers form domain to entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating DAOs and Repositories&#10;Adding mappers form domain to entities" />
+    <MESSAGE value="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong" />
+    <option name="LAST_COMMIT_MESSAGE" value="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong" />
   </component>
 </project>

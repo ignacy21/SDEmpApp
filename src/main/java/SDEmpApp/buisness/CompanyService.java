@@ -15,17 +15,16 @@ public class CompanyService {
 
     private final ReadAndPrepareFileService fileService;
     private final CompanyDAO companyDAO;
-    private final JobAdvertisementService jobAdvertisementService;
 
     public List<Company> createCompanies() {
         List<String> inputData = fileService.getData(Keys.MainCommand.CREATE, Keys.SecondCommand.COMPANY);
 
-        List<Company> list = inputData.stream()
+        List<Company> companyList = inputData.stream()
                 .map(line -> line.split(";"))
                 .map(CompanyService::putTogetherCompany)
                 .toList();
-        list.forEach(companyDAO::createCompany);
-        return createCompanies();
+        companyList.forEach(companyDAO::createCompany);
+        return companyList;
     }
 
 
