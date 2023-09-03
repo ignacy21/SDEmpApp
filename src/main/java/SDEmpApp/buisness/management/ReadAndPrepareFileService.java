@@ -25,12 +25,7 @@ public class ReadAndPrepareFileService {
     }
 
     private static Map<String, Map<String, List<String>>> readFileContent() throws IOException {
-        Path path = ResourceUtils.getFile("classpath:SDEmpApp_usage_simulation.md").toPath();
-        List<String> lines = Files.readAllLines(path).stream()
-                .filter(line -> !line.startsWith("[//]: #"))
-                .filter(line -> !line.isBlank())
-                .toList();
-
+        List<String> lines = readFileLines();
 
         return lines.stream()
                 .collect(Collectors.groupingBy(
@@ -43,6 +38,15 @@ public class ReadAndPrepareFileService {
                                     return left;
                                 })
                 ));
+    }
+
+    private static List<String> readFileLines() throws IOException {
+        Path path = ResourceUtils.getFile("classpath:SDEmpApp_usage_simulation.md").toPath();
+        List<String> lines = Files.readAllLines(path).stream()
+                .filter(line -> !line.startsWith("[//]: #"))
+                .filter(line -> !line.isBlank())
+                .toList();
+        return lines;
     }
 
     public List<String> getData(Keys.MainCommand command1, Keys.SecondCommand command2) {
