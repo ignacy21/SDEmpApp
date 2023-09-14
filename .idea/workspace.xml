@@ -4,35 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="find Companies by pattern described in notes, so far only Service, no Repositories">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Localization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Skill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/LocalizationEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/SkillEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/LocalizationEntityMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/SkillEntityMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cities.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_localization.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_6__SDEmpApp_skill.sql" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Adding loads of data before adding WEB layer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/ServletDispatcherInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/ApplicationConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/ApplicationConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/JobAdvertisementEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/JobAdvertisementEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_company.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_company.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_company_job_ad.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_company_job_ad.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SDEmpApp/SDEmpAppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SDEmpApp/SDEmpAppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/PersistenceJPAConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SDEmpApp/SDEmpAppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +68,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6203afd5-fcd3-4769-a684-61e24939d9e9" />
+        <option name="url" value="https://github.com/ignacy21/SDEmpApp.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -97,17 +90,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/air/Desktop/IntellijProjects/SDEmpApp/src/main/resources/flyway/migrations",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/air/Desktop/IntellijProjects/SDEmpApp/src/main/resources/flyway/migrations&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="SDEmpApp" />
@@ -318,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693729989673</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding loads of data before adding WEB layer">
+      <created>1694701292333</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694701292333</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,6 +342,7 @@
     <MESSAGE value="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong" />
     <MESSAGE value="Migrations fixed, testcontainers are also fine.&#10;creating Companies, Candidates and Job Advertisements done" />
     <MESSAGE value="find Companies by pattern described in notes, so far only Service, no Repositories" />
-    <option name="LAST_COMMIT_MESSAGE" value="find Companies by pattern described in notes, so far only Service, no Repositories" />
+    <MESSAGE value="Adding loads of data before adding WEB layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding loads of data before adding WEB layer" />
   </component>
 </project>
