@@ -4,6 +4,7 @@ import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.buisness.management.Keys;
 import SDEmpApp.buisness.management.ReadAndPrepareFileService;
 import SDEmpApp.domain.JobAdvertisement;
+import SDEmpApp.domain.Skill;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
@@ -32,13 +33,15 @@ public class JobAdvertisementService {
         return jobAdvertisements;
     }
 
-    private  JobAdvertisement createJobAdvertisement(String[] strings) {
+    private JobAdvertisement createJobAdvertisement(String[] strings) {
         try {
             CompanyEntity companyEntity = companyJpaRepository.findById(Integer.parseInt(strings[5])).orElseThrow();
             return JobAdvertisement.builder()
                     .localization(strings[0])
                     .languages(strings[1])
-                    .skillsNeeded(strings[2])
+                    .skillsNeeded(List.of(Skill.builder()
+                            .name(strings[2])
+                            .build()))
                     .duties(strings[3])
                     .formOfWork(strings[4])
                     .company(companyEntityMapper

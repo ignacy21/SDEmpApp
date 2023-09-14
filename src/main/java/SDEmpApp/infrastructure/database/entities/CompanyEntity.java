@@ -24,11 +24,12 @@ public class CompanyEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "localization")
-    private String localization;
-
     @Column(name = "description")
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "localization_id")
+    private LocalizationEntity localization;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")
     private List<JobAdvertisementEntity> jobAdvertisementEntities;

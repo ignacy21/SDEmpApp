@@ -68,6 +68,12 @@ public class SDEmpAppTest {
         log.info("### 1 -- CREATE JOB ADVERTISEMENTS");
         jobAdvertisementService.createJobAdvertisements();
     }
+    @Test
+    @Order(5)
+    void findCompanies() {
+        log.info("### 1 -- FIND COMPANIES");
+        companyService.findCompanies();
+    }
 
 
 

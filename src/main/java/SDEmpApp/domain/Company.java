@@ -15,7 +15,7 @@ public class Company {
 
     Integer companyId;
     String name;
-    String localization;
     String description;
+    Localization localization;
     List<JobAdvertisement> jobAdvertisementEntities;
 }

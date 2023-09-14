@@ -2,6 +2,8 @@ package SDEmpApp.domain;
 
 import lombok.*;
 
+import java.util.List;
+
 
 @With
 @Value
@@ -13,7 +15,7 @@ public class JobAdvertisement {
     Integer jobAdvertisementId;
     String localization;
     String languages;
-    String skillsNeeded;
+    List<Skill> skillsNeeded;
     String duties;
     String formOfWork;
     Company company;

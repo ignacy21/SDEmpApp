@@ -1,27 +1,21 @@
 package SDEmpApp.infrastructure.database.repository;
 
 import SDEmpApp.buisness.DAO.CompanyDAO;
-import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.Company;
-import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
-import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
-import SDEmpApp.infrastructure.database.repository.jpa.JobAdvertisementJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
-import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @AllArgsConstructor
-public class CompanyRepository implements CompanyDAO, JobAdvertisementDAO {
+public class CompanyRepository implements CompanyDAO {
 
     CompanyJpaRepository companyJpaRepository;
-    JobAdvertisementJpaRepository jobAdvertisementJpaRepository;
-
     CompanyEntityMapper companyEntityMapper;
-    JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
 
 
     @Override
@@ -30,10 +24,11 @@ public class CompanyRepository implements CompanyDAO, JobAdvertisementDAO {
         companyJpaRepository.saveAndFlush(companyEntity);
     }
 
-
     @Override
-    public void createJobAdvertisement(JobAdvertisement jobAdvertisement) {
-        JobAdvertisementEntity jobAdvertisementEntity = jobAdvertisementEntityMapper.mapToEntity(jobAdvertisement);
-        jobAdvertisementJpaRepository.saveAndFlush(jobAdvertisementEntity);
+    public List<Company> findCompanyByName(String name) {
+        return companyJpaRepository.findByNameContaining(name).stream()
+                .map(companyEntityMapper::mapFromEntity)
+                .toList();
     }
+
 }

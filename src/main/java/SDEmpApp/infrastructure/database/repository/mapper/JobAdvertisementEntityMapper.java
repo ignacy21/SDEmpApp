@@ -9,4 +9,6 @@ import org.mapstruct.ReportingPolicy;
 public interface JobAdvertisementEntityMapper {
 
     JobAdvertisementEntity mapToEntity(JobAdvertisement jobAdvertisement);
+
+    JobAdvertisement mapFromEntity(JobAdvertisementEntity jobAdvertisementEntity);
 }

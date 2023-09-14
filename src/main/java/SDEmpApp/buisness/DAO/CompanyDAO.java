@@ -2,9 +2,11 @@ package SDEmpApp.buisness.DAO;
 
 import SDEmpApp.domain.Company;
 
+import java.util.List;
+
 public interface CompanyDAO {
 
     void createCompany(Company company);
 
-    Company findCompanyByName();
+    List<Company> findCompanyByName(String name);
 }
