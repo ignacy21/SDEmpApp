@@ -5,10 +5,13 @@ import SDEmpApp.infrastructure.database.entities._EntityMarker;
 import SDEmpApp.infrastructure.database.repository.jpa._JPARepositoriesMarker;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.Location;
 import org.flywaydb.core.api.configuration.ClassicConfiguration;
 import org.hibernate.cfg.Environment;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.*;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -18,8 +21,15 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.spring6.view.ThymeleafViewResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
 import javax.sql.DataSource;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.Properties;
 @Configuration
@@ -28,10 +38,13 @@ import java.util.Properties;
 @PropertySource({"classpath:database.properties"})
 @ComponentScan(basePackageClasses = ComponentScanMarker.class)
 @EnableJpaRepositories(basePackageClasses = _JPARepositoriesMarker.class)
-public class ApplicationConfiguration {
+public class ApplicationConfiguration implements WebMvcConfigurer, ApplicationContextAware {
 
 
     private final org.springframework.core.env.Environment environment;
+
+    @Setter
+    private ApplicationContext applicationContext;
 
 
     @Bean
@@ -94,5 +107,37 @@ public class ApplicationConfiguration {
 //        hikariConfig.setIdleTimeout(300_000);
 //        return new HikariDataSource(hikariConfig);
         return dataSource;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    @Bean
+    public SpringResourceTemplateResolver templateResolver() {
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+        templateResolver.setApplicationContext(this.applicationContext);
+        templateResolver.setPrefix("/WEB-INF/templates/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        templateResolver.setTemplateMode(TemplateMode.HTML);;
+        return templateResolver;
+    }
+
+    @Bean
+    public SpringTemplateEngine templateEngine() {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver());
+        templateEngine.setEnableSpringELCompiler(true);
+        return templateEngine;
+    }
+
+    @Bean
+    public ThymeleafViewResolver viewResolver() {
+        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+        resolver.setTemplateEngine(templateEngine());
+        resolver.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        return resolver;
     }
 }
