@@ -21,4 +21,7 @@ public class SkillEntity {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private JobAdvertisementEntity jobAdvertisement;
 }

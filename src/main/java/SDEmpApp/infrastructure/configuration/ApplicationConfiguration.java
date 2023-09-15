@@ -93,10 +93,10 @@ public class ApplicationConfiguration implements WebMvcConfigurer, ApplicationCo
     public DataSource dataSource() {
 //        HikariConfig hikariConfig = new HikariConfig();
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(Objects.requireNonNull(environment.getProperty("jdbc.driverClassName")));
-        dataSource.setUrl(environment.getProperty("jdbc.url"));
-        dataSource.setUsername(environment.getProperty("jdbc.user"));
-        dataSource.setPassword(environment.getProperty("jdbc.pass"));
+        dataSource.setDriverClassName(Objects.requireNonNull(environment.getProperty(Environment.DRIVER)));
+        dataSource.setUrl(environment.getProperty(Environment.URL));
+        dataSource.setUsername(environment.getProperty(Environment.USER));
+        dataSource.setPassword(environment.getProperty(Environment.PASS));
 
 //        hikariConfig.setConnectionTestQuery("SELECT 1");
 //        hikariConfig.setPoolName("springHikariCP");

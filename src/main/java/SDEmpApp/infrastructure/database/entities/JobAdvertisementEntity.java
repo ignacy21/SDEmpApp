@@ -33,7 +33,7 @@ public class JobAdvertisementEntity {
     @Column(name = "form_of_work")
     private String formOfWork;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "job_advertisement")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "jobAdvertisement")
     private List<SkillEntity> skillsNeeded;
 
     @ManyToOne(fetch = FetchType.LAZY)

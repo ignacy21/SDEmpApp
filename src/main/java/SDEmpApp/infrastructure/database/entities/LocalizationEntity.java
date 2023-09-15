@@ -1,8 +1,6 @@
 package SDEmpApp.infrastructure.database.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -16,6 +14,8 @@ import lombok.*;
 @Table(name = "localization")
 public class LocalizationEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "localization_id")
     private Integer localizationId;
 

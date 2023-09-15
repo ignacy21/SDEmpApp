@@ -28,7 +28,7 @@ public class CompanyEntity {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "localization_id")
+    @JoinColumn(name = "localization_id")
     private LocalizationEntity localization;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")

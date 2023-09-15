@@ -5,7 +5,6 @@ import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import SDEmpApp.domain.Skill;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface JobAdvertisementDAO {
