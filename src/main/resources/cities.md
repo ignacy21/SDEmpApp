@@ -1,4 +1,3 @@
-DŚ – dolnośląskie
 Bardo (DŚ)
 Bielawa (DŚ)
 Bierutów (DŚ)
@@ -92,8 +91,6 @@ Złotoryja (DŚ)
 Złoty Stok (DŚ)
 Żarów (DŚ)
 Żmigród (DŚ)
-
-KP – kujawsko-pomorskie
 Aleksandrów Kujawski (KP)
 Barcin (KP)
 Brodnica (KP)
@@ -147,8 +144,6 @@ Wąbrzeźno (KP)
 Więcbork (KP)
 Włocławek (KP)
 Żnin (KP)
-
-LU – lubelskie
 Annopol (LU)
 Bełżyce (LU)
 Biała Podlaska (LU)
@@ -200,8 +195,6 @@ Urzędów (LU)
 Włodawa (LU)
 Zamość (LU)
 Zwierzyniec (LU)
-
-LB – lubuskie
 Babimost (LB)
 Bytom Odrzański (LB)
 Cybinka (LB)
@@ -245,8 +238,6 @@ Zbąszynek (LB)
 Zielona Góra (LB)
 Żagań (LB)
 Żary (LB)
-
-ŁD – łódzkie
 Aleksandrów Łódzki (ŁD)
 Bełchatów (ŁD)
 Biała Rawska (ŁD)
@@ -299,8 +290,6 @@ Zelów (ŁD)
 Zgierz (ŁD)
 Złoczew (ŁD)
 Żychlin (ŁD)
-
-MA – małopolskie
 Alwernia (MA)
 Andrychów (MA)
 Biecz (MA)
@@ -309,6 +298,7 @@ Bochnia (MA)
 Brzesko (MA)
 Brzeszcze (MA)
 Bukowno (MA)
+Czarny Dunajec (MA)
 Chełmek (MA)
 Chrzanów (MA)
 Ciężkowice (MA)
@@ -320,6 +310,7 @@ Grybów (MA)
 Jordanów (MA)
 Kalwaria Zebrzydowska (MA)
 Kęty (MA)
+Książ Wielki (MA)
 Koszyce (MA)
 Kraków (MA)
 Krynica-Zdrój (MA)
@@ -363,8 +354,6 @@ Zakliczyn (MA)
 Zakopane (MA)
 Zator (MA)
 Żabno (MA)
-
-MZ – mazowieckie
 Białobrzegi (MZ)
 Bieżuń (MZ)
 Błonie (MZ)
@@ -464,8 +453,6 @@ Zwoleń (MZ)
 Żelechów (MZ)
 Żuromin (MZ)
 Żyrardów (MZ)
-
-OP – opolskie
 Baborów (OP)
 Biała (OP)
 Brzeg (OP)
@@ -502,8 +489,6 @@ Ujazd (OP)
 Wołczyn (OP)
 Zawadzkie (OP)
 Zdzieszowice (OP)
-
-PK – podkarpackie
 Baranów Sandomierski (PK)
 Błażowa (PK)
 Boguchwała (PK)
@@ -556,8 +541,6 @@ Ulanów (PK)
 Ustrzyki Dolne (PK)
 Zagórz (PK)
 Zaklików (PK)
-
-PD – podlaskie
 Augustów (PD)
 Białystok (PD)
 Bielsk Podlaski (PD)
@@ -598,8 +581,6 @@ Wasilków (PD)
 Wysokie Mazowieckie (PD)
 Zabłudów (PD)
 Zambrów (PD)
-
-PM – pomorskie
 Brusy (PM)
 Bytów (PM)
 Chojnice (PM)
@@ -642,8 +623,6 @@ Ustka (PM)
 Wejherowo (PM)
 Władysławowo (PM)
 Żukowo (PM)
-
-ŚL – śląskie
 Będzin (ŚL)
 Bielsko-Biała (ŚL)
 Bieruń (ŚL)
@@ -717,8 +696,6 @@ Zawiercie (ŚL)
 Żarki (ŚL)
 Żory (ŚL)
 Żywiec (ŚL)
-
-ŚK – świętokrzyskie
 Bodzentyn (ŚK)
 Busko-Zdrój (ŚK)
 Chęciny (ŚK)
@@ -746,6 +723,7 @@ Osiek (ŚK)
 Ostrowiec Świętokrzyski (ŚK)
 Ożarów (ŚK)
 Pacanów (ŚK)
+Piekoszów (ŚK)
 Pierzchnica (ŚK)
 Pińczów (ŚK)
 Połaniec (ŚK)
@@ -765,8 +743,6 @@ Wiślica (ŚK)
 Włoszczowa (ŚK)
 Wodzisław (ŚK)
 Zawichost (ŚK)
-
-WN – warmińsko-mazurskie
 Barczewo (WN)
 Bartoszyce (WN)
 Biała Piska (WN)
@@ -817,8 +793,6 @@ Tolkmicko (WN)
 Węgorzewo (WN)
 Wielbark (WN)
 Zalewo (WN)
-
-WP – wielkopolskie
 Bojanowo (WP)
 Borek Wielkopolski (WP)
 Budzyń (WP)
@@ -936,8 +910,6 @@ Zbąszyń (WP)
 Zduny (WP)
 Złotów (WP)
 Żerków (WP)
-
-ZP – zachodniopomorskie
 Barlinek (ZP)
 Barwice (ZP)
 Białogard (ZP)
@@ -1004,84 +976,3 @@ Wałcz (ZP)
 Węgorzyno (ZP)
 Wolin (ZP)
 Złocieniec (ZP)
-
-
-Plac Tadeusza Kościuszki – Aleksandrów Łódzki
-
-Bardo
-
-Jezioro – Barlinek
-
-Rynek – Bielsko-Biała
-
-Rynek – Cieszyn
-
-Jasna Góra – Częstochowa
-
-Czarny Dunajec (MP)
-
-Dobczyce
-
-Stare Miasto – Elbląg
-
-Główny dworzec kolejowy – Gdynia
-
-Estakada kolejowa – Gorzów Wielkopolski
-
-Mierzeja Helska – Hel
-
-Ratusz – Jarocin
-
-Kazimierz Dolny
-
-Pałac Biskupów Krakowskich – Kielce
-
-Rynek – Korfantów
-
-Książ Wielki (MP)
-
-Rynek – Lubawa
-
-Plac Wolności – Łódź
-
-Rynek – Miasteczko Śląskie
-
-Mikołajki
-
-Rynek – Mrocza
-
-Bazylika – Nysa
-
-Ratusz – Opole
-
-Stary Rynek – Poznań
-
-Rynek – Prudnik
-
-Rynek – Pułtusk
-
-Piekoszów (ŚW)
-
-Pałac Sandomierski – Radom
-
-Ratusz – Rzeszów
-
-Ratusz – Słupsk
-
-Zamek Sielecki – Sosnowiec
-
-Zamek – Sucha Beskidzka
-
-Park – Syców
-
-Rynek – Świecie
-
-Archikatedra śś. Janów – Toruń
-
-Sanktuarium – Ustrzyki Dolne
-
-Pałac – Wleń
-
-Plac Dworcowy – Zabrze
-
-Ratusz – Zielona Góra

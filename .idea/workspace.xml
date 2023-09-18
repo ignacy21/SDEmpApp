@@ -4,15 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Adding loads of data before adding WEB layer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/ApplicationConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/configuration/ApplicationConfiguration.java" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/CompanyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/CompanyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/exceptions/NoSuchLocalizationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/LocalizationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/LocalizationJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/_else/PrepareLocalizationData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/drop tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V2_1_init_SDEmpApp_localizations.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_create_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/PurgeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/Keys.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndPrepareFileService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/LocalizationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/LocalizationEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/SkillEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/SkillEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cities.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cities.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_company_job_ad.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_job_advertisement.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_localization.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_localization.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V2_1__init_SDEmpApp_data.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,16 +146,17 @@
       <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/_else" />
       <recent name="$PROJECT_DIR$/src/main/resources/flyway/migrations" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
-      <recent name="$PROJECT_DIR$/src/main/resources/flyway" />
-      <recent name="$PROJECT_DIR$/src/main/resources/db.migrations" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SDEmpApp.api.controller" />
       <recent name="SDEmpApp.domain" />
     </key>
   </component>
@@ -150,6 +171,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Smart Tomcat.SDEmpApp">
+    <configuration name="PrepareLocalizationData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_else.PrepareLocalizationData" />
+      <module name="SDEmpApp.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_else.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -194,21 +228,6 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="SDEmpAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SDEmpApp.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SDEmpApp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SDEmpApp" />
-      <option name="MAIN_CLASS_NAME" value="SDEmpApp.SDEmpAppTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SDEmpAppTest.createCompany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SDEmpApp.test" />
       <extension name="coverage">
@@ -249,9 +268,6 @@
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="contextPath" value="/SDEmpApp" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
       <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
@@ -267,10 +283,10 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.PrepareLocalizationData" />
       <item itemvalue="Gradle.SDEmpApp [build]" />
       <item itemvalue="Gradle.SDEmpApp [clean]" />
       <item itemvalue="JUnit.SDEmpAppTest.findCompanies" />
-      <item itemvalue="JUnit.SDEmpAppTest" />
       <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
     </list>
@@ -278,9 +294,9 @@
       <list>
         <item itemvalue="Gradle.SDEmpApp [build]" />
         <item itemvalue="Gradle.SDEmpApp [clean]" />
+        <item itemvalue="Application.PrepareLocalizationData" />
         <item itemvalue="JUnit.SDEmpAppTest.findCompanies" />
         <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
-        <item itemvalue="JUnit.SDEmpAppTest" />
       </list>
     </recent_temporary>
   </component>
@@ -363,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694701292333</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page">
+      <created>1694766869769</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694766869769</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -388,6 +411,41 @@
     <MESSAGE value="Migrations fixed, testcontainers are also fine.&#10;creating Companies, Candidates and Job Advertisements done" />
     <MESSAGE value="find Companies by pattern described in notes, so far only Service, no Repositories" />
     <MESSAGE value="Adding loads of data before adding WEB layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding loads of data before adding WEB layer" />
+    <MESSAGE value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Creating controller and page view for home page" />
+    <MESSAGE value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java</url>
+          <line>50</line>
+          <properties class="SDEmpApp.api.controller.CompanyController" method="makeAnAccount">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java</url>
+          <line>15</line>
+          <properties class="SDEmpApp.buisness.CompanyService" method="createCompany">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java</url>
+          <line>28</line>
+          <properties class="SDEmpApp.infrastructure.database.repository.CompanyRepository" method="createCompany">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
