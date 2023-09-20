@@ -33,7 +33,6 @@ public class CompanyController {
             Model model
     ) {
         if (bindingResult.hasErrors()) {
-            // TODO
             return "error";
         }
         model.addAttribute("provinces", prepareProvinces());
@@ -54,7 +53,6 @@ public class CompanyController {
             Model model
     ) {
         if (bindingResult.hasErrors()) {
-            // TODO
             return "error";
         }
         Company map = companyMapper.map(companyDTO);

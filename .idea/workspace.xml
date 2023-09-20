@@ -4,35 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/CompanyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/CompanyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/exceptions/NoSuchLocalizationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/LocalizationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/LocalizationJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/_else/PrepareLocalizationData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/drop tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V2_1_init_SDEmpApp_localizations.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_create_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_creation.html" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Creating Main page and Controller&#10;Creating Company page and controller&#10;Changing way user will pick up their localization&#10;Changing LocalizationEntity, removing relation&#10;Adding one flyway migrations (init localization data)&#10;--&#10;Left with handling exception">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/localization_error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/oh_no.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/PurgeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/Keys.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/management/ReadAndPrepareFileService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CompanyEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/LocalizationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/LocalizationEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/CompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/CompanyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/exceptions/NoSuchLocalizationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/exceptions/NoSuchLocalizationException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cities.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cities.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_company_job_ad.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_job_advertisement.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_localization.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_localization.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V2_1__init_SDEmpApp_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/LocalizationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/LocalizationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/LocalizationJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/LocalizationJpaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,28 +106,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/air/Desktop/IntellijProjects/SDEmpApp/src/main/resources/flyway/migrations&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/air/Desktop/IntellijProjects/SDEmpApp/src/main/webapp/WEB-INF/templates",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="SDEmpApp" />
       <recent name="SDEmpApp.infrastructure.database.repository.mapper" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/img" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/flyway/migrations" />
       <recent name="$PROJECT_DIR$/src/main/java/SDEmpApp/domain" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -386,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694766869769</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Creating Main page and Controller&#10;Creating Company page and controller&#10;Changing way user will pick up their localization&#10;Changing LocalizationEntity, removing relation&#10;Adding one flyway migrations (init localization data)&#10;--&#10;Left with handling exception">
+      <created>1695059246772</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695059246773</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,20 +404,12 @@
     <MESSAGE value="Adding loads of data before adding WEB layer" />
     <MESSAGE value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Creating controller and page view for home page" />
     <MESSAGE value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page" />
+    <MESSAGE value="Creating Main page and Controller&#10;Creating Company page and controller&#10;Changing way user will pick up their localization&#10;Changing LocalizationEntity, removing relation&#10;Adding one flyway migrations (init localization data)&#10;--&#10;Left with handling exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating Main page and Controller&#10;Creating Company page and controller&#10;Changing way user will pick up their localization&#10;Changing LocalizationEntity, removing relation&#10;Adding one flyway migrations (init localization data)&#10;--&#10;Left with handling exception" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java</url>
-          <line>50</line>
-          <properties class="SDEmpApp.api.controller.CompanyController" method="makeAnAccount">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java</url>
           <line>15</line>

@@ -10,4 +10,6 @@ public interface LocalizationDAO {
     Integer findLocalizationForCompany(String provinceName, String cityName);
 
     List<Localization> findAllLocalizations();
+
+    List<Localization> findAvailableCitiesForProvince(String provinceName);
 }

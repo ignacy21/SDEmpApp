@@ -33,4 +33,11 @@ public class LocalizationRepository implements LocalizationDAO {
                 .map(localizationEntityMapper::mapFromEntity)
                 .toList();
     }
+
+    @Override
+    public List<Localization> findAvailableCitiesForProvince(String provinceName) {
+        return localizationJpaRepository.findByProvinceName(provinceName).stream()
+                .map(localizationEntityMapper::mapFromEntity)
+                .toList();
+    }
 }

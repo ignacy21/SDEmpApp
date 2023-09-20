@@ -16,7 +16,6 @@ public class CompanyDTO {
     Integer companyId;
     String name;
     String description;
-    // TODO mapowanie trze zbobić samodzielnie na ładny adres
     String provinceName;
     String cityName;
     List<JobAdvertisement> jobAdvertisementEntities;

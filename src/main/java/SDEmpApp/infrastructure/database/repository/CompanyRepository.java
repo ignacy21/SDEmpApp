@@ -33,7 +33,7 @@ public class CompanyRepository implements CompanyDAO {
                 company.getLocalization().getCityName()
         );
         if (byProvinceNameAndCityName.isEmpty()) {
-            throw new NoSuchLocalizationException();
+            throw new NoSuchLocalizationException(company);
         }
         companyEntity.setLocalizationId(byProvinceNameAndCityName.get().getLocalizationId());
         companyJpaRepository.saveAndFlush(companyEntity);
