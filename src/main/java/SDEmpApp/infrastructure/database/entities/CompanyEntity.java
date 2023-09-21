@@ -30,6 +30,12 @@ public class CompanyEntity {
     @Column(name = "localization_id")
     private Integer localizationId;
 
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")
     private List<JobAdvertisementEntity> jobAdvertisementEntities;
 }

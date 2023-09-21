@@ -13,10 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyDTO {
-    Integer companyId;
     String name;
     String description;
     String provinceName;
     String cityName;
     List<JobAdvertisement> jobAdvertisementEntities;
+    String email;
+    String password;
 }

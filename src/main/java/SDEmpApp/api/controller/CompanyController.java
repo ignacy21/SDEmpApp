@@ -55,6 +55,7 @@ public class CompanyController {
         if (bindingResult.hasErrors()) {
             return "error";
         }
+        CompanyDTO companyDTO1 = companyDTO;
         Company map = companyMapper.map(companyDTO);
         companyService.createCompany(map);
 

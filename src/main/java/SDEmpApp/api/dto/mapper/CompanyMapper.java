@@ -16,6 +16,8 @@ public interface CompanyMapper {
                         .cityName(companyDTO.getCityName())
                         .provinceName(companyDTO.getProvinceName())
                         .build())
+                .email(companyDTO.getEmail())
+                .password(companyDTO.getPassword())
                 .jobAdvertisementEntities(companyDTO.getJobAdvertisementEntities())
                 .build();
     }

@@ -18,4 +18,6 @@ public class Company {
     String description;
     Localization localization;
     List<JobAdvertisement> jobAdvertisementEntities;
+    String email;
+    String password;
 }
