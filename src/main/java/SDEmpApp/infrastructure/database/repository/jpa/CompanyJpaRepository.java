@@ -1,5 +1,6 @@
 package SDEmpApp.infrastructure.database.repository.jpa;
 
+import SDEmpApp.domain.Company;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,4 +15,5 @@ public interface CompanyJpaRepository extends JpaRepository<CompanyEntity, Integ
 
     List<CompanyEntity> findByNameContaining(String name);
 
+    Optional<CompanyEntity> findByEmailAndPassword(String email, String password);
 }

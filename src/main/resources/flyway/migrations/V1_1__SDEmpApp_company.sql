@@ -9,5 +9,7 @@ CREATE TABLE company
     PRIMARY KEY (company_id),
     CONSTRAINT fk_company_localization
             FOREIGN KEY (localization_id)
-                REFERENCES localization (localization_id)
+                REFERENCES localization (localization_id),
+    CONSTRAINT unique_name_email_password
+            UNIQUE (name, email, password)
 );

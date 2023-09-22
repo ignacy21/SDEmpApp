@@ -9,4 +9,6 @@ public interface CompanyDAO {
     void createCompany(Company company);
 
     List<Company> findCompanyByName(String name);
+
+    Company findCompanyByEmailAndPassword(String email, String password);
 }

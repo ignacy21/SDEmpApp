@@ -6,6 +6,8 @@ import SDEmpApp.domain.Company;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 @AllArgsConstructor
 public class CompanyService {
@@ -15,6 +17,10 @@ public class CompanyService {
 
     public void createCompany(Company company) {
         companyDAO.createCompany(company);
+    }
+
+    public void findIfCanLogin(String email, String password) {
+        companyDAO.findCompanyByEmailAndPassword(email, password);
     }
 //
 //    public List<List<Company>> findCompanies() {

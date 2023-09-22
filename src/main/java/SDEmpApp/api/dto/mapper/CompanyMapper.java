@@ -21,4 +21,6 @@ public interface CompanyMapper {
                 .jobAdvertisementEntities(companyDTO.getJobAdvertisementEntities())
                 .build();
     }
+
+
 }
