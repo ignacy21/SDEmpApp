@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Adding email and password to Company">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/exceptions/NoSuchCompanyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_login.html" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Trying to do logging as Company - left with:&#10;MissingServletRequestParameterException Required request parameter 'email' for method parameter type String">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_login_in.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/CompanyMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_company.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_company.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_create_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_create_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +68,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="0c3cde7586a2c5105351b190bcfb9f4c87fd945c" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -277,11 +274,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SDEmpApp [build]" />
-        <item itemvalue="Gradle.SDEmpApp [clean]" />
-        <item itemvalue="Application.PrepareLocalizationData" />
-        <item itemvalue="JUnit.SDEmpAppTest.findCompanies" />
         <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
+        <item itemvalue="JUnit.SDEmpAppTest.findCompanies" />
+        <item itemvalue="Gradle.SDEmpApp [clean]" />
+        <item itemvalue="Gradle.SDEmpApp [build]" />
+        <item itemvalue="Application.PrepareLocalizationData" />
       </list>
     </recent_temporary>
   </component>
@@ -392,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Trying to do logging as Company - left with:&#10;MissingServletRequestParameterException Required request parameter 'email' for method parameter type String">
+      <created>1695387832430</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1695387832430</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -422,6 +426,7 @@
     <MESSAGE value="Creating Main page and Controller&#10;Creating Company page and controller&#10;Changing way user will pick up their localization&#10;Changing LocalizationEntity, removing relation&#10;Adding one flyway migrations (init localization data)&#10;--&#10;Left with handling exception" />
     <MESSAGE value="Handling NoSuchLocalizationException (occurred while choosing localization)" />
     <MESSAGE value="Adding email and password to Company" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding email and password to Company" />
+    <MESSAGE value="Trying to do logging as Company - left with:&#10;MissingServletRequestParameterException Required request parameter 'email' for method parameter type String" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to do logging as Company - left with:&#10;MissingServletRequestParameterException Required request parameter 'email' for method parameter type String" />
   </component>
 </project>

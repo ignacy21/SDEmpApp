@@ -19,8 +19,8 @@ public class CompanyService {
         companyDAO.createCompany(company);
     }
 
-    public void findIfCanLogin(String email, String password) {
-        companyDAO.findCompanyByEmailAndPassword(email, password);
+    public Company findIfCanLogin(String email, String password) {
+        return companyDAO.findCompanyByEmailAndPassword(email, password);
     }
 //
 //    public List<List<Company>> findCompanies() {

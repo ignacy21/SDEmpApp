@@ -14,22 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController {
 
     private static final String HOME = "/";
-    private static final String COMPANY_LOGIN = "/company/login";
 
-    private final CompanyService companyService;
 
     @RequestMapping(value = HOME, method = RequestMethod.GET)
     public String homePage() {
         return "home_page";
     }
 
-    @RequestMapping(value = COMPANY_LOGIN, method = RequestMethod.GET)
-    public String companyLoginPage(
-            @RequestParam("email") String email,
-            @RequestParam("password") String password
-    ) {
-        companyService.findIfCanLogin(email, password);
 
-        return "company_login";
-    }
 }

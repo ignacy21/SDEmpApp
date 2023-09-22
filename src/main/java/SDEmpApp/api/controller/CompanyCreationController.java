@@ -16,7 +16,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
-public class CompanyController {
+public class CompanyCreationController {
 
     private static final String COMPANY = "/company";
 
@@ -55,7 +55,6 @@ public class CompanyController {
         if (bindingResult.hasErrors()) {
             return "error";
         }
-        CompanyDTO companyDTO1 = companyDTO;
         Company map = companyMapper.map(companyDTO);
         companyService.createCompany(map);
 
