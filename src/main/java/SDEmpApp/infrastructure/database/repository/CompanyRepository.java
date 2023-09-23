@@ -50,8 +50,9 @@ public class CompanyRepository implements CompanyDAO {
     @Override
     public Company findCompanyByEmailAndPassword(String email, String password) {
         Optional<CompanyEntity> company = companyJpaRepository.findByEmailAndPassword(email, password);
-        CompanyEntity companyEntity = company.orElseThrow(NoSuchCompanyException::new);
-        return companyEntityMapper.mapFromEntity(companyEntity);
+        return company
+                .map(companyEntity -> companyEntityMapper.mapFromEntity(companyEntity))
+                .orElse(null);
     }
 
 }
