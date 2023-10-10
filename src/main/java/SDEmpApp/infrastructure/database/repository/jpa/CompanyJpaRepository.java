@@ -16,4 +16,6 @@ public interface CompanyJpaRepository extends JpaRepository<CompanyEntity, Integ
     List<CompanyEntity> findByNameContaining(String name);
 
     Optional<CompanyEntity> findByEmailAndPassword(String email, String password);
+
+    Optional<CompanyEntity> findByCompanyId(int id);
 }

@@ -18,7 +18,7 @@ public interface CompanyMapper {
                         .build())
                 .email(companyDTO.getEmail())
                 .password(companyDTO.getPassword())
-                .jobAdvertisementEntities(companyDTO.getJobAdvertisementEntities())
+                .jobAdvertisements(companyDTO.getJobAdvertisementEntities())
                 .build();
     }
 

@@ -3,7 +3,6 @@ package SDEmpApp.infrastructure.database.repository;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.buisness.DAO.LocalizationDAO;
 import SDEmpApp.domain.Company;
-import SDEmpApp.exceptions.NoSuchCompanyException;
 import SDEmpApp.exceptions.NoSuchLocalizationException;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
@@ -53,6 +52,13 @@ public class CompanyRepository implements CompanyDAO {
         return company
                 .map(companyEntity -> companyEntityMapper.mapFromEntity(companyEntity))
                 .orElse(null);
+    }
+
+    @Override
+    public Company findCompanyById(int id) {
+        Optional<CompanyEntity> byCompanyId = companyJpaRepository.findByCompanyId(id);
+        CompanyEntity companyEntity = byCompanyId.orElseThrow(RuntimeException::new);
+        return companyEntityMapper.mapFromEntity(companyEntity);
     }
 
 }

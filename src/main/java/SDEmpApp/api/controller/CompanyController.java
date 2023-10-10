@@ -1,5 +1,6 @@
 package SDEmpApp.api.controller;
 
+import SDEmpApp.api.controller.data.ControllerData;
 import SDEmpApp.api.dto.CompanyDTO;
 import SDEmpApp.api.dto.mapper.CompanyMapper;
 import SDEmpApp.buisness.CompanyService;
@@ -35,16 +36,11 @@ public class CompanyController {
         if (bindingResult.hasErrors()) {
             return "error";
         }
-        model.addAttribute("provinces", prepareProvinces());
-        model.addAttribute("cities", findCities());
+        model.addAttribute("provinces", ControllerData.provinces());
+        model.addAttribute("cities", localizationService.findCities());
         return "company_creation";
     }
 
-    private List<String> findCities() {
-        return localizationService.findAllCities().stream()
-                .map(Localization::getCityName)
-                .toList();
-    }
 
     @PostMapping(value = COMPANY)
     public String makeAnAccount(
@@ -55,31 +51,10 @@ public class CompanyController {
         if (bindingResult.hasErrors()) {
             return "error";
         }
-        CompanyDTO companyDTO1 = companyDTO;
         Company map = companyMapper.map(companyDTO);
         companyService.createCompany(map);
 
         return "company_create_done";
-    }
-
-    private List<String> prepareProvinces() {
-        return List.of(
-                "Dolnośląskie",
-                "Kujawsko-pomorskie",
-                "Lubelskie",
-                "Lubuskie",
-                "Łódzkie",
-                "Małopolskie",
-                "Mazowieckie",
-                "Opolskie",
-                "Podkarpackie",
-                "Podlaskie",
-                "Pomorskie",
-                "Śląskie",
-                "Świętokrzyskie",
-                "Warmińsko-mazurskie",
-                "Wielkopolskie",
-                "Zachodniopomorskie");
     }
 
 }

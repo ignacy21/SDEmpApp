@@ -11,4 +11,6 @@ public interface CompanyDAO {
     List<Company> findCompanyByName(String name);
 
     Company findCompanyByEmailAndPassword(String email, String password);
+
+    Company findCompanyById(int id);
 }

@@ -13,11 +13,105 @@
 <body>
 <div class="container">
     <br>
-    <br>
-    <h1>Hi this is your account</h1>
-    <br>
-    <br>
-<!--    TODO -->
+    <div class="row mt-6">
+        <div class="col-md-6">
+            <div class="col-md-4">
+                <a th:href="@{/}" class="btn btn-info" role="button">Go back to the main page</a>
+            </div>
+            <br>
+            <form action="#" th:action="@{/company/login}" method="GET">
+                    <label for="email"><b>Email:</b></label>
+                    <input type="text" id="email" th:value="${email}">
+                    <br>
+                    <label for="password"><b>Password:</b></label>
+                    <input type="password" id="password" th:value="${password}">
+                <div class="col-md-3">
+                    <input type="submit" value="LOGIN" class="btn btn-success">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+        <h4>Fill out the form to create your job advertisement</h4>
+        <form action="#" th:action="@{/addJobAdvertisement}" method="POST" th:object="${jobAdvertisementDTO}">
+        <div class="row mt-6">
+            <div class="col-md-10">
+                <p>Your company id</p>
+                <label for="ids"><b>Id:</b></label>
+                <select id="ids" th:field="*{ids}">
+                    <option th:each="id : ${ids}" th:value="${id}" th:text="${id}"></option>
+                </select>
+                <br>
+                <b>Select location where you want your employee to work</b>
+                <br>
+                <label for="provinces"><b>Province:</b></label>
+                <select id="provinces" th:field="*{provinces}">
+                    <option th:each="province : ${provinces}" th:value="${province}" th:text="${province}"></option>
+                </select>
+                <label for="cities"><b>Select the nearest city around you:</b></label>
+                <select id="cities" th:field="*{cities}">
+                    <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
+                </select>
+                <br>
+                <br>
+                <label for="languages"><b>Select language:</b></label>
+                <select id="languages" th:field="*{languages}">
+                    <option th:each="language : ${languages}" th:value="${language}" th:text="${language}"></option>
+                </select>
+                <label for="languageLevels"><b>Level:</b></label>
+                <select id="languageLevels" th:field="*{languageLevels}">
+                    <option th:each="level : ${languageLevels}" th:value="${level}" th:text="${level}"></option>
+                </select>
+                <br>
+                <br>
+                <label for="skills"><b>Select skills have:</b></label>
+                <select id="skills" th:field="*{skills}">
+                    <option th:each="skill : ${skills}" th:value="${skill}" th:text="${skill}"></option>
+                </select>
+                <br>
+                <br>
+                <label for="formOfWork"><b>Select form of work:</b></label>
+                <select id="formOfWork" th:field="*{formOfWork}">
+                    <option th:each="formOfWork : ${formsOfWork}" th:value="${formOfWork}" th:text="${formOfWork}"></option>
+                </select>
+
+                <div class="row mt-3">
+                    <label for="description"><b>Duties:</b></label>
+                    <div class="col-md-3">
+                        <textarea id="description" th:field="*{duties}" rows="8" cols="50" required="required"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="ADD JOB ADVERTISEMENT" class="btn btn-success">
+        </div>
+        <br>
+        <br>
+        </form>
+        </div>
+    </div>
+
+    <h3>Your job advertisements</h3>
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>Localization</th>
+            <th>Languages</th>
+            <th>Skills</th>
+            <th>Duties</th>
+            <th>Form of work</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="jobAdvertisement : ${jobAdvertisements}">
+            <td th:text="${jobAdvertisement.localization}"></td>
+            <td th:text="${jobAdvertisement.languages}"></td>
+            <td th:text="${jobAdvertisement.skills}"></td>
+            <td th:text="${jobAdvertisement.duties}"></td>
+            <td th:text="${jobAdvertisement.formOfWork}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 

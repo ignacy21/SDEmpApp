@@ -3,8 +3,6 @@ package SDEmpApp.infrastructure.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
@@ -34,7 +32,7 @@ public class JobAdvertisementEntity {
     private String formOfWork;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "jobAdvertisement")
-    private List<SkillEntity> skillsNeeded;
+    private String skillsNeeded;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")

@@ -16,4 +16,10 @@ public class LocalizationService {
     public List<Localization> findAllCities() {
         return localizationDAO.findAllLocalizations();
     }
+    public List<String> findCities() {
+        return findAllCities().stream()
+                .map(Localization::getCityName)
+                .toList();
+    }
+
 }

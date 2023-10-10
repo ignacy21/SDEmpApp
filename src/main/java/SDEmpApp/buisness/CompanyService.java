@@ -22,6 +22,10 @@ public class CompanyService {
     public Company findIfCanLogin(String email, String password) {
         return companyDAO.findCompanyByEmailAndPassword(email, password);
     }
+
+    public Company findCompanyById(int id) {
+        return companyDAO.findCompanyById(id);
+    }
 //
 //    public List<List<Company>> findCompanies() {
 //        List<List<Company>> resultList = new ArrayList<>();

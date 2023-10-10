@@ -16,22 +16,10 @@
     <br>
     <h1>Welcome to SDEmpApp</h1>
     <br>
+    <div class="col-md-4">
+        <a th:href="@{/company/login}" class="btn btn-info" role="button">I already have account as Company</a>
+    </div>
     <br>
-    <h2>I've already have account</h2>
-    <form action="#" th:action="@{/company/login}" method="GET">
-        <div class="row mt-6">
-            <div class="col-md-6">
-                <label for="email"><b>Email:</b></label>
-                <input type="text" id="email" th:value="${email}">
-                <br>
-                <label for="password"><b>Password:</b></label>
-                <input type="password" id="password" th:value="${password}">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <input type="submit" value="LOGIN" class="btn btn-success">
-        </div>
-    </form>
     <br>
     <h3>Here you can create your account either as a company or as a candidate</h3>
     <div class="row mt-3">

@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Resolving issue, going back to main branch 2, full code">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Problem solved - login add to the main page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/data/ControllerData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/JobAdvertisementDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/JobAdvertisementMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/mapper/CompanyMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Skill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CompanyJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/SkillEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/SkillEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_job_advertisement.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_3__SDEmpApp_job_advertisement.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/company_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +102,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/build.gradle" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -123,11 +146,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/_else" />
       <recent name="$PROJECT_DIR$/src/main/resources/flyway/migrations" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/resources/flyway.migrations" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -147,19 +170,28 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="Smart Tomcat.SDEmpApp">
-    <configuration name="PrepareLocalizationData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_else.PrepareLocalizationData" />
-      <module name="SDEmpApp.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="_else.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Gradle.SDEmpApp [build]">
+    <configuration name="SDEmpApp [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
     </configuration>
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -173,6 +205,28 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="SDEmpApp [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -221,22 +275,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SDEmpAppTest.findCompanies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SDEmpApp.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SDEmpApp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SDEmpApp" />
-      <option name="MAIN_CLASS_NAME" value="SDEmpApp.SDEmpAppTest" />
-      <option name="METHOD_NAME" value="findCompanies" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SDEmpApp" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
@@ -260,20 +298,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.PrepareLocalizationData" />
+      <item itemvalue="Gradle.SDEmpApp [assemble]" />
+      <item itemvalue="Gradle.SDEmpApp [classes]" />
       <item itemvalue="Gradle.SDEmpApp [build]" />
       <item itemvalue="Gradle.SDEmpApp [clean]" />
-      <item itemvalue="JUnit.SDEmpAppTest.findCompanies" />
       <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
-        <item itemvalue="JUnit.SDEmpAppTest.findCompanies" />
-        <item itemvalue="Gradle.SDEmpApp [clean]" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
-        <item itemvalue="Application.PrepareLocalizationData" />
+        <item itemvalue="Gradle.SDEmpApp [clean]" />
+        <item itemvalue="Gradle.SDEmpApp [classes]" />
+        <item itemvalue="Gradle.SDEmpApp [assemble]" />
+        <item itemvalue="JUnit.SDEmpAppTest.createCompany" />
       </list>
     </recent_temporary>
   </component>
@@ -391,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695387832430</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Problem solved - login add to the main page">
+      <created>1695454516055</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1695454516055</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -422,6 +467,7 @@
     <MESSAGE value="Handling NoSuchLocalizationException (occurred while choosing localization)" />
     <MESSAGE value="Adding email and password to Company" />
     <MESSAGE value="Trying to do logging as Company - left with:&#10;MissingServletRequestParameterException Required request parameter 'email' for method parameter type String" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to do logging as Company - left with:&#10;MissingServletRequestParameterException Required request parameter 'email' for method parameter type String" />
+    <MESSAGE value="Problem solved - login add to the main page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problem solved - login add to the main page" />
   </component>
 </project>

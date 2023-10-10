@@ -1,15 +1,13 @@
 package SDEmpApp.domain;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Value;
-import lombok.With;
+import lombok.*;
 
 import java.util.List;
 
 @With
 @Value
 @Builder
+@ToString
 @EqualsAndHashCode(of = "companyId")
 public class Company {
 
@@ -17,7 +15,7 @@ public class Company {
     String name;
     String description;
     Localization localization;
-    List<JobAdvertisement> jobAdvertisementEntities;
+    List<JobAdvertisement> jobAdvertisements;
     String email;
     String password;
 }

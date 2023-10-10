@@ -1,6 +1,5 @@
 package SDEmpApp.infrastructure.database.repository.mapper;
 
-import SDEmpApp.domain.Skill;
 import SDEmpApp.infrastructure.database.entities.SkillEntity;
 import org.mapstruct.Mapper;
 
