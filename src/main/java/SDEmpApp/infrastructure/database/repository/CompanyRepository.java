@@ -8,7 +8,7 @@ import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import SDEmpApp.infrastructure.database.repository.jpa.LocalizationJpaRepository;
-import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
+import SDEmpApp.infrastructure.database.mapper.CompanyEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

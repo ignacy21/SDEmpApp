@@ -1,16 +1,7 @@
 package SDEmpApp.buisness;
 
-import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
-import SDEmpApp.domain.JobAdvertisement;
-import SDEmpApp.domain.Skill;
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
-import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
-import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor

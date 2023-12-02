@@ -8,8 +8,8 @@ import SDEmpApp.domain.Skill;
 import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
 import SDEmpApp.infrastructure.database.entities.SkillEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.JobAdvertisementJpaRepository;
-import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
-import SDEmpApp.infrastructure.database.repository.mapper.SkillEntityMapper;
+import SDEmpApp.infrastructure.database.mapper.JobAdvertisementEntityMapper;
+import SDEmpApp.infrastructure.database.mapper.SkillEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

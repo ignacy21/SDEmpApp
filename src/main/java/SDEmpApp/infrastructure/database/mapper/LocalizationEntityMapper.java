@@ -1,4 +1,4 @@
-package SDEmpApp.infrastructure.database.repository.mapper;
+package SDEmpApp.infrastructure.database.mapper;
 
 import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.LocalizationEntity;

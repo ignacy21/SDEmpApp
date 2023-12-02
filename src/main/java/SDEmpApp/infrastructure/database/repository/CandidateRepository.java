@@ -4,7 +4,7 @@ import SDEmpApp.buisness.DAO.CandidateDAO;
 import SDEmpApp.domain.Candidate;
 import SDEmpApp.infrastructure.database.entities.CandidateEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CandidateJpaRepository;
-import SDEmpApp.infrastructure.database.repository.mapper.CandidateEntityMapper;
+import SDEmpApp.infrastructure.database.mapper.CandidateEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
