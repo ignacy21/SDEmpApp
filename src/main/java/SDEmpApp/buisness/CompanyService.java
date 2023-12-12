@@ -6,6 +6,9 @@ import SDEmpApp.domain.Company;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class CompanyService {
@@ -16,6 +19,15 @@ public class CompanyService {
     public void createCompany(Company company) {
         companyDAO.createCompany(company);
     }
+
+    public Optional<Company> findById(Integer companyId) {
+        return companyDAO.findByCompanyId(companyId);
+    }
+
+    public List<Company> findByName(String companyName) {
+        return companyDAO.findByNameContaining(companyName);
+    }
+
 //
 //    public List<List<Company>> findCompanies() {
 //        List<List<Company>> resultList = new ArrayList<>();

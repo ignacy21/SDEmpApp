@@ -40,10 +40,16 @@ public class CompanyRepository implements CompanyDAO {
     }
 
     @Override
-    public List<Company> findCompanyByName(String name) {
+    public List<Company> findByNameContaining(String name) {
         return companyJpaRepository.findByNameContaining(name).stream()
                 .map(companyEntityMapper::mapFromEntity)
                 .toList();
+    }
+
+    @Override
+    public Optional<Company> findByCompanyId(Integer companyId) {
+        return companyJpaRepository.findById(companyId)
+                .map(companyEntityMapper::mapFromEntity);
     }
 
 }

@@ -1,7 +1,7 @@
 server:
-  port: 8087
+  port: 8080
   servlet:
-    context-path: /w-20
+    context-path: /SEDmpApp
 
 
 spring:
@@ -10,7 +10,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/w-20
+    url: jdbc:postgresql://localhost:5432/SDEmpApp
     username: postgres
     password: postgresql
     hikari:
