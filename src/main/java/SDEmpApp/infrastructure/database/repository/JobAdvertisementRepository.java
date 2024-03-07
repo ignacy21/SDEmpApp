@@ -7,7 +7,6 @@ import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.JobAdvertisementJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
-import SDEmpApp.infrastructure.database.repository.mapper.SkillEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +19,6 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
     JobAdvertisementJpaRepository jobAdvertisementJpaRepository;
 
     JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
-    SkillEntityMapper skillEntityMapper;
 
     @Override
     public void createJobAdvertisement(JobAdvertisement jobAdvertisement) {
@@ -36,14 +34,12 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
                 .toList();
     }
 
-//    @Override
-//    public List<Company> findCompanyBySkillsNeeded(List<Skill> skillList) {
-//        List<SkillEntity> skillEntities = skillList.stream().map(skillEntityMapper::mapToEntity).toList();
-//        return jobAdvertisementJpaRepository.findBySkillsNeeded(skillEntities).stream()
-//                .map(jobAdvertisementEntityMapper::mapFromEntity)
-//                .map(JobAdvertisement::getCompany)
-//                .toList();
-//    }
+    public List<Company> findCompanyBySkillsNeeded(List<String> skillList) {
+        return jobAdvertisementJpaRepository.findBySkillsNeeded(skillList).stream()
+                .map(jobAdvertisementEntityMapper::mapFromEntity)
+                .map(JobAdvertisement::getCompany)
+                .toList();
+    }
 
     @Override
     public List<Company> findCompanyByLocalization(Localization localization) {
