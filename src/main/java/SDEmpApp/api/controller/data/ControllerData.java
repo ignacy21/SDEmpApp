@@ -112,4 +112,24 @@ public class ControllerData {
                 "FIT"
         );
     }
+
+    public static List<String> prepareProvinces() {
+        return List.of(
+                "Dolnośląskie",
+                "Kujawsko-pomorskie",
+                "Lubelskie",
+                "Lubuskie",
+                "Łódzkie",
+                "Małopolskie",
+                "Mazowieckie",
+                "Opolskie",
+                "Podkarpackie",
+                "Podlaskie",
+                "Pomorskie",
+                "Śląskie",
+                "Świętokrzyskie",
+                "Warmińsko-mazurskie",
+                "Wielkopolskie",
+                "Zachodniopomorskie");
+    }
 }
