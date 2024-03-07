@@ -15,7 +15,7 @@ public class JobAdvertisement {
     Integer jobAdvertisementId;
     String localization;
     String languages;
-    List<Skill> skillsNeeded;
+    String skillsNeeded;
     String duties;
     String formOfWork;
     Company company;
