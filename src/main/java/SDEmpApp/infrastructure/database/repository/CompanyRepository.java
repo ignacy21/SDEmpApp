@@ -26,7 +26,7 @@ public class CompanyRepository implements CompanyDAO {
     LocalizationDAO localizationDAO;
 
     @Override
-    public CompanyEntity createCompany(Company company) {
+    public Company createCompany(Company company) {
         CompanyEntity companyEntity = companyEntityMapper.mapToEntity(company);
         Optional<LocalizationEntity> byProvinceNameAndCityName = localizationJpaRepository.findByProvinceNameAndCityName(
                 company.getLocalization().getProvinceName(),
@@ -37,7 +37,7 @@ public class CompanyRepository implements CompanyDAO {
         }
         companyEntity.setLocalizationId(byProvinceNameAndCityName.get().getLocalizationId());
         companyJpaRepository.saveAndFlush(companyEntity);
-        return companyEntity;
+        return companyEntityMapper.mapFromEntity(companyEntity);
     }
 
     @Override
@@ -58,7 +58,8 @@ public class CompanyRepository implements CompanyDAO {
     @Override
     public Company findCompanyById(int id) {
         Optional<CompanyEntity> byCompanyId = companyJpaRepository.findByCompanyId(id);
-        CompanyEntity companyEntity = byCompanyId.orElseThrow(RuntimeException::new);
+        CompanyEntity companyEntity = byCompanyId.orElseThrow(() ->
+                new RuntimeException("There is no company with id[%s]".formatted(id)));
         return companyEntityMapper.mapFromEntity(companyEntity);
     }
 

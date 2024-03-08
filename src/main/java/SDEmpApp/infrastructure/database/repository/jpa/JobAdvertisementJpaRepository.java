@@ -16,11 +16,6 @@ public interface JobAdvertisementJpaRepository extends JpaRepository<JobAdvertis
     List<JobAdvertisementEntity> findByLocalization(Localization localization);
     Optional<JobAdvertisementEntity> findByFormOfWork(String name);
 
-    @Query("""
-            SELECT jd FROM JobAdvertisementEntity jd
-            JOIN jd.skillsNeeded sk WHERE sk IN :skillsNeeded
-            """)
-    List<JobAdvertisementEntity> findBySkillsNeeded(@Param("skillsNeeded") List<String> skillsNeeded);
 
 }
 

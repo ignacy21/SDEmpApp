@@ -34,12 +34,13 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
                 .toList();
     }
 
-    public List<Company> findCompanyBySkillsNeeded(List<String> skillList) {
-        return jobAdvertisementJpaRepository.findBySkillsNeeded(skillList).stream()
-                .map(jobAdvertisementEntityMapper::mapFromEntity)
-                .map(JobAdvertisement::getCompany)
-                .toList();
-    }
+
+//    public List<Company> findCompanyBySkillsNeeded(List<String> skillList) {
+//        return jobAdvertisementJpaRepository.findBySkillsNeeded(skillList).stream()
+//                .map(jobAdvertisementEntityMapper::mapFromEntity)
+//                .map(JobAdvertisement::getCompany)
+//                .toList();
+//    }
 
     @Override
     public List<Company> findCompanyByLocalization(Localization localization) {

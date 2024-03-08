@@ -17,7 +17,7 @@ public class CompanyDTO {
     String description;
     String provinceName;
     String cityName;
-    List<JobAdvertisement> jobAdvertisementEntities;
     String email;
     String password;
+    List<JobAdvertisement> jobAdvertisementEntities;
 }

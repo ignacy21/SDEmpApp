@@ -3,11 +3,9 @@ package SDEmpApp.buisness;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.Company;
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -16,8 +14,13 @@ public class CompanyService {
     private final CompanyDAO companyDAO;
     private final JobAdvertisementDAO jobAdvertisementDAO;
 
-    public CompanyEntity createCompany(Company company) {
+    @Transactional
+    public Company createCompany(Company company) {
+        // TODO if company data is already existing
         return companyDAO.createCompany(company);
+    }
+    public void updateCompany(Company company) {
+        companyDAO.updateCompany(company);
     }
 
     public Company findIfCanLogin(String email, String password) {

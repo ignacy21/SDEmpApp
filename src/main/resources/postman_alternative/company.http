@@ -9,3 +9,15 @@ Content-Type: application/json
   "email": "company1@gmail.com",
   "password": "pass"
 }
+
+###
+
+PUT http://localhost:7070/SDEmpApp/company/edit-data/3
+Content-Type: application/json
+
+{
+  "name": "new company1",
+  "description": "new company1 description",
+  "provinceName": "Mazowieckie",
+  "cityName": "Warszawa"
+}

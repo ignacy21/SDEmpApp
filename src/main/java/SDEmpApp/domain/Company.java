@@ -1,21 +1,21 @@
 package SDEmpApp.domain;
 
 import lombok.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @With
-@Value
+@Data
 @Builder
-@ToString
 @EqualsAndHashCode(of = "companyId")
 public class Company {
 
-    Integer companyId;
-    String name;
-    String description;
-    Localization localization;
-    List<JobAdvertisement> jobAdvertisements;
-    String email;
-    String password;
+    private Integer companyId;
+    private String name;
+    private String description;
+    private Localization localization;
+    private List<JobAdvertisement> jobAdvertisements;
+    private String email;
+    private String password;
 }

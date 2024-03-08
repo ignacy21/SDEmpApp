@@ -26,6 +26,7 @@ public class CompanyController {
     public static final String COMPANY = "/company";
     public static final String CREATE = "/create";
     public static final String COMPANY_ID_RESULT = "/%s";
+    public static final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
 
 
     private final LocalizationService localizationService;
@@ -49,10 +50,26 @@ public class CompanyController {
                 .password(companyDTO.getPassword())
                 .jobAdvertisements(List.of())
                 .build();
-        CompanyEntity companyEntity = companyService.createCompany(company);
+        Company companyFind = companyService.createCompany(company);
         return ResponseEntity
-                .created(URI.create(COMPANY + COMPANY_ID_RESULT.formatted(companyEntity.getCompanyId())))
+                .created(URI.create(COMPANY + COMPANY_ID_RESULT.formatted(companyFind.getCompanyId())))
                 .build();
+    }
+
+    @PutMapping(UPDATE_COMPANY_DATA)
+    public ResponseEntity<CompanyDTO> updateCompanyData(
+            @PathVariable Integer companyId,
+            @Valid @RequestBody CompanyDTO companyDTO
+    ) {
+        Company existingCompany = companyService.findCompanyById(companyId);
+        existingCompany.setName(companyDTO.getName());
+        existingCompany.setDescription(companyDTO.getDescription());
+        existingCompany.setLocalization(Localization.builder()
+                .provinceName(companyDTO.getProvinceName())
+                .cityName(companyDTO.getCityName())
+                .build());
+        companyService.updateCompany(existingCompany);
+        return ResponseEntity.ok().build();
     }
 
 
@@ -85,5 +102,4 @@ public class CompanyController {
 
         return "company_create_done";
     }
-
 }

@@ -1,13 +1,15 @@
 package SDEmpApp.buisness.DAO;
 
 import SDEmpApp.domain.Company;
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 
 import java.util.List;
 
 public interface CompanyDAO {
 
-    CompanyEntity createCompany(Company company);
+    Company createCompany(Company company);
+    default void updateCompany(Company company) {
+        createCompany(company);
+    }
 
     List<Company> findCompanyByName(String name);
 

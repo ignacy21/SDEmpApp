@@ -27,14 +27,15 @@ public class JobAdvertisementEntity {
     @Column(name = "languages")
     private String languages;
 
+    @Column(name = "skills")
+    private String skillsNeeded;
+
     @Column(name = "duties")
     private String duties;
 
     @Column(name = "form_of_work")
     private String formOfWork;
 
-    @Column
-    private String skillsNeeded;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
