@@ -25,8 +25,8 @@ public class JobSeekerEntity {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "student_non_student")
-    private String studentNonStudent;
+    @Column(name = "is_student")
+    private Boolean isStudent;
 
     @Column(name = "phone")
     private String phone;
@@ -61,6 +61,9 @@ public class JobSeekerEntity {
     @Column(name = "about_me")
     private String aboutMe;
 
-    @Column(name = "employed_unemployed")
-    private String employedUnemployed;
+    @Column(name = "is_employed")
+    private Boolean isEmployed;
+
+    @Column(name = "looking_for_job")
+    private Boolean lookingForJob;
 }

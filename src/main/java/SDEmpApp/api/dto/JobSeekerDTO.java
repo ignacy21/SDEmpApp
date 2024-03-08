@@ -1,14 +1,7 @@
-package SDEmpApp.domain;
+package SDEmpApp.api.dto;
 
-import lombok.*;
+public class JobSeekerDTO {
 
-@With
-@Data
-@Builder
-@EqualsAndHashCode(of = "job_seeker_id")
-public class JobSeeker {
-
-    private Integer job_seeker_id;
     private String name;
     private String surname;
     private Boolean isStudent;
@@ -22,9 +15,8 @@ public class JobSeeker {
     private String b2bNormalFit;
     private String formOfWork;
     private String experience;
-    private String aboutMe;
+    private Boolean aboutMe;
     private Boolean isEmployed;
     private Boolean lookingForJob;
 
 }
-

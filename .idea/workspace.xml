@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="optimize imports">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/CandidateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobSeekerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobSeeker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/CandidateEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobSeekerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CandidateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/CandidateJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobSeekerJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CandidateEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CandidateEntityMapper.java" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="nomenclature change - form CANDIDATE to JOB_SEEKER">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/JobSeekerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobSeeker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobSeeker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobSeekerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobSeekerEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/drop tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drop tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_candidate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_candidate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_1__SDEmpApp_job_seeker.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +150,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="SDEmpApp.api.dto" />
       <recent name="SDEmpApp.exceptions" />
       <recent name="SDEmpApp" />
       <recent name="SDEmpApp.infrastructure.database.repository.mapper" />
@@ -320,7 +311,7 @@
       <workItem from="1701534123302" duration="497000" />
       <workItem from="1701534703125" duration="1185000" />
       <workItem from="1709885065899" duration="11198000" />
-      <workItem from="1709910344901" duration="727000" />
+      <workItem from="1709910344901" duration="2063000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -452,7 +443,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709910636144</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="nomenclature change - form CANDIDATE to JOB_SEEKER">
+      <option name="closed" value="true" />
+      <created>1709911322690</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709911322690</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +489,8 @@
     <MESSAGE value="&gt; Changing CompanyRepository to @RestComponent, creating method allowing to create Company with htt method&#10;&gt; fixing flyway migrations files&#10;&gt; adding company.http (postman alternative)" />
     <MESSAGE value="creating method allowing to update Company wit http method" />
     <MESSAGE value="optimize imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize imports" />
+    <MESSAGE value="nomenclature change - form CANDIDATE to JOB_SEEKER" />
+    <option name="LAST_COMMIT_MESSAGE" value="nomenclature change - form CANDIDATE to JOB_SEEKER" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
