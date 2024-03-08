@@ -3,6 +3,7 @@ package SDEmpApp.buisness;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.Company;
+import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class CompanyService {
     private final CompanyDAO companyDAO;
     private final JobAdvertisementDAO jobAdvertisementDAO;
 
-    public void createCompany(Company company) {
-        companyDAO.createCompany(company);
+    public CompanyEntity createCompany(Company company) {
+        return companyDAO.createCompany(company);
     }
 
     public Company findIfCanLogin(String email, String password) {

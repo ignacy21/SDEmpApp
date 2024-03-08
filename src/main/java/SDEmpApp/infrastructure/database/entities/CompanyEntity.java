@@ -1,5 +1,6 @@
 package SDEmpApp.infrastructure.database.entities;
 
+import SDEmpApp.domain.Localization;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,14 +28,15 @@ public class CompanyEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "localization_id")
-    private Integer localizationId;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "localization_id")
+    private Integer localizationId;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")
     private List<JobAdvertisementEntity> jobAdvertisementEntities;

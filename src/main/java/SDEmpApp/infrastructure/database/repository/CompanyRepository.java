@@ -26,7 +26,7 @@ public class CompanyRepository implements CompanyDAO {
     LocalizationDAO localizationDAO;
 
     @Override
-    public void createCompany(Company company) {
+    public CompanyEntity createCompany(Company company) {
         CompanyEntity companyEntity = companyEntityMapper.mapToEntity(company);
         Optional<LocalizationEntity> byProvinceNameAndCityName = localizationJpaRepository.findByProvinceNameAndCityName(
                 company.getLocalization().getProvinceName(),
@@ -37,6 +37,7 @@ public class CompanyRepository implements CompanyDAO {
         }
         companyEntity.setLocalizationId(byProvinceNameAndCityName.get().getLocalizationId());
         companyJpaRepository.saveAndFlush(companyEntity);
+        return companyEntity;
     }
 
     @Override
