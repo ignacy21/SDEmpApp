@@ -21,12 +21,23 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:7070/SDEmpApp/company/edit-data/3
+PUT http://localhost:7070/SDEmpApp/job-seeker/update-data/2
 Content-Type: application/json
 
 {
-  "name": "new company1",
-  "description": "new company1 description",
-  "provinceName": "Mazowieckie",
-  "cityName": "Warszawa"
+  "name": "new name1",
+  "surname": "new surname1",
+  "isStudent": true,
+  "phone": "+48 123 123 123",
+  "email": "email1@gmail.com",
+  "linkedin": "new linkedin",
+  "git": "new git",
+  "cv": "new cv",
+  "languages": "new languages",
+  "skills": "new skills",
+  "b2bNormalFit": "B2B",
+  "formOfWork": "HYBRID",
+  "experience": "0 >= 1",
+  "aboutMe": "new aboutMe",
+  "lookingForJob": false
 }

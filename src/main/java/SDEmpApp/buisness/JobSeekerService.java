@@ -17,6 +17,14 @@ public class JobSeekerService {
         // TODO if jobSeeker's data is already existing
         return jobSeekerDAO.createJobSeeker(jobSeeker);
     }
+
+    public void updateJobSeekerData(JobSeeker jobSeeker) {
+        jobSeekerDAO.updateJobSeekerData(jobSeeker);
+    }
+
+    public JobSeeker findById(Integer jobSeekerId) {
+        return jobSeekerDAO.findById(jobSeekerId);
+    }
 //
 //    private final ReadAndPrepareFileService fileService;
 //    private final CandidateDAO candidateDAO;

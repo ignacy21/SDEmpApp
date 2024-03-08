@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class JobSeekerDTO {
 
-    private String name;
     private String surname;
+    private String name;
     private Boolean isStudent;
     private String phone;
     private String email;

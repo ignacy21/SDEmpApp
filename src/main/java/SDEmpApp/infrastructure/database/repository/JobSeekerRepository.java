@@ -8,6 +8,8 @@ import SDEmpApp.infrastructure.database.repository.mapper.JobSeekerEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @AllArgsConstructor
 public class JobSeekerRepository implements JobSeekerDAO {
@@ -21,5 +23,20 @@ public class JobSeekerRepository implements JobSeekerDAO {
         jobSeekerEntity.setIsEmployed(false);
         JobSeekerEntity createdJobSeekerEntity = jobSeekerJpaRepository.saveAndFlush(jobSeekerEntity);
         return jobSeeker.withJobSeekerId(createdJobSeekerEntity.getJobSeekerId());
+    }
+
+    @Override
+    public void updateJobSeekerData(JobSeeker jobSeeker) {
+        JobSeekerEntity jobSeekerEntity = jobSeekerEntityMapper.mapToEntity(jobSeeker);
+        jobSeekerJpaRepository.saveAndFlush(jobSeekerEntity);
+    }
+
+    @Override
+    public JobSeeker findById(Integer jobSeekerId) {
+        Optional<JobSeekerEntity> byId = jobSeekerJpaRepository.findById(jobSeekerId);
+        return jobSeekerEntityMapper.mapFromEntity(byId.orElseThrow(
+                () -> new RuntimeException("JobSeeker with id[%s] does not exist".formatted(jobSeekerId))
+        ));
+
     }
 }

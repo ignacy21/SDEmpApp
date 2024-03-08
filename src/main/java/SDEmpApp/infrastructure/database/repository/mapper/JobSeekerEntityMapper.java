@@ -9,4 +9,5 @@ import org.mapstruct.ReportingPolicy;
 public interface JobSeekerEntityMapper {
 
     JobSeekerEntity mapToEntity(JobSeeker jobSeeker);
+    JobSeeker mapFromEntity(JobSeekerEntity jobSeeker);
 }
