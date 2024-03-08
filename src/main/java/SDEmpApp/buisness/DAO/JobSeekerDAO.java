@@ -4,5 +4,5 @@ import SDEmpApp.domain.JobSeeker;
 
 public interface JobSeekerDAO {
 
-    void createJobSeeker(JobSeeker jobSeeker);
+    JobSeeker createJobSeeker(JobSeeker jobSeeker);
 }

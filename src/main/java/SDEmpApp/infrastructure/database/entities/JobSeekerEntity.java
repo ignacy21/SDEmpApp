@@ -10,14 +10,14 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "candidateId")
+@EqualsAndHashCode(of = "jobSeekerId")
 @Table(name = "job_seeker")
 public class JobSeekerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "job_seeker_id")
-    private Integer candidateId;
+    private Integer jobSeekerId;
 
     @Column(name = "name")
     private String name;

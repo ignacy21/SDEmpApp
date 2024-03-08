@@ -1,0 +1,32 @@
+POST http://localhost:7070/SDEmpApp/job-seeker/create
+Content-Type: application/json
+
+{
+  "name": "name1",
+  "surname": "surname1",
+  "isStudent": true,
+  "phone": "+48 123 123 123",
+  "email": "email1@gmail.com",
+  "linkedin": "linkedin",
+  "git": "git",
+  "cv": "cv",
+  "languages": "languages",
+  "skills": "skills",
+  "b2bNormalFit": "B2B",
+  "formOfWork": "HYBRID",
+  "experience": "0",
+  "aboutMe": "aboutMe",
+  "lookingForJob": false
+}
+
+###
+
+PUT http://localhost:7070/SDEmpApp/company/edit-data/3
+Content-Type: application/json
+
+{
+  "name": "new company1",
+  "description": "new company1 description",
+  "provinceName": "Mazowieckie",
+  "cityName": "Warszawa"
+}

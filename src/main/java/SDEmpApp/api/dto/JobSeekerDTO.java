@@ -1,5 +1,14 @@
 package SDEmpApp.api.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class JobSeekerDTO {
 
     private String name;
@@ -15,7 +24,7 @@ public class JobSeekerDTO {
     private String b2bNormalFit;
     private String formOfWork;
     private String experience;
-    private Boolean aboutMe;
+    private String aboutMe;
     private Boolean isEmployed;
     private Boolean lookingForJob;
 

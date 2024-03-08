@@ -4,7 +4,7 @@ import SDEmpApp.buisness.DAO.JobSeekerDAO;
 import SDEmpApp.domain.JobSeeker;
 import SDEmpApp.infrastructure.database.entities.JobSeekerEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.JobSeekerJpaRepository;
-import SDEmpApp.infrastructure.database.repository.mapper.CandidateEntityMapper;
+import SDEmpApp.infrastructure.database.repository.mapper.JobSeekerEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -13,11 +13,13 @@ import org.springframework.stereotype.Repository;
 public class JobSeekerRepository implements JobSeekerDAO {
 
     private JobSeekerJpaRepository jobSeekerJpaRepository;
-    private CandidateEntityMapper candidateEntityMapper;
+    private JobSeekerEntityMapper jobSeekerEntityMapper;
 
     @Override
-    public void createJobSeeker(JobSeeker jobSeeker) {
-        JobSeekerEntity jobSeekerEntity = candidateEntityMapper.mapToEntity(jobSeeker);
-        jobSeekerJpaRepository.saveAndFlush(jobSeekerEntity);
+    public JobSeeker createJobSeeker(JobSeeker jobSeeker) {
+        JobSeekerEntity jobSeekerEntity = jobSeekerEntityMapper.mapToEntity(jobSeeker);
+        jobSeekerEntity.setIsEmployed(false);
+        JobSeekerEntity createdJobSeekerEntity = jobSeekerJpaRepository.saveAndFlush(jobSeekerEntity);
+        return jobSeeker.withJobSeekerId(createdJobSeekerEntity.getJobSeekerId());
     }
 }

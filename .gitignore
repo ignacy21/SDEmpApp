@@ -94,13 +94,7 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-# ignoring executionHistory.bin
-executionHistory.bin
-executionHistory.lock
-fileHashes.bin
-fileHashes.lock
-md5-checksums.bin
-resourceHashesCache.bin
-sha1-checksums.bin
-buildOutputCleanup.lock
-checksums.lock
+# ignoring gradle
+./gradle/*
+./idea/*
+

@@ -5,10 +5,10 @@ import lombok.*;
 @With
 @Data
 @Builder
-@EqualsAndHashCode(of = "job_seeker_id")
+@EqualsAndHashCode(of = "jobSeekerId")
 public class JobSeeker {
 
-    private Integer job_seeker_id;
+    private Integer jobSeekerId;
     private String name;
     private String surname;
     private Boolean isStudent;
