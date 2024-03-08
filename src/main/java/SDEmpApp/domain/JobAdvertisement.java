@@ -2,8 +2,6 @@ package SDEmpApp.domain;
 
 import lombok.*;
 
-import java.util.List;
-
 
 @With
 @Value

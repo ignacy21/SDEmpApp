@@ -2,7 +2,6 @@ package SDEmpApp.infrastructure.database.repository;
 
 import SDEmpApp.buisness.DAO.LocalizationDAO;
 import SDEmpApp.domain.Localization;
-import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.LocalizationJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
 import lombok.AllArgsConstructor;

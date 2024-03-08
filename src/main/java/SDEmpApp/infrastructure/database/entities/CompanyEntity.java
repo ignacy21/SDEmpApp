@@ -1,6 +1,5 @@
 package SDEmpApp.infrastructure.database.entities;
 
-import SDEmpApp.domain.Localization;
 import jakarta.persistence.*;
 import lombok.*;
 

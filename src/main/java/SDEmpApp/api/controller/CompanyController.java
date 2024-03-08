@@ -7,7 +7,6 @@ import SDEmpApp.buisness.CompanyService;
 import SDEmpApp.buisness.LocalizationService;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.Localization;
-import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
