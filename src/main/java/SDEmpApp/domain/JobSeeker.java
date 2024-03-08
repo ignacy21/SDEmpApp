@@ -9,7 +9,7 @@ import lombok.With;
 @Value
 @Builder
 @EqualsAndHashCode(of = "candidateId")
-public class Candidate {
+public class JobSeeker {
 
     Integer candidateId;
     String name;

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CandidateService {
+public class JobSeekerService {
 //
 //    private final ReadAndPrepareFileService fileService;
 //    private final CandidateDAO candidateDAO;

@@ -11,12 +11,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "candidateId")
-@Table(name = "candidate")
-public class CandidateEntity {
+@Table(name = "job_seeker")
+public class JobSeekerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "candidate_id")
+    @Column(name = "job_seeker_id")
     private Integer candidateId;
 
     @Column(name = "name")
