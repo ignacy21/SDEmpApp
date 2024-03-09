@@ -28,13 +28,19 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(NoSuchLocalizationException.class)
     public ModelAndView handlerNoSuchLocalizationException(NoSuchLocalizationException ex) {
-        Localization localization = ex.getCompany().getLocalization();
+        String localization = ex.getLocalization();
+        int i1_1 = ex.getMessage().indexOf("[");
+        int i1_2 = ex.getMessage().indexOf("]");
+        int i2_2 = ex.getMessage().lastIndexOf("]");
+        int i2_1 = ex.getMessage().lastIndexOf("[");
+        String province = localization.substring(i1_1, i1_2);
+        String city = localization.substring(i2_1, i2_2);
         String message1 = "There is no such localization as:[%s, %s]"
-                .formatted(localization.getProvinceName(), localization.getCityName());
+                .formatted(province, city);
         String message2 = "The province name should match city name.";
         String message3 = "If you live in: [%s] - as you selected, you should choose from cities below:"
-                .formatted(localization.getProvinceName());
-        List<String> listOfCitiesInSelectedProvince = listFormat(localizationDAO.findAvailableCitiesForProvince(localization.getProvinceName()));
+                .formatted(province);
+        List<String> listOfCitiesInSelectedProvince = listFormat(localizationDAO.findAvailableCitiesForProvince(province));
 
         log.error(message1, ex);
         ModelAndView modelAndView = new ModelAndView("localization_error");

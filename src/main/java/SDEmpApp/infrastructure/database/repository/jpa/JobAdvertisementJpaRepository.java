@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface JobAdvertisementJpaRepository extends JpaRepository<JobAdvertisementEntity, Integer> {
 
-    List<JobAdvertisementEntity> findByLocalization(Localization localization);
+    List<JobAdvertisementEntity> findByLocalizationId(Integer localizationId);
     Optional<JobAdvertisementEntity> findByFormOfWork(String name);
 
 

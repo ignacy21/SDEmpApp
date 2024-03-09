@@ -1,7 +1,7 @@
 CREATE TABLE job_advertisement
 (
     job_advertisement_id SERIAL                                                                      NOT NULL,
-    localization         INT                                                                         NOT NULL,
+    localization_id      INT                                                                         NOT NULL,
     languages            TEXT                                                                        NOT NULL,
     skills               TEXT                                                                        NOT NULL,
     duties               TEXT                                                                        NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE job_advertisement
             REFERENCES company (company_id),
     CONSTRAINT fk_job_advertisement_localization
         FOREIGN KEY (localization_id)
-            REFERENCES localization (localization_id),
+            REFERENCES localization (localization_id)
 
 
 );

@@ -45,7 +45,7 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
 
     @Override
     public List<Company> findCompanyByLocalization(Localization localization) {
-        return jobAdvertisementJpaRepository.findByLocalization(localization).stream()
+        return jobAdvertisementJpaRepository.findByLocalizationId(localization.getLocalizationId()).stream()
                 .map(jobAdvertisementEntityMapper::mapFromEntity)
                 .map(JobAdvertisement::getCompany)
                 .toList();

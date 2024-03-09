@@ -1,0 +1,12 @@
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/1
+Content-Type: application/json
+
+{
+  "province": "Mazowieckie",
+  "city": "Warszawa",
+  "languages": "polish",
+  "duties": "all duties",
+  "formOfWork": "HYBRID",
+  "skillsNeeded": "all skills",
+  "companyId": "1"
+}
