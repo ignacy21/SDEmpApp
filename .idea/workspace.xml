@@ -194,7 +194,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SDEmpAppStarter">
+  <component name="RunManager" selected="HTTP Request.job_advertisement | #1">
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -273,8 +273,8 @@
       <list>
         <item itemvalue="HTTP Request.job_advertisement | #1" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
-        <item itemvalue="HTTP Request.job_seeker | #1" />
         <item itemvalue="HTTP Request.company | #1" />
+        <item itemvalue="HTTP Request.job_seeker | #1" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
       </list>
     </recent_temporary>
@@ -489,7 +489,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/geting_job_adv_done" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -522,5 +534,30 @@
     <MESSAGE value="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on" />
     <MESSAGE value="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error" />
     <option name="LAST_COMMIT_MESSAGE" value="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java</url>
+          <line>24</line>
+          <properties class="SDEmpApp.infrastructure.database.repository.JobAdvertisementRepository" method="createJobAdvertisement">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

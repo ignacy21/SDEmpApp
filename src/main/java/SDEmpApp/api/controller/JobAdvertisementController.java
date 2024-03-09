@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @RestController
-@RequestMapping(name = JobAdvertisementController.JOB_ADV)
+@RequestMapping(JobAdvertisementController.JOB_ADV)
 @RequiredArgsConstructor
 public class JobAdvertisementController {
 
     public static final String JOB_ADV = "/job-advertisement";
     public static final String CREATE_JOB_ADVERT = "/create/{companyId}";
-    public static final String JOB_ADVERT_RESULT = "/{%s}";
+    public static final String JOB_ADVERT_RESULT = "/%s";
 
     private final JobAdvertisementMapper jobAdvertisementMapper;
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
 
-    @PutMapping(name = CREATE_JOB_ADVERT)
+    @PostMapping(CREATE_JOB_ADVERT)
     public ResponseEntity<JobAdvertisementDTO> createJobAdvertisement(
             @PathVariable Integer companyId,
             @Valid @RequestBody JobAdvertisementDTO jobAdvertisementDTO
