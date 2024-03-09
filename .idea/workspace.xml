@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,11 +12,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_job_advertisement.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_job_advertisement.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +127,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Debug",
+    "Spring Boot.SDEmpAppStarter.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -199,7 +194,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_advertisement | #1">
+  <component name="RunManager" selected="Spring Boot.SDEmpAppStarter">
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -303,7 +298,7 @@
       <workItem from="1701534703125" duration="1185000" />
       <workItem from="1709885065899" duration="11198000" />
       <workItem from="1709910344901" duration="4688000" />
-      <workItem from="1709915059177" duration="9130000" />
+      <workItem from="1709915059177" duration="9645000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -475,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709998690272</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error">
+      <option name="closed" value="true" />
+      <created>1710000456348</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710000456348</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="future flyway data for test" />
     <MESSAGE value="future flyway data for test - adding job_advertisement" />
     <MESSAGE value="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity" />
     <MESSAGE value="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)" />
@@ -518,6 +520,7 @@
     <MESSAGE value="adding JebSeekerController method that allows creating one" />
     <MESSAGE value="adding method that allows updating jobSeeker" />
     <MESSAGE value="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on" />
+    <MESSAGE value="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error" />
+    <option name="LAST_COMMIT_MESSAGE" value="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error" />
   </component>
 </project>
