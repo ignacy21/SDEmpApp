@@ -8,6 +8,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class NoSuchLocalizationException extends RuntimeException {
 
-    private final Company company;
+    private final String localization;
 
 }

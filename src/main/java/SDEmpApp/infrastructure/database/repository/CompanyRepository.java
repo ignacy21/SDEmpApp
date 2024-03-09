@@ -3,6 +3,7 @@ package SDEmpApp.infrastructure.database.repository;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.buisness.DAO.LocalizationDAO;
 import SDEmpApp.domain.Company;
+import SDEmpApp.domain.Localization;
 import SDEmpApp.exceptions.NoSuchLocalizationException;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
@@ -20,22 +21,20 @@ import java.util.Optional;
 public class CompanyRepository implements CompanyDAO {
 
     CompanyJpaRepository companyJpaRepository;
-    LocalizationJpaRepository localizationJpaRepository;
+    LocalizationRepository localizationRepository;
+
     CompanyEntityMapper companyEntityMapper;
 
-    LocalizationDAO localizationDAO;
 
     @Override
     public Company createCompany(Company company) {
         CompanyEntity companyEntity = companyEntityMapper.mapToEntity(company);
-        Optional<LocalizationEntity> byProvinceNameAndCityName = localizationJpaRepository.findByProvinceNameAndCityName(
-                company.getLocalization().getProvinceName(),
-                company.getLocalization().getCityName()
+        Localization localization = company.getLocalization();
+        Localization checkIfLocalizationIsCorrect = localizationRepository.findLocalizationByProvinceAndCity(
+                localization.getProvinceName(),
+                localization.getCityName()
         );
-        if (byProvinceNameAndCityName.isEmpty()) {
-            throw new NoSuchLocalizationException(company);
-        }
-        companyEntity.setLocalizationId(byProvinceNameAndCityName.get().getLocalizationId());
+        companyEntity.setLocalizationId(checkIfLocalizationIsCorrect.getLocalizationId());
         companyJpaRepository.saveAndFlush(companyEntity);
         return companyEntityMapper.mapFromEntity(companyEntity);
     }

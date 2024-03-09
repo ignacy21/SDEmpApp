@@ -2,12 +2,15 @@ package SDEmpApp.infrastructure.database.repository;
 
 import SDEmpApp.buisness.DAO.LocalizationDAO;
 import SDEmpApp.domain.Localization;
+import SDEmpApp.exceptions.NoSuchLocalizationException;
+import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.LocalizationJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
@@ -38,5 +41,18 @@ public class LocalizationRepository implements LocalizationDAO {
         return localizationJpaRepository.findByProvinceName(provinceName).stream()
                 .map(localizationEntityMapper::mapFromEntity)
                 .toList();
+    }
+
+    @Override
+    public Localization findLocalizationByProvinceAndCity(String provinceName, String cityName) {
+        Optional<LocalizationEntity> byProvinceNameAndCityName = localizationJpaRepository.findByProvinceNameAndCityName(
+                provinceName,
+                cityName
+        );
+        if (byProvinceNameAndCityName.isEmpty()) {
+            throw new NoSuchLocalizationException("No localization for: province[%s], city[%s]"
+                    .formatted(provinceName, cityName));
+        }
+        return localizationEntityMapper.mapFromEntity(byProvinceNameAndCityName.get());
     }
 }

@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@ToString(of = {"jobAdvertisementId", "localization", "languages", "skillsNeeded", "duties", "formOfWork"})
+@ToString(of = {"jobAdvertisementId", "localizationId", "languages", "skillsNeeded", "duties", "formOfWork"})
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "jobAdvertisementId")
@@ -19,8 +19,8 @@ public class JobAdvertisementEntity {
     @Column(name = "job_advertisement_id")
     private Integer jobAdvertisementId;
 
-    @Column(name = "localization")
-    private String localization;
+    @Column(name = "localization_id")
+    private Integer localizationId;
 
     @Column(name = "languages")
     private String languages;

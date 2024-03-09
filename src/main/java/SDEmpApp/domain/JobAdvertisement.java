@@ -4,18 +4,18 @@ import lombok.*;
 
 
 @With
-@Value
+@Data
 @Builder
 @EqualsAndHashCode(of = "jobAdvertisementId")
 @ToString(of = {"jobAdvertisementId", "localization", "languages", "skillsNeeded", "duties", "formOfWork"})
 public class JobAdvertisement {
 
-    Integer jobAdvertisementId;
-    String localization;
-    String languages;
-    String skillsNeeded;
-    String duties;
-    String formOfWork;
-    Company company;
+    private Integer jobAdvertisementId;
+    private Localization localization;
+    private String languages;
+    private String skillsNeeded;
+    private String duties;
+    private String formOfWork;
+    private Company company;
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface JobAdvertisementDAO {
 
-    void createJobAdvertisement(JobAdvertisement jobAdvertisement);
+    JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement);
 
     List<Company> findCompanyByFormOfWork(String value);
 

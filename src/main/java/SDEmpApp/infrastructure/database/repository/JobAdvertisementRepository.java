@@ -17,13 +17,22 @@ import java.util.List;
 public class JobAdvertisementRepository implements JobAdvertisementDAO {
 
     JobAdvertisementJpaRepository jobAdvertisementJpaRepository;
+    LocalizationRepository localizationRepository;
 
     JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
 
     @Override
-    public void createJobAdvertisement(JobAdvertisement jobAdvertisement) {
-        JobAdvertisementEntity jobAdvertisementEntity = jobAdvertisementEntityMapper.mapToEntity(jobAdvertisement);
-        jobAdvertisementJpaRepository.saveAndFlush(jobAdvertisementEntity);
+    public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) {
+        JobAdvertisementEntity jobAdvertEntity = jobAdvertisementEntityMapper.mapToEntity(jobAdvertisement);
+        Localization localization = jobAdvertisement.getLocalization();
+        Localization checkIfLocalizationIsCorrect = localizationRepository.findLocalizationByProvinceAndCity(
+                localization.getProvinceName(),
+                localization.getCityName()
+        );
+        jobAdvertEntity.setLocalizationId(checkIfLocalizationIsCorrect.getLocalizationId());
+        JobAdvertisementEntity jobAdvertEntityCreated = jobAdvertisementJpaRepository.saveAndFlush(jobAdvertEntity);
+        jobAdvertisement.setJobAdvertisementId(jobAdvertEntityCreated.getJobAdvertisementId());
+        return jobAdvertisement;
     }
 
     @Override
@@ -33,14 +42,6 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
                 .map(JobAdvertisement::getCompany)
                 .toList();
     }
-
-
-//    public List<Company> findCompanyBySkillsNeeded(List<String> skillList) {
-//        return jobAdvertisementJpaRepository.findBySkillsNeeded(skillList).stream()
-//                .map(jobAdvertisementEntityMapper::mapFromEntity)
-//                .map(JobAdvertisement::getCompany)
-//                .toList();
-//    }
 
     @Override
     public List<Company> findCompanyByLocalization(Localization localization) {

@@ -12,4 +12,6 @@ public interface LocalizationDAO {
     List<Localization> findAllLocalizations();
 
     List<Localization> findAvailableCitiesForProvince(String provinceName);
+
+    Localization findLocalizationByProvinceAndCity(String provinceName, String cityName);
 }
