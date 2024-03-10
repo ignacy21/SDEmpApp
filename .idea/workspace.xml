@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="finding few crucial mistakes in annotations, from now on adding JobAdvertisement works fine">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="removing some unused code (from using spring web and thymeleaf)">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/LocalizationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/LocalizationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -493,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710010175568</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="removing some unused code (from using spring web and thymeleaf)">
+      <option name="closed" value="true" />
+      <created>1710074319564</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710074319564</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +506,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Gradle settings&#10;Database and JPA settings in advance&#10;Entities: CompanyEntity, CandidateEntity, JobAdvertisementEntity" />
     <MESSAGE value="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)" />
     <MESSAGE value="Creating Services for each Domain&#10;Moving methods from one class to Services&#10;Fixing little errors" />
     <MESSAGE value="Creating DAOs and Repositories&#10;Adding mappers form domain to entities" />
@@ -536,6 +530,7 @@
     <MESSAGE value="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on" />
     <MESSAGE value="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error" />
     <MESSAGE value="finding few crucial mistakes in annotations, from now on adding JobAdvertisement works fine" />
-    <option name="LAST_COMMIT_MESSAGE" value="finding few crucial mistakes in annotations, from now on adding JobAdvertisement works fine" />
+    <MESSAGE value="removing some unused code (from using spring web and thymeleaf)" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing some unused code (from using spring web and thymeleaf)" />
   </component>
 </project>
