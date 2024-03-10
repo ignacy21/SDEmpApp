@@ -2,6 +2,7 @@ package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.CompanyDTO;
 import SDEmpApp.buisness.CompanyService;
+import SDEmpApp.buisness.LocalizationService;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
@@ -23,18 +24,21 @@ public class CompanyController {
     public static final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
 
     private final CompanyService companyService;
+    private final LocalizationService localizationService;
 
     @PostMapping(CREATE)
     public ResponseEntity<CompanyDTO> registerAsCompany(
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
+        Localization findLocalization = localizationService.findLocalizationByProvinceAndCity(
+                companyDTO.getProvinceName(),
+                companyDTO.getCityName()
+        );
+
         Company company = Company.builder()
                 .name(companyDTO.getName())
                 .description(companyDTO.getDescription())
-                .localization(Localization.builder()
-                        .provinceName(companyDTO.getProvinceName())
-                        .cityName(companyDTO.getCityName())
-                        .build())
+                .localization(findLocalization)
                 .email(companyDTO.getEmail())
                 .password(companyDTO.getPassword())
                 .jobAdvertisements(List.of())

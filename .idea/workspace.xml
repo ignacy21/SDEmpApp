@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="gitignore update hopefully no gradle files ever">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="removing 2 unused methods">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,7 +12,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/LocalizationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +132,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Debug",
+    "Spring Boot.SDEmpAppStarter.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -194,7 +199,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SDEmpAppStarter">
+  <component name="RunManager" selected="HTTP Request.company | #1">
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -217,13 +222,32 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="SDEmpApp [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="company | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="job_advertisement | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="job_seeker | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="SDEmpAppStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -262,20 +286,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.SDEmpApp [clean]" />
       <item itemvalue="Gradle.SDEmpApp [build]" />
       <item itemvalue="HTTP Request.company | #1" />
       <item itemvalue="HTTP Request.job_advertisement | #1" />
-      <item itemvalue="HTTP Request.job_seeker | #1" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
       <item itemvalue="Spring Boot.SDEmpAppStarter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SDEmpAppStarter" />
         <item itemvalue="HTTP Request.company | #1" />
-        <item itemvalue="HTTP Request.job_advertisement | #1" />
-        <item itemvalue="HTTP Request.job_seeker | #1" />
+        <item itemvalue="Spring Boot.SDEmpAppStarter" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
+        <item itemvalue="Gradle.SDEmpApp [clean]" />
+        <item itemvalue="HTTP Request.job_advertisement | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -502,7 +526,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710077569728</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="removing 2 unused methods">
+      <option name="closed" value="true" />
+      <created>1710077866892</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1710077866892</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating Services for each Domain&#10;Moving methods from one class to Services&#10;Fixing little errors" />
     <MESSAGE value="Creating DAOs and Repositories&#10;Adding mappers form domain to entities" />
     <MESSAGE value="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong" />
     <MESSAGE value="Migrations fixed, testcontainers are also fine.&#10;creating Companies, Candidates and Job Advertisements done" />
@@ -545,6 +576,22 @@
     <MESSAGE value="finding few crucial mistakes in annotations, from now on adding JobAdvertisement works fine" />
     <MESSAGE value="removing some unused code (from using spring web and thymeleaf)" />
     <MESSAGE value="gitignore update hopefully no gradle files ever" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore update hopefully no gradle files ever" />
+    <MESSAGE value="removing 2 unused methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing 2 unused methods" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java</url>
+          <line>29</line>
+          <properties class="SDEmpApp.infrastructure.database.repository.CompanyRepository" method="createCompany">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

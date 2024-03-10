@@ -21,7 +21,6 @@ import java.util.Optional;
 public class CompanyRepository implements CompanyDAO {
 
     CompanyJpaRepository companyJpaRepository;
-    LocalizationRepository localizationRepository;
 
     CompanyEntityMapper companyEntityMapper;
 
@@ -29,12 +28,6 @@ public class CompanyRepository implements CompanyDAO {
     @Override
     public Company createCompany(Company company) {
         CompanyEntity companyEntity = companyEntityMapper.mapToEntity(company);
-        Localization localization = company.getLocalization();
-        Localization checkIfLocalizationIsCorrect = localizationRepository.findLocalizationByProvinceAndCity(
-                localization.getProvinceName(),
-                localization.getCityName()
-        );
-        companyEntity.setLocalizationId(checkIfLocalizationIsCorrect.getLocalizationId());
         companyJpaRepository.saveAndFlush(companyEntity);
         return companyEntityMapper.mapFromEntity(companyEntity);
     }

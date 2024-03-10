@@ -2,11 +2,11 @@ POST http://localhost:7070/SDEmpApp/company/create
 Content-Type: application/json
 
 {
-  "name": "company2",
+  "name": "company4",
   "description": "bardzo fajna firma",
   "provinceName": "Mazowieckie",
   "cityName": "Warszawa",
-  "email": "email2@gmail.com",
+  "email": "email4@gmail.com",
   "password": "pass"
 }
 

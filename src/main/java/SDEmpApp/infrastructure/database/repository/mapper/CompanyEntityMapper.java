@@ -8,7 +8,21 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CompanyEntityMapper {
 
-    CompanyEntity mapToEntity(Company company);
+    default CompanyEntity mapToEntity(Company company) {
+        if (company == null) {
+            return null;
+        }
+        CompanyEntity.CompanyEntityBuilder companyEntity = CompanyEntity.builder();
+        companyEntity.companyId(company.getCompanyId());
+        companyEntity.name(company.getName());
+        companyEntity.description(company.getDescription());
+        companyEntity.email(company.getEmail());
+        companyEntity.password(company.getPassword());
+        companyEntity.localizationId(company.getLocalization().getLocalizationId());
+
+        return companyEntity.build();
+    }
+
 
     Company mapFromEntity(CompanyEntity id);
 }

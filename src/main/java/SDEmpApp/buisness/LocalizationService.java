@@ -17,4 +17,8 @@ public class LocalizationService {
         return localizationDAO.findAllLocalizations();
     }
 
+    public Localization findLocalizationByProvinceAndCity(String province, String city) {
+        return localizationDAO.findLocalizationByProvinceAndCity(province, city);
+    }
+
 }
