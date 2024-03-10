@@ -1,7 +1,6 @@
 package SDEmpApp.infrastructure.database.repository;
 
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
-import SDEmpApp.domain.Company;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
@@ -9,8 +8,6 @@ import SDEmpApp.infrastructure.database.repository.jpa.JobAdvertisementJpaReposi
 import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 @AllArgsConstructor
@@ -33,21 +30,5 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
         JobAdvertisementEntity jobAdvertEntityCreated = jobAdvertisementJpaRepository.saveAndFlush(jobAdvertEntity);
         jobAdvertisement.setJobAdvertisementId(jobAdvertEntityCreated.getJobAdvertisementId());
         return jobAdvertisement;
-    }
-
-    @Override
-    public List<Company> findCompanyByFormOfWork(String name) {
-        return jobAdvertisementJpaRepository.findByFormOfWork(name).stream()
-                .map(jobAdvertisementEntityMapper::mapFromEntity)
-                .map(JobAdvertisement::getCompany)
-                .toList();
-    }
-
-    @Override
-    public List<Company> findCompanyByLocalization(Localization localization) {
-        return jobAdvertisementJpaRepository.findByLocalizationId(localization.getLocalizationId()).stream()
-                .map(jobAdvertisementEntityMapper::mapFromEntity)
-                .map(JobAdvertisement::getCompany)
-                .toList();
     }
 }

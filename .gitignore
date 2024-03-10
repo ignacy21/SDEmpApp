@@ -45,7 +45,11 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 .gradle/
+.gradle/*
 build/
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+
+
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -82,7 +86,7 @@ atlassian-ide-plugin.xml
 .idea/replstate.xml
 
 # SonarLint plugin
-.idea/sonarlint/
+*.idea/sonarlint/
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml

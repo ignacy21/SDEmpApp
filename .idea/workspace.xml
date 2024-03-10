@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="removing some unused code (from using spring web and thymeleaf)">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="gitignore update hopefully no gradle files ever">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +127,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Run",
+    "Spring Boot.SDEmpAppStarter.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -188,7 +194,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.company | #1">
+  <component name="RunManager" selected="Spring Boot.SDEmpAppStarter">
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -265,8 +271,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.company | #1" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.company | #1" />
         <item itemvalue="HTTP Request.job_advertisement | #1" />
         <item itemvalue="HTTP Request.job_seeker | #1" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
@@ -488,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710074319564</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="gitignore update hopefully no gradle files ever">
+      <option name="closed" value="true" />
+      <created>1710077569728</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710077569728</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing a little in Entities,&#10;Adding domain classes&#10;SDEmpApp_usage_simulation.md and Classes to Read and Map (only a few)" />
     <MESSAGE value="Creating Services for each Domain&#10;Moving methods from one class to Services&#10;Fixing little errors" />
     <MESSAGE value="Creating DAOs and Repositories&#10;Adding mappers form domain to entities" />
     <MESSAGE value="write Test as testing whole app&#10;Adding annotations&#10;left with:  Caused by: org.hibernate.exception.SQLGrammarException at SDEmpAppTest.java:46&#10;probably mapping to Entity is wrong" />
@@ -531,6 +544,7 @@
     <MESSAGE value="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error" />
     <MESSAGE value="finding few crucial mistakes in annotations, from now on adding JobAdvertisement works fine" />
     <MESSAGE value="removing some unused code (from using spring web and thymeleaf)" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing some unused code (from using spring web and thymeleaf)" />
+    <MESSAGE value="gitignore update hopefully no gradle files ever" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore update hopefully no gradle files ever" />
   </component>
 </project>
