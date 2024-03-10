@@ -47,4 +47,15 @@ public class LocalizationRepository implements LocalizationDAO {
         }
         return localizationEntityMapper.mapFromEntity(byProvinceNameAndCityName.get());
     }
+
+    @Override
+    public Localization findLocalizationById(Integer localizationId) {
+        Optional<LocalizationEntity> findLocalization = localizationJpaRepository.findByLocalizationId(localizationId);
+        if (findLocalization.isEmpty()) {
+            throw new NoSuchLocalizationException(
+                    "No localization for: localization_id[%s]".formatted(localizationId)
+            );
+        }
+        return localizationEntityMapper.mapFromEntity(findLocalization.get());
+    }
 }

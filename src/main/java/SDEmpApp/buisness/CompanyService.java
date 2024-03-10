@@ -1,7 +1,6 @@
 package SDEmpApp.buisness;
 
 import SDEmpApp.buisness.DAO.CompanyDAO;
-import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.Company;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

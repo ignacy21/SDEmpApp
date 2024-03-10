@@ -21,4 +21,8 @@ public class LocalizationService {
         return localizationDAO.findLocalizationByProvinceAndCity(province, city);
     }
 
+    public Localization findLocalizationById(Integer localizationId) {
+        return localizationDAO.findLocalizationById(localizationId);
+    }
+
 }

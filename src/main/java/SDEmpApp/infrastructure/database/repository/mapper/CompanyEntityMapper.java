@@ -1,6 +1,7 @@
 package SDEmpApp.infrastructure.database.repository.mapper;
 
 import SDEmpApp.domain.Company;
+import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -24,5 +25,22 @@ public interface CompanyEntityMapper {
     }
 
 
-    Company mapFromEntity(CompanyEntity id);
+    default Company mapFromEntity(CompanyEntity companyEntity) {
+        if (companyEntity == null) {
+            return null;
+        }
+
+        Company.CompanyBuilder company = Company.builder();
+
+        company.companyId(companyEntity.getCompanyId());
+        company.name(companyEntity.getName());
+        company.description(companyEntity.getDescription());
+        company.email(companyEntity.getEmail());
+        company.password(companyEntity.getPassword());
+        company.localization(Localization.builder()
+                .localizationId(companyEntity.getLocalizationId())
+                .build());
+
+        return company.build();
+    }
 }

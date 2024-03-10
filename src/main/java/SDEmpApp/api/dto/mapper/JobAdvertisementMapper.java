@@ -5,22 +5,12 @@ import SDEmpApp.domain.Company;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface JobAdvertisementMapper {
 
-    default JobAdvertisement mapFromDTO(JobAdvertisementDTO jobAdvertisement) {
-        return JobAdvertisement.builder()
-                .localization(Localization.builder()
-                        .provinceName(jobAdvertisement.getProvince())
-                        .cityName(jobAdvertisement.getCity())
-                        .build())
-                .languages(jobAdvertisement.getLanguages())
-                .duties(jobAdvertisement.getDuties())
-                .formOfWork(jobAdvertisement.getFormOfWork())
-                .skillsNeeded(jobAdvertisement.getSkillsNeeded())
-                .build();
-    }
+    JobAdvertisement mapFromDTO(JobAdvertisementDTO jobAdvertisement);
     default JobAdvertisementDTO mapToDTO(JobAdvertisement jobAdvertisement, Company company) {
         Localization localization = jobAdvertisement.getLocalization();
         return JobAdvertisementDTO.builder()

@@ -15,4 +15,6 @@ public interface LocalizationJpaRepository extends JpaRepository<LocalizationEnt
     Optional<LocalizationEntity> findByProvinceNameAndCityName(String provinceName, String cityName);
 
     List<LocalizationEntity> findByProvinceName(String provinceName);
+
+    Optional<LocalizationEntity> findByLocalizationId(Integer localizationId);
 }
