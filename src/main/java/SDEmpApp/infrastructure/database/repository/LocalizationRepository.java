@@ -22,14 +22,6 @@ public class LocalizationRepository implements LocalizationDAO {
 
 
     @Override
-    public Integer findLocalizationForCompany(String provinceName, String cityName) {
-        return localizationJpaRepository.findByProvinceNameAndCityName(provinceName, cityName)
-                // TODO przydałoby się swój własny wyjątek stworzyć i obsłużyć później w Controllerze
-                .orElseThrow(() -> new RuntimeException("There is no such Localization"))
-                .getLocalizationId();
-    }
-
-    @Override
     public List<Localization> findAllLocalizations() {
         return localizationJpaRepository.findAll().stream()
                 .map(localizationEntityMapper::mapFromEntity)

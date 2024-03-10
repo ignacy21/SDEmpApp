@@ -10,9 +10,4 @@ public interface JobAdvertisementDAO {
 
     JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement);
 
-    List<Company> findCompanyByFormOfWork(String value);
-
-//    List<Company> findCompanyBySkillsNeeded(List<String> skillList);
-
-    List<Company> findCompanyByLocalization(Localization localization);
 }
