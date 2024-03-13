@@ -18,8 +18,8 @@ public class JobSeekerService {
         return jobSeekerDAO.createJobSeeker(jobSeeker);
     }
 
-    public void updateJobSeekerData(JobSeeker jobSeeker) {
-        jobSeekerDAO.updateJobSeekerData(jobSeeker);
+    public JobSeeker updateJobSeekerData(JobSeeker jobSeeker) {
+        return jobSeekerDAO.updateJobSeekerData(jobSeeker);
     }
 
     public JobSeeker findById(Integer jobSeekerId) {

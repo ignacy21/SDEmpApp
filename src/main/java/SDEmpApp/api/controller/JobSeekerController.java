@@ -6,11 +6,13 @@ import SDEmpApp.buisness.JobSeekerService;
 import SDEmpApp.domain.JobSeeker;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
+@Slf4j
 @RestController
 @RequestMapping(JobSeekerController.JOB_SEEKER)
 @RequiredArgsConstructor
@@ -59,7 +61,8 @@ public class JobSeekerController {
         jobSeekerFind.setAboutMe(jobSeekerDTO.getAboutMe());
         jobSeekerFind.setLookingForJob(jobSeekerDTO.getLookingForJob());
 
-        jobSeekerService.updateJobSeekerData(jobSeekerFind);
+        JobSeeker jobSeeker = jobSeekerService.updateJobSeekerData(jobSeekerFind);
+        log.info("updating jobSeeker: id[%s]".formatted(jobSeeker.getJobSeekerId()));
 
         return ResponseEntity.ok().build();
     }

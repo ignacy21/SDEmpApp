@@ -26,9 +26,10 @@ public class JobSeekerRepository implements JobSeekerDAO {
     }
 
     @Override
-    public void updateJobSeekerData(JobSeeker jobSeeker) {
+    public JobSeeker updateJobSeekerData(JobSeeker jobSeeker) {
         JobSeekerEntity jobSeekerEntity = jobSeekerEntityMapper.mapToEntity(jobSeeker);
         jobSeekerJpaRepository.saveAndFlush(jobSeekerEntity);
+        return jobSeekerEntityMapper.mapFromEntity(jobSeekerEntity);
     }
 
     @Override
