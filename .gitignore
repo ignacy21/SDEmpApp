@@ -49,6 +49,8 @@
 build/
 .gradle/buildOutputCleanup/buildOutputCleanup.lock
 
+.gradle/8.5/*
+
 
 
 # Gradle and Maven with auto-import

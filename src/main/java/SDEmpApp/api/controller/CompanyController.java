@@ -54,13 +54,16 @@ public class CompanyController {
             @PathVariable Integer companyId,
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
+        Localization findLocalization = localizationService.findLocalizationByProvinceAndCity(
+                companyDTO.getProvinceName(),
+                companyDTO.getCityName()
+        );
+
         Company existingCompany = companyService.findCompanyById(companyId);
         existingCompany.setName(companyDTO.getName());
         existingCompany.setDescription(companyDTO.getDescription());
-        existingCompany.setLocalization(Localization.builder()
-                .provinceName(companyDTO.getProvinceName())
-                .cityName(companyDTO.getCityName())
-                .build());
+        existingCompany.setLocalization(findLocalization);
+
         companyService.updateCompany(existingCompany);
         return ResponseEntity.ok().build();
     }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="localization for JobAdvertisement find is way better now (done in JobAdvertisementController)">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="removing Localization mapping from mappers">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,14 +12,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/ComponentScanMarker.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/CompanyEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/JobAdvertisementEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/JobAdvertisementEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,48 +110,48 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build SDEmpApp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SDEmpApp [buildDependents].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SDEmpApp [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SDEmpApp [classes].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SDEmpApp [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.company | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.company | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.job_advertisement | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.job_seeker | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.job_seeker | #2.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SDEmpAppStarter.executor&quot;: &quot;Debug&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ignacyszpilowski/IdeaProjects/SDEmpApp/src/main/resources/postman_alternative&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build SDEmpApp.executor": "Run",
+    "Gradle.SDEmpApp [buildDependents].executor": "Run",
+    "Gradle.SDEmpApp [build].executor": "Run",
+    "Gradle.SDEmpApp [classes].executor": "Run",
+    "Gradle.SDEmpApp [clean].executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "HTTP Request.company | #1.executor": "Run",
+    "HTTP Request.company | #2.executor": "Run",
+    "HTTP Request.job_advertisement | #1.executor": "Run",
+    "HTTP Request.job_seeker | #1.executor": "Run",
+    "HTTP Request.job_seeker | #2.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.SDEmpAppStarter.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/ignacyszpilowski/IdeaProjects/SDEmpApp/src/main/resources/postman_alternative",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -201,7 +196,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_advertisement | #1">
+  <component name="RunManager" selected="HTTP Request.company | #2">
     <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -249,7 +244,7 @@
     <configuration name="company | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="job_advertisement | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="company | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="SDEmpAppStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -290,14 +285,14 @@
     <list>
       <item itemvalue="Gradle.SDEmpApp [clean]" />
       <item itemvalue="Gradle.SDEmpApp [build]" />
+      <item itemvalue="HTTP Request.company | #2" />
       <item itemvalue="HTTP Request.company | #1" />
-      <item itemvalue="HTTP Request.job_advertisement | #1" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
       <item itemvalue="Spring Boot.SDEmpAppStarter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.job_advertisement | #1" />
+        <item itemvalue="HTTP Request.company | #2" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
         <item itemvalue="HTTP Request.company | #1" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
@@ -330,7 +325,7 @@
       <workItem from="1710258079389" duration="1759000" />
       <workItem from="1710284873133" duration="276000" />
       <workItem from="1710285155896" duration="2092000" />
-      <workItem from="1710287669557" duration="3412000" />
+      <workItem from="1710287669557" duration="4958000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -558,7 +553,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710081148592</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="minor changes, optimise imports">
+      <option name="closed" value="true" />
+      <created>1710327551411</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1710327551411</updated>
+    </task>
+    <task id="LOCAL-00032" summary="beginning to change way of storing Localization">
+      <option name="closed" value="true" />
+      <created>1710327749495</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1710327749496</updated>
+    </task>
+    <task id="LOCAL-00033" summary="removing Localization mapping from mappers">
+      <option name="closed" value="true" />
+      <created>1710328252554</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1710328252554</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,9 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Migrations fixed, testcontainers are also fine.&#10;creating Companies, Candidates and Job Advertisements done" />
-    <MESSAGE value="find Companies by pattern described in notes, so far only Service, no Repositories" />
-    <MESSAGE value="Adding loads of data before adding WEB layer" />
     <MESSAGE value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Creating controller and page view for home page" />
     <MESSAGE value="Fixing mapping problem in relation oneToMany between SkillEntity and JobAddEntity &#10;Removing unused code&#10;Optimize imports&#10;Creating controller and page view for home page" />
     <MESSAGE value="Creating Main page and Controller&#10;Creating Company page and controller&#10;Changing way user will pick up their localization&#10;Changing LocalizationEntity, removing relation&#10;Adding one flyway migrations (init localization data)&#10;--&#10;Left with handling exception" />
@@ -601,27 +617,12 @@
     <MESSAGE value="removing 2 unused methods" />
     <MESSAGE value="localization find is way better now (done in CompanyController)" />
     <MESSAGE value="localization for JobAdvertisement find is way better now (done in JobAdvertisementController)" />
-    <option name="LAST_COMMIT_MESSAGE" value="localization for JobAdvertisement find is way better now (done in JobAdvertisementController)" />
+    <MESSAGE value="minor changes, optimise imports" />
+    <MESSAGE value="beginning to change way of storing Localization" />
+    <MESSAGE value="removing Localization mapping from mappers" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing Localization mapping from mappers" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/mapper/JobAdvertisementEntityMapper.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/CompanyRepository.java</url>
-          <line>55</line>
-          <properties class="SDEmpApp.infrastructure.database.repository.CompanyRepository" method="findCompanyById">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="SDEmpApp.infrastructure.database.entities.CompanyEntity" memberName="password" />
