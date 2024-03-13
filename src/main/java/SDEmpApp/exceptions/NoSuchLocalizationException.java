@@ -1,6 +1,5 @@
 package SDEmpApp.exceptions;
 
-import SDEmpApp.domain.Company;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -3,7 +3,6 @@ package SDEmpApp.buisness.DAO;
 import SDEmpApp.domain.Localization;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public interface LocalizationDAO {

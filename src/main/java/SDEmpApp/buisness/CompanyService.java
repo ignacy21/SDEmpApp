@@ -17,10 +17,12 @@ public class CompanyService {
         // TODO if company data is already existing
         return companyDAO.createCompany(company);
     }
+    @Transactional
     public void updateCompany(Company company) {
         companyDAO.updateCompany(company);
     }
 
+    @Transactional
     public Company findCompanyById(int id) {
         return companyDAO.findCompanyById(id);
     }

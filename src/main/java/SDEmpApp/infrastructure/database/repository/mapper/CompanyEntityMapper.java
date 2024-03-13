@@ -6,6 +6,8 @@ import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.Collections;
+
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CompanyEntityMapper {
 
@@ -40,6 +42,7 @@ public interface CompanyEntityMapper {
         company.localization(Localization.builder()
                 .localizationId(companyEntity.getLocalizationId())
                 .build());
+        company.jobAdvertisements(Collections.emptyList());
 
         return company.build();
     }

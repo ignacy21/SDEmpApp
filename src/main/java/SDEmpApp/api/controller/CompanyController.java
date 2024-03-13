@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.List;
+import java.util.Collections;
 
 @RestController
 @RequestMapping(CompanyController.COMPANY)
@@ -41,7 +41,7 @@ public class CompanyController {
                 .localization(findLocalization)
                 .email(companyDTO.getEmail())
                 .password(companyDTO.getPassword())
-                .jobAdvertisements(List.of())
+                .jobAdvertisements(Collections.emptyList())
                 .build();
         Company companyFind = companyService.createCompany(company);
         return ResponseEntity

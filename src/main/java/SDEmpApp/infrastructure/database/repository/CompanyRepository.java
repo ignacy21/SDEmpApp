@@ -1,15 +1,11 @@
 package SDEmpApp.infrastructure.database.repository;
 
 import SDEmpApp.buisness.DAO.CompanyDAO;
-import SDEmpApp.buisness.DAO.LocalizationDAO;
 import SDEmpApp.domain.Company;
-import SDEmpApp.domain.Localization;
-import SDEmpApp.exceptions.NoSuchLocalizationException;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
-import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
-import SDEmpApp.infrastructure.database.repository.jpa.LocalizationJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
+import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -23,6 +19,7 @@ public class CompanyRepository implements CompanyDAO {
     CompanyJpaRepository companyJpaRepository;
 
     CompanyEntityMapper companyEntityMapper;
+    JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
 
 
     @Override

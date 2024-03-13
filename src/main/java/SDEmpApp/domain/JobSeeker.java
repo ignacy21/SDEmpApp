@@ -1,6 +1,9 @@
 package SDEmpApp.domain;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.With;
 
 @With
 @Data
