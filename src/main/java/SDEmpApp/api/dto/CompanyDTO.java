@@ -1,6 +1,7 @@
 package SDEmpApp.api.dto;
 
 import SDEmpApp.domain.JobAdvertisement;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class CompanyDTO {
     String description;
     String provinceName;
     String cityName;
+    @Email
     String email;
     String password;
     List<JobAdvertisement> jobAdvertisementEntities;

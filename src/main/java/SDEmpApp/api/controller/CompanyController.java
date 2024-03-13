@@ -62,6 +62,7 @@ public class CompanyController {
         Company existingCompany = companyService.findCompanyById(companyId);
         existingCompany.setName(companyDTO.getName());
         existingCompany.setDescription(companyDTO.getDescription());
+        existingCompany.setEmail(companyDTO.getEmail());
         existingCompany.setLocalization(findLocalization);
 
         companyService.updateCompany(existingCompany);

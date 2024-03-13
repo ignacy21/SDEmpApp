@@ -2,22 +2,23 @@ POST http://localhost:7070/SDEmpApp/company/create
 Content-Type: application/json
 
 {
-  "name": "company10",
+  "name": "company3",
   "description": "bardzo fajna firma",
   "provinceName": "Mazowieckie",
   "cityName": "Warszawa",
-  "email": "email10@gmail.com",
+  "email": "email3@gmail.com",
   "password": "pass"
 }
 
 ###
 
-PUT http://localhost:7070/SDEmpApp/company/edit-data/18
+PUT http://localhost:7070/SDEmpApp/company/edit-data/3
 Content-Type: application/json
 
 {
   "name": "new company1",
   "description": "new company1 description",
+  "email": "companemail@gmail.com",
   "provinceName": "Dolnośląskie",
   "cityName": "Bardo"
 }
