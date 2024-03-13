@@ -6,6 +6,7 @@ import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
 import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
+import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +21,7 @@ public class CompanyRepository implements CompanyDAO {
 
     CompanyEntityMapper companyEntityMapper;
     JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
+    LocalizationEntityMapper localizationEntityMapper;
 
 
     @Override
@@ -49,6 +51,7 @@ public class CompanyRepository implements CompanyDAO {
         Optional<CompanyEntity> byCompanyId = companyJpaRepository.findByCompanyId(id);
         CompanyEntity companyEntity = byCompanyId.orElseThrow(() ->
                 new RuntimeException("There is no company with id[%s]".formatted(id)));
+
         return companyEntityMapper.mapFromEntity(companyEntity);
     }
 

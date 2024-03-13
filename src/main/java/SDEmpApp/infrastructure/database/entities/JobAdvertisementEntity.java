@@ -35,7 +35,6 @@ public class JobAdvertisementEntity {
     @Column(name = "form_of_work")
     private String formOfWork;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private CompanyEntity company;

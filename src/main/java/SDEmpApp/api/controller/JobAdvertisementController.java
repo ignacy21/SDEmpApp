@@ -40,17 +40,11 @@ public class JobAdvertisementController {
                 jobAdvertisementDTO.getCity()
         );
 
-        Company companyById = companyService.findCompanyById(companyId);
-        Localization companyLocalization = companyById.getLocalization();
-        Localization findLocalizationComp = localizationService.findLocalizationById(
-                companyLocalization.getLocalizationId()
-        );
+        Company findCompany = companyService.findCompanyById(companyId);
         JobAdvertisement jobAdvertisement = jobAdvertisementMapper.mapFromDTO(jobAdvertisementDTO);
 
-        companyById.setLocalization(findLocalizationComp);
-
         jobAdvertisement.setLocalization(findLocalizationAdv);
-        jobAdvertisement.setCompany(companyById);
+        jobAdvertisement.setCompany(findCompany);
 
         JobAdvertisement jobAdvertCreated = jobAdvertisementService.createJobAdvertisement(jobAdvertisement);
         return ResponseEntity

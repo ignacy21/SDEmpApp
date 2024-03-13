@@ -39,5 +39,5 @@ public class CompanyEntity {
     private LocalizationEntity localization;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")
-    private List<JobAdvertisementEntity> jobAdvertisementEntities;
+    private List<JobAdvertisementEntity> jobAdvertisements;
 }

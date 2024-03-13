@@ -14,8 +14,7 @@ public class JobAdvertisementDTO {
     private String province;
     private String city;
     private String languages;
+    private String skillsNeeded;
     private String duties;
     private String formOfWork;
-    private String skillsNeeded;
-    private String companyId;
 }

@@ -1,4 +1,4 @@
-POST http://localhost:7070/SDEmpApp/job-advertisement/create/4
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/19
 Content-Type: application/json
 
 {
@@ -7,6 +7,5 @@ Content-Type: application/json
   "languages": "polish",
   "duties": "all duties",
   "formOfWork": "HYBRID",
-  "skillsNeeded": "all skills",
-  "companyId": "1"
+  "skillsNeeded": "all skills"
 }
