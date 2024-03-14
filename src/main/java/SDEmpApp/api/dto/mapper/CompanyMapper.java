@@ -8,19 +8,8 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CompanyMapper {
 
-    default Company map(CompanyDTO companyDTO) {
-        return Company.builder()
-                .name(companyDTO.getName())
-                .description(companyDTO.getDescription())
-                .localization(Localization.builder()
-                        .cityName(companyDTO.getCityName())
-                        .provinceName(companyDTO.getProvinceName())
-                        .build())
-                .email(companyDTO.getEmail())
-                .password(companyDTO.getPassword())
-                .jobAdvertisements(companyDTO.getJobAdvertisementEntities())
-                .build();
-    }
+    Company mapFromDTO(CompanyDTO companyDTO);
+    CompanyDTO mapToDTO(Company companyDTO);
 
 
 }

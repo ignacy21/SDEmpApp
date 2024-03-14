@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class CompanyService {
@@ -27,4 +29,7 @@ public class CompanyService {
         return companyDAO.findCompanyById(id);
     }
 
+    public List<Company> findCompanyByName(String companyName) {
+        return companyDAO.findCompanyByName(companyName);
+    }
 }

@@ -36,5 +36,6 @@ JobAdvertisement
 -- form_of_work findByFormOfWork
 
 Company
--- name findByName
+
+[//]: # (-- name findByName)
 -- localization findByLocalization

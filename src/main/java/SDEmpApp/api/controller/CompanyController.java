@@ -1,17 +1,21 @@
 package SDEmpApp.api.controller;
 
+import SDEmpApp.api.dto.CompaniesDTO;
 import SDEmpApp.api.dto.CompanyDTO;
+import SDEmpApp.api.dto.mapper.CompanyMapper;
 import SDEmpApp.buisness.CompanyService;
 import SDEmpApp.buisness.LocalizationService;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping(CompanyController.COMPANY)
@@ -22,9 +26,12 @@ public class CompanyController {
     public static final String CREATE = "/create";
     public static final String COMPANY_ID_RESULT = "/%s";
     public static final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
+    public static final String FIND_BY_NAME = "/find/{companyName}";
 
     private final CompanyService companyService;
     private final LocalizationService localizationService;
+
+    private final CompanyMapper companyMapper;
 
     @PostMapping(CREATE)
     public ResponseEntity<CompanyDTO> registerAsCompany(
@@ -67,6 +74,17 @@ public class CompanyController {
 
         companyService.updateCompany(existingCompany);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = FIND_BY_NAME, produces = MediaType.APPLICATION_JSON_VALUE)
+    public CompaniesDTO findCompanyById(
+            @PathVariable String companyName
+    ) {
+        List<Company> companiesByName = companyService.findCompanyByName(companyName);
+        List<CompanyDTO> companiesDTO = companiesByName.stream()
+                .map(companyMapper::mapToDTO)
+                .toList();
+        return CompaniesDTO.of(companiesDTO);
     }
 
 }
