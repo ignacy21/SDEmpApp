@@ -13,3 +13,28 @@ CANDIDATE:
     Sk  - skills
     W   - form of work (HYBRID, IN_PLACE, REMOTE, FIT)
     E   - is_working (EMPLOYED, UN_EMPLOYED)
+
+JobSeeker
+-- username findByNameAndSurname
+-- is _student
+-- languages findByLanguages
+-- skills findBySkills
+-- b2b_normal_fit findByB2bNormalFit
+-- form_of_work findByFormOfWork
+-- experience findByExperience
+-- is_employed
+-- looking_for_job
+
+all in one (findByLocalization)
+-- localization findByProvince
+-- localization findByCity
+-- localization findByProvinceAndCity
+
+JobAdvertisement
+-- languages findByLanguages
+-- skills findBySkills
+-- form_of_work findByFormOfWork
+
+Company
+-- name findByName
+-- localization findByLocalization
