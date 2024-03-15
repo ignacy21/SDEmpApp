@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
-public class CompaniesDTO {
+public class CompanyDTOs {
 
-    private List<CompanyDTO> companiesDTO;
+    private List<CompanyDTO> companyDTOs;
 }

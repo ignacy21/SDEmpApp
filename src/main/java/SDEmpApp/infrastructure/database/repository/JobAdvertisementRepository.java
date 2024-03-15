@@ -10,6 +10,9 @@ import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntity
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 @AllArgsConstructor
 public class JobAdvertisementRepository implements JobAdvertisementDAO {
@@ -25,11 +28,16 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
 
         JobAdvertisementEntity jobAdvertEntity = jobAdvertisementEntityMapper.mapToEntity(jobAdvertisement);
 
-        CompanyEntity companyEntity = companyEntityMapper.mapToEntity(jobAdvertisement.getCompany());
-        jobAdvertEntity.setCompany(companyEntity);
+        jobAdvertEntity.setCompany(jobAdvertEntity.getCompany());
 
         JobAdvertisementEntity jobAdvertEntityCreated = jobAdvertisementJpaRepository.saveAndFlush(jobAdvertEntity);
         jobAdvertisement.setJobAdvertisementId(jobAdvertEntityCreated.getJobAdvertisementId());
         return jobAdvertisement;
+    }
+
+    @Override
+    public List<JobAdvertisement> findByFormOfWork(String formOfWork) {
+        List<JobAdvertisementEntity> byFormOfWork = jobAdvertisementJpaRepository.findByFormOfWork(formOfWork);
+        return byFormOfWork.stream().map(jobAdvertisementEntityMapper::mapFromEntity).toList();
     }
 }

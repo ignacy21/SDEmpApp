@@ -1,6 +1,6 @@
 package SDEmpApp.api.controller;
 
-import SDEmpApp.api.dto.CompaniesDTO;
+import SDEmpApp.api.dto.CompanyDTOs;
 import SDEmpApp.api.dto.CompanyDTO;
 import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.mapper.CompanyMapper;
@@ -75,25 +75,25 @@ public class CompanyController {
     }
 
     @GetMapping(value = FIND_BY_NAME, produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompaniesDTO findCompanyById(
+    public CompanyDTOs findCompanyById(
             @PathVariable String companyName
     ) {
         List<Company> companiesByName = companyService.findCompanyByName(companyName);
         List<CompanyDTO> companiesDTOS = companiesByName.stream()
                 .map(companyMapper::mapToDTO)
                 .toList();
-        return CompaniesDTO.of(companiesDTOS);
+        return CompanyDTOs.of(companiesDTOS);
     }
 
     @GetMapping(value = FIND_BY_LOCALIZATION, produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompaniesDTO findCompanyByLocalization(
+    public CompanyDTOs findCompanyByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
     ) {
         Localization findLocalization = getLocalization(localizationDTO);
         List<Company> company = companyService.findByLocalization(findLocalization);
 
         List<CompanyDTO> companiesDTOS = company.stream().map(companyMapper::mapToDTO).toList();
-        return CompaniesDTO.of(companiesDTOS);
+        return CompanyDTOs.of(companiesDTOS);
     }
 
 

@@ -9,4 +9,6 @@ import org.mapstruct.ReportingPolicy;
 public interface JobAdvertisementMapper {
 
     JobAdvertisement mapFromDTO(JobAdvertisementDTO jobAdvertisement);
+
+    JobAdvertisementDTO mapToDTO(JobAdvertisement jobAdvertisement);
 }

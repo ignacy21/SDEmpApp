@@ -1,6 +1,7 @@
 package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.JobAdvertisementDTO;
+import SDEmpApp.api.dto.JobAdvertisementDTOS;
 import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.mapper.JobAdvertisementMapper;
 import SDEmpApp.buisness.CompanyService;
@@ -11,10 +12,12 @@ import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(JobAdvertisementController.JOB_ADV)
@@ -24,6 +27,8 @@ public class JobAdvertisementController {
     public static final String JOB_ADV = "/job-advertisement";
     public static final String CREATE_JOB_ADVERT = "/create/{companyId}";
     public static final String JOB_ADVERT_RESULT = "/%s";
+    public static final String FIND = "/find";
+    public static final String BY_FORM_OF_WORK = "/form-of-work/{formOfWork}";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -52,5 +57,14 @@ public class JobAdvertisementController {
         return ResponseEntity
                 .created(URI.create(JOB_ADV + JOB_ADVERT_RESULT.formatted(jobAdvertCreated.getJobAdvertisementId())))
                 .build();
+    }
+
+    @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOS findByFormOfWork(
+            @PathVariable String formOfWork
+    ) {
+        List<JobAdvertisement> byFormOfWork = jobAdvertisementService.findByFormOfWork(formOfWork);
+        List<JobAdvertisementDTO> list = byFormOfWork.stream().map(jobAdvertisementMapper::mapToDTO).toList();
+        return JobAdvertisementDTOS.of(list);
     }
 }
