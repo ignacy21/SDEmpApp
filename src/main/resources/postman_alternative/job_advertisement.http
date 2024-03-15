@@ -14,4 +14,9 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/form-of-work/FIT
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/form-of-work
+Content-Type: application/json
+
+{
+  "formOfWork": "IN_PLACE"
+}

@@ -3,6 +3,8 @@ package SDEmpApp.api.controller;
 import SDEmpApp.api.dto.JobAdvertisementDTO;
 import SDEmpApp.api.dto.JobAdvertisementDTOS;
 import SDEmpApp.api.dto.LocalizationDTO;
+import SDEmpApp.api.dto.auxiliary.FormOfWorkDTO;
+import SDEmpApp.api.dto.auxiliary.enums.FormOfWork;
 import SDEmpApp.api.dto.mapper.JobAdvertisementMapper;
 import SDEmpApp.buisness.CompanyService;
 import SDEmpApp.buisness.JobAdvertisementService;
@@ -28,7 +30,7 @@ public class JobAdvertisementController {
     public static final String CREATE_JOB_ADVERT = "/create/{companyId}";
     public static final String JOB_ADVERT_RESULT = "/%s";
     public static final String FIND = "/find";
-    public static final String BY_FORM_OF_WORK = "/form-of-work/{formOfWork}";
+    public static final String BY_FORM_OF_WORK = "/form-of-work";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -61,8 +63,9 @@ public class JobAdvertisementController {
 
     @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobAdvertisementDTOS findByFormOfWork(
-            @PathVariable String formOfWork
-    ) {
+            @Valid @RequestBody FormOfWorkDTO formOfWorkDTO
+            ) {
+        String formOfWork = formOfWorkDTO.getFormOfWork().name();
         List<JobAdvertisement> byFormOfWork = jobAdvertisementService.findByFormOfWork(formOfWork);
         List<JobAdvertisementDTO> list = byFormOfWork.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOS.of(list);
