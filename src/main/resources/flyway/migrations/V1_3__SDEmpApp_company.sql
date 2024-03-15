@@ -10,8 +10,8 @@ CREATE TABLE company
     CONSTRAINT fk_company_localization
             FOREIGN KEY (localization_id)
                 REFERENCES localization (localization_id),
-    CONSTRAINT unique_name
+    CONSTRAINT unique_company_name
             UNIQUE (name),
-    CONSTRAINT unique_email
+    CONSTRAINT unique_company_email
             UNIQUE (email)
 );

@@ -6,8 +6,8 @@ CREATE TABLE job_seeker
     is_student      BOOLEAN                                                                     NOT NULL,
     phone           VARCHAR(32),
     email           VARCHAR(32)                                                                 NOT NULL,
-    linkedin        VARCHAR(32),
-    git             VARCHAR(32),
+    linkedin        VARCHAR(128),
+    git             VARCHAR(128),
     cv              TEXT                                                                        NOT NULL,
     languages       TEXT                                                                        NOT NULL,
     skills          TEXT                                                                        NOT NULL,
@@ -17,5 +17,9 @@ CREATE TABLE job_seeker
     about_me        TEXT,
     is_employed     BOOLEAN                                                                     NOT NULL,
     looking_for_job BOOLEAN                                                                     NOT NULL,
-    PRIMARY KEY (job_seeker_id)
+    PRIMARY KEY (job_seeker_id),
+    CONSTRAINT unique_job_seeker_phone
+        UNIQUE (phone),
+    CONSTRAINT unique_job_seeker_email
+        UNIQUE (email)
 );

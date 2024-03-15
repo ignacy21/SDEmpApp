@@ -1,6 +1,7 @@
 package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.JobAdvertisementDTO;
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.mapper.JobAdvertisementMapper;
 import SDEmpApp.buisness.CompanyService;
 import SDEmpApp.buisness.JobAdvertisementService;
@@ -35,9 +36,10 @@ public class JobAdvertisementController {
             @PathVariable Integer companyId,
             @Valid @RequestBody JobAdvertisementDTO jobAdvertisementDTO
     ) {
+        LocalizationDTO localizationDTO = jobAdvertisementDTO.getLocalization();
         Localization findLocalizationAdv = localizationService.findLocalizationByProvinceAndCity(
-                jobAdvertisementDTO.getProvince(),
-                jobAdvertisementDTO.getCity()
+                localizationDTO.getProvinceName(),
+                localizationDTO.getCityName()
         );
 
         Company findCompany = companyService.findCompanyById(companyId);

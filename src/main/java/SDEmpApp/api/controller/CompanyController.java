@@ -39,10 +39,8 @@ public class CompanyController {
     public ResponseEntity<CompanyDTO> registerAsCompany(
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
-        Localization findLocalization = localizationService.findLocalizationByProvinceAndCity(
-                companyDTO.getProvinceName(),
-                companyDTO.getCityName()
-        );
+        LocalizationDTO localizationDTO = companyDTO.getLocalization();
+        Localization findLocalization = getLocalization(localizationDTO);
 
         Company company = Company.builder()
                 .name(companyDTO.getName())
@@ -63,10 +61,8 @@ public class CompanyController {
             @PathVariable Integer companyId,
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
-        Localization findLocalization = localizationService.findLocalizationByProvinceAndCity(
-                companyDTO.getProvinceName(),
-                companyDTO.getCityName()
-        );
+        LocalizationDTO localizationDTO = companyDTO.getLocalization();
+        Localization findLocalization = getLocalization(localizationDTO);
 
         Company existingCompany = companyService.findCompanyById(companyId);
         existingCompany.setName(companyDTO.getName());
@@ -93,14 +89,18 @@ public class CompanyController {
     public CompaniesDTO findCompanyByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
     ) {
-        Localization findLocalization = localizationService.findLocalizationByProvinceAndCity(
-                localizationDTO.getProvinceName(),
-                localizationDTO.getCityName()
-        );
+        Localization findLocalization = getLocalization(localizationDTO);
         List<Company> company = companyService.findByLocalization(findLocalization);
 
         List<CompanyDTO> companiesDTOS = company.stream().map(companyMapper::mapToDTO).toList();
         return CompaniesDTO.of(companiesDTOS);
     }
 
+
+    private Localization getLocalization(LocalizationDTO localizationDTO) {
+        return localizationService.findLocalizationByProvinceAndCity(
+                localizationDTO.getProvinceName(),
+                localizationDTO.getCityName()
+        );
+    }
 }
