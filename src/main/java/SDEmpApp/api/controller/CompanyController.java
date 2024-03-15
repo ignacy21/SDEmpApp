@@ -2,6 +2,7 @@ package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.CompaniesDTO;
 import SDEmpApp.api.dto.CompanyDTO;
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.mapper.CompanyMapper;
 import SDEmpApp.buisness.CompanyService;
 import SDEmpApp.buisness.LocalizationService;
@@ -26,7 +27,8 @@ public class CompanyController {
     public static final String CREATE = "/create";
     public static final String COMPANY_ID_RESULT = "/%s";
     public static final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
-    public static final String FIND_BY_NAME = "/find/{companyName}";
+    public static final String FIND_BY_NAME = "/find-by-name/{companyName}";
+    public static final String FIND_BY_LOCALIZATION = "/find-by-localization";
 
     private final CompanyService companyService;
     private final LocalizationService localizationService;
@@ -81,10 +83,24 @@ public class CompanyController {
             @PathVariable String companyName
     ) {
         List<Company> companiesByName = companyService.findCompanyByName(companyName);
-        List<CompanyDTO> companiesDTO = companiesByName.stream()
+        List<CompanyDTO> companiesDTOS = companiesByName.stream()
                 .map(companyMapper::mapToDTO)
                 .toList();
-        return CompaniesDTO.of(companiesDTO);
+        return CompaniesDTO.of(companiesDTOS);
+    }
+
+    @GetMapping(value = FIND_BY_LOCALIZATION, produces = MediaType.APPLICATION_JSON_VALUE)
+    public CompaniesDTO findCompanyByLocalization(
+            @Valid @RequestBody LocalizationDTO localizationDTO
+    ) {
+        Localization findLocalization = localizationService.findLocalizationByProvinceAndCity(
+                localizationDTO.getProvinceName(),
+                localizationDTO.getCityName()
+        );
+        List<Company> company = companyService.findByLocalization(findLocalization);
+
+        List<CompanyDTO> companiesDTOS = company.stream().map(companyMapper::mapToDTO).toList();
+        return CompaniesDTO.of(companiesDTOS);
     }
 
 }

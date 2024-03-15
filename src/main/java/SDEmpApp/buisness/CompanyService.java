@@ -1,7 +1,9 @@
 package SDEmpApp.buisness;
 
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.domain.Company;
+import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +33,9 @@ public class CompanyService {
 
     public List<Company> findCompanyByName(String companyName) {
         return companyDAO.findCompanyByName(companyName);
+    }
+
+    public List<Company> findByLocalization(Localization localization) {
+        return companyDAO.findCompanyByLocalization(localization);
     }
 }

@@ -1,7 +1,9 @@
 package SDEmpApp.infrastructure.database.repository;
 
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.domain.Company;
+import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.CompanyEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.CompanyJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
@@ -10,6 +12,7 @@ import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapp
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,6 +56,13 @@ public class CompanyRepository implements CompanyDAO {
                 new RuntimeException("There is no company with id[%s]".formatted(id)));
 
         return companyEntityMapper.mapFromEntity(companyEntity);
+    }
+
+    @Override
+    public List<Company> findCompanyByLocalization(Localization localizationDTO) {
+        List<CompanyEntity> byLocalization = companyJpaRepository.findByLocalization(
+                localizationEntityMapper.mapToEntity(localizationDTO));
+        return byLocalization.stream().map(companyEntityMapper::mapFromEntity).toList();
     }
 
 }
