@@ -38,4 +38,4 @@ JobAdvertisement
 Company
 
 [//]: # (-- name findByName)
--- localization findByLocalization
+[//]: # (-- localization findByLocalization)

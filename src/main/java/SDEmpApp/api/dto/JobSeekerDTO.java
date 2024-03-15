@@ -23,7 +23,7 @@ public class JobSeekerDTO {
     @Email(message = "Invalid")
     private String email;
 
-    @Pattern(regexp="^(https?://)?(www\\.)?linkedin\\.com/in/[a-zA-Z0-9-]+$", message="Invalid LinkedIn link")
+    @Pattern(regexp="^(https?://)?(www\\.)?linkedin\\.com/in/[a-zA-Z0-9-]+(/)?$", message="Invalid LinkedIn link")
     private String linkedin;
 
     @Pattern(regexp="^(https?://)?(www\\.)?github\\.com/[a-zA-Z0-9_-]+$", message="Invalid GitHub link")

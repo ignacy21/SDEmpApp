@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class JobAdvertisementDTO {
 
-    private String province;
-    private String city;
+    private LocalizationDTO localization;
     private String languages;
     private String skillsNeeded;
     private String duties;

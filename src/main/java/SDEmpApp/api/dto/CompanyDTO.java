@@ -13,12 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyDTO {
-    String name;
-    String description;
-    String provinceName;
-    String cityName;
+    private String name;
+    private LocalizationDTO localization;
+    private String description;
     @Email
-    String email;
-    String password;
-    List<JobAdvertisementDTO> jobAdvertisements;
+    private String email;
+    private String password;
+    private List<JobAdvertisementDTO> jobAdvertisements;
 }
