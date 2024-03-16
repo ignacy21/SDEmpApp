@@ -32,7 +32,7 @@ all in one (findByLocalization)
 
 JobAdvertisement
 -- languages findByLanguages
--- skills findBySkills
+[//]: # (-- skills findBySkills)
 [//]: # (-- form_of_work findByFormOfWork)
 
 Company

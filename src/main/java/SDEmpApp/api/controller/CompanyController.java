@@ -1,7 +1,7 @@
 package SDEmpApp.api.controller;
 
-import SDEmpApp.api.dto.CompanyDTOs;
 import SDEmpApp.api.dto.CompanyDTO;
+import SDEmpApp.api.dto.CompanyDTOs;
 import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.mapper.CompanyMapper;
 import SDEmpApp.buisness.CompanyService;

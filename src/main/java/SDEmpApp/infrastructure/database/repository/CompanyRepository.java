@@ -1,6 +1,5 @@
 package SDEmpApp.infrastructure.database.repository;
 
-import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.Localization;
@@ -12,7 +11,6 @@ import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapp
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 

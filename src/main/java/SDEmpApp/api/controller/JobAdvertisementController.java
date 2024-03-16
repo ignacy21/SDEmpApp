@@ -4,7 +4,9 @@ import SDEmpApp.api.dto.JobAdvertisementDTO;
 import SDEmpApp.api.dto.JobAdvertisementDTOS;
 import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.auxiliary.FormOfWorkDTO;
-import SDEmpApp.api.dto.auxiliary.enums.FormOfWork;
+import SDEmpApp.api.dto.auxiliary.SkillDTO;
+import SDEmpApp.api.dto.auxiliary.SkillDTOs;
+import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobAdvertisementMapper;
 import SDEmpApp.buisness.CompanyService;
 import SDEmpApp.buisness.JobAdvertisementService;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(JobAdvertisementController.JOB_ADV)
@@ -31,6 +34,8 @@ public class JobAdvertisementController {
     public static final String JOB_ADVERT_RESULT = "/%s";
     public static final String FIND = "/find";
     public static final String BY_FORM_OF_WORK = "/form-of-work";
+    public static final String BY_SKILLS = "/skills";
+    public static final String BY_SPECIFIED_SKILLS = "/specified-skills";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -64,10 +69,34 @@ public class JobAdvertisementController {
     @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobAdvertisementDTOS findByFormOfWork(
             @Valid @RequestBody FormOfWorkDTO formOfWorkDTO
-            ) {
+    ) {
         String formOfWork = formOfWorkDTO.getFormOfWork().name();
         List<JobAdvertisement> byFormOfWork = jobAdvertisementService.findByFormOfWork(formOfWork);
         List<JobAdvertisementDTO> list = byFormOfWork.stream().map(jobAdvertisementMapper::mapToDTO).toList();
+        return JobAdvertisementDTOS.of(list);
+    }
+
+    @GetMapping(value = FIND + BY_SKILLS, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOS findBySkills(
+            @Valid @RequestBody SkillDTOs skillDTOs
+    ) {
+        List<Skill> skillList = skillDTOs.getSkills().stream()
+                .map(SkillDTO::getSkill)
+                .collect(Collectors.toList());
+        List<JobAdvertisement> bySkills = jobAdvertisementService.findBySkills(skillList);
+        List<JobAdvertisementDTO> list = bySkills.stream().map(jobAdvertisementMapper::mapToDTO).toList();
+        return JobAdvertisementDTOS.of(list);
+    }
+
+    @GetMapping(value = FIND + BY_SPECIFIED_SKILLS, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOS findOnlyBySpecifiedSkills(
+            @Valid @RequestBody SkillDTOs skillDTOs
+    ) {
+        List<Skill> skillList = skillDTOs.getSkills().stream()
+                .map(SkillDTO::getSkill)
+                .collect(Collectors.toList());
+        List<JobAdvertisement> bySpecifiedSkills = jobAdvertisementService.findByOnlySpecifiedSkills(skillList);
+        List<JobAdvertisementDTO> list = bySpecifiedSkills.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOS.of(list);
     }
 }

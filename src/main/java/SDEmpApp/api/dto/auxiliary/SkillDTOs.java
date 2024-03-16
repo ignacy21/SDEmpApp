@@ -1,14 +1,15 @@
 package SDEmpApp.api.dto.auxiliary;
 
-import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class SkillDTO {
+@AllArgsConstructor(staticName = "of")
+public class SkillDTOs {
 
-    private Skill skill;
+    private List<SkillDTO> skills;
 }

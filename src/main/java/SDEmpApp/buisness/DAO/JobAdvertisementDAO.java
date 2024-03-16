@@ -9,4 +9,6 @@ public interface JobAdvertisementDAO {
     JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement);
 
     List<JobAdvertisement> findByFormOfWork(String formOfWork);
+
+    List<JobAdvertisement> findBySkill(String skillName);
 }

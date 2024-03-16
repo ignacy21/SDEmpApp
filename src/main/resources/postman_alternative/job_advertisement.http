@@ -1,4 +1,4 @@
-POST http://localhost:7070/SDEmpApp/job-advertisement/create/3
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/2
 Content-Type: application/json
 
 {
@@ -9,9 +9,8 @@ Content-Type: application/json
   "languages": "polish",
   "duties": "all duties",
   "formOfWork": "HYBRID",
-  "skillsNeeded": "all skills"
+  "skillsNeeded": "JAVA;SQL;PYTHON"
 }
-
 ###
 
 GET http://localhost:7070/SDEmpApp/job-advertisement/find/form-of-work
@@ -19,4 +18,28 @@ Content-Type: application/json
 
 {
   "formOfWork": "IN_PLACE"
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/skills
+Content-Type: application/json
+
+{
+  "skills": [
+    {"skill": "JAVA"},
+    {"skill": "PYTHON"},
+    {"skill": "SQL"}
+  ]
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/specified-skills
+Content-Type: application/json
+
+{
+  "skills": [
+    {"skill": "JAVA"},
+    {"skill": "PYTHON"},
+    {"skill": "SQL"}
+  ]
 }

@@ -1,6 +1,5 @@
 package SDEmpApp.buisness;
 
-import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.buisness.DAO.CompanyDAO;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.Localization;
