@@ -38,4 +38,8 @@ public class JobSeekerService {
 
 
     }
+
+    public List<JobSeeker> findStudents(Boolean isStudent) {
+        return jobSeekerDAO.findStudents(isStudent);
+    }
 }

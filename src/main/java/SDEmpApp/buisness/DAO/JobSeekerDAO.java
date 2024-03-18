@@ -13,4 +13,6 @@ public interface JobSeekerDAO {
     JobSeeker findById(Integer jobSeekerId);
 
     List<JobSeeker> findJobSeekerByUsername(String username);
+
+    List<JobSeeker> findStudents(Boolean isStudent);
 }

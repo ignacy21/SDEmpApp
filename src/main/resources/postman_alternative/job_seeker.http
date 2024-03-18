@@ -2,13 +2,13 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew10",
-  "surname": "mikolajek10",
-  "isStudent": true,
-  "email": "emai10@gmail.com",
-  "git": "https://github.com/username10",
-  "phone": "+48 100 000 000",
-  "linkedin": "https://www.linkedin.com/in/name10-surname10-123/",
+  "name": "jannew13",
+  "surname": "mikolajek13",
+  "isStudent": false,
+  "email": "emai13@gmail.com",
+  "git": "https://github.com/username13",
+  "phone": "+48 130 000 000",
+  "linkedin": "https://www.linkedin.com/in/name13-surname13-123/",
   "cv": "cv",
   "languages": "languages",
   "skills": "skills",
@@ -45,3 +45,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:7070/SDEmpApp/job-seeker/find/by-username/jan mikolajek new
+
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/isStudent/false

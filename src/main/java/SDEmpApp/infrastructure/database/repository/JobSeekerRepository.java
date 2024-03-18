@@ -48,4 +48,10 @@ public class JobSeekerRepository implements JobSeekerDAO {
                 .map(jobSeekerEntityMapper::mapFromEntity)
                 .toList();
     }
+
+    @Override
+    public List<JobSeeker> findStudents(Boolean isStudent) {
+        List<JobSeekerEntity> studentEntities = jobSeekerJpaRepository.findJobSeekerEntitiesByIsStudent(isStudent);
+        return studentEntities.stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
+    }
 }

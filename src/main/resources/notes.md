@@ -17,7 +17,7 @@ CANDIDATE:
 JobSeeker
 
 [//]: # (-- username findByNameAndSurname)
--- is _student
+[//]: # (-- is _student)
 -- languages findByLanguages
 -- skills findBySkills
 -- b2b_normal_fit findByB2bNormalFit

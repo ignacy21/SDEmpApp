@@ -10,5 +10,8 @@ import java.util.List;
 public interface JobSeekerJpaRepository extends JpaRepository<JobSeekerEntity, Integer> {
 
     List<JobSeekerEntity> findByUsernameContaining(String username);
+    List<JobSeekerEntity> findJobSeekerEntitiesByIsStudent(Boolean isStudent);
+
+
 
 }

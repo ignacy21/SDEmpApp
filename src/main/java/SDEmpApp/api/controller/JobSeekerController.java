@@ -27,6 +27,7 @@ public class JobSeekerController {
     public static final String UPDATE = "/update-data/{jobSeekerId}";
     public static final String FIND = "/find";
     public static final String BY_USERNAME = "/by-username/{username}";
+    public static final String IS_STUDENT = "/isStudent/{isStudent}";
 
     private final JobSeekerService jobSeekerService;
     private final JobSeekerMapper jobSeekerMapper;
@@ -78,6 +79,14 @@ public class JobSeekerController {
     ) {
         List<JobSeeker> jobSeekers =  jobSeekerService.findByUsername(username);
         List<JobSeekerDTO> jobSeekerDTOs = jobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(jobSeekerDTOs);
+    }
+    @GetMapping(value = FIND + IS_STUDENT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findIfIsStudent(
+            @PathVariable Boolean isStudent
+    ) {
+        List<JobSeeker> jobSeekersThatAreStudents = jobSeekerService.findStudents(isStudent);
+        List<JobSeekerDTO> jobSeekerDTOs = jobSeekersThatAreStudents.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }
 }
