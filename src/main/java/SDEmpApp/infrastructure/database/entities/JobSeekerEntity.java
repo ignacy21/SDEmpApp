@@ -25,6 +25,9 @@ public class JobSeekerEntity {
     @Column(name = "surname")
     private String surname;
 
+    @Column(nullable = false, insertable = false, updatable = false)
+    private String username;
+
     @Column(name = "is_student")
     private Boolean isStudent;
 
