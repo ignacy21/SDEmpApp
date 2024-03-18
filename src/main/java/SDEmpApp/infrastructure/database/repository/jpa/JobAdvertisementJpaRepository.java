@@ -10,9 +10,10 @@ import java.util.List;
 public interface JobAdvertisementJpaRepository extends JpaRepository<JobAdvertisementEntity, Integer> {
 
     List<JobAdvertisementEntity> findByFormOfWork(String name);
-//    List<JobAdvertisementEntity> findBySkillNeeded(String name);
+
     List<JobAdvertisementEntity> findBySkillsNeededContaining(String skills);
 
+    List<JobAdvertisementEntity> findByLanguagesContaining(String language);
 
 }
 

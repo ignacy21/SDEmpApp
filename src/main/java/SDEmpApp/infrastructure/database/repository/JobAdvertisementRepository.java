@@ -44,4 +44,10 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
         List<JobAdvertisementEntity> bySkill = jobAdvertisementJpaRepository.findBySkillsNeededContaining(skillName);
         return bySkill.stream().map(jobAdvertisementEntityMapper::mapFromEntity).toList();
     }
+
+    @Override
+    public List<JobAdvertisement> findByLanguage(String language) {
+        List<JobAdvertisementEntity> byLanguage = jobAdvertisementJpaRepository.findByLanguagesContaining(language);
+        return byLanguage.stream().map(jobAdvertisementEntityMapper::mapFromEntity).toList();
+    }
 }

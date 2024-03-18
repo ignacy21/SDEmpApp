@@ -6,7 +6,7 @@ Content-Type: application/json
     "provinceName": "Mazowieckie",
     "cityName": "Warszawa"
   },
-  "languages": "polish",
+  "languages": "POLISH;NORWEGIAN",
   "duties": "all duties",
   "formOfWork": "HYBRID",
   "skillsNeeded": "JAVA;SQL;PYTHON"
@@ -33,13 +33,13 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/specified-skills
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/languages
 Content-Type: application/json
 
 {
-  "skills": [
-    {"skill": "JAVA"},
-    {"skill": "PYTHON"},
-    {"skill": "SQL"}
+  "languageDTOs": [
+    {"language": "POLISH"},
+    {"language": "SLOVAK"},
+    {"language": "NORWEGIAN"}
   ]
 }

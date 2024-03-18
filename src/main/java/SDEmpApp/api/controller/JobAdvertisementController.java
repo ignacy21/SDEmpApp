@@ -3,9 +3,8 @@ package SDEmpApp.api.controller;
 import SDEmpApp.api.dto.JobAdvertisementDTO;
 import SDEmpApp.api.dto.JobAdvertisementDTOS;
 import SDEmpApp.api.dto.LocalizationDTO;
-import SDEmpApp.api.dto.auxiliary.FormOfWorkDTO;
-import SDEmpApp.api.dto.auxiliary.SkillDTO;
-import SDEmpApp.api.dto.auxiliary.SkillDTOs;
+import SDEmpApp.api.dto.auxiliary.*;
+import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobAdvertisementMapper;
 import SDEmpApp.buisness.CompanyService;
@@ -21,8 +20,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping(JobAdvertisementController.JOB_ADV)
@@ -36,6 +37,7 @@ public class JobAdvertisementController {
     public static final String BY_FORM_OF_WORK = "/form-of-work";
     public static final String BY_SKILLS = "/skills";
     public static final String BY_SPECIFIED_SKILLS = "/specified-skills";
+    public static final String BY_LANGUAGES = "/languages";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -97,6 +99,16 @@ public class JobAdvertisementController {
                 .collect(Collectors.toList());
         List<JobAdvertisement> bySpecifiedSkills = jobAdvertisementService.findByOnlySpecifiedSkills(skillList);
         List<JobAdvertisementDTO> list = bySpecifiedSkills.stream().map(jobAdvertisementMapper::mapToDTO).toList();
+        return JobAdvertisementDTOS.of(list);
+    }
+
+    @GetMapping(value = FIND + BY_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOS findByLanguages(
+            @Valid @RequestBody LanguageDTOs languageDTOs
+    ) {
+        List<Language> languages = languageDTOs.getLanguageDTOs().stream().map(LanguageDTO::getLanguage).toList();
+        List<JobAdvertisement> byLanguages = jobAdvertisementService.findByLanguages(languages);
+        List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOS.of(list);
     }
 }

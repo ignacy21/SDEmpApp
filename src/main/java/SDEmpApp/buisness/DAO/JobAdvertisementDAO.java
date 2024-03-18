@@ -11,4 +11,6 @@ public interface JobAdvertisementDAO {
     List<JobAdvertisement> findByFormOfWork(String formOfWork);
 
     List<JobAdvertisement> findBySkill(String skillName);
+
+    List<JobAdvertisement> findByLanguage(String language);
 }

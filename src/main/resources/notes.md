@@ -31,7 +31,8 @@ all in one (findByLocalization)
 -- localization findByProvinceAndCity
 
 JobAdvertisement
--- languages findByLanguages
+
+[//]: # (-- languages findByLanguages)
 [//]: # (-- skills findBySkills)
 [//]: # (-- form_of_work findByFormOfWork)
 

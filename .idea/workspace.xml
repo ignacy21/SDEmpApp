@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="using FormOfWorkDTO in findByFormOfWork GET http method">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SkillDTOs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="writing findBySkills and findOnlyBySpecifiedSkills GET http method">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/LanguageDTOs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SkillDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SkillDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
@@ -131,15 +124,16 @@
     "HTTP Request.job_advertisement | #1.executor": "Run",
     "HTTP Request.job_advertisement | #2.executor": "Run",
     "HTTP Request.job_advertisement | #3.executor": "Run",
+    "HTTP Request.job_advertisement | #4.executor": "Run",
     "HTTP Request.job_seeker | #1.executor": "Run",
     "HTTP Request.job_seeker | #2.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth0": "15",
+    "RequestMappingsPanelWidth1": "15",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Run",
+    "Spring Boot.SDEmpAppStarter.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -284,9 +278,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.job_advertisement | #4" />
-        <item itemvalue="HTTP Request.job_advertisement | #3" />
-        <item itemvalue="HTTP Request.job_advertisement | #1" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_advertisement | #1" />
+        <item itemvalue="HTTP Request.job_advertisement | #3" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
       </list>
     </recent_temporary>
@@ -323,7 +317,8 @@
       <workItem from="1710411546424" duration="18792000" />
       <workItem from="1710514206151" duration="2704000" />
       <workItem from="1710526381948" duration="311000" />
-      <workItem from="1710625023580" duration="5712000" />
+      <workItem from="1710625023580" duration="6204000" />
+      <workItem from="1710750762775" duration="4289000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -679,7 +674,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710517026350</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="writing findBySkills and findOnlyBySpecifiedSkills GET http method">
+      <option name="closed" value="true" />
+      <created>1710631536607</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1710631536607</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +700,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="few changes in job_seeker entity:&#10;adding looking_for_job boolean,&#10;change variable and name from VARCHAR to BOOLEAN in student_non_student and employed_unemployed,&#10;correcting flyway migrations" />
     <MESSAGE value="adding JebSeekerController method that allows creating one" />
     <MESSAGE value="adding method that allows updating jobSeeker" />
     <MESSAGE value="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on" />
@@ -722,30 +724,16 @@
     <MESSAGE value="JobAdvertisement GET findByFormOfWork&#10;also changing JobAdvertisement to JobAdvertisementEntity mapping" />
     <MESSAGE value="adding auxiliary enums and DTO" />
     <MESSAGE value="using FormOfWorkDTO in findByFormOfWork GET http method" />
-    <option name="LAST_COMMIT_MESSAGE" value="using FormOfWorkDTO in findByFormOfWork GET http method" />
+    <MESSAGE value="writing findBySkills and findOnlyBySpecifiedSkills GET http method" />
+    <option name="LAST_COMMIT_MESSAGE" value="writing findBySkills and findOnlyBySpecifiedSkills GET http method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home/lib/src.zip!/java.xml/com/sun/org/apache/xpath/internal/operations/String.java</url>
-          <line>31</line>
-          <properties field="serialVersionUID" class="com.sun.org.apache.xpath.internal.operations.String" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>24</line>
-          <properties class="SDEmpApp.buisness.JobAdvertisementService" method="findBySkills">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="7" />
+          <line>43</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
