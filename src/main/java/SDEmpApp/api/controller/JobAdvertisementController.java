@@ -1,7 +1,7 @@
 package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.JobAdvertisementDTO;
-import SDEmpApp.api.dto.JobAdvertisementDTOS;
+import SDEmpApp.api.dto.JobAdvertisementDTOs;
 import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
@@ -20,10 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping(JobAdvertisementController.JOB_ADV)
@@ -69,17 +67,17 @@ public class JobAdvertisementController {
     }
 
     @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)
-    public JobAdvertisementDTOS findByFormOfWork(
+    public JobAdvertisementDTOs findByFormOfWork(
             @Valid @RequestBody FormOfWorkDTO formOfWorkDTO
     ) {
         String formOfWork = formOfWorkDTO.getFormOfWork().name();
         List<JobAdvertisement> byFormOfWork = jobAdvertisementService.findByFormOfWork(formOfWork);
         List<JobAdvertisementDTO> list = byFormOfWork.stream().map(jobAdvertisementMapper::mapToDTO).toList();
-        return JobAdvertisementDTOS.of(list);
+        return JobAdvertisementDTOs.of(list);
     }
 
     @GetMapping(value = FIND + BY_SKILLS, produces = MediaType.APPLICATION_JSON_VALUE)
-    public JobAdvertisementDTOS findBySkills(
+    public JobAdvertisementDTOs findBySkills(
             @Valid @RequestBody SkillDTOs skillDTOs
     ) {
         List<Skill> skillList = skillDTOs.getSkills().stream()
@@ -87,11 +85,11 @@ public class JobAdvertisementController {
                 .collect(Collectors.toList());
         List<JobAdvertisement> bySkills = jobAdvertisementService.findBySkills(skillList);
         List<JobAdvertisementDTO> list = bySkills.stream().map(jobAdvertisementMapper::mapToDTO).toList();
-        return JobAdvertisementDTOS.of(list);
+        return JobAdvertisementDTOs.of(list);
     }
 
     @GetMapping(value = FIND + BY_SPECIFIED_SKILLS, produces = MediaType.APPLICATION_JSON_VALUE)
-    public JobAdvertisementDTOS findOnlyBySpecifiedSkills(
+    public JobAdvertisementDTOs findOnlyBySpecifiedSkills(
             @Valid @RequestBody SkillDTOs skillDTOs
     ) {
         List<Skill> skillList = skillDTOs.getSkills().stream()
@@ -99,16 +97,16 @@ public class JobAdvertisementController {
                 .collect(Collectors.toList());
         List<JobAdvertisement> bySpecifiedSkills = jobAdvertisementService.findByOnlySpecifiedSkills(skillList);
         List<JobAdvertisementDTO> list = bySpecifiedSkills.stream().map(jobAdvertisementMapper::mapToDTO).toList();
-        return JobAdvertisementDTOS.of(list);
+        return JobAdvertisementDTOs.of(list);
     }
 
     @GetMapping(value = FIND + BY_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
-    public JobAdvertisementDTOS findByLanguages(
+    public JobAdvertisementDTOs findByLanguages(
             @Valid @RequestBody LanguageDTOs languageDTOs
     ) {
         List<Language> languages = languageDTOs.getLanguageDTOs().stream().map(LanguageDTO::getLanguage).toList();
         List<JobAdvertisement> byLanguages = jobAdvertisementService.findByLanguages(languages);
         List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
-        return JobAdvertisementDTOS.of(list);
+        return JobAdvertisementDTOs.of(list);
     }
 }

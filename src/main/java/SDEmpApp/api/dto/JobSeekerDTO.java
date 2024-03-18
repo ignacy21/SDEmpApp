@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class JobSeekerDTO {
 
+//    private String username;
     private String surname;
     private String name;
     private Boolean isStudent;
@@ -38,4 +39,7 @@ public class JobSeekerDTO {
     private Boolean isEmployed;
     private Boolean lookingForJob;
 
+//    public void createUsername() {
+//        this.username = name + " " + surname;
+//    }
 }

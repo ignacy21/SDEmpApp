@@ -8,6 +8,7 @@ import SDEmpApp.infrastructure.database.repository.mapper.JobSeekerEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -39,5 +40,12 @@ public class JobSeekerRepository implements JobSeekerDAO {
                 () -> new RuntimeException("JobSeeker with id[%s] does not exist".formatted(jobSeekerId))
         ));
 
+    }
+
+    @Override
+    public List<JobSeeker> findJobSeekerByUsername(String username) {
+        return jobSeekerJpaRepository.findByUsernameContaining(username).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
     }
 }

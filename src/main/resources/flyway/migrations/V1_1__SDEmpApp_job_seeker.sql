@@ -3,7 +3,7 @@ CREATE TABLE job_seeker
     job_seeker_id   SERIAL                                                                      NOT NULL,
     name            VARCHAR(32)                                                                 NOT NULL,
     surname         VARCHAR(32)                                                                 NOT NULL,
-    username        VARCHAR(100) GENERATED ALWAYS AS (name || surname) STORED,
+    username        VARCHAR(100) GENERATED ALWAYS AS (name || ';' || surname) STORED,
     is_student      BOOLEAN                                                                     NOT NULL,
     phone           VARCHAR(32),
     email           VARCHAR(32)                                                                 NOT NULL,

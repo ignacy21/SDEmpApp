@@ -1,4 +1,4 @@
-POST http://localhost:7070/SDEmpApp/job-advertisement/create/2
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/3
 Content-Type: application/json
 
 {

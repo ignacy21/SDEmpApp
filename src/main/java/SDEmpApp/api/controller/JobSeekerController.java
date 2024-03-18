@@ -1,16 +1,19 @@
 package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.JobSeekerDTO;
+import SDEmpApp.api.dto.JobSeekerDTOs;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
 import SDEmpApp.buisness.JobSeekerService;
 import SDEmpApp.domain.JobSeeker;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,6 +25,8 @@ public class JobSeekerController {
     public static final String JOB_SEEKER_RESULT = "/%s";
     public static final String CRETE = "/create";
     public static final String UPDATE = "/update-data/{jobSeekerId}";
+    public static final String FIND = "/find";
+    public static final String BY_USERNAME = "/by-username/{username}";
 
     private final JobSeekerService jobSeekerService;
     private final JobSeekerMapper jobSeekerMapper;
@@ -65,5 +70,14 @@ public class JobSeekerController {
         log.info("updating jobSeeker: id[%s]".formatted(jobSeeker.getJobSeekerId()));
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = FIND + BY_USERNAME, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findByUsername(
+            @PathVariable String username
+    ) {
+        List<JobSeeker> jobSeekers =  jobSeekerService.findByUsername(username);
+        List<JobSeekerDTO> jobSeekerDTOs = jobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(jobSeekerDTOs);
     }
 }

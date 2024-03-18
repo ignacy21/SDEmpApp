@@ -15,7 +15,8 @@ CANDIDATE:
     E   - is_working (EMPLOYED, UN_EMPLOYED)
 
 JobSeeker
--- username findByNameAndSurname
+
+[//]: # (-- username findByNameAndSurname)
 -- is _student
 -- languages findByLanguages
 -- skills findBySkills

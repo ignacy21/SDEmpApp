@@ -9,4 +9,5 @@ import org.mapstruct.ReportingPolicy;
 public interface JobSeekerMapper {
 
     JobSeeker mapFromDTO(JobSeekerDTO jobSeekerDTO);
+    JobSeekerDTO mapToDTO(JobSeeker jobSeekerDTO);
 }
