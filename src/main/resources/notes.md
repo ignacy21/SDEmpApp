@@ -26,7 +26,7 @@ JobSeeker
 [//]: # (-- form_of_work findByFormOfWork)
 [//]: # (-- experience findByExperience)
 [//]: # (-- is_employed)
--- looking_for_job
+[//]: # (-- looking_for_job)
 
 all in one (findByLocalization)
 -- localization findByProvince
