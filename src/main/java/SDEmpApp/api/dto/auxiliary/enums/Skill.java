@@ -3,7 +3,7 @@ package SDEmpApp.api.dto.auxiliary.enums;
 public enum Skill {
     JAVA("JAVA"),
     PYTHON("PYTHON"),
-    NET("NET"),
+    NET(".NET"),
     C_SHARP("C#"),
     SQL("SQL"),
     GOLANG("GOLANG"),

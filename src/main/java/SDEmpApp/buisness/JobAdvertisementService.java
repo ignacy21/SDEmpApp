@@ -7,7 +7,10 @@ import SDEmpApp.domain.JobAdvertisement;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -30,23 +33,27 @@ public class JobAdvertisementService {
                 .distinct()
                 .toList();
     }
+
     public List<JobAdvertisement> findByOnlySpecifiedSkills(List<Skill> skills) {
-        return skills.stream()
-                .map(Skill::name)
+        List<String> listSkillsAsStrings = skills.stream().map(Skill::name).toList();
+
+        return listSkillsAsStrings.stream()
                 .map(jobAdvertisementDAO::findBySkill)
                 .flatMap(List::stream)
                 .distinct()
-                .filter(x -> x.getSkillsNeeded().split(";").length == skills.size())
+                .filter(jobAd -> new HashSet<>(listSkillsAsStrings).containsAll(
+                        Arrays.stream(jobAd.getSkillsNeeded()
+                        .split(";")).toList()))
                 .toList();
     }
 
+
     public List<JobAdvertisement> findByLanguages(List<Language> languages) {
-        List<JobAdvertisement> list = languages.stream()
+        return languages.stream()
                 .map(Language::name)
                 .map(jobAdvertisementDAO::findByLanguage)
                 .flatMap(List::stream)
                 .distinct()
                 .toList();
-        return list;
     }
 }
