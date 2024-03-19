@@ -16,4 +16,5 @@ public class JobAdvertisementDTO {
     private String skillsNeeded;
     private String duties;
     private String formOfWork;
+    private CompanyDTO company;
 }

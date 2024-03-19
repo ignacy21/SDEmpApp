@@ -121,7 +121,7 @@ public class JobAdvertisementController {
         return JobAdvertisementDTOs.of(list);
     }
     @GetMapping(value = FIND + BY_LOCALIZATION, produces = MediaType.APPLICATION_JSON_VALUE)
-    public JobAdvertisementDTOs findCompanyByLocalization(
+    public JobAdvertisementDTOs findJobAdvertisementByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
     ) {
         Localization findLocalization = companyController.getLocalization(localizationDTO);

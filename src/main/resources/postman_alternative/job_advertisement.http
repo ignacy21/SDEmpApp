@@ -1,10 +1,10 @@
-POST http://localhost:7070/SDEmpApp/job-advertisement/create/1
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/4
 Content-Type: application/json
 
 {
   "localization": {
-    "provinceName": "Mazowieckie",
-    "cityName": "Warszawa"
+    "provinceName": "Dolnośląskie",
+    "cityName": "Bardo"
   },
   "languages": "GREEK",
   "duties": "all duties",
@@ -70,6 +70,6 @@ GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-localization
 Content-Type: application/json
 
 {
-"provinceName": "Mazowieckie",
-"cityName": "Warszawa"
+"provinceName": "Dolnośląskie",
+"cityName": "Bardo"
 }
