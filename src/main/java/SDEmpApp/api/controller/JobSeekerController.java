@@ -4,6 +4,7 @@ import SDEmpApp.api.dto.JobSeekerDTO;
 import SDEmpApp.api.dto.JobSeekerDTOs;
 import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.EmploymentType;
+import SDEmpApp.api.dto.auxiliary.enums.FormOfWork;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
@@ -38,6 +39,7 @@ public class JobSeekerController {
     private static final String BY_SKILLS = "/skills";
     private final String BY_SPECIFIED_SKILLS = "/specified-skills";
     private final String BY_FORM_OF_EMPLOYMENT = "/form-of-employment";
+    private final String BY_FORM_OF_WORK = "/form-of-work";
 
 
     private final JobSeekerService jobSeekerService;
@@ -160,11 +162,32 @@ public class JobSeekerController {
                 return JobSeekerDTOs.of(allJobSeekers);
             }
         }
-        List<String> list = employmentTypeDTOs.getEmploymentTypeDTOs().stream()
+        List<String> list = new java.util.ArrayList<>(employmentTypeDTOs.getEmploymentTypeDTOs().stream()
                 .map(EmploymentTypeDTO::getEmploymentType)
                 .map(EmploymentType::name)
-                .toList();
+                .toList());
+        list.add("FIT");
         List<JobSeeker> findJobSeekers = jobSeekerService.findByFormOfEmployment(list);
+        List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(jobSeekerDTOs);
+    }
+    @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findByFormOfWork(
+            @Valid @RequestBody FormOfWorkDTOs formOfWorkDTOs
+    ) {
+        if (formOfWorkDTOs.getFormOfWorkDTOs().size() == 1) {
+            if (formOfWorkDTOs.getFormOfWorkDTOs().getFirst().getFormOfWork() == FormOfWork.FIT) {
+                List<JobSeekerDTO> allJobSeekers = jobSeekerService.findAll().stream()
+                        .map(jobSeekerMapper::mapToDTO).toList();
+                return JobSeekerDTOs.of(allJobSeekers);
+            }
+        }
+        List<String> list = new java.util.ArrayList<>(formOfWorkDTOs.getFormOfWorkDTOs().stream()
+                .map(FormOfWorkDTO::getFormOfWork)
+                .map(FormOfWork::name)
+                .toList());
+        list.add("FIT");
+        List<JobSeeker> findJobSeekers = jobSeekerService.findByFormOfWork(list);
         List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }

@@ -23,4 +23,6 @@ public interface JobSeekerDAO {
     List<JobSeeker> findAll();
 
     List<JobSeeker> findByFormOfEmployment(String formOfEmployment);
+
+    List<JobSeeker> findByFormOfWork(String formOfWork);
 }

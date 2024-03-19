@@ -74,7 +74,16 @@ public class JobSeekerRepository implements JobSeekerDAO {
 
     @Override
     public List<JobSeeker> findByFormOfEmployment(String formOfEmployment) {
-        List<JobSeekerEntity> byB2bNormalFit = jobSeekerJpaRepository.findByB2bNormalFit(formOfEmployment);
-        return byB2bNormalFit.stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
+        return jobSeekerJpaRepository.findByB2bNormalFit(formOfEmployment).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
+    }
+
+    @Override
+    public List<JobSeeker> findByFormOfWork(String formOfWork) {
+        return jobSeekerJpaRepository.findByFormOfWork(formOfWork).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
+
     }
 }

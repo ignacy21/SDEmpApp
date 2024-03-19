@@ -102,4 +102,12 @@ public class JobSeekerService {
                 .toList();
 
     }
+
+    public List<JobSeeker> findByFormOfWork(List<String> requiredFormsOfWork) {
+        return requiredFormsOfWork.stream()
+                .map(jobSeekerDAO::findByFormOfWork)
+                .flatMap(List::stream)
+                .distinct()
+                .toList();
+    }
 }
