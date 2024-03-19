@@ -2,16 +2,16 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew4",
-  "surname": "mikolajek4",
+  "name": "jannew5",
+  "surname": "mikolajek5",
   "isStudent": true,
-  "email": "emai4@gmail.com",
-  "git": "https://github.com/username4",
-  "phone": "+48 400 000 000",
-  "linkedin": "https://www.linkedin.com/in/name4-surname4-123/",
+  "email": "emai5@gmail.com",
+  "git": "https://github.com/username5",
+  "phone": "+48 500 000 000",
+  "linkedin": "https://www.linkedin.com/in/name5-surname5-123/",
   "cv": "cv",
   "languages": "FRENCH;GERMAN;ESTONIAN",
-  "skills": "skills",
+  "skills": "KOTLIN;GOLANG",
   "b2bNormalFit": "B2B",
   "formOfWork": "HYBRID",
   "experience": "0",
@@ -66,6 +66,28 @@ Content-Type: application/json
 {
   "languageDTOs": [
     {"language": "NORWEGIAN"}
+  ]
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/skills
+Content-Type: application/json
+
+{
+  "skills": [
+    {"skill": "JAVA"},
+    {"skill": "GOLANG"}
+  ]
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/specified-skills
+Content-Type: application/json
+
+{
+  "skills": [
+    {"skill": "C"},
+    {"skill": "CPP"}
   ]
 }
 ###

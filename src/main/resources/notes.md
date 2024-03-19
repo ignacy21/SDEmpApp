@@ -20,7 +20,8 @@ JobSeeker
 [//]: # (-- is _student)
 [//]: # (-- languages findByLanguages)
 [//]: # (-- languages findBySpecifiedLanguages)
--- skills findBySkills
+[//]: # (-- skills findBySkills)
+[//]: # (-- skills findBySpecifiedSkills)
 -- b2b_normal_fit findByB2bNormalFit
 -- form_of_work findByFormOfWork
 -- experience findByExperience

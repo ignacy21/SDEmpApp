@@ -1,6 +1,7 @@
 package SDEmpApp.buisness;
 
 import SDEmpApp.api.dto.auxiliary.enums.Language;
+import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.buisness.DAO.JobSeekerDAO;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.JobSeeker;
@@ -66,5 +67,29 @@ public class JobSeekerService {
                         languagesAsStrings
                 ))
                 .toList();
+    }
+
+    public List<JobSeeker> findBySkills(List<Skill> skillList) {
+        return skillList.stream()
+                .map(Skill::name)
+                .map(jobSeekerDAO::findBySkill)
+                .flatMap(List::stream)
+                .distinct()
+                .toList();
+
+    }
+
+    public List<JobSeeker> findBySpecifiedSkills(List<Skill> skillList) {
+        List<String> skillsAsStrings = skillList.stream().map(Skill::name).toList();
+        return skillsAsStrings.stream()
+                .map(jobSeekerDAO::findBySkill)
+                .flatMap(List::stream)
+                .distinct()
+                .filter(jobAdvert -> new HashSet<>(skillsAsStrings).containsAll(
+                        Arrays.stream(jobAdvert.getSkills()
+                                .split(";")).toList()
+                ))
+                .toList();
+
     }
 }

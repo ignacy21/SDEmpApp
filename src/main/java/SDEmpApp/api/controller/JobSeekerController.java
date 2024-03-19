@@ -6,7 +6,10 @@ import SDEmpApp.api.dto.JobSeekerDTO;
 import SDEmpApp.api.dto.JobSeekerDTOs;
 import SDEmpApp.api.dto.auxiliary.LanguageDTO;
 import SDEmpApp.api.dto.auxiliary.LanguageDTOs;
+import SDEmpApp.api.dto.auxiliary.SkillDTO;
+import SDEmpApp.api.dto.auxiliary.SkillDTOs;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
+import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
 import SDEmpApp.buisness.JobSeekerService;
 import SDEmpApp.domain.JobAdvertisement;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -28,14 +32,17 @@ import java.util.List;
 public class JobSeekerController {
 
     public static final String JOB_SEEKER = "/job-seeker";
-    private static final String JOB_SEEKER_RESULT = "/%s";
-    private static final String CRETE = "/create";
-    private static final String UPDATE = "/update-data/{jobSeekerId}";
-    private static final String FIND = "/find";
-    private static final String BY_USERNAME = "/by-username/{username}";
-    private static final String IS_STUDENT = "/isStudent/{isStudent}";
-    private static final String BY_LANGUAGES = "/languages";
-    private static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
+    private final String JOB_SEEKER_RESULT = "/%s";
+    private final String CRETE = "/create";
+    private final String UPDATE = "/update-data/{jobSeekerId}";
+    private final String FIND = "/find";
+    private final String BY_USERNAME = "/by-username/{username}";
+    private final String IS_STUDENT = "/isStudent/{isStudent}";
+    private final String BY_LANGUAGES = "/languages";
+    private final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
+    private final String BY_SPECIFIED_SKILLS = "/specified-skills";
+
+    private static final String BY_SKILLS = "/skills";
 
     private final JobSeekerService jobSeekerService;
     private final JobSeekerMapper jobSeekerMapper;
@@ -114,5 +121,32 @@ public class JobSeekerController {
         List<JobSeeker> byLanguages = jobSeekerService.findBySpecifiedLanguages(languages);
         List<JobSeekerDTO> list = byLanguages.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(list);
+    }
+
+
+    @GetMapping(value = FIND + BY_SKILLS, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findJobSeekerBySkills(
+            @Valid @RequestBody SkillDTOs skillDTOs
+    ) {
+        List<Skill> skillList = getSkills(skillDTOs);
+        List<JobSeeker> bySkills = jobSeekerService.findBySkills(skillList);
+        List<JobSeekerDTO> list = bySkills.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(list);
+    }
+
+    @GetMapping(value = FIND + BY_SPECIFIED_SKILLS, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findOnlyBySpecifiedSkills(
+            @Valid @RequestBody SkillDTOs skillDTOs
+    ) {
+        List<Skill> skillList = getSkills(skillDTOs);
+        List<JobSeeker> bySkills = jobSeekerService.findBySpecifiedSkills(skillList);
+        List<JobSeekerDTO> list = bySkills.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(list);
+    }
+
+    private static List<Skill> getSkills(SkillDTOs skillDTOs) {
+        return skillDTOs.getSkills().stream()
+                .map(SkillDTO::getSkill)
+                .collect(Collectors.toList());
     }
 }
