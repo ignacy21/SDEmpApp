@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -54,6 +53,18 @@ public class JobAdvertisementService {
                 .map(jobAdvertisementDAO::findByLanguage)
                 .flatMap(List::stream)
                 .distinct()
+                .toList();
+    }
+
+    public List<JobAdvertisement> findBySpecifiedLanguages(List<Language> languages) {
+        List<String> languagesAsStrings = languages.stream().map(Language::name).toList();
+        return languagesAsStrings.stream()
+                .map(jobAdvertisementDAO::findByLanguage)
+                .flatMap(List::stream)
+                .distinct()
+                .filter(jobAdvert -> new HashSet<>(languagesAsStrings).containsAll(
+                        Arrays.stream(jobAdvert.getLanguages().split(";")).toList()
+                ))
                 .toList();
     }
 }

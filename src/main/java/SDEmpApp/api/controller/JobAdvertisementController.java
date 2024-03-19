@@ -1,8 +1,6 @@
 package SDEmpApp.api.controller;
 
-import SDEmpApp.api.dto.JobAdvertisementDTO;
-import SDEmpApp.api.dto.JobAdvertisementDTOs;
-import SDEmpApp.api.dto.LocalizationDTO;
+import SDEmpApp.api.dto.*;
 import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
@@ -12,6 +10,7 @@ import SDEmpApp.buisness.JobAdvertisementService;
 import SDEmpApp.buisness.LocalizationService;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.JobAdvertisement;
+import SDEmpApp.domain.JobSeeker;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,13 +28,14 @@ import java.util.stream.Collectors;
 public class JobAdvertisementController {
 
     public static final String JOB_ADV = "/job-advertisement";
-    public static final String CREATE_JOB_ADVERT = "/create/{companyId}";
-    public static final String JOB_ADVERT_RESULT = "/%s";
-    public static final String FIND = "/find";
-    public static final String BY_FORM_OF_WORK = "/form-of-work";
-    public static final String BY_SKILLS = "/skills";
-    public static final String BY_SPECIFIED_SKILLS = "/specified-skills";
-    public static final String BY_LANGUAGES = "/languages";
+    private static final String CREATE_JOB_ADVERT = "/create/{companyId}";
+    private static final String JOB_ADVERT_RESULT = "/%s";
+    private static final String FIND = "/find";
+    private static final String BY_FORM_OF_WORK = "/form-of-work";
+    private static final String BY_SKILLS = "/skills";
+    private static final String BY_SPECIFIED_SKILLS = "/specified-skills";
+    private static final String BY_LANGUAGES = "/languages";
+    private static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -106,6 +106,15 @@ public class JobAdvertisementController {
     ) {
         List<Language> languages = languageDTOs.getLanguageDTOs().stream().map(LanguageDTO::getLanguage).toList();
         List<JobAdvertisement> byLanguages = jobAdvertisementService.findByLanguages(languages);
+        List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
+        return JobAdvertisementDTOs.of(list);
+    }
+    @GetMapping(value = FIND + BY_SPECIFIED_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOs findBySpecifiedLanguages(
+            @Valid @RequestBody LanguageDTOs languageDTOs
+    ) {
+        List<Language> languages = languageDTOs.getLanguageDTOs().stream().map(LanguageDTO::getLanguage).toList();
+        List<JobAdvertisement> byLanguages = jobAdvertisementService.findBySpecifiedLanguages(languages);
         List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOs.of(list);
     }

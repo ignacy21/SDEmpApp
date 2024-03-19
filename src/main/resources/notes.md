@@ -35,6 +35,7 @@ all in one (findByLocalization)
 JobAdvertisement
 
 [//]: # (-- languages findByLanguages)
+[//]: # (-- languages findBySpecifiedLanguages)
 [//]: # (-- skills findBySkills)
 [//]: # (-- skills findBySpecifiedSkills)
 [//]: # (-- form_of_work findByFormOfWork)

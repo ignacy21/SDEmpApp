@@ -28,14 +28,14 @@ import java.util.List;
 public class JobSeekerController {
 
     public static final String JOB_SEEKER = "/job-seeker";
-    public static final String JOB_SEEKER_RESULT = "/%s";
-    public static final String CRETE = "/create";
-    public static final String UPDATE = "/update-data/{jobSeekerId}";
-    public static final String FIND = "/find";
-    public static final String BY_USERNAME = "/by-username/{username}";
-    public static final String IS_STUDENT = "/isStudent/{isStudent}";
-    public static final String BY_LANGUAGES = "/languages";
-    public static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
+    private static final String JOB_SEEKER_RESULT = "/%s";
+    private static final String CRETE = "/create";
+    private static final String UPDATE = "/update-data/{jobSeekerId}";
+    private static final String FIND = "/find";
+    private static final String BY_USERNAME = "/by-username/{username}";
+    private static final String IS_STUDENT = "/isStudent/{isStudent}";
+    private static final String BY_LANGUAGES = "/languages";
+    private static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
 
     private final JobSeekerService jobSeekerService;
     private final JobSeekerMapper jobSeekerMapper;

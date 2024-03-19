@@ -6,7 +6,7 @@ Content-Type: application/json
     "provinceName": "Mazowieckie",
     "cityName": "Warszawa"
   },
-  "languages": "POLISH;NORWEGIAN",
+  "languages": "GREEK",
   "duties": "all duties",
   "formOfWork": "HYBRID",
   "skillsNeeded": ".NET"
@@ -52,5 +52,15 @@ Content-Type: application/json
     {"language": "POLISH"},
     {"language": "SLOVAK"},
     {"language": "NORWEGIAN"}
+  ]
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/specified-languages
+Content-Type: application/json
+
+{
+  "languageDTOs": [
+    {"language": "GREEK"}
   ]
 }
