@@ -1,14 +1,18 @@
 package SDEmpApp.api.dto.auxiliary.enums;
 
-public enum Experience {
-    _0_("0"),
-    _0_1("0 >= 1"),
-    _1_2("1 > 2"),
-    _2_5("2 > 5"),
-    _5_("5 >"),
-    ;
+import lombok.Getter;
 
-    Experience(String number) {
+@Getter
+public enum Experience {
+    _0("0"),
+    _0_1("0 >= 1"),
+    MIN_1("1 > 2"),
+    MIN_2("2 > 5"),
+    MIN_5("5 > "),
+    ;
+    private final String experience;
+    Experience(String experience) {
+        this.experience = experience;
     }
 
 }

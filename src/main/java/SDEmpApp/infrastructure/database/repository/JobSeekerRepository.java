@@ -86,4 +86,11 @@ public class JobSeekerRepository implements JobSeekerDAO {
                 .toList();
 
     }
+
+    @Override
+    public List<JobSeeker> findByExperience(String experience) {
+        return jobSeekerJpaRepository.findByExperience(experience).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
+    }
 }

@@ -2,19 +2,19 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew6",
-  "surname": "mikolajek6",
+  "name": "jannew7",
+  "surname": "mikolajek7",
   "isStudent": true,
-  "email": "emai6@gmail.com",
-  "git": "https://github.com/username6",
-  "phone": "+48 600 000 000",
-  "linkedin": "https://www.linkedin.com/in/name6-surname6-123/",
+  "email": "emai7@gmail.com",
+  "git": "https://github.com/username7",
+  "phone": "+48 700 000 000",
+  "linkedin": "https://www.linkedin.com/in/name7-surname7-123/",
   "cv": "cv",
   "languages": "FRENCH;GERMAN;ESTONIAN",
   "skills": "KOTLIN;GOLANG",
   "b2bNormalFit": "FREELANCE",
   "formOfWork": "HYBRID",
-  "experience": "0",
+  "experience": "1 > 2",
   "aboutMe": "aboutMe",
   "lookingForJob": false
 }
@@ -25,11 +25,11 @@ PUT http://localhost:7070/SDEmpApp/job-seeker/update-data/1
 Content-Type: application/json
 
 {
-  "name": "new name1",
-  "surname": "new surname1",
-  "email": "email1@gmail.com",
-  "git": "https://github.com/username1",
-  "linkedin": "https://www.linkedin.com/in/name1-surname1-123/",
+  "name": "new name",
+  "surname": "new surname",
+  "email": "email@gmail.com",
+  "git": "https://github.com/username",
+  "linkedin": "https://www.linkedin.com/in/name-surname-123/",
   "isStudent": true,
   "phone": "+48 123 123 123",
   "cv": "new cv",
@@ -110,4 +110,13 @@ Content-Type: application/json
     {"formOfWork": "IN_PLACE"}
   ]
 }
+###
+
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/experience
+Content-Type: application/json
+
+    {
+      "experience": "MIN_2"
+    }
 ###

@@ -1,5 +1,7 @@
 package SDEmpApp.buisness;
 
+import SDEmpApp.api.dto.auxiliary.ExperienceDTO;
+import SDEmpApp.api.dto.auxiliary.enums.Experience;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.buisness.DAO.JobSeekerDAO;
@@ -8,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -108,6 +111,22 @@ public class JobSeekerService {
                 .map(jobSeekerDAO::findByFormOfWork)
                 .flatMap(List::stream)
                 .distinct()
+                .toList();
+    }
+
+    public List<JobSeeker> findByExperience(ExperienceDTO experienceDTO) {
+        int ordinal = experienceDTO.getExperience().ordinal();
+        List<List<JobSeeker>> listOfJobSeekerList = new ArrayList<>();
+        Experience[] values = Experience.values();
+        for (Experience value : values) {
+            if (ordinal <= value.ordinal()) {
+                List<JobSeeker> byExperience = jobSeekerDAO.findByExperience(value.getExperience());
+                listOfJobSeekerList.add(byExperience);
+            }
+        }
+
+        return listOfJobSeekerList.stream()
+                .flatMap(List::stream)
                 .toList();
     }
 }

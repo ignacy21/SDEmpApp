@@ -24,7 +24,7 @@ JobSeeker
 [//]: # (-- skills findBySpecifiedSkills)
 [//]: # (-- b2b_normal_fit findByB2bNormalFit)
 [//]: # (-- form_of_work findByFormOfWork)
--- experience findByExperience
+[//]: # (-- experience findByExperience)
 -- is_employed
 -- looking_for_job
 

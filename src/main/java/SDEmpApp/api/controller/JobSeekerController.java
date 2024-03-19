@@ -40,6 +40,7 @@ public class JobSeekerController {
     private final String BY_SPECIFIED_SKILLS = "/specified-skills";
     private final String BY_FORM_OF_EMPLOYMENT = "/form-of-employment";
     private final String BY_FORM_OF_WORK = "/form-of-work";
+    private final String BY_EXPERIENCE = "/experience";
 
 
     private final JobSeekerService jobSeekerService;
@@ -188,6 +189,15 @@ public class JobSeekerController {
                 .toList());
         list.add("FIT");
         List<JobSeeker> findJobSeekers = jobSeekerService.findByFormOfWork(list);
+        List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(jobSeekerDTOs);
+    }
+
+    @GetMapping(value = FIND + BY_EXPERIENCE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findByExperience(
+            @Valid @RequestBody ExperienceDTO experienceDTO
+    ) {
+        List<JobSeeker> findJobSeekers = jobSeekerService.findByExperience(experienceDTO);
         List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }
