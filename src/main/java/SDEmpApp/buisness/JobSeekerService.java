@@ -133,4 +133,8 @@ public class JobSeekerService {
     public List<JobSeeker> findIfIsEmployed(Boolean isEmployed) {
         return jobSeekerDAO.findIfIsEmployed(isEmployed);
     }
+
+    public List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob) {
+        return jobSeekerDAO.findIfIsLookingForJob(isLookingForJob);
+    }
 }

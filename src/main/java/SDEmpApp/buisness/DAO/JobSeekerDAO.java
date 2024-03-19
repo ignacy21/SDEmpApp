@@ -29,4 +29,6 @@ public interface JobSeekerDAO {
     List<JobSeeker> findByExperience(String experience);
 
     List<JobSeeker> findIfIsEmployed(Boolean isEmployed);
+
+    List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob);
 }

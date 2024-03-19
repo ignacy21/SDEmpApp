@@ -122,3 +122,6 @@ Content-Type: application/json
 
 GET http://localhost:7070/SDEmpApp/job-seeker/find/isEmployed/true
 ###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/isLookingForJob/false
+###

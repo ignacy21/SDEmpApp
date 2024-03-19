@@ -42,6 +42,7 @@ public class JobSeekerController {
     private final String BY_FORM_OF_WORK = "/form-of-work";
     private final String BY_EXPERIENCE = "/experience";
     private final String IF_IS_EMPLOYED = "/isEmployed/{isEmployed}";
+    private final String IF_LOOKING_FOR_JOB = "/isLookingForJob/{isLookingForJob}";
 
 
     private final JobSeekerService jobSeekerService;
@@ -208,6 +209,14 @@ public class JobSeekerController {
             @PathVariable Boolean isEmployed
     ) {
         List<JobSeeker> findJobSeekers = jobSeekerService.findIfIsEmployed(isEmployed);
+        List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(jobSeekerDTOs);
+    }
+    @GetMapping(value = FIND + IF_LOOKING_FOR_JOB, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findIfIsLookingForJob(
+            @PathVariable Boolean isLookingForJob
+    ) {
+        List<JobSeeker> findJobSeekers = jobSeekerService.findIfIsLookingForJob(isLookingForJob);
         List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }

@@ -100,4 +100,11 @@ public class JobSeekerRepository implements JobSeekerDAO {
                 .map(jobSeekerEntityMapper::mapFromEntity)
                 .toList();
     }
+
+    @Override
+    public List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob) {
+        return jobSeekerJpaRepository.findJobSeekerEntitiesByLookingForJob(isLookingForJob).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
+    }
 }
