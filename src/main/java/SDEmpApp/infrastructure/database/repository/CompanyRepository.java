@@ -57,9 +57,9 @@ public class CompanyRepository implements CompanyDAO {
     }
 
     @Override
-    public List<Company> findCompanyByLocalization(Localization localizationDTO) {
+    public List<Company> findCompanyByLocalization(Localization localization) {
         List<CompanyEntity> byLocalization = companyJpaRepository.findByLocalization(
-                localizationEntityMapper.mapToEntity(localizationDTO));
+                localizationEntityMapper.mapToEntity(localization));
         return byLocalization.stream().map(companyEntityMapper::mapFromEntity).toList();
     }
 

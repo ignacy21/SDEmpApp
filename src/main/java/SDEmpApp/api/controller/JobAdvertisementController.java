@@ -10,7 +10,6 @@ import SDEmpApp.buisness.JobAdvertisementService;
 import SDEmpApp.buisness.LocalizationService;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.JobAdvertisement;
-import SDEmpApp.domain.JobSeeker;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -36,10 +35,13 @@ public class JobAdvertisementController {
     private static final String BY_SPECIFIED_SKILLS = "/specified-skills";
     private static final String BY_LANGUAGES = "/languages";
     private static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
+    private static final String BY_LOCALIZATION = "/by-localization";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
     private final LocalizationService localizationService;
+
+    private final CompanyController companyController;
 
     private final JobAdvertisementMapper jobAdvertisementMapper;
 
@@ -117,5 +119,17 @@ public class JobAdvertisementController {
         List<JobAdvertisement> byLanguages = jobAdvertisementService.findBySpecifiedLanguages(languages);
         List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOs.of(list);
+    }
+    @GetMapping(value = FIND + BY_LOCALIZATION, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOs findCompanyByLocalization(
+            @Valid @RequestBody LocalizationDTO localizationDTO
+    ) {
+        Localization findLocalization = companyController.getLocalization(localizationDTO);
+        List<JobAdvertisement> jobAdvertisements = jobAdvertisementService.findByLocalization(findLocalization);
+
+        List<JobAdvertisementDTO> companiesDTOS = jobAdvertisements.stream()
+                .map(jobAdvertisementMapper::mapToDTO)
+                .toList();
+        return JobAdvertisementDTOs.of(companiesDTOS);
     }
 }

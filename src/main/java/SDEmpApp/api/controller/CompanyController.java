@@ -24,11 +24,11 @@ import java.util.List;
 public class CompanyController {
 
     public static final String COMPANY = "/company";
-    public static final String CREATE = "/create";
-    public static final String COMPANY_ID_RESULT = "/%s";
-    public static final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
-    public static final String FIND_BY_NAME = "/find-by-name/{companyName}";
-    public static final String FIND_BY_LOCALIZATION = "/find-by-localization";
+    private final String CREATE = "/create";
+    private final String COMPANY_ID_RESULT = "/%s";
+    private final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
+    private final String FIND_BY_NAME = "/find-by-name/{companyName}";
+    private final String FIND_BY_LOCALIZATION = "/find-by-localization";
 
     private final CompanyService companyService;
     private final LocalizationService localizationService;
@@ -97,7 +97,7 @@ public class CompanyController {
     }
 
 
-    private Localization getLocalization(LocalizationDTO localizationDTO) {
+    public Localization getLocalization(LocalizationDTO localizationDTO) {
         return localizationService.findLocalizationByProvinceAndCity(
                 localizationDTO.getProvinceName(),
                 localizationDTO.getCityName()

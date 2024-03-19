@@ -18,5 +18,5 @@ public interface CompanyDAO {
 
     Company findCompanyById(int id);
 
-    List<Company> findCompanyByLocalization(Localization localizationDTO);
+    List<Company> findCompanyByLocalization(Localization localization);
 }

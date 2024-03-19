@@ -64,3 +64,12 @@ Content-Type: application/json
     {"language": "GREEK"}
   ]
 }
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-localization
+Content-Type: application/json
+
+{
+"provinceName": "Mazowieckie",
+"cityName": "Warszawa"
+}

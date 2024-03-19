@@ -40,6 +40,7 @@ JobAdvertisement
 [//]: # (-- skills findBySkills)
 [//]: # (-- skills findBySpecifiedSkills)
 [//]: # (-- form_of_work findByFormOfWork)
+[//]: # (-- localization findByLocalization)
 
 Company
 

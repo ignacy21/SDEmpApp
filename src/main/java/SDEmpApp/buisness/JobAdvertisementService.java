@@ -4,6 +4,7 @@ import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.JobAdvertisement;
+import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -66,5 +67,9 @@ public class JobAdvertisementService {
                         Arrays.stream(jobAdvert.getLanguages().split(";")).toList()
                 ))
                 .toList();
+    }
+
+    public List<JobAdvertisement> findByLocalization(Localization localization) {
+        return jobAdvertisementDAO.findByLocalization(localization);
     }
 }

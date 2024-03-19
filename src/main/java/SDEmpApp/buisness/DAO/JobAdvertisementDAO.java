@@ -1,6 +1,7 @@
 package SDEmpApp.buisness.DAO;
 
 import SDEmpApp.domain.JobAdvertisement;
+import SDEmpApp.domain.Localization;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface JobAdvertisementDAO {
     List<JobAdvertisement> findBySkill(String skillName);
 
     List<JobAdvertisement> findByLanguage(String language);
+
+    List<JobAdvertisement> findByLocalization(Localization localization);
 }
