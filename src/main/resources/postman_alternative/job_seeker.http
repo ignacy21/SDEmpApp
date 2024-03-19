@@ -2,17 +2,17 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew5",
-  "surname": "mikolajek5",
+  "name": "jannew9",
+  "surname": "mikolajek9",
   "isStudent": true,
-  "email": "emai5@gmail.com",
-  "git": "https://github.com/username5",
-  "phone": "+48 500 000 000",
-  "linkedin": "https://www.linkedin.com/in/name5-surname5-123/",
+  "email": "emai9@gmail.com",
+  "git": "https://github.com/username9",
+  "phone": "+48 900 000 000",
+  "linkedin": "https://www.linkedin.com/in/name9-surname9-123/",
   "cv": "cv",
   "languages": "FRENCH;GERMAN;ESTONIAN",
   "skills": "KOTLIN;GOLANG",
-  "b2bNormalFit": "B2B",
+  "b2bNormalFit": "FREELANCE",
   "formOfWork": "HYBRID",
   "experience": "0",
   "aboutMe": "aboutMe",
@@ -88,6 +88,16 @@ Content-Type: application/json
   "skills": [
     {"skill": "C"},
     {"skill": "CPP"}
+  ]
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/form-of-employment
+Content-Type: application/json
+
+{
+  "employmentTypeDTOs": [
+    {"employmentType": "FIT"}
   ]
 }
 ###

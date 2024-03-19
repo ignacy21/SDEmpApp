@@ -66,4 +66,15 @@ public class JobSeekerRepository implements JobSeekerDAO {
         List<JobSeekerEntity> jobSeekerEntities = jobSeekerJpaRepository.findBySkillsContaining(skill);
         return jobSeekerEntities.stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
     }
+
+    @Override
+    public List<JobSeeker> findAll() {
+        return jobSeekerJpaRepository.findAll().stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
+    }
+
+    @Override
+    public List<JobSeeker> findByFormOfEmployment(String formOfEmployment) {
+        List<JobSeekerEntity> byB2bNormalFit = jobSeekerJpaRepository.findByB2bNormalFit(formOfEmployment);
+        return byB2bNormalFit.stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
+    }
 }

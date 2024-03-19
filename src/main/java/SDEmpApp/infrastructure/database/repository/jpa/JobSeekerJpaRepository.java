@@ -12,6 +12,6 @@ public interface JobSeekerJpaRepository extends JpaRepository<JobSeekerEntity, I
     List<JobSeekerEntity> findByUsernameContaining(String username);
     List<JobSeekerEntity> findJobSeekerEntitiesByIsStudent(Boolean isStudent);
     List<JobSeekerEntity> findByLanguagesContaining(String language);
-
     List<JobSeekerEntity> findBySkillsContaining(String skill);
+    List<JobSeekerEntity> findByB2bNormalFit(String formOfEmployment);
 }

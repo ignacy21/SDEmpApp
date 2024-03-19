@@ -3,7 +3,6 @@ package SDEmpApp.buisness;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.buisness.DAO.JobSeekerDAO;
-import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.JobSeeker;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -22,7 +20,6 @@ public class JobSeekerService {
 
     @Transactional
     public JobSeeker createJobSeeker(JobSeeker jobSeeker) {
-        // TODO if jobSeeker's data is already existing
         return jobSeekerDAO.createJobSeeker(jobSeeker);
     }
 
@@ -89,6 +86,19 @@ public class JobSeekerService {
                         Arrays.stream(jobAdvert.getSkills()
                                 .split(";")).toList()
                 ))
+                .toList();
+
+    }
+
+    public List<JobSeeker> findAll() {
+        return jobSeekerDAO.findAll();
+    }
+
+    public List<JobSeeker> findByFormOfEmployment(List<String> formsOfEmployment) {
+        return formsOfEmployment.stream()
+                .map(jobSeekerDAO::findByFormOfEmployment)
+                .flatMap(List::stream)
+                .distinct()
                 .toList();
 
     }

@@ -22,7 +22,7 @@ JobSeeker
 [//]: # (-- languages findBySpecifiedLanguages)
 [//]: # (-- skills findBySkills)
 [//]: # (-- skills findBySpecifiedSkills)
--- b2b_normal_fit findByB2bNormalFit
+[//]: # (-- b2b_normal_fit findByB2bNormalFit)
 -- form_of_work findByFormOfWork
 -- experience findByExperience
 -- is_employed

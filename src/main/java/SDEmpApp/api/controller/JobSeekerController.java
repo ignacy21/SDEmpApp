@@ -1,18 +1,13 @@
 package SDEmpApp.api.controller;
 
-import SDEmpApp.api.dto.JobAdvertisementDTO;
-import SDEmpApp.api.dto.JobAdvertisementDTOs;
 import SDEmpApp.api.dto.JobSeekerDTO;
 import SDEmpApp.api.dto.JobSeekerDTOs;
-import SDEmpApp.api.dto.auxiliary.LanguageDTO;
-import SDEmpApp.api.dto.auxiliary.LanguageDTOs;
-import SDEmpApp.api.dto.auxiliary.SkillDTO;
-import SDEmpApp.api.dto.auxiliary.SkillDTOs;
+import SDEmpApp.api.dto.auxiliary.*;
+import SDEmpApp.api.dto.auxiliary.enums.EmploymentType;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
 import SDEmpApp.buisness.JobSeekerService;
-import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.JobSeeker;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -40,9 +35,10 @@ public class JobSeekerController {
     private final String IS_STUDENT = "/isStudent/{isStudent}";
     private final String BY_LANGUAGES = "/languages";
     private final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
-    private final String BY_SPECIFIED_SKILLS = "/specified-skills";
-
     private static final String BY_SKILLS = "/skills";
+    private final String BY_SPECIFIED_SKILLS = "/specified-skills";
+    private final String BY_FORM_OF_EMPLOYMENT = "/form-of-employment";
+
 
     private final JobSeekerService jobSeekerService;
     private final JobSeekerMapper jobSeekerMapper;
@@ -92,10 +88,11 @@ public class JobSeekerController {
     public JobSeekerDTOs findByUsername(
             @PathVariable String username
     ) {
-        List<JobSeeker> jobSeekers =  jobSeekerService.findByUsername(username);
+        List<JobSeeker> jobSeekers = jobSeekerService.findByUsername(username);
         List<JobSeekerDTO> jobSeekerDTOs = jobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }
+
     @GetMapping(value = FIND + IS_STUDENT, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobSeekerDTOs findIfIsStudent(
             @PathVariable Boolean isStudent
@@ -104,6 +101,7 @@ public class JobSeekerController {
         List<JobSeekerDTO> jobSeekerDTOs = jobSeekersThatAreStudents.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }
+
     @GetMapping(value = FIND + BY_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobSeekerDTOs findByLanguages(
             @Valid @RequestBody LanguageDTOs languageDTOs
@@ -113,6 +111,7 @@ public class JobSeekerController {
         List<JobSeekerDTO> list = byLanguages.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(list);
     }
+
     @GetMapping(value = FIND + BY_SPECIFIED_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobSeekerDTOs findBySpecifiedLanguages(
             @Valid @RequestBody LanguageDTOs languageDTOs
@@ -148,5 +147,25 @@ public class JobSeekerController {
         return skillDTOs.getSkills().stream()
                 .map(SkillDTO::getSkill)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping(value = FIND + BY_FORM_OF_EMPLOYMENT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findByFormOfEmployment(
+            @Valid @RequestBody EmploymentTypeDTOs employmentTypeDTOs
+    ) {
+        if (employmentTypeDTOs.getEmploymentTypeDTOs().size() == 1) {
+            if (employmentTypeDTOs.getEmploymentTypeDTOs().getFirst().getEmploymentType() == EmploymentType.FIT) {
+                List<JobSeekerDTO> allJobSeekers = jobSeekerService.findAll().stream()
+                        .map(jobSeekerMapper::mapToDTO).toList();
+                return JobSeekerDTOs.of(allJobSeekers);
+            }
+        }
+        List<String> list = employmentTypeDTOs.getEmploymentTypeDTOs().stream()
+                .map(EmploymentTypeDTO::getEmploymentType)
+                .map(EmploymentType::name)
+                .toList();
+        List<JobSeeker> findJobSeekers = jobSeekerService.findByFormOfEmployment(list);
+        List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(jobSeekerDTOs);
     }
 }

@@ -19,4 +19,8 @@ public interface JobSeekerDAO {
     List<JobSeeker> findByLanguage(String language);
 
     List<JobSeeker> findBySkill(String skill);
+
+    List<JobSeeker> findAll();
+
+    List<JobSeeker> findByFormOfEmployment(String formOfEmployment);
 }
