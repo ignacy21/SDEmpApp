@@ -15,4 +15,6 @@ public interface JobSeekerDAO {
     List<JobSeeker> findJobSeekerByUsername(String username);
 
     List<JobSeeker> findStudents(Boolean isStudent);
+
+    List<JobSeeker> findByLanguage(String language);
 }

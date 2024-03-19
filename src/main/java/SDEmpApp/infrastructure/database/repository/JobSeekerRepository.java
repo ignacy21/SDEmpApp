@@ -54,4 +54,10 @@ public class JobSeekerRepository implements JobSeekerDAO {
         List<JobSeekerEntity> studentEntities = jobSeekerJpaRepository.findJobSeekerEntitiesByIsStudent(isStudent);
         return studentEntities.stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
     }
+
+    @Override
+    public List<JobSeeker> findByLanguage(String language) {
+        List<JobSeekerEntity> byLanguage =  jobSeekerJpaRepository.findByLanguagesContaining(language);
+        return byLanguage.stream().map(jobSeekerEntityMapper::mapFromEntity).toList();
+    }
 }

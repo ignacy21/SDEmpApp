@@ -1,9 +1,15 @@
 package SDEmpApp.api.controller;
 
+import SDEmpApp.api.dto.JobAdvertisementDTO;
+import SDEmpApp.api.dto.JobAdvertisementDTOs;
 import SDEmpApp.api.dto.JobSeekerDTO;
 import SDEmpApp.api.dto.JobSeekerDTOs;
+import SDEmpApp.api.dto.auxiliary.LanguageDTO;
+import SDEmpApp.api.dto.auxiliary.LanguageDTOs;
+import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
 import SDEmpApp.buisness.JobSeekerService;
+import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.JobSeeker;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +34,8 @@ public class JobSeekerController {
     public static final String FIND = "/find";
     public static final String BY_USERNAME = "/by-username/{username}";
     public static final String IS_STUDENT = "/isStudent/{isStudent}";
+    public static final String BY_LANGUAGES = "/languages";
+    public static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
 
     private final JobSeekerService jobSeekerService;
     private final JobSeekerMapper jobSeekerMapper;
@@ -88,5 +96,23 @@ public class JobSeekerController {
         List<JobSeeker> jobSeekersThatAreStudents = jobSeekerService.findStudents(isStudent);
         List<JobSeekerDTO> jobSeekerDTOs = jobSeekersThatAreStudents.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
+    }
+    @GetMapping(value = FIND + BY_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findByLanguages(
+            @Valid @RequestBody LanguageDTOs languageDTOs
+    ) {
+        List<Language> languages = languageDTOs.getLanguageDTOs().stream().map(LanguageDTO::getLanguage).toList();
+        List<JobSeeker> byLanguages = jobSeekerService.findByLanguages(languages);
+        List<JobSeekerDTO> list = byLanguages.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(list);
+    }
+    @GetMapping(value = FIND + BY_SPECIFIED_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findBySpecifiedLanguages(
+            @Valid @RequestBody LanguageDTOs languageDTOs
+    ) {
+        List<Language> languages = languageDTOs.getLanguageDTOs().stream().map(LanguageDTO::getLanguage).toList();
+        List<JobSeeker> byLanguages = jobSeekerService.findBySpecifiedLanguages(languages);
+        List<JobSeekerDTO> list = byLanguages.stream().map(jobSeekerMapper::mapToDTO).toList();
+        return JobSeekerDTOs.of(list);
     }
 }

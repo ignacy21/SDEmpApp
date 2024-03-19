@@ -2,15 +2,15 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew13",
-  "surname": "mikolajek13",
-  "isStudent": false,
-  "email": "emai13@gmail.com",
-  "git": "https://github.com/username13",
-  "phone": "+48 130 000 000",
-  "linkedin": "https://www.linkedin.com/in/name13-surname13-123/",
+  "name": "jannew4",
+  "surname": "mikolajek4",
+  "isStudent": true,
+  "email": "emai4@gmail.com",
+  "git": "https://github.com/username4",
+  "phone": "+48 400 000 000",
+  "linkedin": "https://www.linkedin.com/in/name4-surname4-123/",
   "cv": "cv",
-  "languages": "languages",
+  "languages": "FRENCH;GERMAN;ESTONIAN",
   "skills": "skills",
   "b2bNormalFit": "B2B",
   "formOfWork": "HYBRID",
@@ -41,11 +41,31 @@ Content-Type: application/json
   "aboutMe": "new aboutMe",
   "lookingForJob": false
 }
-
 ###
 
 GET http://localhost:7070/SDEmpApp/job-seeker/find/by-username/jan mikolajek new
-
 ###
 
 GET http://localhost:7070/SDEmpApp/job-seeker/find/isStudent/false
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/languages
+Content-Type: application/json
+
+{
+  "languageDTOs": [
+    {"language": "NORWEGIAN"},
+    {"language": "POLISH"}
+  ]
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/specified-languages
+Content-Type: application/json
+
+{
+  "languageDTOs": [
+    {"language": "NORWEGIAN"}
+  ]
+}
+###

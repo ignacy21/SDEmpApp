@@ -18,7 +18,8 @@ JobSeeker
 
 [//]: # (-- username findByNameAndSurname)
 [//]: # (-- is _student)
--- languages findByLanguages
+[//]: # (-- languages findByLanguages)
+[//]: # (-- languages findBySpecifiedLanguages)
 -- skills findBySkills
 -- b2b_normal_fit findByB2bNormalFit
 -- form_of_work findByFormOfWork
@@ -35,6 +36,7 @@ JobAdvertisement
 
 [//]: # (-- languages findByLanguages)
 [//]: # (-- skills findBySkills)
+[//]: # (-- skills findBySpecifiedSkills)
 [//]: # (-- form_of_work findByFormOfWork)
 
 Company
