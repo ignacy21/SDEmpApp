@@ -129,4 +129,8 @@ public class JobSeekerService {
                 .flatMap(List::stream)
                 .toList();
     }
+
+    public List<JobSeeker> findIfIsEmployed(Boolean isEmployed) {
+        return jobSeekerDAO.findIfIsEmployed(isEmployed);
+    }
 }

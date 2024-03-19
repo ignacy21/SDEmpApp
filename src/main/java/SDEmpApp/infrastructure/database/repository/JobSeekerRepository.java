@@ -93,4 +93,11 @@ public class JobSeekerRepository implements JobSeekerDAO {
                 .map(jobSeekerEntityMapper::mapFromEntity)
                 .toList();
     }
+
+    @Override
+    public List<JobSeeker> findIfIsEmployed(Boolean isEmployed) {
+        return jobSeekerJpaRepository.findJobSeekerEntitiesByIsEmployed(isEmployed).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
+    }
 }

@@ -2,13 +2,13 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew7",
-  "surname": "mikolajek7",
+  "name": "jannew8",
+  "surname": "mikolajek8",
   "isStudent": true,
-  "email": "emai7@gmail.com",
-  "git": "https://github.com/username7",
-  "phone": "+48 700 000 000",
-  "linkedin": "https://www.linkedin.com/in/name7-surname7-123/",
+  "email": "emai8@gmail.com",
+  "git": "https://github.com/username8",
+  "phone": "+48 800 000 000",
+  "linkedin": "https://www.linkedin.com/in/name8-surname8-123/",
   "cv": "cv",
   "languages": "FRENCH;GERMAN;ESTONIAN",
   "skills": "KOTLIN;GOLANG",
@@ -16,7 +16,7 @@ Content-Type: application/json
   "formOfWork": "HYBRID",
   "experience": "1 > 2",
   "aboutMe": "aboutMe",
-  "lookingForJob": false
+  "lookingForJob": true
 }
 
 ###
@@ -112,11 +112,13 @@ Content-Type: application/json
 }
 ###
 
-
 GET http://localhost:7070/SDEmpApp/job-seeker/find/experience
 Content-Type: application/json
 
     {
       "experience": "MIN_2"
     }
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/isEmployed/true
 ###

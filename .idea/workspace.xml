@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="writing findByFormOfWork in JobSeekerController - http GET method&#10;one little change in findByFormOfEmployment (adding FIT)">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="writing findByExperience in JobSeekerController - http GET method">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/enums/Experience.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/enums/Experience.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobSeekerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobSeekerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java" afterDir="false" />
@@ -136,6 +135,7 @@
     "HTTP Request.job_seeker | #1.executor": "Run",
     "HTTP Request.job_seeker | #10.executor": "Run",
     "HTTP Request.job_seeker | #11.executor": "Run",
+    "HTTP Request.job_seeker | #12.executor": "Run",
     "HTTP Request.job_seeker | #2.executor": "Run",
     "HTTP Request.job_seeker | #3.executor": "Run",
     "HTTP Request.job_seeker | #4.executor": "Run",
@@ -218,14 +218,14 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_seeker | #11">
+  <component name="RunManager" selected="HTTP Request.job_seeker | #12">
     <configuration name="job_seeker | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="job_seeker | #10" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="10" requestIdentifier="#10" runType="Run single request">
+    <configuration name="job_seeker | #11" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="11" requestIdentifier="#11" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="job_seeker | #11" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="11" requestIdentifier="#11" runType="Run single request">
+    <configuration name="job_seeker | #12" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="12" requestIdentifier="#12" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="job_seeker | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="2" requestIdentifier="#2" runType="Run single request">
@@ -267,8 +267,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.job_seeker | #10" />
       <item itemvalue="HTTP Request.job_seeker | #11" />
+      <item itemvalue="HTTP Request.job_seeker | #12" />
       <item itemvalue="HTTP Request.job_seeker | #2" />
       <item itemvalue="HTTP Request.job_seeker | #1" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
@@ -276,11 +276,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.job_seeker | #11" />
-        <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_seeker | #12" />
         <item itemvalue="HTTP Request.job_seeker | #1" />
+        <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_seeker | #11" />
         <item itemvalue="HTTP Request.job_seeker | #2" />
-        <item itemvalue="HTTP Request.job_seeker | #10" />
       </list>
     </recent_temporary>
   </component>
@@ -319,7 +319,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="19584000" />
+      <workItem from="1710785031562" duration="21368000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -418,14 +418,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00023" summary="adding JobAdvertisementController&#10;&gt; correcting Localization holding in flyway_migrations and in Entity&#10;&gt; correcting mappers&#10;&gt; checking if localization data take place in LocalizationRepository form now on">
-      <option name="closed" value="true" />
-      <created>1709998690272</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1709998690272</updated>
     </task>
     <task id="LOCAL-00024" summary="&gt; correcting migration file&#10;&gt; fixing GlobalExceptionHandler&#10;&gt; adding job_advertisement.http&#10;&gt; fixing few additional problem&#10;LEFT WITH: 404 error">
       <option name="closed" value="true" />
@@ -699,7 +691,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710848237387</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="writing findByExperience in JobSeekerController - http GET method">
+      <option name="closed" value="true" />
+      <created>1710851168298</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1710851168298</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="minor changes, optimise imports" />
     <MESSAGE value="beginning to change way of storing Localization" />
     <MESSAGE value="removing Localization mapping from mappers" />
     <MESSAGE value="correcting few details - company creation and update works fine" />
@@ -742,22 +741,10 @@
     <MESSAGE value="writing findBySkills &amp; findBySpecifiedSkills methods in JobSeekerController - http GET methods" />
     <MESSAGE value="writing findByFormOfEmployment in JobSeekerController - http GET method" />
     <MESSAGE value="writing findByFormOfWork in JobSeekerController - http GET method&#10;one little change in findByFormOfEmployment (adding FIT)" />
-    <option name="LAST_COMMIT_MESSAGE" value="writing findByFormOfWork in JobSeekerController - http GET method&#10;one little change in findByFormOfEmployment (adding FIT)" />
+    <MESSAGE value="writing findByExperience in JobSeekerController - http GET method" />
+    <option name="LAST_COMMIT_MESSAGE" value="writing findByExperience in JobSeekerController - http GET method" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java</url>
-          <line>116</line>
-          <properties class="SDEmpApp.buisness.JobSeekerService" method="findByExperience">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="SDEmpApp.infrastructure.database.entities.CompanyEntity" memberName="password" />

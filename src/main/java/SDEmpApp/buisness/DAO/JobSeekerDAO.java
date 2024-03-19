@@ -27,4 +27,6 @@ public interface JobSeekerDAO {
     List<JobSeeker> findByFormOfWork(String formOfWork);
 
     List<JobSeeker> findByExperience(String experience);
+
+    List<JobSeeker> findIfIsEmployed(Boolean isEmployed);
 }
