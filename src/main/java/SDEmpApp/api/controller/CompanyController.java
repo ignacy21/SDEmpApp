@@ -35,12 +35,11 @@ public class CompanyController {
 
     private final CompanyMapper companyMapper;
 
-    @PostMapping(CREATE)
+    @PostMapping(value = CREATE)
     public ResponseEntity<CompanyDTO> registerAsCompany(
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
-        LocalizationDTO localizationDTO = companyDTO.getLocalization();
-        Localization findLocalization = getLocalization(localizationDTO);
+        Localization findLocalization = getLocalization(companyDTO.getLocalization());
 
         Company company = Company.builder()
                 .name(companyDTO.getName())
@@ -56,19 +55,18 @@ public class CompanyController {
                 .build();
     }
 
-    @PutMapping(UPDATE_COMPANY_DATA)
+    @PutMapping(value = UPDATE_COMPANY_DATA)
     public ResponseEntity<CompanyDTO> updateCompanyData(
             @PathVariable Integer companyId,
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
-        LocalizationDTO localizationDTO = companyDTO.getLocalization();
-        Localization findLocalization = getLocalization(localizationDTO);
-
         Company existingCompany = companyService.findCompanyById(companyId);
-        existingCompany.setName(companyDTO.getName());
-        existingCompany.setDescription(companyDTO.getDescription());
-        existingCompany.setEmail(companyDTO.getEmail());
-        existingCompany.setLocalization(findLocalization);
+        Company mappedCompanyForUpdate = companyMapper.mapDTOForUpdate(companyDTO, existingCompany);
+
+        if (companyDTO.getLocalization() != null) {
+            Localization findLocalization = getLocalization(companyDTO.getLocalization());
+            mappedCompanyForUpdate.setLocalization(findLocalization);
+        }
 
         companyService.updateCompany(existingCompany);
         return ResponseEntity.ok().build();
