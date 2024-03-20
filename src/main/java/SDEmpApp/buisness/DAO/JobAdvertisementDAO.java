@@ -16,4 +16,10 @@ public interface JobAdvertisementDAO {
     List<JobAdvertisement> findByLanguage(String language);
 
     List<JobAdvertisement> findByLocalization(Localization localization);
+
+    JobAdvertisement findById(Integer jobAdvertisementId);
+
+    default JobAdvertisement updateJobAdvertisement(JobAdvertisement jobAdvertisement) {
+        return createJobAdvertisement(jobAdvertisement);
+    }
 }

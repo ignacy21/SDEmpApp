@@ -4,11 +4,13 @@ import SDEmpApp.api.dto.CompanyDTO;
 import SDEmpApp.api.dto.JobAdvertisementDTO;
 import SDEmpApp.domain.Company;
 import SDEmpApp.domain.JobAdvertisement;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(
+        componentModel = "spring",
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
+)
 public interface JobAdvertisementMapper {
 
     JobAdvertisement mapFromDTO(JobAdvertisementDTO jobAdvertisement);
@@ -19,4 +21,7 @@ public interface JobAdvertisementMapper {
 
     @Mapping(target = "jobAdvertisements", ignore = true)
     CompanyDTO companyToCompanyDTO(Company company);
+
+    @Mapping(target = "localization", ignore = true)
+    JobAdvertisement mapJobAdvertisementDTOForUpdate(JobAdvertisementDTO jobAdvertisementDTO, @MappingTarget JobAdvertisement jobAdvertisement);
 }

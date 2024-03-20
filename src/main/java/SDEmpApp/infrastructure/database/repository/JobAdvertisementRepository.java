@@ -25,11 +25,7 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
 
     @Override
     public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) {
-        jobAdvertisementEntityMapper.mapToEntity(jobAdvertisement);
-
         JobAdvertisementEntity jobAdvertEntity = jobAdvertisementEntityMapper.mapToEntity(jobAdvertisement);
-
-        jobAdvertEntity.setCompany(jobAdvertEntity.getCompany());
 
         JobAdvertisementEntity jobAdvertEntityCreated = jobAdvertisementJpaRepository.saveAndFlush(jobAdvertEntity);
         jobAdvertisement.setJobAdvertisementId(jobAdvertEntityCreated.getJobAdvertisementId());
@@ -61,4 +57,15 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
         );
         return byLocalization.stream().map(jobAdvertisementEntityMapper::mapFromEntity).toList();
     }
+
+    @Override
+    public JobAdvertisement findById(Integer jobAdvertisementId) {
+        JobAdvertisementEntity jobAdvertisementEntity = jobAdvertisementJpaRepository
+                .findByJobAdvertisementId(jobAdvertisementId).orElseThrow(
+                        () -> new RuntimeException("there is no such JobAdvertisement with id[%s]"
+                        .formatted(jobAdvertisementId)));
+
+        return jobAdvertisementEntityMapper.mapFromEntity(jobAdvertisementEntity);
+    }
+
 }

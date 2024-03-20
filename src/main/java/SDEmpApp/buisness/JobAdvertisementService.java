@@ -72,4 +72,12 @@ public class JobAdvertisementService {
     public List<JobAdvertisement> findByLocalization(Localization localization) {
         return jobAdvertisementDAO.findByLocalization(localization);
     }
+
+    public JobAdvertisement findById(Integer jobAdvertisementId) {
+        return jobAdvertisementDAO.findById(jobAdvertisementId);
+    }
+
+    public JobAdvertisement updateJobAdvertisement(JobAdvertisement jobAdvertisement) {
+        return jobAdvertisementDAO.updateJobAdvertisement(jobAdvertisement);
+    }
 }

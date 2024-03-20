@@ -29,15 +29,16 @@ import java.util.stream.Collectors;
 public class JobAdvertisementController {
 
     public static final String JOB_ADV = "/job-advertisement";
-    private static final String CREATE_JOB_ADVERT = "/create/{companyId}";
+    private final String CREATE_JOB_ADVERT = "/create/{companyId}";
+    public static final String UPDATE = "/update/{jobAdvertisementId}";
     private static final String JOB_ADVERT_RESULT = "/%s";
-    private static final String FIND = "/find";
-    private static final String BY_FORM_OF_WORK = "/form-of-work";
-    private static final String BY_SKILLS = "/skills";
-    private static final String BY_SPECIFIED_SKILLS = "/specified-skills";
-    private static final String BY_LANGUAGES = "/languages";
-    private static final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
-    private static final String BY_LOCALIZATION = "/by-localization";
+    private final String FIND = "/find";
+    private final String BY_FORM_OF_WORK = "/form-of-work";
+    private final String BY_SKILLS = "/skills";
+    private final String BY_SPECIFIED_SKILLS = "/specified-skills";
+    private final String BY_LANGUAGES = "/languages";
+    private final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
+    private final String BY_LOCALIZATION = "/by-localization";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -47,7 +48,7 @@ public class JobAdvertisementController {
 
     private final JobAdvertisementMapper jobAdvertisementMapper;
 
-    @PostMapping(CREATE_JOB_ADVERT)
+    @PostMapping(value = CREATE_JOB_ADVERT)
     public ResponseEntity<JobAdvertisementDTO> createJobAdvertisement(
             @PathVariable Integer companyId,
             @Valid @RequestBody JobAdvertisementDTO jobAdvertisementDTO
@@ -68,6 +69,25 @@ public class JobAdvertisementController {
         return ResponseEntity
                 .created(URI.create(JOB_ADV + JOB_ADVERT_RESULT.formatted(jobAdvertCreated.getJobAdvertisementId())))
                 .build();
+    }
+
+    @PutMapping(value = UPDATE)
+    public ResponseEntity<?> updateJobAdvertisement(
+            @PathVariable Integer jobAdvertisementId,
+            @Valid @RequestBody JobAdvertisementDTO jobAdvertisementDTO
+    ) {
+        JobAdvertisement existingAdvertisement = jobAdvertisementService.findById(jobAdvertisementId);
+        if (jobAdvertisementDTO.getLocalization() != null) {
+            Localization localization = companyController.getLocalization(jobAdvertisementDTO.getLocalization());
+            existingAdvertisement.setLocalization(localization);
+        }
+        JobAdvertisement jobAdvertisement = jobAdvertisementMapper.mapJobAdvertisementDTOForUpdate(
+                jobAdvertisementDTO,
+                existingAdvertisement
+        );
+
+        JobAdvertisement jobAdvertisement1 = jobAdvertisementService.updateJobAdvertisement(jobAdvertisement);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)

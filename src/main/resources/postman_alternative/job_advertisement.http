@@ -1,4 +1,4 @@
-POST http://localhost:7070/SDEmpApp/job-advertisement/create/4
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/3
 Content-Type: application/json
 
 {
@@ -10,6 +10,21 @@ Content-Type: application/json
   "duties": "all duties",
   "formOfWork": "HYBRID",
   "skillsNeeded": ".NET"
+}
+###
+
+PUT http://localhost:7070/SDEmpApp/job-advertisement/update/3
+Content-Type: application/json
+
+{
+  "localization": {
+    "provinceName": "Mazowieckie",
+    "cityName": "Warszawa"
+  },
+  "languages": "GREEK",
+  "duties": "all duties",
+  "formOfWork": "HYBRID",
+  "skillsNeeded": "JAVA"
 }
 ###
 
