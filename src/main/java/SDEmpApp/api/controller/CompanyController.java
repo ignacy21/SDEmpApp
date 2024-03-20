@@ -25,7 +25,7 @@ public class CompanyController {
 
     public static final String COMPANY = "/company";
     private final String CREATE = "/create";
-    private final String COMPANY_ID_RESULT = "/%s";
+    private static final String COMPANY_ID_RESULT = "/%s";
     private final String UPDATE_COMPANY_DATA = "/edit-data/{companyId}";
     private final String FIND_BY_NAME = "/find-by-name/{companyName}";
     private final String FIND_BY_LOCALIZATION = "/find-by-localization";
@@ -39,7 +39,7 @@ public class CompanyController {
     public ResponseEntity<CompanyDTO> registerAsCompany(
             @Valid @RequestBody CompanyDTO companyDTO
     ) {
-        Localization findLocalization = getLocalization(companyDTO.getLocalization());
+        Localization findLocalization = localizationService.findLocalization(companyDTO.getLocalization());
 
         Company company = Company.builder()
                 .name(companyDTO.getName())
@@ -64,7 +64,7 @@ public class CompanyController {
         Company mappedCompanyForUpdate = companyMapper.mapDTOForUpdate(companyDTO, existingCompany);
 
         if (companyDTO.getLocalization() != null) {
-            Localization findLocalization = getLocalization(companyDTO.getLocalization());
+            Localization findLocalization = localizationService.findLocalization(companyDTO.getLocalization());
             mappedCompanyForUpdate.setLocalization(findLocalization);
         }
 
@@ -87,18 +87,11 @@ public class CompanyController {
     public CompanyDTOs findCompanyByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
     ) {
-        Localization findLocalization = getLocalization(localizationDTO);
+        Localization findLocalization = localizationService.findLocalization(localizationDTO);
         List<Company> company = companyService.findByLocalization(findLocalization);
 
         List<CompanyDTO> companiesDTOS = company.stream().map(companyMapper::mapToDTO).toList();
         return CompanyDTOs.of(companiesDTOS);
     }
 
-
-    public Localization getLocalization(LocalizationDTO localizationDTO) {
-        return localizationService.findLocalizationByProvinceAndCity(
-                localizationDTO.getProvinceName(),
-                localizationDTO.getCityName()
-        );
-    }
 }

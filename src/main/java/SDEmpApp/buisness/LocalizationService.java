@@ -1,5 +1,6 @@
 package SDEmpApp.buisness;
 
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.buisness.DAO.LocalizationDAO;
 import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
@@ -16,8 +17,14 @@ public class LocalizationService {
     public List<Localization> findAllCities() {
         return localizationDAO.findAllLocalizations();
     }
+    public Localization findLocalization(LocalizationDTO localizationDTO) {
+        return findLocalizationByProvinceAndCity(
+                localizationDTO.getProvinceName(),
+                localizationDTO.getCityName()
+        );
+    }
 
-    public Localization findLocalizationByProvinceAndCity(String province, String city) {
+    private Localization findLocalizationByProvinceAndCity(String province, String city) {
         return localizationDAO.findLocalizationByProvinceAndCity(province, city);
     }
 

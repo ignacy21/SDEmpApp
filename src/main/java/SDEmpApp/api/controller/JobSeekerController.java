@@ -10,6 +10,7 @@ import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
 import SDEmpApp.buisness.JobSeekerService;
+import SDEmpApp.buisness.LocalizationService;
 import SDEmpApp.domain.JobSeeker;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
@@ -30,7 +31,7 @@ import java.util.stream.Collectors;
 public class JobSeekerController {
 
     public static final String JOB_SEEKER = "/job-seeker";
-    private final String JOB_SEEKER_RESULT = "/%s";
+    private static final String JOB_SEEKER_RESULT = "/%s";
     private final String CRETE = "/create";
     private final String UPDATE = "/update-data/{jobSeekerId}";
     private final String FIND = "/find";
@@ -49,16 +50,16 @@ public class JobSeekerController {
 
 
     private final JobSeekerService jobSeekerService;
-    private final CompanyController companyController;
+    private final LocalizationService localizationService;
 
     private final JobSeekerMapper jobSeekerMapper;
 
 
-    @PostMapping(CRETE)
+    @PostMapping(value = CRETE)
     public ResponseEntity<?> createJobSeeker(
             @Valid @RequestBody JobSeekerDTO jobSeekerDTO
     ) {
-        Localization localization = companyController.getLocalization(jobSeekerDTO.getLocalization());
+        Localization localization = localizationService.findLocalization(jobSeekerDTO.getLocalization());
         JobSeeker jobSeeker = jobSeekerMapper.mapFromDTO(jobSeekerDTO);
         JobSeeker createdJobSeeker = jobSeekerService.createJobSeeker(
                 jobSeeker.withLocalization(localization)
@@ -69,7 +70,7 @@ public class JobSeekerController {
                 .build();
     }
 
-    @PutMapping(UPDATE)
+    @PutMapping(value = UPDATE)
     public ResponseEntity<?> updateJobSeekerData(
             @PathVariable Integer jobSeekerId,
             @Valid @RequestBody JobSeekerDTO jobSeekerDTO
@@ -77,7 +78,7 @@ public class JobSeekerController {
         JobSeeker jobSeekerFind = jobSeekerService.findById(jobSeekerId);
         JobSeeker mappedJobSeekerForUpdate = jobSeekerMapper.mapDTOForUpdate(jobSeekerDTO, jobSeekerFind);
         if (jobSeekerDTO.getLocalization() != null) {
-            Localization localization = companyController.getLocalization(jobSeekerDTO.getLocalization());
+            Localization localization = localizationService.findLocalization(jobSeekerDTO.getLocalization());
             mappedJobSeekerForUpdate.setLocalization(localization);
         }
 
@@ -225,7 +226,7 @@ public class JobSeekerController {
     public JobSeekerDTOs findByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
     ) {
-        Localization localization = companyController.getLocalization(localizationDTO);
+        Localization localization = localizationService.findLocalization(localizationDTO);
         List<JobSeeker> jobSeekers = jobSeekerService.findByLocalization(localization);
         return JobSeekerDTOs.of(jobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList());
     }

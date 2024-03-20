@@ -15,6 +15,7 @@ import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RestController
 @RequestMapping(JobAdvertisementController.JOB_ADV)
 @RequiredArgsConstructor
@@ -44,8 +46,6 @@ public class JobAdvertisementController {
     private final CompanyService companyService;
     private final LocalizationService localizationService;
 
-    private final CompanyController companyController;
-
     private final JobAdvertisementMapper jobAdvertisementMapper;
 
     @PostMapping(value = CREATE_JOB_ADVERT)
@@ -53,11 +53,7 @@ public class JobAdvertisementController {
             @PathVariable Integer companyId,
             @Valid @RequestBody JobAdvertisementDTO jobAdvertisementDTO
     ) {
-        LocalizationDTO localizationDTO = jobAdvertisementDTO.getLocalization();
-        Localization findLocalizationAdv = localizationService.findLocalizationByProvinceAndCity(
-                localizationDTO.getProvinceName(),
-                localizationDTO.getCityName()
-        );
+        Localization findLocalizationAdv = localizationService.findLocalization(jobAdvertisementDTO.getLocalization());
 
         Company findCompany = companyService.findCompanyById(companyId);
         JobAdvertisement jobAdvertisement = jobAdvertisementMapper.mapFromDTO(jobAdvertisementDTO);
@@ -78,7 +74,7 @@ public class JobAdvertisementController {
     ) {
         JobAdvertisement existingAdvertisement = jobAdvertisementService.findById(jobAdvertisementId);
         if (jobAdvertisementDTO.getLocalization() != null) {
-            Localization localization = companyController.getLocalization(jobAdvertisementDTO.getLocalization());
+            Localization localization = localizationService.findLocalization(jobAdvertisementDTO.getLocalization());
             existingAdvertisement.setLocalization(localization);
         }
         JobAdvertisement jobAdvertisement = jobAdvertisementMapper.mapJobAdvertisementDTOForUpdate(
@@ -86,7 +82,8 @@ public class JobAdvertisementController {
                 existingAdvertisement
         );
 
-        JobAdvertisement jobAdvertisement1 = jobAdvertisementService.updateJobAdvertisement(jobAdvertisement);
+        JobAdvertisement updatedJobAdvertisement = jobAdvertisementService.updateJobAdvertisement(jobAdvertisement);
+        log.info("updating jobAdvertisement: id[%s]".formatted(updatedJobAdvertisement.getJobAdvertisementId()));
         return ResponseEntity.ok().build();
     }
 
@@ -146,7 +143,7 @@ public class JobAdvertisementController {
     public JobAdvertisementDTOs findJobAdvertisementByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
     ) {
-        Localization findLocalization = companyController.getLocalization(localizationDTO);
+        Localization findLocalization = localizationService.findLocalization(localizationDTO);
         List<JobAdvertisement> jobAdvertisements = jobAdvertisementService.findByLocalization(findLocalization);
 
         List<JobAdvertisementDTO> companiesDTOS = jobAdvertisements.stream()
