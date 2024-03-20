@@ -1,6 +1,7 @@
 package SDEmpApp.infrastructure.database.repository.jpa;
 
 import SDEmpApp.infrastructure.database.entities.JobSeekerEntity;
+import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +19,5 @@ public interface JobSeekerJpaRepository extends JpaRepository<JobSeekerEntity, I
     List<JobSeekerEntity> findByExperience(String experience);
     List<JobSeekerEntity> findJobSeekerEntitiesByIsEmployed(Boolean isEmployed);
     List<JobSeekerEntity> findJobSeekerEntitiesByLookingForJob(Boolean lookingForJob);
+    List<JobSeekerEntity> findByLocalization(LocalizationEntity localization);
 }

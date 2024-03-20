@@ -6,6 +6,7 @@ import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.buisness.DAO.JobSeekerDAO;
 import SDEmpApp.domain.JobSeeker;
+import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -136,5 +137,9 @@ public class JobSeekerService {
 
     public List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob) {
         return jobSeekerDAO.findIfIsLookingForJob(isLookingForJob);
+    }
+
+    public List<JobSeeker> findByLocalization(Localization localization) {
+        return jobSeekerDAO.findByLocalization(localization);
     }
 }

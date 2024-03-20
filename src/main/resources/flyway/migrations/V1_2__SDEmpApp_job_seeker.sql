@@ -18,7 +18,11 @@ CREATE TABLE job_seeker
     about_me        TEXT,
     is_employed     BOOLEAN                                                                     NOT NULL,
     looking_for_job BOOLEAN                                                                     NOT NULL,
+    localization_id INT                                                                         NOT NULL,
     PRIMARY KEY (job_seeker_id),
+    CONSTRAINT fk_job_seeker_localization
+        FOREIGN KEY (localization_id)
+            REFERENCES localization (localization_id),
     CONSTRAINT unique_job_seeker_phone
         UNIQUE (phone),
     CONSTRAINT unique_job_seeker_email

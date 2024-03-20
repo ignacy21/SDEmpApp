@@ -34,7 +34,7 @@ public class CompanyEntity {
     @Column(name = "password")
     private String password;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "localization_id")
     private LocalizationEntity localization;
 

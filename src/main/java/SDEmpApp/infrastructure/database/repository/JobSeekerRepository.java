@@ -2,9 +2,11 @@ package SDEmpApp.infrastructure.database.repository;
 
 import SDEmpApp.buisness.DAO.JobSeekerDAO;
 import SDEmpApp.domain.JobSeeker;
+import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.JobSeekerEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.JobSeekerJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.JobSeekerEntityMapper;
+import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +18,9 @@ import java.util.Optional;
 public class JobSeekerRepository implements JobSeekerDAO {
 
     private JobSeekerJpaRepository jobSeekerJpaRepository;
+
     private JobSeekerEntityMapper jobSeekerEntityMapper;
+    private LocalizationEntityMapper localizationEntityMapper;
 
     @Override
     public JobSeeker createJobSeeker(JobSeeker jobSeeker) {
@@ -104,6 +108,13 @@ public class JobSeekerRepository implements JobSeekerDAO {
     @Override
     public List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob) {
         return jobSeekerJpaRepository.findJobSeekerEntitiesByLookingForJob(isLookingForJob).stream()
+                .map(jobSeekerEntityMapper::mapFromEntity)
+                .toList();
+    }
+
+    @Override
+    public List<JobSeeker> findByLocalization(Localization localization) {
+        return jobSeekerJpaRepository.findByLocalization(localizationEntityMapper.mapToEntity(localization)).stream()
                 .map(jobSeekerEntityMapper::mapFromEntity)
                 .toList();
     }

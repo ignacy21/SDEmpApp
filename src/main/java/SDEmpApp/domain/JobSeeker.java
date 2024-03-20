@@ -28,6 +28,7 @@ public class JobSeeker {
     private String aboutMe;
     private Boolean isEmployed;
     private Boolean lookingForJob;
+    private Localization localization;
 
 }
 

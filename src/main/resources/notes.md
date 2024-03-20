@@ -29,9 +29,10 @@ JobSeeker
 [//]: # (-- looking_for_job)
 
 all in one (findByLocalization)
--- localization findByProvince
--- localization findByCity
--- localization findByProvinceAndCity
+
+[//]: # (-- localization findByProvince)
+[//]: # (-- localization findByCity)
+[//]: # (-- localization findByProvinceAndCity)
 
 JobAdvertisement
 

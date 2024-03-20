@@ -1,6 +1,8 @@
 package SDEmpApp.api.controller;
 
-import SDEmpApp.api.dto.*;
+import SDEmpApp.api.dto.JobAdvertisementDTO;
+import SDEmpApp.api.dto.JobAdvertisementDTOs;
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;

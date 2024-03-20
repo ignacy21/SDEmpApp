@@ -2,13 +2,17 @@ POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
 {
-  "name": "jannew8",
-  "surname": "mikolajek8",
+  "localization": {
+    "provinceName": "Dolnośląskie",
+    "cityName": "Bardo"
+  },
+  "name": "jannew2",
+  "surname": "mikolajek2",
   "isStudent": true,
-  "email": "emai8@gmail.com",
-  "git": "https://github.com/username8",
-  "phone": "+48 800 000 000",
-  "linkedin": "https://www.linkedin.com/in/name8-surname8-123/",
+  "email": "emai2@gmail.com",
+  "git": "https://github.com/username2",
+  "phone": "+48 200 000 000",
+  "linkedin": "https://www.linkedin.com/in/name2-surname2-123/",
   "cv": "cv",
   "languages": "FRENCH;GERMAN;ESTONIAN",
   "skills": "KOTLIN;GOLANG",
@@ -21,7 +25,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:7070/SDEmpApp/job-seeker/update-data/1
+PUT http://localhost:7070/SDEmpApp/job-seeker/update-data/4
 Content-Type: application/json
 
 {
@@ -124,4 +128,13 @@ GET http://localhost:7070/SDEmpApp/job-seeker/find/isEmployed/true
 ###
 
 GET http://localhost:7070/SDEmpApp/job-seeker/find/isLookingForJob/false
+###
+
+GET http://localhost:7070/SDEmpApp/job-seeker/find/localization
+Content-Type: application/json
+
+{
+  "provinceName": "Mazowieckie",
+  "cityName": "Warszawa"
+}
 ###

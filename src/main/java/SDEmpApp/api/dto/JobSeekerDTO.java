@@ -37,5 +37,6 @@ public class JobSeekerDTO {
     private String aboutMe;
     private Boolean isEmployed;
     private Boolean lookingForJob;
+    private LocalizationDTO localization;
 
 }

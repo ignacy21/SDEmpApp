@@ -19,7 +19,7 @@ public class JobAdvertisementEntity {
     @Column(name = "job_advertisement_id")
     private Integer jobAdvertisementId;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "localization_id")
     private LocalizationEntity localization;
 

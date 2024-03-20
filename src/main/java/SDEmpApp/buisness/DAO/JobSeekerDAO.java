@@ -1,6 +1,7 @@
 package SDEmpApp.buisness.DAO;
 
 import SDEmpApp.domain.JobSeeker;
+import SDEmpApp.domain.Localization;
 
 import java.util.List;
 
@@ -31,4 +32,6 @@ public interface JobSeekerDAO {
     List<JobSeeker> findIfIsEmployed(Boolean isEmployed);
 
     List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob);
+
+    List<JobSeeker> findByLocalization(Localization localization);
 }

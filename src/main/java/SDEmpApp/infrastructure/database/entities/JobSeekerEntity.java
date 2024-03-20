@@ -69,4 +69,8 @@ public class JobSeekerEntity {
 
     @Column(name = "looking_for_job")
     private Boolean lookingForJob;
+
+    @ManyToOne
+    @JoinColumn(name = "localization_id")
+    private LocalizationEntity localization;
 }

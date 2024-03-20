@@ -2,6 +2,7 @@ package SDEmpApp.api.controller;
 
 import SDEmpApp.api.dto.JobSeekerDTO;
 import SDEmpApp.api.dto.JobSeekerDTOs;
+import SDEmpApp.api.dto.LocalizationDTO;
 import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.EmploymentType;
 import SDEmpApp.api.dto.auxiliary.enums.FormOfWork;
@@ -10,6 +11,7 @@ import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.mapper.JobSeekerMapper;
 import SDEmpApp.buisness.JobSeekerService;
 import SDEmpApp.domain.JobSeeker;
+import SDEmpApp.domain.Localization;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,9 +45,12 @@ public class JobSeekerController {
     private final String BY_EXPERIENCE = "/experience";
     private final String IF_IS_EMPLOYED = "/isEmployed/{isEmployed}";
     private final String IF_LOOKING_FOR_JOB = "/isLookingForJob/{isLookingForJob}";
+    private final String BY_LOCALIZATION = "/localization";
 
 
     private final JobSeekerService jobSeekerService;
+    private final CompanyController companyController;
+
     private final JobSeekerMapper jobSeekerMapper;
 
 
@@ -53,8 +58,11 @@ public class JobSeekerController {
     public ResponseEntity<?> createJobSeeker(
             @Valid @RequestBody JobSeekerDTO jobSeekerDTO
     ) {
+        Localization localization = companyController.getLocalization(jobSeekerDTO.getLocalization());
         JobSeeker jobSeeker = jobSeekerMapper.mapFromDTO(jobSeekerDTO);
-        JobSeeker createdJobSeeker = jobSeekerService.createJobSeeker(jobSeeker);
+        JobSeeker createdJobSeeker = jobSeekerService.createJobSeeker(
+                jobSeeker.withLocalization(localization)
+        );
 
         return ResponseEntity
                 .created(URI.create(JOB_SEEKER + JOB_SEEKER_RESULT.formatted(createdJobSeeker.getJobSeekerId())))
@@ -67,23 +75,13 @@ public class JobSeekerController {
             @Valid @RequestBody JobSeekerDTO jobSeekerDTO
     ) {
         JobSeeker jobSeekerFind = jobSeekerService.findById(jobSeekerId);
-        jobSeekerFind.setSurname(jobSeekerDTO.getSurname());
-        jobSeekerFind.setName(jobSeekerDTO.getName());
-        jobSeekerFind.setIsStudent(jobSeekerDTO.getIsStudent());
-        jobSeekerFind.setPhone(jobSeekerDTO.getPhone());
-        jobSeekerFind.setEmail(jobSeekerDTO.getEmail());
-        jobSeekerFind.setLinkedin(jobSeekerDTO.getLinkedin());
-        jobSeekerFind.setGit(jobSeekerDTO.getGit());
-        jobSeekerFind.setCv(jobSeekerDTO.getCv());
-        jobSeekerFind.setLanguages(jobSeekerDTO.getLanguages());
-        jobSeekerFind.setSkills(jobSeekerDTO.getSkills());
-        jobSeekerFind.setB2bNormalFit(jobSeekerDTO.getB2bNormalFit());
-        jobSeekerFind.setFormOfWork(jobSeekerDTO.getFormOfWork());
-        jobSeekerFind.setExperience(jobSeekerDTO.getExperience());
-        jobSeekerFind.setAboutMe(jobSeekerDTO.getAboutMe());
-        jobSeekerFind.setLookingForJob(jobSeekerDTO.getLookingForJob());
+        JobSeeker mappedJobSeekerForUpdate = jobSeekerMapper.mapDTOForUpdate(jobSeekerDTO, jobSeekerFind);
+        if (jobSeekerDTO.getLocalization() != null) {
+            Localization localization = companyController.getLocalization(jobSeekerDTO.getLocalization());
+            mappedJobSeekerForUpdate.setLocalization(localization);
+        }
 
-        JobSeeker jobSeeker = jobSeekerService.updateJobSeekerData(jobSeekerFind);
+        JobSeeker jobSeeker = jobSeekerService.updateJobSeekerData(mappedJobSeekerForUpdate);
         log.info("updating jobSeeker: id[%s]".formatted(jobSeeker.getJobSeekerId()));
 
         return ResponseEntity.ok().build();
@@ -174,6 +172,7 @@ public class JobSeekerController {
         List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }
+
     @GetMapping(value = FIND + BY_FORM_OF_WORK, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobSeekerDTOs findByFormOfWork(
             @Valid @RequestBody FormOfWorkDTOs formOfWorkDTOs
@@ -212,6 +211,7 @@ public class JobSeekerController {
         List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
     }
+
     @GetMapping(value = FIND + IF_LOOKING_FOR_JOB, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobSeekerDTOs findIfIsLookingForJob(
             @PathVariable Boolean isLookingForJob
@@ -219,5 +219,14 @@ public class JobSeekerController {
         List<JobSeeker> findJobSeekers = jobSeekerService.findIfIsLookingForJob(isLookingForJob);
         List<JobSeekerDTO> jobSeekerDTOs = findJobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList();
         return JobSeekerDTOs.of(jobSeekerDTOs);
+    }
+
+    @GetMapping(value = FIND + BY_LOCALIZATION, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobSeekerDTOs findByLocalization(
+            @Valid @RequestBody LocalizationDTO localizationDTO
+    ) {
+        Localization localization = companyController.getLocalization(localizationDTO);
+        List<JobSeeker> jobSeekers = jobSeekerService.findByLocalization(localization);
+        return JobSeekerDTOs.of(jobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList());
     }
 }
