@@ -1,9 +1,7 @@
 package SDEmpApp.infrastructure.database.repository.jpa;
 
-import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
 import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

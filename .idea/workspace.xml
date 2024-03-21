@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="writing updateJobAdvertisement - using mapstruct - GET http method">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="finding localization done in LocalizationService">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobAdvertisementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +349,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="37163000" />
+      <workItem from="1710785031562" duration="40607000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -451,14 +448,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00032" summary="beginning to change way of storing Localization">
-      <option name="closed" value="true" />
-      <created>1710327749495</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1710327749496</updated>
     </task>
     <task id="LOCAL-00033" summary="removing Localization mapping from mappers">
       <option name="closed" value="true" />
@@ -732,13 +721,52 @@
       <option name="project" value="LOCAL" />
       <updated>1710927592511</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="finding localization done in LocalizationService">
+      <option name="closed" value="true" />
+      <created>1710936324310</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1710936324310</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -750,7 +778,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Company GET findByName http method" />
     <MESSAGE value="Company GET findByLocalization http method&#10;localization mapping needs to be done next" />
     <MESSAGE value="Change the localization to LocalizationDTO&#10;fix regex, and validation in job_seeker&#10;correcting http methods (due to Localization change)" />
     <MESSAGE value="JobAdvertisement GET findByFormOfWork&#10;also changing JobAdvertisement to JobAdvertisementEntity mapping" />
@@ -775,7 +802,8 @@
     <MESSAGE value="&gt; adding localization to JobSeeker&#10;&gt; getting updateJobSeekerData done a lot better&#10;&gt; writing findByLocalization in JobSeekerController - GET http method &#10;&gt; optimize imports" />
     <MESSAGE value="updating Company done better - using mapstruct" />
     <MESSAGE value="writing updateJobAdvertisement - using mapstruct - GET http method" />
-    <option name="LAST_COMMIT_MESSAGE" value="writing updateJobAdvertisement - using mapstruct - GET http method" />
+    <MESSAGE value="finding localization done in LocalizationService" />
+    <option name="LAST_COMMIT_MESSAGE" value="finding localization done in LocalizationService" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
