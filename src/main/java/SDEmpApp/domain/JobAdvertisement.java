@@ -22,5 +22,6 @@ public class JobAdvertisement {
     private Company company;
     private BigDecimal salaryFrom;
     private BigDecimal salaryTo;
+    private String seniority;
 
 }

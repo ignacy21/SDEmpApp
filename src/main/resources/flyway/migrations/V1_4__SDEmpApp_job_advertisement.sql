@@ -10,6 +10,7 @@ CREATE TABLE job_advertisement
     company_id           INT                                                                                NOT NULL,
     salary_from          NUMERIC(20, 2)                                                                     NOT NULL,
     salary_to            NUMERIC(20, 2)                                                                     NOT NULL,
+    seniority            VARCHAR(32) CHECK (seniority IN ('TRAINEE', 'JUNIOR', 'MID', 'SENIOR', 'EXPERT'))  NOT NULL,
     PRIMARY KEY (job_advertisement_id),
     CONSTRAINT fk_job_advertisement_company
         FOREIGN KEY (company_id)

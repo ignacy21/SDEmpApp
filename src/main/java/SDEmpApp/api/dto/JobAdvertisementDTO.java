@@ -22,4 +22,5 @@ public class JobAdvertisementDTO {
     private CompanyDTO company;
     private BigDecimal salaryFrom;
     private BigDecimal salaryTo;
+    private String seniority;
 }

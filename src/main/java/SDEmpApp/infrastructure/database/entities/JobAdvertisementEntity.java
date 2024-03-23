@@ -46,6 +46,9 @@ public class JobAdvertisementEntity {
     @Column(name = "salary_to")
     private BigDecimal salaryTo;
 
+    @Column(name = "seniority")
+    private String seniority;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private CompanyEntity company;
