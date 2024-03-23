@@ -3,6 +3,8 @@ package SDEmpApp.infrastructure.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -37,6 +39,12 @@ public class JobAdvertisementEntity {
 
     @Column(name = "form_of_work")
     private String formOfWork;
+
+    @Column(name = "salary_from")
+    private BigDecimal salaryFrom;
+
+    @Column(name = "salary_to")
+    private BigDecimal salaryTo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -18,4 +20,6 @@ public class JobAdvertisementDTO {
     private String duties;
     private String formOfWork;
     private CompanyDTO company;
+    private BigDecimal salaryFrom;
+    private BigDecimal salaryTo;
 }

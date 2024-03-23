@@ -1,4 +1,4 @@
-POST http://localhost:7070/SDEmpApp/job-advertisement/create/3
+POST http://localhost:7070/SDEmpApp/job-advertisement/create/1
 Content-Type: application/json
 
 {
@@ -7,6 +7,7 @@ Content-Type: application/json
     "cityName": "Bardo"
   },
   "experienceNeeded": "5 > ",
+  "salaryFrom": "8000",
   "languages": "GREEK",
   "duties": "8",
   "formOfWork": "HYBRID",

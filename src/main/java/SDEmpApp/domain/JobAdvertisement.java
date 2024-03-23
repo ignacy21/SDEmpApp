@@ -2,6 +2,8 @@ package SDEmpApp.domain;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 
 @With
 @Data
@@ -18,5 +20,7 @@ public class JobAdvertisement {
     private String duties;
     private String formOfWork;
     private Company company;
+    private BigDecimal salaryFrom;
+    private BigDecimal salaryTo;
 
 }
