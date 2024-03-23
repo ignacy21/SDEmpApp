@@ -1,6 +1,8 @@
 package SDEmpApp.buisness;
 
 import SDEmpApp.api.dto.auxiliary.ExperienceDTO;
+import SDEmpApp.api.dto.auxiliary.SeniorityDTO;
+import SDEmpApp.api.dto.auxiliary.SeniorityDTOs;
 import SDEmpApp.api.dto.auxiliary.enums.Experience;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
@@ -97,5 +99,16 @@ public class JobAdvertisementService {
 
     public List<JobAdvertisement> findBySalary(BigDecimal salaryFrom) {
         return jobAdvertisementDAO.isSalaryBetweenRequiredSalary(salaryFrom);
+    }
+
+    public List<JobAdvertisement> findBySeniority(SeniorityDTOs seniority) {
+        return seniority.getSeniorityDTOs().stream()
+                .map(SeniorityDTO::getSeniority)
+                .map(Enum::name)
+                .map(jobAdvertisementDAO::findBySeniority)
+                .flatMap(List::stream)
+                .distinct()
+                .toList();
+
     }
 }

@@ -43,6 +43,7 @@ public class JobAdvertisementController {
     private final String BY_LOCALIZATION = "/by-localization";
     private final String BY_EXPERIENCE_NEEDED = "/by-experience-needed";
     private final String BY_SALARY = "/by-salary";
+    private final String BY_SENIORITY = "/by-seniority";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -173,6 +174,16 @@ public class JobAdvertisementController {
             @Valid @RequestBody SalaryDTO salary
     ) {
         List<JobAdvertisement> jobAdvertisements = jobAdvertisementService.findBySalary(salary.getSalary());
+        return JobAdvertisementDTOs.of(jobAdvertisements.stream()
+                .map(jobAdvertisementMapper::mapToDTO)
+                .toList()
+        );
+    }
+    @GetMapping(value = FIND + BY_SENIORITY, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOs findJobAdvertisementBySeniority(
+            @Valid @RequestBody SeniorityDTOs seniorityDTOs
+    ) {
+        List<JobAdvertisement> jobAdvertisements = jobAdvertisementService.findBySeniority(seniorityDTOs);
         return JobAdvertisementDTOs.of(jobAdvertisements.stream()
                 .map(jobAdvertisementMapper::mapToDTO)
                 .toList()

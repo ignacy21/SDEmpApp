@@ -12,6 +12,7 @@ Content-Type: application/json
   "languages": "GREEK",
   "duties": "8",
   "formOfWork": "HYBRID",
+  "seniority": "EXPERT",
   "skillsNeeded": ".NET"
 }
 ###
@@ -106,4 +107,16 @@ Content-Type: application/json
 
 {
   "salary": 9000
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-seniority
+Content-Type: application/json
+
+{
+  "seniorityDTOs": [
+    {"seniority": "JUNIOR"},
+    {"seniority": "TRAINEE"}
+  ]
+
 }

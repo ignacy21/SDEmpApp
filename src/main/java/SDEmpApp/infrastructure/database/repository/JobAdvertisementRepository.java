@@ -82,4 +82,11 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
                 .map(jobAdvertisementEntityMapper::mapFromEntity)
                 .toList();
     }
+
+    @Override
+    public List<JobAdvertisement> findBySeniority(String seniority) {
+        return jobAdvertisementJpaRepository.findBySeniority(seniority).stream()
+                .map(jobAdvertisementEntityMapper::mapFromEntity)
+                .toList();
+    }
 }

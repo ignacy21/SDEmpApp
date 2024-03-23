@@ -20,7 +20,8 @@ public interface JobAdvertisementJpaRepository extends JpaRepository<JobAdvertis
     List<JobAdvertisementEntity> findByExperienceNeeded(String experience);
     List<JobAdvertisementEntity> findBySalaryFromGreaterThanEqualOrSalaryToGreaterThanEqual(
             BigDecimal salaryFrom,
-            BigDecimal salaryTo
+                    BigDecimal salaryTo
     );
+    List<JobAdvertisementEntity> findBySeniority(String seniority);
 }
 
