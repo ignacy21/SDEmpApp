@@ -10,6 +10,7 @@ import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -45,7 +46,7 @@ public class JobAdvertisementService {
                 .distinct()
                 .filter(jobAd -> new HashSet<>(listSkillsAsStrings).containsAll(
                         Arrays.stream(jobAd.getSkillsNeeded()
-                        .split(";")).toList()))
+                                .split(";")).toList()))
                 .toList();
     }
 
@@ -92,6 +93,9 @@ public class JobAdvertisementService {
                 .flatMap(List::stream)
                 .distinct()
                 .toList();
+    }
 
+    public List<JobAdvertisement> findBySalary(BigDecimal salaryFrom) {
+        return jobAdvertisementDAO.isSalaryBetweenRequiredSalary(salaryFrom);
     }
 }

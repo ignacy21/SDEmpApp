@@ -11,6 +11,7 @@ import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapp
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -75,4 +76,10 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
                 .toList();
     }
 
+    @Override
+    public List<JobAdvertisement> isSalaryBetweenRequiredSalary(BigDecimal salary) {
+        return jobAdvertisementJpaRepository.findBySalaryFromGreaterThanEqualOrSalaryToGreaterThanEqual(salary, salary).stream()
+                .map(jobAdvertisementEntityMapper::mapFromEntity)
+                .toList();
+    }
 }

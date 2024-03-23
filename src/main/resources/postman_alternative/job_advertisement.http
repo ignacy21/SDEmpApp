@@ -7,7 +7,8 @@ Content-Type: application/json
     "cityName": "Bardo"
   },
   "experienceNeeded": "5 > ",
-  "salaryFrom": "8000",
+  "salaryFrom": 8000,
+  "salaryTo": 10000,
   "languages": "GREEK",
   "duties": "8",
   "formOfWork": "HYBRID",
@@ -97,4 +98,12 @@ Content-Type: application/json
 
 {
   "experience": "MIN_1"
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-salary
+Content-Type: application/json
+
+{
+  "salary": 9000
 }

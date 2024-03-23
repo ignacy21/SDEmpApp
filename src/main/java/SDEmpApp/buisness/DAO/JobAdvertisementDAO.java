@@ -3,6 +3,7 @@ package SDEmpApp.buisness.DAO;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface JobAdvertisementDAO {
@@ -24,4 +25,7 @@ public interface JobAdvertisementDAO {
     }
 
     List<JobAdvertisement> findByExperience(String experienceNeeded);
+
+    List<JobAdvertisement> isSalaryBetweenRequiredSalary(BigDecimal salary);
+
 }
