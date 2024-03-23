@@ -29,6 +29,9 @@ public class JobAdvertisementEntity {
     @Column(name = "skills")
     private String skillsNeeded;
 
+    @Column(name = "experience_needed")
+    private String experienceNeeded;
+
     @Column(name = "duties")
     private String duties;
 

@@ -14,6 +14,7 @@ public class JobAdvertisement {
     private Localization localization;
     private String languages;
     private String skillsNeeded;
+    private String experienceNeeded;
     private String duties;
     private String formOfWork;
     private Company company;

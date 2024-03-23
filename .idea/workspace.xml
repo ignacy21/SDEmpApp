@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Checking if commit is visible in contributions; optimize imports">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/finalQueriesDTO/JobSeekerFinalFindQueryDTO.java" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/JobSeekerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/JobAdvertisementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/JobAdvertisementDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/entities/JobAdvertisementEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_job_advertisement.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flyway/migrations/V1_4__SDEmpApp_job_advertisement.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +150,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Debug",
+    "Spring Boot.SDEmpAppStarter.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -219,7 +218,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_seeker | #4">
+  <component name="RunManager" selected="Spring Boot.SDEmpAppStarter">
     <configuration name="job_advertisement | #7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" index="7" requestIdentifier="#7" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -277,11 +276,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.SDEmpAppStarter" />
         <item itemvalue="HTTP Request.job_seeker | #4" />
         <item itemvalue="HTTP Request.job_advertisement | #7" />
         <item itemvalue="HTTP Request.job_seeker | #1" />
         <item itemvalue="HTTP Request.job_seeker | #3" />
-        <item itemvalue="Spring Boot.SDEmpAppStarter" />
       </list>
     </recent_temporary>
   </component>
@@ -320,7 +319,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="52065000" />
+      <workItem from="1710785031562" duration="53705000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -419,14 +418,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00034" summary="correcting few details - company creation and update works fine">
-      <option name="closed" value="true" />
-      <created>1710329101701</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1710329101701</updated>
     </task>
     <task id="LOCAL-00035" summary="correcting few details - company creation and update works fine">
       <option name="closed" value="true" />
@@ -700,7 +691,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711009398004</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it">
+      <option name="closed" value="true" />
+      <created>1711103786458</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1711103786458</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,7 +748,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change the localization to LocalizationDTO&#10;fix regex, and validation in job_seeker&#10;correcting http methods (due to Localization change)" />
     <MESSAGE value="JobAdvertisement GET findByFormOfWork&#10;also changing JobAdvertisement to JobAdvertisementEntity mapping" />
     <MESSAGE value="adding auxiliary enums and DTO" />
     <MESSAGE value="using FormOfWorkDTO in findByFormOfWork GET http method" />
@@ -774,7 +772,8 @@
     <MESSAGE value="writing updateJobAdvertisement - using mapstruct - GET http method" />
     <MESSAGE value="finding localization done in LocalizationService" />
     <MESSAGE value="Checking if commit is visible in contributions; optimize imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checking if commit is visible in contributions; optimize imports" />
+    <MESSAGE value="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
