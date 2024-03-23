@@ -63,9 +63,16 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
         JobAdvertisementEntity jobAdvertisementEntity = jobAdvertisementJpaRepository
                 .findByJobAdvertisementId(jobAdvertisementId).orElseThrow(
                         () -> new RuntimeException("there is no such JobAdvertisement with id[%s]"
-                        .formatted(jobAdvertisementId)));
+                                .formatted(jobAdvertisementId)));
 
         return jobAdvertisementEntityMapper.mapFromEntity(jobAdvertisementEntity);
+    }
+
+    @Override
+    public List<JobAdvertisement> findByExperience(String experienceNeeded) {
+        return jobAdvertisementJpaRepository.findByExperienceNeeded(experienceNeeded).stream()
+                .map(jobAdvertisementEntityMapper::mapFromEntity)
+                .toList();
     }
 
 }

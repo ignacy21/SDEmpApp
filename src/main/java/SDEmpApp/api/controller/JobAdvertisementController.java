@@ -41,6 +41,7 @@ public class JobAdvertisementController {
     private final String BY_LANGUAGES = "/languages";
     private final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
     private final String BY_LOCALIZATION = "/by-localization";
+    private final String BY_EXPERIENCE_NEEDED = "/by-experience-needed";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -130,6 +131,7 @@ public class JobAdvertisementController {
         List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOs.of(list);
     }
+
     @GetMapping(value = FIND + BY_SPECIFIED_LANGUAGES, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobAdvertisementDTOs findBySpecifiedLanguages(
             @Valid @RequestBody LanguageDTOs languageDTOs
@@ -139,6 +141,7 @@ public class JobAdvertisementController {
         List<JobAdvertisementDTO> list = byLanguages.stream().map(jobAdvertisementMapper::mapToDTO).toList();
         return JobAdvertisementDTOs.of(list);
     }
+
     @GetMapping(value = FIND + BY_LOCALIZATION, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobAdvertisementDTOs findJobAdvertisementByLocalization(
             @Valid @RequestBody LocalizationDTO localizationDTO
@@ -150,5 +153,17 @@ public class JobAdvertisementController {
                 .map(jobAdvertisementMapper::mapToDTO)
                 .toList();
         return JobAdvertisementDTOs.of(companiesDTOS);
+    }
+
+    @GetMapping(value = FIND + BY_EXPERIENCE_NEEDED, produces = MediaType.APPLICATION_JSON_VALUE)
+    public JobAdvertisementDTOs findJobAdvertisementByLocalization(
+            @Valid @RequestBody ExperienceDTO experienceDTO
+    ) {
+        List<JobAdvertisementDTO> jobAdvertisementDTOS = jobAdvertisementService.findByExperience(
+                        experienceDTO
+                ).stream()
+                .map(jobAdvertisementMapper::mapToDTO)
+                .toList();
+        return JobAdvertisementDTOs.of(jobAdvertisementDTOS);
     }
 }

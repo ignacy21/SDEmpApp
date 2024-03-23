@@ -16,6 +16,7 @@ public interface JobAdvertisementJpaRepository extends JpaRepository<JobAdvertis
     List<JobAdvertisementEntity> findByLanguagesContaining(String language);
     List<JobAdvertisementEntity> findByLocalization(LocalizationEntity language);
     Optional<JobAdvertisementEntity> findByJobAdvertisementId(Integer jobAdvertisementOd);
+    List<JobAdvertisementEntity> findByExperienceNeeded(String experience);
 
 }
 

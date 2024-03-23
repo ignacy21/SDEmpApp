@@ -22,4 +22,6 @@ public interface JobAdvertisementDAO {
     default JobAdvertisement updateJobAdvertisement(JobAdvertisement jobAdvertisement) {
         return createJobAdvertisement(jobAdvertisement);
     }
+
+    List<JobAdvertisement> findByExperience(String experienceNeeded);
 }

@@ -6,8 +6,9 @@ Content-Type: application/json
     "provinceName": "Dolnośląskie",
     "cityName": "Bardo"
   },
+  "experienceNeeded": "5 > ",
   "languages": "GREEK",
-  "duties": "all duties",
+  "duties": "8",
   "formOfWork": "HYBRID",
   "skillsNeeded": ".NET"
 }
@@ -87,4 +88,12 @@ Content-Type: application/json
 {
 "provinceName": "Dolnośląskie",
 "cityName": "Bardo"
+}
+###
+
+GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-experience-needed
+Content-Type: application/json
+
+{
+  "experience": "MIN_1"
 }

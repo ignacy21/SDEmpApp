@@ -151,17 +151,14 @@ public class JobSeekerService {
 
     public List<JobSeeker> findByExperience(ExperienceDTO experienceDTO) {
         int ordinal = experienceDTO.getExperience().ordinal();
-        List<List<JobSeeker>> listOfJobSeekerList = new ArrayList<>();
-        Experience[] values = Experience.values();
-        for (Experience value : values) {
-            if (ordinal <= value.ordinal()) {
-                List<JobSeeker> byExperience = jobSeekerDAO.findByExperience(value.getExperience());
-                listOfJobSeekerList.add(byExperience);
-            }
-        }
-        List<JobSeeker> jobSeekers = listOfJobSeekerList.stream()
+        List<JobSeeker> jobSeekers = Arrays.stream(Experience.values())
+                .filter(x -> x.ordinal() <= ordinal)
+                .map(Experience::getExperience)
+                .map(jobSeekerDAO::findByExperience)
                 .flatMap(List::stream)
+                .distinct()
                 .toList();
+
         return jobSeekers.stream().toList();
     }
 

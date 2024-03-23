@@ -1,5 +1,7 @@
 package SDEmpApp.buisness;
 
+import SDEmpApp.api.dto.auxiliary.ExperienceDTO;
+import SDEmpApp.api.dto.auxiliary.enums.Experience;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
@@ -79,5 +81,17 @@ public class JobAdvertisementService {
 
     public JobAdvertisement updateJobAdvertisement(JobAdvertisement jobAdvertisement) {
         return jobAdvertisementDAO.updateJobAdvertisement(jobAdvertisement);
+    }
+
+    public List<JobAdvertisement> findByExperience(ExperienceDTO experienceDTO) {
+        int ordinal = experienceDTO.getExperience().ordinal();
+        return Arrays.stream(Experience.values())
+                .filter(x -> x.ordinal() <= ordinal)
+                .map(Experience::getExperience)
+                .map(jobAdvertisementDAO::findByExperience)
+                .flatMap(List::stream)
+                .distinct()
+                .toList();
+
     }
 }
