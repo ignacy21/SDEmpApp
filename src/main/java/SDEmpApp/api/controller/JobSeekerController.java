@@ -30,18 +30,6 @@ public class JobSeekerController {
     private final String UPDATE = "/update-data/{jobSeekerId}";
     private final String FIND = "/find";
     private final String FIND_BY_USERNAME = "/find/by-username/{username}";
-//    private final String IS_STUDENT = "/isStudent/{isStudent}";
-//    private final String BY_LANGUAGES = "/languages";
-//    private final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
-//    private final String BY_SKILLS = "/skills";
-//    private final String BY_SPECIFIED_SKILLS = "/specified-skills";
-//    private final String BY_FORM_OF_EMPLOYMENT = "/form-of-employment";
-//    private final String BY_FORM_OF_WORK = "/form-of-work";
-//    private final String BY_EXPERIENCE = "/experience";
-//    private final String IF_IS_EMPLOYED = "/isEmployed/{isEmployed}";
-//    private final String IF_LOOKING_FOR_JOB = "/isLookingForJob/{isLookingForJob}";
-//    private final String BY_LOCALIZATION = "/localization";
-
 
     private final JobSeekerService jobSeekerService;
     private final LocalizationService localizationService;
@@ -95,9 +83,7 @@ public class JobSeekerController {
     public JobSeekerDTOs jobSeekerFinalFind(
             @Valid @RequestBody JobSeekerFinalFindQueryDTO jobSeekerFinalFindQueryDTO
     ) {
-        List<JobSeeker> jobSeekers = jobSeekerService.checkWhatIsNullAndReturnListOfSearchedJobSeekers(
-                jobSeekerFinalFindQueryDTO
-        );
+        List<JobSeeker> jobSeekers = jobSeekerService.listOfSearchedJobSeekers(jobSeekerFinalFindQueryDTO);
         return JobSeekerDTOs.of(jobSeekers.stream().map(jobSeekerMapper::mapToDTO).toList());
     }
 }

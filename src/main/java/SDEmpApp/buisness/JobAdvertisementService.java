@@ -1,18 +1,18 @@
 package SDEmpApp.buisness;
 
-import SDEmpApp.api.dto.auxiliary.ExperienceDTO;
-import SDEmpApp.api.dto.auxiliary.SeniorityDTO;
-import SDEmpApp.api.dto.auxiliary.SeniorityDTOs;
+import SDEmpApp.api.dto.LocalizationDTO;
+import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.Experience;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
+import SDEmpApp.api.dto.finalQueriesDTO.JobAdvertisementFinalFindQueryDTO;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -21,17 +21,28 @@ import java.util.List;
 @AllArgsConstructor
 public class JobAdvertisementService {
     private final JobAdvertisementDAO jobAdvertisementDAO;
+    private final LocalizationService localizationService;
 
     public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) {
         return jobAdvertisementDAO.createJobAdvertisement(jobAdvertisement);
     }
 
-    public List<JobAdvertisement> findByFormOfWork(String formOfWork) {
+    public JobAdvertisement findById(Integer jobAdvertisementId) {
+        return jobAdvertisementDAO.findById(jobAdvertisementId);
+    }
+
+    public JobAdvertisement updateJobAdvertisement(JobAdvertisement jobAdvertisement) {
+        return jobAdvertisementDAO.updateJobAdvertisement(jobAdvertisement);
+    }
+
+    public List<JobAdvertisement> findByFormOfWork(FormOfWorkDTO formOfWorkDTO) {
+        String formOfWork = formOfWorkDTO.getFormOfWork().name();
         return jobAdvertisementDAO.findByFormOfWork(formOfWork);
     }
 
-    public List<JobAdvertisement> findBySkills(List<Skill> skills) {
-        return skills.stream()
+    public List<JobAdvertisement> findBySkills(SkillDTOs skillDTOs) {
+        return skillDTOs.getSkills().stream()
+                .map(SkillDTO::getSkill)
                 .map(Skill::name)
                 .map(jobAdvertisementDAO::findBySkill)
                 .flatMap(List::stream)
@@ -39,8 +50,11 @@ public class JobAdvertisementService {
                 .toList();
     }
 
-    public List<JobAdvertisement> findByOnlySpecifiedSkills(List<Skill> skills) {
-        List<String> listSkillsAsStrings = skills.stream().map(Skill::name).toList();
+    public List<JobAdvertisement> findOnlyBySpecifiedSkills(SkillDTOs skillDTOs) {
+        List<String> listSkillsAsStrings = skillDTOs.getSkills().stream()
+                .map(SkillDTO::getSkill)
+                .map(Skill::name)
+                .toList();
 
         return listSkillsAsStrings.stream()
                 .map(jobAdvertisementDAO::findBySkill)
@@ -52,9 +66,9 @@ public class JobAdvertisementService {
                 .toList();
     }
 
-
-    public List<JobAdvertisement> findByLanguages(List<Language> languages) {
-        return languages.stream()
+    public List<JobAdvertisement> findByLanguages(LanguageDTOs languageDTOs) {
+        return languageDTOs.getLanguageDTOs().stream()
+                .map(LanguageDTO::getLanguage)
                 .map(Language::name)
                 .map(jobAdvertisementDAO::findByLanguage)
                 .flatMap(List::stream)
@@ -62,8 +76,12 @@ public class JobAdvertisementService {
                 .toList();
     }
 
-    public List<JobAdvertisement> findBySpecifiedLanguages(List<Language> languages) {
-        List<String> languagesAsStrings = languages.stream().map(Language::name).toList();
+    public List<JobAdvertisement> findBySpecifiedLanguages(LanguageDTOs languageDTOs) {
+        List<String> languagesAsStrings = languageDTOs.getLanguageDTOs().stream()
+                .map(LanguageDTO::getLanguage)
+                .map(Language::name)
+                .toList();
+
         return languagesAsStrings.stream()
                 .map(jobAdvertisementDAO::findByLanguage)
                 .flatMap(List::stream)
@@ -74,19 +92,12 @@ public class JobAdvertisementService {
                 .toList();
     }
 
-    public List<JobAdvertisement> findByLocalization(Localization localization) {
-        return jobAdvertisementDAO.findByLocalization(localization);
+    public List<JobAdvertisement> findJobAdvertisementByLocalization(LocalizationDTO localizationDTO) {
+        Localization findLocalization = localizationService.findLocalization(localizationDTO);
+        return jobAdvertisementDAO.findByLocalization(findLocalization);
     }
 
-    public JobAdvertisement findById(Integer jobAdvertisementId) {
-        return jobAdvertisementDAO.findById(jobAdvertisementId);
-    }
-
-    public JobAdvertisement updateJobAdvertisement(JobAdvertisement jobAdvertisement) {
-        return jobAdvertisementDAO.updateJobAdvertisement(jobAdvertisement);
-    }
-
-    public List<JobAdvertisement> findByExperience(ExperienceDTO experienceDTO) {
+    public List<JobAdvertisement> findJobAdvertisementByExperience(ExperienceDTO experienceDTO) {
         int ordinal = experienceDTO.getExperience().ordinal();
         return Arrays.stream(Experience.values())
                 .filter(x -> x.ordinal() <= ordinal)
@@ -97,18 +108,58 @@ public class JobAdvertisementService {
                 .toList();
     }
 
-    public List<JobAdvertisement> findBySalary(BigDecimal salaryFrom) {
-        return jobAdvertisementDAO.isSalaryBetweenRequiredSalary(salaryFrom);
+    public List<JobAdvertisement> findJobAdvertisementBySalary(SalaryDTO salary) {
+        return jobAdvertisementDAO.isSalaryBetweenRequiredSalary(salary.getSalary());
     }
 
-    public List<JobAdvertisement> findBySeniority(SeniorityDTOs seniority) {
-        return seniority.getSeniorityDTOs().stream()
+    public List<JobAdvertisement> findJobAdvertisementBySeniority(SeniorityDTOs seniorityDTOs) {
+        return seniorityDTOs.getSeniorityDTOs().stream()
                 .map(SeniorityDTO::getSeniority)
                 .map(Enum::name)
                 .map(jobAdvertisementDAO::findBySeniority)
                 .flatMap(List::stream)
                 .distinct()
                 .toList();
+    }
 
+    public List<JobAdvertisement> listOfSearchedJobAdvertisements(
+            JobAdvertisementFinalFindQueryDTO finalQuery
+    ) {
+        List<JobAdvertisement> jobAdvertisementList = new ArrayList<>();
+
+        if (finalQuery.getLocalizationDTO() != null) {
+            jobAdvertisementList.addAll(findJobAdvertisementByLocalization(finalQuery.getLocalizationDTO()));
+        }
+        if (finalQuery.getFormOfWorkDTO() != null) {
+            jobAdvertisementList.addAll(findByFormOfWork(finalQuery.getFormOfWorkDTO()));
+        }
+        if (finalQuery.getExperienceDTO() != null) {
+            jobAdvertisementList.addAll(findJobAdvertisementByExperience(finalQuery.getExperienceDTO()));
+        }
+        if (finalQuery.getSalary() != null) {
+            jobAdvertisementList.addAll(findJobAdvertisementBySalary(finalQuery.getSalary()));
+        }
+        if (finalQuery.getSeniorityDTOs() != null) {
+            jobAdvertisementList.addAll(findJobAdvertisementBySeniority(finalQuery.getSeniorityDTOs()));
+        }
+        if (finalQuery.getSkillDTOs() != null) {
+            if (finalQuery.getIsSpecifiedSkills()) {
+                jobAdvertisementList.addAll(findOnlyBySpecifiedSkills(finalQuery.getSkillDTOs()));
+            } else {
+                jobAdvertisementList.addAll(findBySkills(finalQuery.getSkillDTOs()));
+            }
+        }
+
+        if (finalQuery.getLanguageDTOs() != null) {
+            if (finalQuery.getIsSpecifiedLanguages()) {
+                jobAdvertisementList.addAll(findBySpecifiedLanguages(finalQuery.getLanguageDTOs()));
+            } else {
+                jobAdvertisementList.addAll(findByLanguages(finalQuery.getLanguageDTOs()));
+            }
+        }
+
+        return jobAdvertisementList.stream()
+                .distinct()
+                .toList();
     }
 }

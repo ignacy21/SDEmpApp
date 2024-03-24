@@ -178,50 +178,46 @@ public class JobSeekerService {
         return jobSeekers.stream().toList();
     }
 
-    public List<JobSeeker> checkWhatIsNullAndReturnListOfSearchedJobSeekers(JobSeekerFinalFindQueryDTO jobSeekerFinalFindQueryDTO) {
-        List<JobSeeker> jobSeekerDTOs = new ArrayList<>();
+    public List<JobSeeker> listOfSearchedJobSeekers(JobSeekerFinalFindQueryDTO jobSeekerFinalFindQueryDTO) {
+        List<JobSeeker> jobSeekerList = new ArrayList<>();
         if (jobSeekerFinalFindQueryDTO.getLocalization() != null) {
-            jobSeekerDTOs.addAll(findJobSeekersByLocalization(jobSeekerFinalFindQueryDTO.getLocalization()));
+            jobSeekerList.addAll(findJobSeekersByLocalization(jobSeekerFinalFindQueryDTO.getLocalization()));
         }
         if (jobSeekerFinalFindQueryDTO.getIsLookingForJob() != null) {
-            jobSeekerDTOs.addAll(findIfIsLookingForJob(jobSeekerFinalFindQueryDTO.getIsLookingForJob()));
+            jobSeekerList.addAll(findIfIsLookingForJob(jobSeekerFinalFindQueryDTO.getIsLookingForJob()));
         }
         if (jobSeekerFinalFindQueryDTO.getIsEmployed() != null) {
-            jobSeekerDTOs.addAll(findIfIsEmployed(jobSeekerFinalFindQueryDTO.getIsEmployed()));
+            jobSeekerList.addAll(findIfIsEmployed(jobSeekerFinalFindQueryDTO.getIsEmployed()));
         }
         if (jobSeekerFinalFindQueryDTO.getExperience() != null) {
-            jobSeekerDTOs.addAll(findByExperience(jobSeekerFinalFindQueryDTO.getExperience()));
+            jobSeekerList.addAll(findByExperience(jobSeekerFinalFindQueryDTO.getExperience()));
         }
         if (jobSeekerFinalFindQueryDTO.getFormsOfWork() != null) {
-            jobSeekerDTOs.addAll(findJobSeekersByFormOfWork(jobSeekerFinalFindQueryDTO.getFormsOfWork()));
+            jobSeekerList.addAll(findJobSeekersByFormOfWork(jobSeekerFinalFindQueryDTO.getFormsOfWork()));
         }
         if (jobSeekerFinalFindQueryDTO.getFormsOfEmployment() != null) {
-            jobSeekerDTOs.addAll(findByFormOfEmployment(jobSeekerFinalFindQueryDTO.getFormsOfEmployment()));
+            jobSeekerList.addAll(findByFormOfEmployment(jobSeekerFinalFindQueryDTO.getFormsOfEmployment()));
         }
 
-        if (jobSeekerFinalFindQueryDTO.getIfSpecifiedSkills()) {
-            if (jobSeekerFinalFindQueryDTO.getSkills() != null) {
-                jobSeekerDTOs.addAll(findBySpecifiedSkills(jobSeekerFinalFindQueryDTO.getSkills()));
-            }
-        } else {
-            if (jobSeekerFinalFindQueryDTO.getSkills() != null) {
-                jobSeekerDTOs.addAll(findJobSeekerBySkills(jobSeekerFinalFindQueryDTO.getSkills()));
+        if (jobSeekerFinalFindQueryDTO.getSkills() != null) {
+            if (jobSeekerFinalFindQueryDTO.getIfSpecifiedSkills()) {
+                jobSeekerList.addAll(findBySpecifiedSkills(jobSeekerFinalFindQueryDTO.getSkills()));
+            } else {
+                jobSeekerList.addAll(findJobSeekerBySkills(jobSeekerFinalFindQueryDTO.getSkills()));
             }
         }
 
-        if (jobSeekerFinalFindQueryDTO.getIsSpecifiedLanguage()) {
-            if (jobSeekerFinalFindQueryDTO.getLanguageDTOs() != null) {
-                jobSeekerDTOs.addAll(findBySpecifiedLanguages(jobSeekerFinalFindQueryDTO.getLanguageDTOs()));
-            }
-        } else {
-            if (jobSeekerFinalFindQueryDTO.getLanguageDTOs() != null) {
-                jobSeekerDTOs.addAll(findByLanguages(jobSeekerFinalFindQueryDTO.getLanguageDTOs()));
+        if (jobSeekerFinalFindQueryDTO.getLanguageDTOs() != null) {
+            if (jobSeekerFinalFindQueryDTO.getIsSpecifiedLanguage()) {
+                jobSeekerList.addAll(findBySpecifiedLanguages(jobSeekerFinalFindQueryDTO.getLanguageDTOs()));
+            } else {
+                jobSeekerList.addAll(findByLanguages(jobSeekerFinalFindQueryDTO.getLanguageDTOs()));
             }
         }
         if (jobSeekerFinalFindQueryDTO.getIsStudent() != null) {
-            jobSeekerDTOs.addAll(findIfIsStudent(jobSeekerFinalFindQueryDTO.getIsStudent()));
+            jobSeekerList.addAll(findIfIsStudent(jobSeekerFinalFindQueryDTO.getIsStudent()));
         }
-        return jobSeekerDTOs.stream()
+        return jobSeekerList.stream()
                 .distinct()
                 .toList();
     }

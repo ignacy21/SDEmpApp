@@ -32,91 +32,56 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/form-of-work
+GET http://localhost:7070/SDEmpApp/job-advertisement/find
 Content-Type: application/json
 
 {
-  "formOfWork": "IN_PLACE"
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/skills
-Content-Type: application/json
-
-{
-  "skills": [
-    {"skill": "JAVA"},
-    {"skill": "PYTHON"},
-    {"skill": "SQL"}
-  ]
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/specified-skills
-Content-Type: application/json
-
-{
-  "skills": [
-    {"skill": "JAVA"},
-    {"skill": "SQL"}
-  ]
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/languages
-Content-Type: application/json
-
-{
-  "languageDTOs": [
-    {"language": "POLISH"},
-    {"language": "SLOVAK"},
-    {"language": "NORWEGIAN"}
-  ]
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/specified-languages
-Content-Type: application/json
-
-{
-  "languageDTOs": [
-    {"language": "GREEK"}
-  ]
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-localization
-Content-Type: application/json
-
-{
-"provinceName": "Dolnośląskie",
-"cityName": "Bardo"
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-experience-needed
-Content-Type: application/json
-
-{
-  "experience": "MIN_1"
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-salary
-Content-Type: application/json
-
-{
-  "salary": 9000
-}
-###
-
-GET http://localhost:7070/SDEmpApp/job-advertisement/find/by-seniority
-Content-Type: application/json
-
-{
-  "seniorityDTOs": [
-    {"seniority": "JUNIOR"},
-    {"seniority": "TRAINEE"}
-  ]
-
+  "localization": {
+    "provinceName": "Dolnośląskie",
+    "cityName": "Bardo"
+  },
+  "formOfWork": {
+    "formOfWork": "IN_PLACE"
+  },
+  "experienceDTO": {
+    "experience": "MIN_1"
+  },
+  "salary": {
+    "salary": 9000
+  },
+  "seniorityDTOs": {
+    "seniorityDTOs": [
+      {
+        "seniority": "JUNIOR"
+      },
+      {
+        "seniority": "TRAINEE"
+      }
+    ]
+  },
+  "isSpecifiedSkills": true,
+  "skillDTOs": {
+    "skills": [
+      {
+        "skill": "JAVA"
+      },
+      {
+        "skill": "SQL"
+      }
+    ]
+  },
+  "isSpecifiedLanguages": true,
+  "languageDTOs": {
+    "languageDTOs": [
+      {
+        "language": "POLISH"
+      },
+      {
+        "language": "SLOVAK"
+      },
+      {
+        "language": "NORWEGIAN"
+      }
+    ]
+  }
 }
