@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
   "localization": {
-    "provinceName": "Mazowieckie",
-    "cityName": "Warszawa"
+    "provinceName": "Dolnośląskie",
+    "cityName": "Bardo"
   },
-  "experienceNeeded": "0",
+  "experienceNeeded": "0 >= 1",
   "salaryFrom": 8000,
   "salaryTo": 10000,
   "languages": "POLISH;SLOVAK;NORWEGIAN",

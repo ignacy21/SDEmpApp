@@ -21,10 +21,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -166,19 +163,12 @@ public class JobAdvertisementService {
 
             // Criteria API JPA
             int ordinal = finalQuery.getExperienceDTO().getExperience().ordinal();
-            Experience[] list1 = Experience.values();
-            for (Experience experience : list1) {
-                if (experience.ordinal() <= ordinal) {
-                    String experience1 = experience.getExperience();
-                    predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(root.get("experienceNeeded"), experience1));
-                }
-            }
-//            List<String> list = Arrays.stream(Experience.values())
-//                    .filter(x -> x.ordinal() <= ordinal)
-//                    .map(Experience::getExperience)
-//                    .peek(experience -> criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("experienceNeeded"), experience)))
-////                  .peek(experience -> predicate = criteriaBuilder.and(criteriaBuilder.equal(root.get("experienceNeeded"), experience)))
-//                    .toList();
+            String experiencesAsString = Arrays.stream(Experience.values())
+                    .filter(x -> x.ordinal() <= ordinal)
+                    .map(Experience::getExperience)
+                    .reduce((ex1, ex2) -> ";")
+                    .orElseThrow();
+            predicate = criteriaBuilder.or(predicate, criteriaBuilder.like(root.get("experienceNeeded"), experiencesAsString));
         }
         if (finalQuery.getSalary() != null) {
             jobAdvertisementList.addAll(findJobAdvertisementBySalary(finalQuery.getSalary()));
@@ -196,7 +186,7 @@ public class JobAdvertisementService {
             List<SeniorityDTO> seniorityDTOs = finalQuery.getSeniorityDTOs().getSeniorityDTOs();
             for (SeniorityDTO seniorityDTO : seniorityDTOs) {
                 String seniority = seniorityDTO.getSeniority().name();
-                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("seniority"), seniority));
+                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(root.get("seniority"), seniority));
             }
 
 //            List<String> list = seniorityDTOs.stream()

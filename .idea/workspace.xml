@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="sorting languages and skills before adding JobAdvertisement">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="using Criteria API JPA finding JobAdvertisements for now done find by: Localization, formOfWork, experience, salary">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -15,9 +12,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/JobAdvertisementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/JobAdvertisementDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/domain/JobAdvertisement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -365,7 +360,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="91393000" />
+      <workItem from="1710785031562" duration="93695000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -464,14 +459,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Change the localization to LocalizationDTO&#10;fix regex, and validation in job_seeker&#10;correcting http methods (due to Localization change)">
-      <option name="closed" value="true" />
-      <created>1710511424359</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1710511424359</updated>
     </task>
     <task id="LOCAL-00044" summary="JobAdvertisement GET findByFormOfWork&#10;also changing JobAdvertisement to JobAdvertisementEntity mapping">
       <option name="closed" value="true" />
@@ -745,7 +732,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711374982362</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="using Criteria API JPA finding JobAdvertisements for now done find by: Localization, formOfWork, experience, salary">
+      <option name="closed" value="true" />
+      <created>1711376055432</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1711376055432</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,7 +789,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correcting findOnlyBySpecifiedSkills in JobAdvertisementService" />
     <MESSAGE value="writing findByLanguages &amp; findBySpecifiedLanguages in JobSeekerController GET http methods" />
     <MESSAGE value="writing findBySpecifiedLanguages in JobAdvertisementController GET http method" />
     <MESSAGE value="writing findBySkills &amp; findBySpecifiedSkills methods in JobSeekerController - http GET methods" />
@@ -819,15 +813,16 @@
     <MESSAGE value="writing findBySeniority in JobAdvertisementController - GET http method" />
     <MESSAGE value="you find JobAdvertisement only by ONE GET http method, which contains all previously wrote methods in Controller - same as in JobSeeker" />
     <MESSAGE value="sorting languages and skills before adding JobAdvertisement" />
-    <option name="LAST_COMMIT_MESSAGE" value="sorting languages and skills before adding JobAdvertisement" />
+    <MESSAGE value="using Criteria API JPA finding JobAdvertisements for now done find by: Localization, formOfWork, experience, salary" />
+    <option name="LAST_COMMIT_MESSAGE" value="using Criteria API JPA finding JobAdvertisements for now done find by: Localization, formOfWork, experience, salary" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>290</line>
-          <option name="timeStamp" value="88" />
+          <line>288</line>
+          <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
