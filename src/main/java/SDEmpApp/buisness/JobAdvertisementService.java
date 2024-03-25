@@ -162,4 +162,11 @@ public class JobAdvertisementService {
                 .distinct()
                 .toList();
     }
+
+    public String sortCsv(String csvString) {
+        return Arrays.stream(csvString.split(";"))
+                .sorted()
+                .reduce((l1, l2) -> l1 + ";" + l2)
+                .orElseThrow();
+    }
 }

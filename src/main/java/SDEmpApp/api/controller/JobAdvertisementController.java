@@ -18,7 +18,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -31,15 +33,6 @@ public class JobAdvertisementController {
     public static final String UPDATE = "/update/{jobAdvertisementId}";
     private static final String JOB_ADVERT_RESULT = "/%s";
     private final String FIND = "/find";
-    private final String BY_FORM_OF_WORK = "/form-of-work";
-    private final String BY_SKILLS = "/skills";
-    private final String BY_SPECIFIED_SKILLS = "/specified-skills";
-    private final String BY_LANGUAGES = "/languages";
-    private final String BY_SPECIFIED_LANGUAGES = "/specified-languages";
-    private final String BY_LOCALIZATION = "/by-localization";
-    private final String BY_EXPERIENCE_NEEDED = "/by-experience-needed";
-    private final String BY_SALARY = "/by-salary";
-    private final String BY_SENIORITY = "/by-seniority";
 
     private final JobAdvertisementService jobAdvertisementService;
     private final CompanyService companyService;
@@ -53,9 +46,14 @@ public class JobAdvertisementController {
             @Valid @RequestBody JobAdvertisementDTO jobAdvertisementDTO
     ) {
         Localization findLocalizationAdv = localizationService.findLocalization(jobAdvertisementDTO.getLocalization());
+        String sortedLanguages = jobAdvertisementService.sortCsv(jobAdvertisementDTO.getLanguages());
+        String sortedSkills = jobAdvertisementService.sortCsv(jobAdvertisementDTO.getSkillsNeeded());
 
         Company findCompany = companyService.findCompanyById(companyId);
-        JobAdvertisement jobAdvertisement = jobAdvertisementMapper.mapFromDTO(jobAdvertisementDTO);
+        JobAdvertisement jobAdvertisement = jobAdvertisementMapper.mapFromDTO(jobAdvertisementDTO
+                .withLanguages(sortedLanguages)
+                .withSkillsNeeded(sortedSkills)
+        );
 
         jobAdvertisement.setLocalization(findLocalizationAdv);
         jobAdvertisement.setCompany(findCompany);
@@ -89,7 +87,7 @@ public class JobAdvertisementController {
     @GetMapping(value = FIND, produces = MediaType.APPLICATION_JSON_VALUE)
     public JobAdvertisementDTOs finalJobAdvertisementFindQuery(
             @Valid @RequestBody JobAdvertisementFinalFindQueryDTO jobAdvertisementFinalFindQueryDTO
-            ) {
+    ) {
         List<JobAdvertisement> jobAdvertisements = jobAdvertisementService.listOfSearchedJobAdvertisements(
                 jobAdvertisementFinalFindQueryDTO
         );
