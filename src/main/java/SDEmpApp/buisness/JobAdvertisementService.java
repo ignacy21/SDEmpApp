@@ -21,7 +21,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -163,12 +166,12 @@ public class JobAdvertisementService {
 
             // Criteria API JPA
             int ordinal = finalQuery.getExperienceDTO().getExperience().ordinal();
-            String experiencesAsString = Arrays.stream(Experience.values())
+            List<String> experiences = Arrays.stream(Experience.values())
                     .filter(x -> x.ordinal() <= ordinal)
                     .map(Experience::getExperience)
-                    .reduce((ex1, ex2) -> ";")
-                    .orElseThrow();
-            predicate = criteriaBuilder.or(predicate, criteriaBuilder.like(root.get("experienceNeeded"), experiencesAsString));
+                    .toList();
+
+            predicate = criteriaBuilder.and(predicate, root.get("experienceNeeded").in(experiences));
         }
         if (finalQuery.getSalary() != null) {
             jobAdvertisementList.addAll(findJobAdvertisementBySalary(finalQuery.getSalary()));
