@@ -3,17 +3,17 @@ Content-Type: application/json
 
 {
   "localization": {
-    "provinceName": "Dolnośląskie",
-    "cityName": "Bardo"
+    "provinceName": "Mazowieckie",
+    "cityName": "Warszawa"
   },
-  "experienceNeeded": "5 > ",
+  "experienceNeeded": "0",
   "salaryFrom": 8000,
   "salaryTo": 10000,
-  "languages": "GREEK",
+  "languages": "POLISH;SLOVAK;NORWEGIAN",
   "duties": "8",
-  "formOfWork": "HYBRID",
-  "seniority": "EXPERT",
-  "skillsNeeded": ".NET"
+  "formOfWork": "IN_PLACE",
+  "seniority": "JUNIOR",
+  "skillsNeeded": "JAVA;SQL"
 }
 ###
 
@@ -22,8 +22,8 @@ Content-Type: application/json
 
 {
   "localization": {
-    "provinceName": "Mazowieckie",
-    "cityName": "Warszawa"
+    "provinceName": "Dolnośląskie",
+    "cityName": "Bardo"
   },
   "languages": "GREEK",
   "duties": "all duties",
@@ -36,11 +36,11 @@ GET http://localhost:7070/SDEmpApp/job-advertisement/find
 Content-Type: application/json
 
 {
-  "localization": {
-    "provinceName": "Dolnośląskie",
-    "cityName": "Bardo"
+  "localizationDTO": {
+    "provinceName": "Mazowieckie",
+    "cityName": "Warszawa"
   },
-  "formOfWork": {
+  "formOfWorkDTO": {
     "formOfWork": "IN_PLACE"
   },
   "experienceDTO": {
@@ -48,40 +48,5 @@ Content-Type: application/json
   },
   "salary": {
     "salary": 9000
-  },
-  "seniorityDTOs": {
-    "seniorityDTOs": [
-      {
-        "seniority": "JUNIOR"
-      },
-      {
-        "seniority": "TRAINEE"
-      }
-    ]
-  },
-  "isSpecifiedSkills": true,
-  "skillDTOs": {
-    "skills": [
-      {
-        "skill": "JAVA"
-      },
-      {
-        "skill": "SQL"
-      }
-    ]
-  },
-  "isSpecifiedLanguages": true,
-  "languageDTOs": {
-    "languageDTOs": [
-      {
-        "language": "POLISH"
-      },
-      {
-        "language": "SLOVAK"
-      },
-      {
-        "language": "NORWEGIAN"
-      }
-    ]
   }
 }

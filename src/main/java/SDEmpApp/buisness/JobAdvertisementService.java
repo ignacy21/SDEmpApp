@@ -9,9 +9,18 @@ import SDEmpApp.api.dto.finalQueriesDTO.JobAdvertisementFinalFindQueryDTO;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
+import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
+import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
+import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,6 +31,10 @@ import java.util.List;
 public class JobAdvertisementService {
     private final JobAdvertisementDAO jobAdvertisementDAO;
     private final LocalizationService localizationService;
+
+    private final LocalizationEntityMapper localizationEntityMapper;
+
+    private final EntityManager entityManager;
 
     public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) {
         return jobAdvertisementDAO.createJobAdvertisement(jobAdvertisement);
@@ -125,38 +138,149 @@ public class JobAdvertisementService {
     public List<JobAdvertisement> listOfSearchedJobAdvertisements(
             JobAdvertisementFinalFindQueryDTO finalQuery
     ) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<JobAdvertisementEntity> criteriaQuery = criteriaBuilder.createQuery(JobAdvertisementEntity.class);
+        Root<JobAdvertisementEntity> root = criteriaQuery.from(JobAdvertisementEntity.class);
+
+        Predicate predicate = criteriaBuilder.conjunction();
+
         List<JobAdvertisement> jobAdvertisementList = new ArrayList<>();
 
         if (finalQuery.getLocalizationDTO() != null) {
             jobAdvertisementList.addAll(findJobAdvertisementByLocalization(finalQuery.getLocalizationDTO()));
+
+            // Criteria API JPA
+            Localization localization = localizationService.findLocalization(finalQuery.getLocalizationDTO());
+            LocalizationEntity localizationEntity = localizationEntityMapper.mapToEntity(localization);
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("localization"), localizationEntity));
         }
         if (finalQuery.getFormOfWorkDTO() != null) {
             jobAdvertisementList.addAll(findByFormOfWork(finalQuery.getFormOfWorkDTO()));
+
+            // Criteria API JPA
+            String formOfWork = finalQuery.getFormOfWorkDTO().getFormOfWork().name();
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("formOfWork"), formOfWork));
         }
         if (finalQuery.getExperienceDTO() != null) {
             jobAdvertisementList.addAll(findJobAdvertisementByExperience(finalQuery.getExperienceDTO()));
+
+            // Criteria API JPA
+            int ordinal = finalQuery.getExperienceDTO().getExperience().ordinal();
+            Experience[] list1 = Experience.values();
+            for (Experience experience : list1) {
+                if (experience.ordinal() <= ordinal) {
+                    String experience1 = experience.getExperience();
+                    predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(root.get("experienceNeeded"), experience1));
+                }
+            }
+//            List<String> list = Arrays.stream(Experience.values())
+//                    .filter(x -> x.ordinal() <= ordinal)
+//                    .map(Experience::getExperience)
+//                    .peek(experience -> criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("experienceNeeded"), experience)))
+////                  .peek(experience -> predicate = criteriaBuilder.and(criteriaBuilder.equal(root.get("experienceNeeded"), experience)))
+//                    .toList();
         }
         if (finalQuery.getSalary() != null) {
             jobAdvertisementList.addAll(findJobAdvertisementBySalary(finalQuery.getSalary()));
+
+            // Criteria API JPA
+            BigDecimal salary = finalQuery.getSalary().getSalary();
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.lessThanOrEqualTo(root.get("salaryFrom"), salary));
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.greaterThanOrEqualTo(root.get("salaryTo"), salary));
+
         }
         if (finalQuery.getSeniorityDTOs() != null) {
             jobAdvertisementList.addAll(findJobAdvertisementBySeniority(finalQuery.getSeniorityDTOs()));
+
+            // Criteria API JPA
+            List<SeniorityDTO> seniorityDTOs = finalQuery.getSeniorityDTOs().getSeniorityDTOs();
+            for (SeniorityDTO seniorityDTO : seniorityDTOs) {
+                String seniority = seniorityDTO.getSeniority().name();
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("seniority"), seniority));
+            }
+
+//            List<String> list = seniorityDTOs.stream()
+//                    .map(SeniorityDTO::getSeniority)
+//                    .map(Enum::name)
+//                    .peek(seniority ->
+//                            criteriaQuery.select(root).where(criteriaBuilder.equal(
+//                                    root.get("seniority"), seniority
+//                            )))
+//                    .toList();
         }
         if (finalQuery.getSkillDTOs() != null) {
+            List<String> skills = finalQuery.getSkillDTOs().getSkills().stream()
+                    .map(SkillDTO::getSkill)
+                    .map(Skill::name)
+                    .sorted()
+                    .toList();
+
             if (finalQuery.getIsSpecifiedSkills()) {
                 jobAdvertisementList.addAll(findOnlyBySpecifiedSkills(finalQuery.getSkillDTOs()));
+
+                // Criteria API JPA
+                String skillsReduceToOneString = skills.stream()
+                        .reduce((a, b) -> a + ";" + b)
+                        .orElseThrow();
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(
+                        root.get("skillsNeeded"), skillsReduceToOneString)
+                );
+//                criteriaQuery.select(root).where(criteriaBuilder.equal(
+//                        root.get("skillsNeeded"), skillsReduceToOneString)
+//                );
             } else {
                 jobAdvertisementList.addAll(findBySkills(finalQuery.getSkillDTOs()));
+
+                // Criteria API JPA
+                for (String skill : skills) {
+                    predicate = criteriaBuilder.and(predicate, criteriaBuilder.like(
+                            root.get("skillsNeeded"), skill));
+                }
+//                Stream<String> skillsNeeded = skills.stream()
+//                        .peek(skill -> criteriaQuery.select(root).where(criteriaBuilder.like(
+//                                root.get("skillsNeeded"), skill)
+//                        ));
             }
         }
 
         if (finalQuery.getLanguageDTOs() != null) {
+            List<String> languages = finalQuery.getLanguageDTOs().getLanguageDTOs().stream()
+                    .map(LanguageDTO::getLanguage)
+                    .map(Language::name)
+                    .sorted()
+                    .toList();
             if (finalQuery.getIsSpecifiedLanguages()) {
                 jobAdvertisementList.addAll(findBySpecifiedLanguages(finalQuery.getLanguageDTOs()));
+
+                // Criteria API JPA
+                String skillsReduceToOneString = languages.stream()
+                        .reduce((a, b) -> a + ";" + b)
+                        .orElseThrow();
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(
+                        root.get("languages"), skillsReduceToOneString)
+                );
+
+//                criteriaQuery.select(root).where(criteriaBuilder.equal(
+//                        root.get("languages"), skillsReduceToOneString)
+//                );
             } else {
                 jobAdvertisementList.addAll(findByLanguages(finalQuery.getLanguageDTOs()));
+
+                // Criteria API JPA
+                for (String language : languages) {
+                    predicate = criteriaBuilder.and(predicate, criteriaBuilder.like(
+                            root.get("languages"), language)
+                    );
+                }
+//                Stream<String> list = languages.stream()
+//                        .peek(language -> criteriaQuery.select(root).where(criteriaBuilder.like(
+//                                root.get("languages"), language)
+//                        ));
             }
         }
+
+        criteriaQuery.select(root).where(predicate);
+        List<JobAdvertisementEntity> resultList = entityManager.createQuery(criteriaQuery).getResultList();
 
         return jobAdvertisementList.stream()
                 .distinct()

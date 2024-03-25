@@ -14,14 +14,14 @@ public class JobAdvertisement {
 
     private Integer jobAdvertisementId;
     private Localization localization;
-    private String languages;
-    private String skillsNeeded;
-    private String experienceNeeded;
-    private String duties;
     private String formOfWork;
-    private Company company;
+    private String experienceNeeded;
     private BigDecimal salaryFrom;
     private BigDecimal salaryTo;
     private String seniority;
+    private String skillsNeeded;
+    private String languages;
+    private String duties;
+    private Company company;
 
 }
