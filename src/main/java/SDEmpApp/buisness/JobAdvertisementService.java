@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 @AllArgsConstructor
@@ -164,9 +165,30 @@ public class JobAdvertisementService {
                 salary,
                 seniorityList
         );
-        // TODO find by skills and language
+        Predicate<JobAdvertisement> skillFilterPredicate = jobAdvertisement -> true;
+        if (finalQuery.getSkillDTOs() != null) {
+            List<String> skills = finalQuery.getSkillDTOs().getSkills().stream()
+                    .map(SkillDTO::getSkill)
+                    .map(Skill::name)
+                    .sorted()
+                    .toList();
+            if (finalQuery.getIsSpecifiedSkills()) {
+                skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkillsNeeded().split(";"))
+                        .allMatch(skills::contains);
+            } else {
+                skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkillsNeeded().split(";"))
+                        .map(skills::contains)
+                        .toList()
+                        .contains(true);
+            }
+        }
+        jobAdvertisements = jobAdvertisements.stream()
+                .filter(skillFilterPredicate)
+                .toList();
 
-        return null;
+        // TODO find by language
+
+        return jobAdvertisements;
     }
 
     public String sortCsv(String csvString) {
