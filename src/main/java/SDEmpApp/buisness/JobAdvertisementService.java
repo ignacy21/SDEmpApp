@@ -178,7 +178,6 @@ public class JobAdvertisementService {
 
             // Criteria API JPA
             BigDecimal salary = finalQuery.getSalary().getSalary();
-            predicate = criteriaBuilder.and(predicate, criteriaBuilder.lessThanOrEqualTo(root.get("salaryFrom"), salary));
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.greaterThanOrEqualTo(root.get("salaryTo"), salary));
 
         }
@@ -187,19 +186,14 @@ public class JobAdvertisementService {
 
             // Criteria API JPA
             List<SeniorityDTO> seniorityDTOs = finalQuery.getSeniorityDTOs().getSeniorityDTOs();
-            for (SeniorityDTO seniorityDTO : seniorityDTOs) {
-                String seniority = seniorityDTO.getSeniority().name();
-                predicate = criteriaBuilder.or(predicate, criteriaBuilder.equal(root.get("seniority"), seniority));
-            }
+            List<String> seniorityList = seniorityDTOs.stream()
+                    .map(SeniorityDTO::getSeniority)
+                    .map(Enum::name)
+                    .toList();
 
-//            List<String> list = seniorityDTOs.stream()
-//                    .map(SeniorityDTO::getSeniority)
-//                    .map(Enum::name)
-//                    .peek(seniority ->
-//                            criteriaQuery.select(root).where(criteriaBuilder.equal(
-//                                    root.get("seniority"), seniority
-//                            )))
-//                    .toList();
+            predicate = criteriaBuilder.and(predicate, root.get("seniority").in(seniorityList));
+
+
         }
         if (finalQuery.getSkillDTOs() != null) {
             List<String> skills = finalQuery.getSkillDTOs().getSkills().stream()

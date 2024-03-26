@@ -3,16 +3,16 @@ Content-Type: application/json
 
 {
   "localization": {
-    "provinceName": "Dolnośląskie",
-    "cityName": "Bardo"
+    "provinceName": "Mazowieckie",
+    "cityName": "Warszawa"
   },
   "experienceNeeded": "0 >= 1",
   "salaryFrom": 8000,
   "salaryTo": 10000,
   "languages": "POLISH;SLOVAK;NORWEGIAN",
-  "duties": "8",
+  "duties": "10",
   "formOfWork": "IN_PLACE",
-  "seniority": "JUNIOR",
+  "seniority": "SENIOR",
   "skillsNeeded": "JAVA;SQL"
 }
 ###
@@ -48,5 +48,15 @@ Content-Type: application/json
   },
   "salary": {
     "salary": 9000
+  },
+  "seniorityDTOs": {
+    "seniorityDTOs": [
+      {
+        "seniority": "JUNIOR"
+      },
+      {
+        "seniority": "SENIOR"
+      }
+    ]
   }
 }
