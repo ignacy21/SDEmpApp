@@ -1,3 +1,4 @@
+### create job advertisement
 POST http://localhost:7070/SDEmpApp/job-advertisement/create/1
 Content-Type: application/json
 
@@ -15,8 +16,8 @@ Content-Type: application/json
   "seniority": "SENIOR",
   "skillsNeeded": "JAVA;SQL;PYTHON"
 }
-###
 
+### upade job advertisement
 PUT http://localhost:7070/SDEmpApp/job-advertisement/update/3
 Content-Type: application/json
 
@@ -30,8 +31,8 @@ Content-Type: application/json
   "formOfWork": "HYBRID",
   "skillsNeeded": "JAVA"
 }
-###
 
+### find job advertisement
 GET http://localhost:7070/SDEmpApp/job-advertisement/find
 Content-Type: application/json
 
@@ -44,7 +45,7 @@ Content-Type: application/json
     "formOfWork": "IN_PLACE"
   },
   "experienceDTO": {
-    "experience": "MIN_1"
+    "experience": "MIN_2"
   },
   "salary": {
     "salary": 9000

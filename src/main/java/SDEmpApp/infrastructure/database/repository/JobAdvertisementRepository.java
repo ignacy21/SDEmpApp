@@ -7,7 +7,6 @@ import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
 import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.JobAdvertisementJpaRepository;
-import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
 import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
 import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
 import jakarta.persistence.EntityManager;
@@ -28,11 +27,9 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
 
     JobAdvertisementJpaRepository jobAdvertisementJpaRepository;
 
-    LocalizationRepository localizationRepository;
     EntityManager entityManager;
 
     JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
-    CompanyEntityMapper companyEntityMapper;
     LocalizationEntityMapper localizationEntityMapper;
 
     @Override
@@ -115,12 +112,10 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
         Predicate predicate = criteriaBuilder.conjunction();
 
         if (localization != null) {
-
             LocalizationEntity localizationEntity = localizationEntityMapper.mapToEntity(localization);
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("localization"), localizationEntity));
         }
         if (formOfWork != null) {
-
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("formOfWork"), formOfWork));
         }
         if (experienceOrdinal != null) {
@@ -134,6 +129,10 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
         if (salary != null) {
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.greaterThanOrEqualTo(
                     root.get("salaryTo"),
+                    salary
+            ));
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.lessThanOrEqualTo(
+                    root.get("salaryFrom"),
                     salary
             ));
         }

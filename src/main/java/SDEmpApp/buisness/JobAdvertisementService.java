@@ -144,13 +144,19 @@ public class JobAdvertisementService {
     public List<JobAdvertisement> listOfSearchedJobAdvertisements(
             JobAdvertisementFinalFindQueryDTO finalQuery
     ) {
-        Localization localization = localizationService.findLocalization(finalQuery.getLocalizationDTO());
-        String formOfWork = finalQuery.getFormOfWorkDTO().getFormOfWork().name();
-        int ordinal = finalQuery.getExperienceDTO().getExperience().ordinal();
-        BigDecimal salary = finalQuery.getSalary().getSalary();
-        List<String> seniorityList = finalQuery.getSeniorityDTOs().getSeniorityDTOs().stream()
-                .map(String::valueOf)
-                .toList();
+        Localization localization = finalQuery.getLocalizationDTO() != null ?
+                localizationService.findLocalization(finalQuery.getLocalizationDTO()) : null;
+        String formOfWork = finalQuery.getFormOfWorkDTO() != null ?
+                finalQuery.getFormOfWorkDTO().getFormOfWork().name() : null;
+        Integer ordinal = finalQuery.getExperienceDTO() != null ?
+                finalQuery.getExperienceDTO().getExperience().ordinal() : null;
+        BigDecimal salary = finalQuery.getSalary() != null ?
+                finalQuery.getSalary().getSalary() : null;
+        List<String> seniorityList = finalQuery.getSeniorityDTOs() != null ?
+                finalQuery.getSeniorityDTOs().getSeniorityDTOs().stream()
+                        .map(SeniorityDTO::getSeniority)
+                        .map(Enum::name)
+                        .toList() : null;
         List<JobAdvertisement> jobAdvertisements = criteriaApiFindQuery(
                 localization,
                 formOfWork,
