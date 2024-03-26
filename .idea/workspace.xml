@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="all Criteria API JPA moved to JpaRepository&#10;left with TODO skill and language search">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="removing unnecessary beans from JobAdvertisementRepository and fixing nullPointer nad seniorityStream issue">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -325,7 +324,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="104670000" />
+      <workItem from="1710785031562" duration="106995000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -424,14 +423,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00048" summary="writing findByLanguages and GET http method">
-      <option name="closed" value="true" />
-      <created>1710755595622</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1710755595622</updated>
     </task>
     <task id="LOCAL-00049" summary="adding auto generated column &quot;username&quot; in JobSeekerEntity">
       <option name="closed" value="true" />
@@ -705,7 +696,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711450595158</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="removing unnecessary beans from JobAdvertisementRepository and fixing nullPointer nad seniorityStream issue">
+      <option name="closed" value="true" />
+      <created>1711457889730</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1711457889730</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -754,7 +753,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="writing findByFormOfWork in JobSeekerController - http GET method&#10;one little change in findByFormOfEmployment (adding FIT)" />
     <MESSAGE value="writing findByExperience in JobSeekerController - http GET method" />
     <MESSAGE value="writing findIfIsEmployed in JobSeekerController - http GET method" />
     <MESSAGE value="writing findIfIsLookingForJob in JobSeekerController - http GET method" />
@@ -779,33 +777,10 @@
     <MESSAGE value="using Criteria API JPA fixing experience find again" />
     <MESSAGE value="seniority find done (Criteria API JPA)" />
     <MESSAGE value="all Criteria API JPA moved to JpaRepository&#10;left with TODO skill and language search" />
-    <option name="LAST_COMMIT_MESSAGE" value="all Criteria API JPA moved to JpaRepository&#10;left with TODO skill and language search" />
+    <MESSAGE value="removing unnecessary beans from JobAdvertisementRepository and fixing nullPointer nad seniorityStream issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing unnecessary beans from JobAdvertisementRepository and fixing nullPointer nad seniorityStream issue" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>186</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>168</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="SDEmpApp.infrastructure.database.entities.CompanyEntity" memberName="password" />
@@ -815,8 +790,6 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="jobAdvertisementList.stream().distinct().toList()" language="JAVA" />
-        <watch expression="resultList.get(0)" />
         <watch expression="jobAdvertisements" />
       </configuration>
     </watches-manager>

@@ -59,5 +59,22 @@ Content-Type: application/json
         "seniority": "SENIOR"
       }
     ]
+  },
+  "isSpecifiedSkills": true,
+  "skillDTOs": {
+    "skills": [
+      {
+        "skill": "JAVA"
+      },
+      {
+        "skill": "SQL"
+      },
+      {
+        "skill": "PYTHON"
+      },
+      {
+        "skill": "GOLANG"
+      }
+    ]
   }
 }
