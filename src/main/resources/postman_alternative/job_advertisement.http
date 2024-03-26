@@ -10,8 +10,8 @@ Content-Type: application/json
   "experienceNeeded": "0 >= 1",
   "salaryFrom": 8000,
   "salaryTo": 10000,
-  "languages": "POLISH;SLOVAK;NORWEGIAN",
-  "duties": "11",
+  "languages": "SLOVAK;GREEK",
+  "duties": "14",
   "formOfWork": "IN_PLACE",
   "seniority": "SENIOR",
   "skillsNeeded": "JAVA;SQL;PYTHON"
@@ -74,6 +74,20 @@ Content-Type: application/json
       },
       {
         "skill": "GOLANG"
+      }
+    ]
+  },
+  "isSpecifiedLanguages": true,
+  "languageDTOs": {
+    "languageDTOs": [
+      {
+        "language": "GREEK"
+      },
+      {
+        "language": "SLOVAK"
+      },
+      {
+        "language": "NORWEGIAN"
       }
     ]
   }

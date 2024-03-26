@@ -165,6 +165,7 @@ public class JobAdvertisementService {
                 salary,
                 seniorityList
         );
+
         Predicate<JobAdvertisement> skillFilterPredicate = jobAdvertisement -> true;
         if (finalQuery.getSkillDTOs() != null) {
             List<String> skills = finalQuery.getSkillDTOs().getSkills().stream()
@@ -182,11 +183,29 @@ public class JobAdvertisementService {
                         .contains(true);
             }
         }
+
+        Predicate<JobAdvertisement> languageFilterPredicate = jobAdvertisement -> true;
+        if (finalQuery.getSkillDTOs() != null) {
+            List<String> languages = finalQuery.getLanguageDTOs().getLanguageDTOs().stream()
+                    .map(LanguageDTO::getLanguage)
+                    .map(Language::name)
+                    .sorted()
+                    .toList();
+            if (finalQuery.getIsSpecifiedLanguages()) {
+                languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
+                        .allMatch(languages::contains);
+            } else {
+                languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
+                        .map(languages::contains)
+                        .toList()
+                        .contains(true);
+            }
+        }
+
         jobAdvertisements = jobAdvertisements.stream()
                 .filter(skillFilterPredicate)
+                .filter(languageFilterPredicate)
                 .toList();
-
-        // TODO find by language
 
         return jobAdvertisements;
     }
@@ -194,7 +213,7 @@ public class JobAdvertisementService {
     public String sortCsv(String csvString) {
         return Arrays.stream(csvString.split(";"))
                 .sorted()
-                .reduce((l1, l2) -> l1 + ";" + l2)
+                .reduce("%s;%s"::formatted)
                 .orElseThrow();
     }
 }
