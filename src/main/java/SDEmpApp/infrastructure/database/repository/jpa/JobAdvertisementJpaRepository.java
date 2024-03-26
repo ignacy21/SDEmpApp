@@ -23,5 +23,7 @@ public interface JobAdvertisementJpaRepository extends JpaRepository<JobAdvertis
                     BigDecimal salaryTo
     );
     List<JobAdvertisementEntity> findBySeniority(String seniority);
+
+    void deleteAll();
 }
 
