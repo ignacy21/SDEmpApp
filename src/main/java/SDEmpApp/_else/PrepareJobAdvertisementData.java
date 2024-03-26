@@ -16,7 +16,7 @@ public class PrepareJobAdvertisementData {
     private static int counter = 0;
 
     @Transactional
-    public JobAdvertisement generatedJobAdvertisement() {
+    public JobAdvertisement generateJobAdvertisement() {
         String[] skills = {"KOTLIN", "JAVA", "CPP", "SCALA", "HTML", "JAVASCRIPT", "C_SHARP", "AZURE", "GOLANG", "REACT_NATIVE", "PHP", "RUBY", "FLUTTER", "AWS", "ELIXIR", "C", "RUBY_ON_RAILS", "IOS", "SQL", "PYTHON", "REACT", "VUE_JS", "ANGULAR", "NET", "ANDROID"};
         String[] languages = {"KOREAN", "GERMAN", "DUTCH", "UKRAINIAN", "CHINESE", "BOSNIAN", "POLISH", "ALBANIAN", "CZECH", "SPANISH", "BULGARIAN", "FRENCH", "HUNGARIAN", "ITALIAN", "CROATIAN", "TURKISH", "ENGLISH_UK", "SLOVAK", "ENGLISH_US", "JAPANESE", "SERBIAN", "PORTUGUESE", "ROMANIAN", "FILIPINO", "FINNISH", "SLOVENE", "VIETNAMESE", "DANISH", "NORWEGIAN", "ESTONIAN", "WELSH", "GREEK", "LITHUANIAN", "SWEDISH"};
         String[] seniority = {"SENIOR", "JUNIOR", "EXPERT", "TRAINEE", "MID"};

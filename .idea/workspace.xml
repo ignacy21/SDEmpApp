@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="writing predicate that determines whether JobAdvertisement have LANGUAGES that user is looking for">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareJobAdvertisementData.java" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="creating Class that produces boot data - for jobAdvertisements">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareCompanyData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,10 +13,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/data/ControllerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/data/ControllerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/jpa/JobAdvertisementJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/_else/PrepareLocalizationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareLocalizationData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareJobAdvertisementData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareJobAdvertisementData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +158,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Debug",
+    "Spring Boot.SDEmpAppStarter.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -214,6 +211,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SDEmpApp._else" />
       <recent name="SDEmpApp.api.dto.auxiliary" />
       <recent name="SDEmpApp" />
       <recent name="SDEmpApp.api.controller" />
@@ -230,7 +228,7 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_advertisement | find job advertisement">
+  <component name="RunManager" selected="Spring Boot.SDEmpAppStarter">
     <configuration name="PrepareJobAdvertisementData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SDEmpApp._else.PrepareJobAdvertisementData" />
       <module name="SDEmpApp.main" />
@@ -298,8 +296,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.job_advertisement | find job advertisement" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_advertisement | find job advertisement" />
         <item itemvalue="Application.PrepareJobAdvertisementData" />
         <item itemvalue="HTTP Request.job_advertisement | create job advertisement" />
         <item itemvalue="HTTP Request.job_advertisement | chujek" />
@@ -341,7 +339,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="116634000" />
+      <workItem from="1710785031562" duration="118193000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -440,14 +438,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00052" summary="correcting findOnlyBySpecifiedSkills in JobAdvertisementService">
-      <option name="closed" value="true" />
-      <created>1710838051267</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1710838051267</updated>
     </task>
     <task id="LOCAL-00053" summary="writing findByLanguages &amp; findBySpecifiedLanguages in JobSeekerController GET http methods">
       <option name="closed" value="true" />
@@ -721,7 +711,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711463849391</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="creating Class that produces boot data - for jobAdvertisements">
+      <option name="closed" value="true" />
+      <created>1711493957483</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1711493957483</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -770,7 +768,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="writing findIfIsLookingForJob in JobSeekerController - http GET method" />
     <MESSAGE value="writing findCompanyByLocalization in JobSeekerController - http GET method" />
     <MESSAGE value="fixing few thingss as method name and mapping (DTO now has Company) in findJobAdvertisementByLocalization in JobAdvertisementController - http GET method" />
     <MESSAGE value="&gt; adding localization to JobSeeker&#10;&gt; getting updateJobSeekerData done a lot better&#10;&gt; writing findByLocalization in JobSeekerController - GET http method &#10;&gt; optimize imports" />
@@ -795,7 +792,8 @@
     <MESSAGE value="removing unnecessary beans from JobAdvertisementRepository and fixing nullPointer nad seniorityStream issue" />
     <MESSAGE value="writing predicate that determines whether JobAdvertisement have skills that user is looking for" />
     <MESSAGE value="writing predicate that determines whether JobAdvertisement have LANGUAGES that user is looking for" />
-    <option name="LAST_COMMIT_MESSAGE" value="writing predicate that determines whether JobAdvertisement have LANGUAGES that user is looking for" />
+    <MESSAGE value="creating Class that produces boot data - for jobAdvertisements" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating Class that produces boot data - for jobAdvertisements" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
