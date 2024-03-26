@@ -1,17 +1,25 @@
 package SDEmpApp.infrastructure.database.repository;
 
+import SDEmpApp.api.dto.auxiliary.enums.Experience;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
 import SDEmpApp.domain.JobAdvertisement;
 import SDEmpApp.domain.Localization;
 import SDEmpApp.infrastructure.database.entities.JobAdvertisementEntity;
+import SDEmpApp.infrastructure.database.entities.LocalizationEntity;
 import SDEmpApp.infrastructure.database.repository.jpa.JobAdvertisementJpaRepository;
 import SDEmpApp.infrastructure.database.repository.mapper.CompanyEntityMapper;
 import SDEmpApp.infrastructure.database.repository.mapper.JobAdvertisementEntityMapper;
 import SDEmpApp.infrastructure.database.repository.mapper.LocalizationEntityMapper;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -19,6 +27,9 @@ import java.util.List;
 public class JobAdvertisementRepository implements JobAdvertisementDAO {
 
     JobAdvertisementJpaRepository jobAdvertisementJpaRepository;
+
+    LocalizationRepository localizationRepository;
+    EntityManager entityManager;
 
     JobAdvertisementEntityMapper jobAdvertisementEntityMapper;
     CompanyEntityMapper companyEntityMapper;
@@ -86,6 +97,54 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
     @Override
     public List<JobAdvertisement> findBySeniority(String seniority) {
         return jobAdvertisementJpaRepository.findBySeniority(seniority).stream()
+                .map(jobAdvertisementEntityMapper::mapFromEntity)
+                .toList();
+    }
+
+    @Override
+    public List<JobAdvertisement> criteriaApiFindQuery(
+            Localization localization,
+            String formOfWork,
+            Integer experienceOrdinal,
+            BigDecimal salary,
+            List<String> senioritylist
+    ) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<JobAdvertisementEntity> criteriaQuery = criteriaBuilder.createQuery(JobAdvertisementEntity.class);
+        Root<JobAdvertisementEntity> root = criteriaQuery.from(JobAdvertisementEntity.class);
+        Predicate predicate = criteriaBuilder.conjunction();
+
+        if (localization != null) {
+
+            LocalizationEntity localizationEntity = localizationEntityMapper.mapToEntity(localization);
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("localization"), localizationEntity));
+        }
+        if (formOfWork != null) {
+
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("formOfWork"), formOfWork));
+        }
+        if (experienceOrdinal != null) {
+            List<String> experiences = Arrays.stream(Experience.values())
+                    .filter(x -> x.ordinal() <= experienceOrdinal)
+                    .map(Experience::getExperience)
+                    .toList();
+
+            predicate = criteriaBuilder.and(predicate, root.get("experienceNeeded").in(experiences));
+        }
+        if (salary != null) {
+            predicate = criteriaBuilder.and(predicate, criteriaBuilder.greaterThanOrEqualTo(
+                    root.get("salaryTo"),
+                    salary
+            ));
+        }
+        if (senioritylist != null) {
+            predicate = criteriaBuilder.and(predicate, root.get("seniority").in(senioritylist));
+        }
+
+        criteriaQuery.select(root).where(predicate);
+        List<JobAdvertisementEntity> resultList = entityManager.createQuery(criteriaQuery).getResultList();
+
+        return resultList.stream()
                 .map(jobAdvertisementEntityMapper::mapFromEntity)
                 .toList();
     }

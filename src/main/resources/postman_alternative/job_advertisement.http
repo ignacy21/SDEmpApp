@@ -10,10 +10,10 @@ Content-Type: application/json
   "salaryFrom": 8000,
   "salaryTo": 10000,
   "languages": "POLISH;SLOVAK;NORWEGIAN",
-  "duties": "10",
+  "duties": "11",
   "formOfWork": "IN_PLACE",
   "seniority": "SENIOR",
-  "skillsNeeded": "JAVA;SQL"
+  "skillsNeeded": "JAVA;SQL;PYTHON"
 }
 ###
 

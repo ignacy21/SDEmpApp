@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="using Criteria API JPA fixing experience find again">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="seniority find done (Criteria API JPA)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/skills and languages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,7 +13,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobAdvertisementDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobAdvertisementRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -318,8 +321,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.job_advertisement | #3" />
-        <item itemvalue="HTTP Request.job_advertisement | #1" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_advertisement | #1" />
         <item itemvalue="Gradle.SDEmpApp [build]" />
         <item itemvalue="Gradle.SDEmpApp [clean]" />
       </list>
@@ -360,7 +363,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="96939000" />
+      <workItem from="1710785031562" duration="101545000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -459,14 +462,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00046" summary="using FormOfWorkDTO in findByFormOfWork GET http method">
-      <option name="closed" value="true" />
-      <created>1710517026350</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1710517026350</updated>
     </task>
     <task id="LOCAL-00047" summary="writing findBySkills and findOnlyBySpecifiedSkills GET http method">
       <option name="closed" value="true" />
@@ -740,7 +735,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711389273139</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="seniority find done (Criteria API JPA)">
+      <option name="closed" value="true" />
+      <created>1711446176385</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1711446176385</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +792,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="writing findBySkills &amp; findBySpecifiedSkills methods in JobSeekerController - http GET methods" />
     <MESSAGE value="writing findByFormOfEmployment in JobSeekerController - http GET method" />
     <MESSAGE value="writing findByFormOfWork in JobSeekerController - http GET method&#10;one little change in findByFormOfEmployment (adding FIT)" />
     <MESSAGE value="writing findByExperience in JobSeekerController - http GET method" />
@@ -814,18 +816,10 @@
     <MESSAGE value="using Criteria API JPA finding JobAdvertisements for now done find by: Localization, formOfWork, experience, salary" />
     <MESSAGE value="using Criteria API JPA fixing experience find" />
     <MESSAGE value="using Criteria API JPA fixing experience find again" />
-    <option name="LAST_COMMIT_MESSAGE" value="using Criteria API JPA fixing experience find again" />
+    <MESSAGE value="seniority find done (Criteria API JPA)" />
+    <option name="LAST_COMMIT_MESSAGE" value="seniority find done (Criteria API JPA)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java</url>
-          <line>271</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="SDEmpApp.infrastructure.database.entities.CompanyEntity" memberName="password" />
@@ -836,6 +830,7 @@
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="jobAdvertisementList.stream().distinct().toList()" language="JAVA" />
+        <watch expression="resultList.get(0)" />
       </configuration>
     </watches-manager>
   </component>

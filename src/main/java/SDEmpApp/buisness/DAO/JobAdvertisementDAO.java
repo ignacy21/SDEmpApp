@@ -29,4 +29,12 @@ public interface JobAdvertisementDAO {
     List<JobAdvertisement> isSalaryBetweenRequiredSalary(BigDecimal salary);
 
     List<JobAdvertisement> findBySeniority(String seniority);
+
+    List<JobAdvertisement> criteriaApiFindQuery(
+            Localization localization,
+            String formOfWork,
+            Integer experienceOrdinal,
+            BigDecimal salary,
+            List<String> seniorityList
+    );
 }
