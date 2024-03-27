@@ -3,13 +3,11 @@ package SDEmpApp._else;
 import SDEmpApp._else.data.DataForBootClasses;
 import SDEmpApp.domain.JobAdvertisement;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Random;
 
 import static SDEmpApp._else.data.DataForBootClasses.csvString;
 import static SDEmpApp._else.data.DataForBootClasses.randIntInRange;

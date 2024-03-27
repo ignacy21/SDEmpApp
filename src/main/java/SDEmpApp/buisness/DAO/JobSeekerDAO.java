@@ -15,23 +15,14 @@ public interface JobSeekerDAO {
 
     List<JobSeeker> findJobSeekerByUsername(String username);
 
-    List<JobSeeker> findStudents(Boolean isStudent);
-
-    List<JobSeeker> findByLanguage(String language);
-
-    List<JobSeeker> findBySkill(String skill);
-
-    List<JobSeeker> findAll();
-
-    List<JobSeeker> findByFormOfEmployment(String formOfEmployment);
-
-    List<JobSeeker> findByFormOfWork(String formOfWork);
-
-    List<JobSeeker> findByExperience(String experience);
-
-    List<JobSeeker> findIfIsEmployed(Boolean isEmployed);
-
-    List<JobSeeker> findIfIsLookingForJob(Boolean isLookingForJob);
-
     List<JobSeeker> findByLocalization(Localization localization);
+
+    List<JobSeeker> criteriaApiFindQuery(
+            Localization localization,
+            Boolean isLookingForJob,
+            Boolean isEmployed,
+            Boolean isStudent,
+            Integer experienceOrdinal
+    );
+
 }

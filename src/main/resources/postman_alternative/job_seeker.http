@@ -1,3 +1,4 @@
+### create job seeker
 POST http://localhost:7070/SDEmpApp/job-seeker/create
 Content-Type: application/json
 
@@ -16,15 +17,14 @@ Content-Type: application/json
   "cv": "cv",
   "languages": "FRENCH;GERMAN;ESTONIAN",
   "skills": "KOTLIN;GOLANG",
-  "b2bNormalFit": "FREELANCE",
-  "formOfWork": "HYBRID",
+  "formsOfEmployment": "FREELANCE",
+  "formsOfWork": "HYBRID",
   "experience": "1 > 2",
   "aboutMe": "aboutMe",
   "lookingForJob": true
 }
 
-###
-
+### upadte job seeker
 PUT http://localhost:7070/SDEmpApp/job-seeker/update-data/4
 Content-Type: application/json
 
@@ -39,17 +39,17 @@ Content-Type: application/json
   "cv": "new cv",
   "languages": "new languages",
   "skills": "new skills",
-  "b2bNormalFit": "B2B",
-  "formOfWork": "HYBRID",
+  "formsOfEmployment": "B2B",
+  "formsOfWork": "HYBRID",
   "experience": "0 >= 1",
   "aboutMe": "new aboutMe",
   "lookingForJob": false
 }
-###
 
+###
 GET http://localhost:7070/SDEmpApp/job-seeker/find/by-username/jan mikolajek new
-###
 
+### find job seeker
 GET http://localhost:7070/SDEmpApp/job-seeker/find
 Content-Type: application/json
 
@@ -57,45 +57,5 @@ Content-Type: application/json
   "localization": {
     "provinceName": "Mazowieckie",
     "cityName": "Warszawa"
-  },
-  "isLookingForJob": true,
-  "isEmployed": false,
-  "experience": {
-    "experience": "MIN_1"
-  },
-  "formsOfWork": {
-    "formOfWorkDTOs": [
-      {
-        "formOfWork": "IN_PLACE"
-      }
-    ]
-  },
-  "formsOfEmployment": {
-    "employmentTypeDTOs": [
-      {
-        "employmentType": "FIT"
-      }
-    ]
-  },
-  "skills": {
-    "skills": [
-      {
-        "skill": "JAVA"
-      },
-      {
-        "skill": "SQL"
-      }
-    ]
-  },
-  "ifSpecifiedSkills": true,
-  "languageDTOs": {
-    "languageDTOs": [
-      {
-        "language": "POLISH",
-        "languageLevel": "NATIVE"
-      }
-    ]
-  },
-  "isSpecifiedLanguage": true,
-  "isStudent": true
+  }
 }
