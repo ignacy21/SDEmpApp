@@ -1,8 +1,9 @@
-package SDEmpApp.api.controller.data;
+package SDEmpApp._else.data;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
-public class ControllerData {
+public class DataForBootClasses {
 
     public static List<String> provinces() {
         return List.of(
@@ -53,6 +54,17 @@ public class ControllerData {
                 "FLUTTER"
         );
     }
+
+    public static List<String> experience() {
+        return List.of(
+                "0",
+                "0 >= 1",
+                "1 > 2",
+                "2 > 5",
+                "5 > "
+        );
+    }
+
     public static List<String> languages() {
         return List.of(
                 "POLISH",
@@ -131,5 +143,31 @@ public class ControllerData {
                 "Warmińsko-mazurskie",
                 "Wielkopolskie",
                 "Zachodniopomorskie");
+    }
+
+    public static String csvString(int howMany, List<String> list) {
+        String[] resultArray = new String[howMany];
+        for (int i = 0; i < howMany; i++) {
+            resultArray[i] = list.get(randIntInRange(0, list.size()));
+        }
+        return toCsv(Arrays.stream(resultArray));
+    }
+
+    public static int randIntInRange(int start, int end) {
+        Random random = new Random();
+        return random.nextInt(start, end);
+    }
+
+    public static boolean randBoolean() {
+        Random random = new Random();
+        return random.nextInt(0, 1) == 1;
+
+    }
+
+    private static String toCsv(Stream<String> string) {
+        return string
+                .distinct()
+                .reduce("%s;%s"::formatted)
+                .orElseThrow();
     }
 }

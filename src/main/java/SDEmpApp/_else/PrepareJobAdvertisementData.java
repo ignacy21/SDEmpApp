@@ -1,12 +1,18 @@
 package SDEmpApp._else;
 
+import SDEmpApp._else.data.DataForBootClasses;
 import SDEmpApp.domain.JobAdvertisement;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Random;
+
+import static SDEmpApp._else.data.DataForBootClasses.csvString;
+import static SDEmpApp._else.data.DataForBootClasses.randIntInRange;
 
 
 @Component
@@ -17,26 +23,23 @@ public class PrepareJobAdvertisementData {
 
     @Transactional
     public JobAdvertisement generateJobAdvertisement() {
-        String[] skills = {"KOTLIN", "JAVA", "CPP", "SCALA", "HTML", "JAVASCRIPT", "C_SHARP", "AZURE", "GOLANG", "REACT_NATIVE", "PHP", "RUBY", "FLUTTER", "AWS", "ELIXIR", "C", "RUBY_ON_RAILS", "IOS", "SQL", "PYTHON", "REACT", "VUE_JS", "ANGULAR", "NET", "ANDROID"};
-        String[] languages = {"KOREAN", "GERMAN", "DUTCH", "UKRAINIAN", "CHINESE", "BOSNIAN", "POLISH", "ALBANIAN", "CZECH", "SPANISH", "BULGARIAN", "FRENCH", "HUNGARIAN", "ITALIAN", "CROATIAN", "TURKISH", "ENGLISH_UK", "SLOVAK", "ENGLISH_US", "JAPANESE", "SERBIAN", "PORTUGUESE", "ROMANIAN", "FILIPINO", "FINNISH", "SLOVENE", "VIETNAMESE", "DANISH", "NORWEGIAN", "ESTONIAN", "WELSH", "GREEK", "LITHUANIAN", "SWEDISH"};
-        String[] seniority = {"SENIOR", "JUNIOR", "EXPERT", "TRAINEE", "MID"};
-        String[] formsOfWork = {"FIT", "HYBRID", "IN_PLACE", "REMOTE"};
-        String[] experiences = {"0", "0 >= 1", "1 > 2", "2 > 5", "5 > "};
+        List<String> languages = DataForBootClasses.languages();
+        List<String> skills = DataForBootClasses.skills();
+        List<String> experiences = DataForBootClasses.experience();
+        List<String> seniority = List.of("SENIOR", "JUNIOR", "EXPERT", "TRAINEE", "MID");
+        List<String> formsOfWork = List.of("FIT", "HYBRID", "IN_PLACE", "REMOTE");
 
         return JobAdvertisement.builder()
-                .languages(languages[randIntInRange(0, languages.length)])
-                .skillsNeeded(skills[randIntInRange(0, skills.length)])
-                .experienceNeeded(experiences[randIntInRange(0, experiences.length)])
+                .languages(csvString(randIntInRange(1, 4), languages))
+                .skillsNeeded(csvString(randIntInRange(1, 5), skills))
+                .experienceNeeded(experiences.get(randIntInRange(0, experiences.size())))
                 .duties("duties: %s".formatted(counter++))
-                .formOfWork(formsOfWork[randIntInRange(0, formsOfWork.length)])
+                .formOfWork(formsOfWork.get(randIntInRange(0, formsOfWork.size())))
                 .salaryFrom(new BigDecimal(randIntInRange(3, 5) * 1000))
                 .salaryTo(new BigDecimal(randIntInRange(6, 20) * 1000))
-                .seniority(seniority[randIntInRange(0, seniority.length)])
+                .seniority(seniority.get(randIntInRange(0, seniority.size())))
                 .build();
     }
 
-    private static int randIntInRange(int start, int end) {
-        Random random = new Random();
-        return random.nextInt(start, end);
-    }
+
 }

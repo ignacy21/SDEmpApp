@@ -1,8 +1,6 @@
 package SDEmpApp.buisness;
 
-import SDEmpApp.api.dto.auxiliary.LanguageDTO;
-import SDEmpApp.api.dto.auxiliary.SeniorityDTO;
-import SDEmpApp.api.dto.auxiliary.SkillDTO;
+import SDEmpApp.api.dto.auxiliary.*;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.finalQueriesDTO.JobAdvertisementFinalFindQueryDTO;
@@ -96,7 +94,8 @@ public class JobAdvertisementService {
 
     private static Predicate<JobAdvertisement> jobAdvertisementLanguagePredicate(JobAdvertisementFinalFindQueryDTO finalQuery) {
         Predicate<JobAdvertisement> languageFilterPredicate = jobAdvertisement -> true;
-        if (finalQuery.getSkillDTOs() != null) {
+        LanguageDTOs languageDTOs = finalQuery.getLanguageDTOs();
+        if (languageDTOs != null) {
             List<String> languages = finalQuery.getLanguageDTOs().getLanguageDTOs().stream()
                     .map(LanguageDTO::getLanguage)
                     .map(Language::name)
@@ -107,9 +106,7 @@ public class JobAdvertisementService {
                         .allMatch(languages::contains);
             } else {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
-                        .map(languages::contains)
-                        .toList()
-                        .contains(true);
+                        .anyMatch(languages::contains);
             }
         }
         return languageFilterPredicate;
@@ -117,7 +114,8 @@ public class JobAdvertisementService {
 
     private static Predicate<JobAdvertisement> jobAdvertisementSkillPredicate(JobAdvertisementFinalFindQueryDTO finalQuery) {
         Predicate<JobAdvertisement> skillFilterPredicate = jobAdvertisement -> true;
-        if (finalQuery.getSkillDTOs() != null) {
+        SkillDTOs skillDTOs = finalQuery.getSkillDTOs();
+        if (skillDTOs != null) {
             List<String> skills = finalQuery.getSkillDTOs().getSkills().stream()
                     .map(SkillDTO::getSkill)
                     .map(Skill::name)
@@ -128,9 +126,7 @@ public class JobAdvertisementService {
                         .allMatch(skills::contains);
             } else {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkillsNeeded().split(";"))
-                        .map(skills::contains)
-                        .toList()
-                        .contains(true);
+                        .anyMatch(skills::contains);
             }
         }
         return skillFilterPredicate;
