@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="creating Class that produces boot data - for jobAdvertisements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareCompanyData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="creating Class that produces boot data - for company">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareJobAdvertisementData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/PrepareJobAdvertisementData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +331,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="118193000" />
+      <workItem from="1710785031562" duration="119233000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -438,14 +430,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00053" summary="writing findByLanguages &amp; findBySpecifiedLanguages in JobSeekerController GET http methods">
-      <option name="closed" value="true" />
-      <created>1710839963666</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1710839963666</updated>
     </task>
     <task id="LOCAL-00054" summary="writing findBySpecifiedLanguages in JobAdvertisementController GET http method">
       <option name="closed" value="true" />
@@ -719,7 +703,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711493957483</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="creating Class that produces boot data - for company">
+      <option name="closed" value="true" />
+      <created>1711495645699</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1711495645699</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -768,7 +760,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="writing findCompanyByLocalization in JobSeekerController - http GET method" />
     <MESSAGE value="fixing few thingss as method name and mapping (DTO now has Company) in findJobAdvertisementByLocalization in JobAdvertisementController - http GET method" />
     <MESSAGE value="&gt; adding localization to JobSeeker&#10;&gt; getting updateJobSeekerData done a lot better&#10;&gt; writing findByLocalization in JobSeekerController - GET http method &#10;&gt; optimize imports" />
     <MESSAGE value="updating Company done better - using mapstruct" />
@@ -793,7 +784,8 @@
     <MESSAGE value="writing predicate that determines whether JobAdvertisement have skills that user is looking for" />
     <MESSAGE value="writing predicate that determines whether JobAdvertisement have LANGUAGES that user is looking for" />
     <MESSAGE value="creating Class that produces boot data - for jobAdvertisements" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating Class that produces boot data - for jobAdvertisements" />
+    <MESSAGE value="creating Class that produces boot data - for company" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating Class that produces boot data - for company" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
