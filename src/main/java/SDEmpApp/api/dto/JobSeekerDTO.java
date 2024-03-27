@@ -31,8 +31,8 @@ public class JobSeekerDTO {
     private String cv;
     private String languages;
     private String skills;
-    private String b2bNormalFit;
-    private String formOfWork;
+    private String formsOfEmployment;
+    private String formsOfWork;
     private String experience;
     private String aboutMe;
     private Boolean isEmployed;

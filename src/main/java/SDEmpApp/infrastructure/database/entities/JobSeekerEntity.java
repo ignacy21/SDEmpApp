@@ -52,11 +52,11 @@ public class JobSeekerEntity {
     @Column(name = "skills")
     private String skills;
 
-    @Column(name = "b2b_normal_fit")
-    private String b2bNormalFit;
+    @Column(name = "forms_of_employment")
+    private String formsOfEmployment;
 
-    @Column(name = "form_of_work")
-    private String formOfWork;
+    @Column(name = "forms_of_work")
+    private String formsOfWork;
 
     @Column(name = "experience")
     private String experience;

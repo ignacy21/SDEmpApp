@@ -78,14 +78,14 @@ public class JobSeekerRepository implements JobSeekerDAO {
 
     @Override
     public List<JobSeeker> findByFormOfEmployment(String formOfEmployment) {
-        return jobSeekerJpaRepository.findByB2bNormalFit(formOfEmployment).stream()
+        return jobSeekerJpaRepository.findByFormsOfEmployment(formOfEmployment).stream()
                 .map(jobSeekerEntityMapper::mapFromEntity)
                 .toList();
     }
 
     @Override
     public List<JobSeeker> findByFormOfWork(String formOfWork) {
-        return jobSeekerJpaRepository.findByFormOfWork(formOfWork).stream()
+        return jobSeekerJpaRepository.findByFormsOfWork(formOfWork).stream()
                 .map(jobSeekerEntityMapper::mapFromEntity)
                 .toList();
 
