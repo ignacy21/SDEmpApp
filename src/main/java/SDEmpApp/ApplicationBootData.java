@@ -52,7 +52,7 @@ public class ApplicationBootData implements ApplicationRunner {
 
 
         for (int i = 0; i < numberOfJobSeekers; i++) {
-            int randomLocalizationId = random.nextInt(1, 978);
+            int randomLocalizationId = random.nextInt(400, 500);
             JobSeeker jobSeeker = prepareJobSeekerData.generateJobSeeker();
             jobSeeker.setLocalization(localizationService.findLocalizationById(randomLocalizationId));
 

@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="adding boot data for job_seeker and changing way of randomizing few things">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobSeekerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/DAO/JobSeekerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/data/DataForBootClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/data/DataForBootClasses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,26 +235,7 @@
     </option>
   </component>
   <component name="RunManager" selected="HTTP Request.job_seeker | find job seeker">
-    <configuration name="SDEmpApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+    <configuration name="job_seeker | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="job_seeker | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="4" requestIdentifier="#4" runType="Run single request">
@@ -302,7 +283,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.SDEmpApp [build]" />
+      <item itemvalue="HTTP Request.job_seeker | #3" />
       <item itemvalue="HTTP Request.job_seeker | #4" />
       <item itemvalue="HTTP Request.job_seeker | create job seeker" />
       <item itemvalue="HTTP Request.job_seeker | find job seeker" />
@@ -313,9 +294,9 @@
       <list>
         <item itemvalue="HTTP Request.job_seeker | find job seeker" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_seeker | #3" />
         <item itemvalue="HTTP Request.job_seeker | create job seeker" />
         <item itemvalue="HTTP Request.job_seeker | #4" />
-        <item itemvalue="Gradle.SDEmpApp [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -354,7 +335,7 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="133660000" />
+      <workItem from="1710785031562" duration="139927000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -453,14 +434,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00057" summary="writing findByFormOfWork in JobSeekerController - http GET method&#10;one little change in findByFormOfEmployment (adding FIT)">
-      <option name="closed" value="true" />
-      <created>1710848237387</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1710848237387</updated>
     </task>
     <task id="LOCAL-00058" summary="writing findByExperience in JobSeekerController - http GET method">
       <option name="closed" value="true" />
@@ -734,7 +707,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711547265597</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports">
+      <option name="closed" value="true" />
+      <created>1711547965309</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1711547965309</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -783,7 +764,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="writing updateJobAdvertisement - using mapstruct - GET http method" />
     <MESSAGE value="finding localization done in LocalizationService" />
     <MESSAGE value="Checking if commit is visible in contributions; optimize imports" />
     <MESSAGE value="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it" />
@@ -808,39 +788,25 @@
     <MESSAGE value="removing redundant methods, extracting predicates to separate methods" />
     <MESSAGE value="change columns in job_seeker allowing to choose multiple selection of form of work and employment" />
     <MESSAGE value="adding boot data for job_seeker and changing way of randomizing few things" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding boot data for job_seeker and changing way of randomizing few things" />
+    <MESSAGE value="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java</url>
-          <line>103</line>
+          <line>101</line>
           <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/infrastructure/database/repository/JobSeekerRepository.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java</url>
-          <line>66</line>
-          <properties class="SDEmpApp.buisness.JobSeekerService" method="listOfSearchedJobSeekers">
+          <line>129</line>
+          <properties class="SDEmpApp.buisness.JobSeekerService" method="jobJobSeekerSkillPredicate">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="129" />
+          <option name="timeStamp" value="138" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

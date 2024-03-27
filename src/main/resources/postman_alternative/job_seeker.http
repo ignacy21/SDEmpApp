@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
   "localization": {
-    "provinceName": "Dolnośląskie",
-    "cityName": "Bardo"
+    "provinceName": "Mazowieckie",
+    "cityName": "Warszawa"
   },
   "name": "jannew3",
   "surname": "mikolajek3",
@@ -29,6 +29,10 @@ PUT http://localhost:7070/SDEmpApp/job-seeker/update-data/4
 Content-Type: application/json
 
 {
+  "localization": {
+    "provinceName": "Dolnośląskie",
+    "cityName": "Bardo"
+  },
   "name": "new name",
   "surname": "new surname",
   "email": "email@gmail.com",
@@ -47,7 +51,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:7070/SDEmpApp/job-seeker/find/by-username/jan mikolajek new
+GET http://localhost:7070/SDEmpApp/job-seeker/find/by-username/name10 999
 
 ### find job seeker
 GET http://localhost:7070/SDEmpApp/job-seeker/find
@@ -57,5 +61,62 @@ Content-Type: application/json
   "localization": {
     "provinceName": "Mazowieckie",
     "cityName": "Warszawa"
+  },
+  "isStudent": true,
+  "isLookingForJob": true,
+  "isEmployed": false,
+  "experience": {
+    "experience": "_0"
+  },
+  "formsOfWork": {
+    "formOfWorkDTOs": [
+      {
+        "formOfWork": "REMOTE"
+      },
+      {
+        "formOfWork": "IN_PLACE"
+      }
+    ]
+  },
+  "formsOfEmployment": {
+    "employmentTypeDTOs": [
+      {
+        "employmentType": "B2B"
+      },
+      {
+        "employmentType": "FREELANCE"
+      }
+    ]
+  },
+  "ifSpecifiedSkills": false,
+  "skills": {
+    "skills": [
+      {
+        "skill": "IOS"
+      },
+      {
+        "skill": "SQL"
+      },
+      {
+        "skill": "PHP"
+      }
+    ]
+  },
+  "isSpecifiedLanguage": false,
+  "languageDTOs": {
+    "languageDTOs": [
+      {
+        "language": "TURKISH",
+        "languageLevel": "NATIVE"
+      },
+      {
+        "language": "KOREAN",
+        "languageLevel": "NATIVE"
+      },
+      {
+        "language": "BULGARIAN",
+        "languageLevel": "NATIVE"
+      }
+    ]
   }
 }

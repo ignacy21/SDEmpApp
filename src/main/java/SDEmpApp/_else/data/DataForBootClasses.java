@@ -162,7 +162,7 @@ public class DataForBootClasses {
 
     public static boolean randBoolean() {
         Random random = new Random();
-        return random.nextInt(0, 1) == 1;
+        return random.nextInt(0, 2) == 1;
 
     }
 

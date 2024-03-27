@@ -53,7 +53,7 @@ public class JobSeekerService {
             Boolean isEmployed,
             Boolean isStudent,
             Integer experienceOrdinal
-            ) {
+    ) {
         return jobSeekerDAO.criteriaApiFindQuery(
                 localization,
                 isLookingForJob,
@@ -121,7 +121,7 @@ public class JobSeekerService {
                     .map(EmploymentTypeDTO::getEmploymentType)
                     .map(EmploymentType::name)
                     .toList();
-            languageFilterPredicate = jobSeeker -> Arrays.stream(jobSeeker.getFormsOfWork().split(";"))
+            languageFilterPredicate = jobSeeker -> Arrays.stream(jobSeeker.getFormsOfEmployment().split(";"))
                     .anyMatch(formsOfEmploymentStringList::contains);
         }
         return languageFilterPredicate;
@@ -138,7 +138,9 @@ public class JobSeekerService {
                     .toList();
             if (finalQuery.getIfSpecifiedSkills()) {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkills().split(";"))
-                        .allMatch(skills::contains);
+                        .allMatch(skills::contains)
+                        &
+                        jobAdv.getSkills().split(";").length >= skills.size();
             } else {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkills().split(";"))
                         .anyMatch(skills::contains);
@@ -158,7 +160,9 @@ public class JobSeekerService {
                     .toList();
             if (finalQuery.getIsSpecifiedLanguage()) {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
-                        .allMatch(languages::contains);
+                        .allMatch(languages::contains)
+                        &
+                        jobAdv.getLanguages().split(";").length >= languages.size();
             } else {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
                         .anyMatch(languages::contains);
