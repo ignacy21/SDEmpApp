@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="fixing little issues in JobSeekerService - finding specified language and skills &#10;fixing randomBoolean method in DataForBootClasses">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/TestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/InputChecking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/test.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,10 +16,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/ApplicationBootData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/data/DataForBootClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/_else/data/DataForBootClasses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,18 +61,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTTP Request" />
         <option value="Interface" />
         <option value="package-info" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="HTTP Request" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="179bacb3b73f06594d13ceefb1a80dd966c45e09" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,6 +124,7 @@
     "Gradle.SDEmpApp [clean].executor": "Run",
     "Gradle.SDEmpApp [jar].executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "HTTP Request.All in generated-requests.executor": "Run",
     "HTTP Request.company | #1.executor": "Run",
     "HTTP Request.company | #2.executor": "Run",
     "HTTP Request.company | #3.executor": "Run",
@@ -158,6 +159,7 @@
     "HTTP Request.job_seeker | #9.executor": "Run",
     "HTTP Request.job_seeker | create job seeker.executor": "Run",
     "HTTP Request.job_seeker | find job seeker.executor": "Run",
+    "HTTP Request.test | test GET.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -167,7 +169,7 @@
     "Spring Boot.SDEmpAppStarter.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "removing-some-dto",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/ignacyszpilowski/IdeaProjects/SDEmpApp/src/main/resources/flyway/migrations",
     "node.js.detected.package.eslint": "true",
@@ -234,17 +236,17 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_seeker | find job seeker">
+  <component name="RunManager" selected="HTTP Request.test | test GET">
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
     <configuration name="job_seeker | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="job_seeker | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="4" requestIdentifier="#4" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="job_seeker | create job seeker" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" requestIdentifier="create job seeker" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="job_seeker | find job seeker" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="4" requestIdentifier="find job seeker" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test | test GET" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/test.http" requestIdentifier="test GET" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="SDEmpAppStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -283,20 +285,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="HTTP Request.All in generated-requests" />
+      <item itemvalue="HTTP Request.test | test GET" />
       <item itemvalue="HTTP Request.job_seeker | #3" />
-      <item itemvalue="HTTP Request.job_seeker | #4" />
-      <item itemvalue="HTTP Request.job_seeker | create job seeker" />
       <item itemvalue="HTTP Request.job_seeker | find job seeker" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
       <item itemvalue="Spring Boot.SDEmpAppStarter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.job_seeker | find job seeker" />
+        <item itemvalue="HTTP Request.test | test GET" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.All in generated-requests" />
+        <item itemvalue="HTTP Request.job_seeker | find job seeker" />
         <item itemvalue="HTTP Request.job_seeker | #3" />
-        <item itemvalue="HTTP Request.job_seeker | create job seeker" />
-        <item itemvalue="HTTP Request.job_seeker | #4" />
       </list>
     </recent_temporary>
   </component>
@@ -335,7 +337,9 @@
       <workItem from="1710625023580" duration="6204000" />
       <workItem from="1710750762775" duration="10623000" />
       <workItem from="1710763394085" duration="25000" />
-      <workItem from="1710785031562" duration="139927000" />
+      <workItem from="1710785031562" duration="142574000" />
+      <workItem from="1711810125458" duration="85000" />
+      <workItem from="1711810222889" duration="6366000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -434,14 +438,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00058" summary="writing findByExperience in JobSeekerController - http GET method">
-      <option name="closed" value="true" />
-      <created>1710851168298</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1710851168298</updated>
     </task>
     <task id="LOCAL-00059" summary="writing findIfIsEmployed in JobSeekerController - http GET method">
       <option name="closed" value="true" />
@@ -715,7 +711,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711547965309</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="fixing little issues in JobSeekerService - finding specified language and skills &#10;fixing randomBoolean method in DataForBootClasses">
+      <option name="closed" value="true" />
+      <created>1711575111470</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1711575111470</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -757,14 +761,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="removing-some-dto" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finding localization done in LocalizationService" />
     <MESSAGE value="Checking if commit is visible in contributions; optimize imports" />
     <MESSAGE value="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it" />
     <MESSAGE value="Adding experienceNeeded to JobAdvertisement entity" />
@@ -789,7 +804,8 @@
     <MESSAGE value="change columns in job_seeker allowing to choose multiple selection of form of work and employment" />
     <MESSAGE value="adding boot data for job_seeker and changing way of randomizing few things" />
     <MESSAGE value="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports" />
+    <MESSAGE value="fixing little issues in JobSeekerService - finding specified language and skills &#10;fixing randomBoolean method in DataForBootClasses" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing little issues in JobSeekerService - finding specified language and skills &#10;fixing randomBoolean method in DataForBootClasses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
