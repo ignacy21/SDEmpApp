@@ -1,7 +1,5 @@
 package SDEmpApp.buisness;
 
-import SDEmpApp.api.dto.auxiliary.*;
-import SDEmpApp.api.dto.auxiliary.enums.EmploymentType;
 import SDEmpApp.api.dto.auxiliary.enums.FormOfWork;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
@@ -16,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -25,6 +22,7 @@ public class JobSeekerService {
     private final JobSeekerDAO jobSeekerDAO;
 
     private final LocalizationService localizationService;
+    private final InputCheckingService inputCheckingService;
 
     @Transactional
     public JobSeeker createJobSeeker(JobSeeker jobSeeker) {
@@ -64,21 +62,20 @@ public class JobSeekerService {
     }
 
     public List<JobSeeker> listOfSearchedJobSeekers(JobSeekerFinalFindQueryDTO finalQuery) {
+        inputCheckingService.checkInput(FormOfWork.class, finalQuery.getFormsOfWork());
+        inputCheckingService.checkInput(Skill.class, finalQuery.getSkills());
+        inputCheckingService.checkInput(Language.class, finalQuery.getLanguages());
+
         Localization localization = finalQuery.getLocalization() != null ?
-                localizationService.findLocalization(finalQuery.getLocalization()) :
-                null;
+                localizationService.findLocalization(finalQuery.getLocalization()) : null;
         Boolean isLookingForJob = finalQuery.getIsLookingForJob() != null ?
-                finalQuery.getIsLookingForJob() :
-                null;
+                finalQuery.getIsLookingForJob() : null;
         Boolean isEmployed = finalQuery.getIsEmployed() != null ?
-                finalQuery.getIsEmployed() :
-                null;
+                finalQuery.getIsEmployed() : null;
         Boolean isStudent = finalQuery.getIsStudent() != null ?
-                finalQuery.getIsStudent() :
-                null;
+                finalQuery.getIsStudent() : null;
         Integer experienceOrdinal = finalQuery.getExperience() != null ?
-                finalQuery.getExperience().getExperience().ordinal() :
-                null;
+                finalQuery.getExperience().getExperience().ordinal() : null;
 
         List<JobSeeker> jobSeekers = criteriaApiFindQuery(
                 localization,
@@ -93,57 +90,46 @@ public class JobSeekerService {
         Predicate<JobSeeker> skillPredicate = jobJobSeekerSkillPredicate(finalQuery);
         Predicate<JobSeeker> languagePredicate = jobAdvertisementLanguagePredicate(finalQuery);
 
-        List<JobSeeker> jobSeekers1 = jobSeekers.stream()
+        return jobSeekers.stream()
                 .filter(formsOfWorkPredicate)
                 .filter(formsOfEmploymentPredicate)
                 .filter(skillPredicate)
                 .filter(languagePredicate)
                 .toList();
-        return jobSeekers1;
     }
 
-    private Predicate<JobSeeker> jobSeekersFormsOfWorkPredicate(FormOfWorkDTOs formsOfWork) {
+    private Predicate<JobSeeker> jobSeekersFormsOfWorkPredicate(List<String> formsOfWork) {
         Predicate<JobSeeker> languageFilterPredicate = jobAdvertisement -> true;
         if (formsOfWork != null) {
-            List<String> formsOfWorkStringList = formsOfWork.getFormOfWorkDTOs().stream()
-                    .map(FormOfWorkDTO::getFormOfWork)
-                    .map(FormOfWork::name)
-                    .toList();
             languageFilterPredicate = jobSeeker -> Arrays.stream(jobSeeker.getFormsOfWork().split(";"))
-                    .anyMatch(formsOfWorkStringList::contains);
+                    .anyMatch(formsOfWork::contains);
         }
         return languageFilterPredicate;
     }
-    private Predicate<JobSeeker> jobSeekersFormsOfEmploymentPredicate(EmploymentTypeDTOs formsOfEmployment) {
+    private Predicate<JobSeeker> jobSeekersFormsOfEmploymentPredicate(List<String> formsOfEmployment) {
         Predicate<JobSeeker> languageFilterPredicate = jobAdvertisement -> true;
         if (formsOfEmployment != null) {
-            List<String> formsOfEmploymentStringList = formsOfEmployment.getEmploymentTypeDTOs().stream()
-                    .map(EmploymentTypeDTO::getEmploymentType)
-                    .map(EmploymentType::name)
-                    .toList();
             languageFilterPredicate = jobSeeker -> Arrays.stream(jobSeeker.getFormsOfEmployment().split(";"))
-                    .anyMatch(formsOfEmploymentStringList::contains);
+                    .anyMatch(formsOfEmployment::contains);
         }
         return languageFilterPredicate;
     }
 
     private static Predicate<JobSeeker> jobJobSeekerSkillPredicate(JobSeekerFinalFindQueryDTO finalQuery) {
         Predicate<JobSeeker> skillFilterPredicate = jobAdvertisement -> true;
-        SkillDTOs skillDTOs = finalQuery.getSkills();
-        if (skillDTOs != null) {
-            List<String> skills = skillDTOs.getSkills().stream()
-                    .map(SkillDTO::getSkill)
-                    .map(Skill::name)
+        List<String> skills = finalQuery.getSkills();
+        if (skills != null) {
+            List<String> sortedSkills = skills.stream()
                     .sorted()
                     .toList();
             if (finalQuery.getIfSpecifiedSkills()) {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkills().split(";"))
-                        .allMatch(skills::contains)
+                        .allMatch(sortedSkills::contains)
                         &
-                        jobAdv.getSkills().split(";").length >= skills.size();
+                        jobAdv.getSkills().split(";").length >= sortedSkills.size();
             } else {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkills().split(";"))
-                        .anyMatch(skills::contains);
+                        .anyMatch(sortedSkills::contains);
             }
         }
         return skillFilterPredicate;
@@ -151,30 +137,21 @@ public class JobSeekerService {
 
     private static Predicate<JobSeeker> jobAdvertisementLanguagePredicate(JobSeekerFinalFindQueryDTO finalQuery) {
         Predicate<JobSeeker> languageFilterPredicate = jobAdvertisement -> true;
-        LanguageDTOs languageDTOs = finalQuery.getLanguageDTOs();
-        if (languageDTOs != null) {
-            List<String> languages = languageDTOs.getLanguageDTOs().stream()
-                    .map(LanguageDTO::getLanguage)
-                    .map(Language::name)
+        List<String> languages = finalQuery.getLanguages();
+        if (languages != null) {
+            List<String> sortedLanguages = languages.stream()
                     .sorted()
                     .toList();
             if (finalQuery.getIsSpecifiedLanguage()) {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
-                        .allMatch(languages::contains)
+                        .allMatch(sortedLanguages::contains)
                         &
-                        jobAdv.getLanguages().split(";").length >= languages.size();
+                        jobAdv.getLanguages().split(";").length >= sortedLanguages.size();
             } else {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
-                        .anyMatch(languages::contains);
+                        .anyMatch(sortedLanguages::contains);
             }
         }
         return languageFilterPredicate;
-    }
-
-
-    private static List<Skill> getSkills(SkillDTOs skillDTOs) {
-        return skillDTOs.getSkills().stream()
-                .map(SkillDTO::getSkill)
-                .collect(Collectors.toList());
     }
 }

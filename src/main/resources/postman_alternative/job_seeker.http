@@ -68,55 +68,24 @@ Content-Type: application/json
   "experience": {
     "experience": "_0"
   },
-  "formsOfWork": {
-    "formOfWorkDTOs": [
-      {
-        "formOfWork": "REMOTE"
-      },
-      {
-        "formOfWork": "IN_PLACE"
-      }
-    ]
-  },
-  "formsOfEmployment": {
-    "employmentTypeDTOs": [
-      {
-        "employmentType": "B2B"
-      },
-      {
-        "employmentType": "FREELANCE"
-      }
-    ]
-  },
+  "formsOfWork": [
+    "REMOTE",
+    "IN_PLACE"
+  ],
+  "formsOfEmployment": [
+    "B2B",
+    "FREELANCE"
+  ],
   "ifSpecifiedSkills": false,
-  "skills": {
-    "skills": [
-      {
-        "skill": "IOS"
-      },
-      {
-        "skill": "SQL"
-      },
-      {
-        "skill": "PHP"
-      }
-    ]
-  },
+  "skills": [
+    "IOS",
+    "SQL",
+    "PHP"
+  ],
   "isSpecifiedLanguage": false,
-  "languageDTOs": {
-    "languageDTOs": [
-      {
-        "language": "TURKISH",
-        "languageLevel": "NATIVE"
-      },
-      {
-        "language": "KOREAN",
-        "languageLevel": "NATIVE"
-      },
-      {
-        "language": "BULGARIAN",
-        "languageLevel": "NATIVE"
-      }
-    ]
-  }
+  "languages": [
+    "TURKISH",
+    "KOREAN",
+    "BULGARIAN"
+  ]
 }

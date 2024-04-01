@@ -6,17 +6,12 @@ import SDEmpApp.domain.Localization;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @AllArgsConstructor
 public class LocalizationService {
 
     private final LocalizationDAO localizationDAO;
 
-    public List<Localization> findAllCities() {
-        return localizationDAO.findAllLocalizations();
-    }
     public Localization findLocalization(LocalizationDTO localizationDTO) {
         return findLocalizationByProvinceAndCity(
                 localizationDTO.getProvinceName(),

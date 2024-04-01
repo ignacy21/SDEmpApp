@@ -1,11 +1,13 @@
 package SDEmpApp.api.dto.finalQueriesDTO;
 
 import SDEmpApp.api.dto.LocalizationDTO;
-import SDEmpApp.api.dto.auxiliary.*;
+import SDEmpApp.api.dto.auxiliary.ExperienceDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -17,13 +19,13 @@ public class JobSeekerFinalFindQueryDTO {
     Boolean isLookingForJob;
     Boolean isEmployed;
     ExperienceDTO experience;
-    FormOfWorkDTOs formsOfWork;
-    EmploymentTypeDTOs formsOfEmployment;
+    List<String> formsOfWork;
+    List<String> formsOfEmployment;
 
-    SkillDTOs skills;
+    List<String> skills;
     Boolean ifSpecifiedSkills;
 
-    LanguageDTOs languageDTOs;
+    List<String> languages;
     Boolean isSpecifiedLanguage;
 
     Boolean isStudent;

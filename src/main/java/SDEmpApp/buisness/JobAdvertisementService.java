@@ -1,7 +1,8 @@
 package SDEmpApp.buisness;
 
-import SDEmpApp.api.dto.auxiliary.*;
+import SDEmpApp.api.dto.auxiliary.enums.FormOfWork;
 import SDEmpApp.api.dto.auxiliary.enums.Language;
+import SDEmpApp.api.dto.auxiliary.enums.Seniority;
 import SDEmpApp.api.dto.auxiliary.enums.Skill;
 import SDEmpApp.api.dto.finalQueriesDTO.JobAdvertisementFinalFindQueryDTO;
 import SDEmpApp.buisness.DAO.JobAdvertisementDAO;
@@ -22,6 +23,7 @@ public class JobAdvertisementService {
     private final JobAdvertisementDAO jobAdvertisementDAO;
 
     private final LocalizationService localizationService;
+    private final InputCheckingService inputCheckingService;
 
     public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) {
         return jobAdvertisementDAO.createJobAdvertisement(jobAdvertisement);
@@ -54,24 +56,18 @@ public class JobAdvertisementService {
     public List<JobAdvertisement> listOfSearchedJobAdvertisements(
             JobAdvertisementFinalFindQueryDTO finalQuery
     ) {
+        inputCheckingService.checkInput(FormOfWork.class, List.of(finalQuery.getFormOfWork()));
+        inputCheckingService.checkInput(Seniority.class, finalQuery.getSeniorities());
+        inputCheckingService.checkInput(Skill.class, finalQuery.getSkills());
+        inputCheckingService.checkInput(Language.class, finalQuery.getLanguages());
+
         Localization localization = finalQuery.getLocalizationDTO() != null ?
-                localizationService.findLocalization(finalQuery.getLocalizationDTO()) :
-                null;
-        String formOfWork = finalQuery.getFormOfWorkDTO() != null ?
-                finalQuery.getFormOfWorkDTO().getFormOfWork().name() :
-                null;
+                localizationService.findLocalization(finalQuery.getLocalizationDTO()) : null;
+        String formOfWork = finalQuery.getFormOfWork() != null ? finalQuery.getFormOfWork() : null;
         Integer ordinal = finalQuery.getExperienceDTO() != null ?
-                finalQuery.getExperienceDTO().getExperience().ordinal() :
-                null;
-        BigDecimal salary = finalQuery.getSalary() != null ?
-                finalQuery.getSalary().getSalary() :
-                null;
-        List<String> seniorityList = finalQuery.getSeniorityDTOs() != null ?
-                finalQuery.getSeniorityDTOs().getSeniorityDTOs().stream()
-                        .map(SeniorityDTO::getSeniority)
-                        .map(Enum::name)
-                        .toList() :
-                null;
+                finalQuery.getExperienceDTO().getExperience().ordinal() : null;
+        BigDecimal salary = finalQuery.getSalary() != null ? finalQuery.getSalary() : null;
+        List<String> seniorityList = finalQuery.getSeniorities() != null ? finalQuery.getSeniorities() : null;
 
         List<JobAdvertisement> jobAdvertisements = criteriaApiFindQuery(
                 localization,
@@ -94,11 +90,8 @@ public class JobAdvertisementService {
 
     private static Predicate<JobAdvertisement> jobAdvertisementLanguagePredicate(JobAdvertisementFinalFindQueryDTO finalQuery) {
         Predicate<JobAdvertisement> languageFilterPredicate = jobAdvertisement -> true;
-        LanguageDTOs languageDTOs = finalQuery.getLanguageDTOs();
-        if (languageDTOs != null) {
-            List<String> languages = finalQuery.getLanguageDTOs().getLanguageDTOs().stream()
-                    .map(LanguageDTO::getLanguage)
-                    .map(Language::name)
+        if (finalQuery.getLanguages() != null) {
+            List<String> languages = finalQuery.getLanguages().stream()
                     .sorted()
                     .toList();
             if (finalQuery.getIsSpecifiedLanguages()) {
@@ -114,11 +107,8 @@ public class JobAdvertisementService {
 
     private static Predicate<JobAdvertisement> jobAdvertisementSkillPredicate(JobAdvertisementFinalFindQueryDTO finalQuery) {
         Predicate<JobAdvertisement> skillFilterPredicate = jobAdvertisement -> true;
-        SkillDTOs skillDTOs = finalQuery.getSkillDTOs();
-        if (skillDTOs != null) {
-            List<String> skills = finalQuery.getSkillDTOs().getSkills().stream()
-                    .map(SkillDTO::getSkill)
-                    .map(Skill::name)
+        if (finalQuery.getSkills() != null) {
+            List<String> skills = finalQuery.getSkills().stream()
                     .sorted()
                     .toList();
             if (finalQuery.getIsSpecifiedSkills()) {

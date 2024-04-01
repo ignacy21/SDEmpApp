@@ -41,54 +41,26 @@ Content-Type: application/json
     "provinceName": "Mazowieckie",
     "cityName": "Warszawa"
   },
-  "formOfWorkDTO": {
-    "formOfWork": "IN_PLACE"
-  },
+  "formOfWork": "IN_PLACE",
   "experienceDTO": {
     "experience": "MIN_2"
   },
-  "salary": {
-    "salary": 9000
-  },
-  "seniorityDTOs": {
-    "seniorityDTOs": [
-      {
-        "seniority": "JUNIOR"
-      },
-      {
-        "seniority": "SENIOR"
-      }
-    ]
-  },
+  "salary": 9000,
+  "seniorities": [
+    "JUNIOR",
+    "SENIOR"
+  ],
   "isSpecifiedSkills": true,
-  "skillDTOs": {
-    "skills": [
-      {
-        "skill": "JAVA"
-      },
-      {
-        "skill": "SQL"
-      },
-      {
-        "skill": "PYTHON"
-      },
-      {
-        "skill": "NET"
-      }
-    ]
-  },
+  "skills": [
+    "JAVAXYZ",
+    "SQL",
+    "PYTHON",
+    "NET"
+  ],
   "isSpecifiedLanguages": true,
-  "languageDTOs": {
-    "languageDTOs": [
-      {
-        "language": "GREEK"
-      },
-      {
-        "language": "SLOVAK"
-      },
-      {
-        "language": "NORWEGIAN"
-      }
-    ]
-  }
+  "languages": [
+    "GREEK",
+    "SLOVAK",
+    "NORWEGIAN"
+  ]
 }

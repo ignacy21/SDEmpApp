@@ -1,11 +1,14 @@
 package SDEmpApp.api.dto.finalQueriesDTO;
 
 import SDEmpApp.api.dto.LocalizationDTO;
-import SDEmpApp.api.dto.auxiliary.*;
+import SDEmpApp.api.dto.auxiliary.ExperienceDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Builder
@@ -13,14 +16,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class JobAdvertisementFinalFindQueryDTO {
     LocalizationDTO localizationDTO;
-    FormOfWorkDTO formOfWorkDTO;
+    String formOfWork;
     ExperienceDTO experienceDTO;
-    SalaryDTO salary;
-    SeniorityDTOs seniorityDTOs;
+    BigDecimal salary;
+    List<String> seniorities;
 
-    SkillDTOs skillDTOs;
+    List<String> skills;
     Boolean isSpecifiedSkills;
 
-    LanguageDTOs languageDTOs;
+    List<String> languages;
     Boolean isSpecifiedLanguages;
 }
