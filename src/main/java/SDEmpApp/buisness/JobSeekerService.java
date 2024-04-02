@@ -125,7 +125,7 @@ public class JobSeekerService {
             if (finalQuery.getIfSpecifiedSkills()) {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkills().split(";"))
                         .allMatch(sortedSkills::contains)
-                        &
+                        &&
                         jobAdv.getSkills().split(";").length >= sortedSkills.size();
             } else {
                 skillFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getSkills().split(";"))
@@ -145,7 +145,7 @@ public class JobSeekerService {
             if (finalQuery.getIsSpecifiedLanguage()) {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))
                         .allMatch(sortedLanguages::contains)
-                        &
+                        &&
                         jobAdv.getLanguages().split(";").length >= sortedLanguages.size();
             } else {
                 languageFilterPredicate = jobAdv -> Arrays.stream(jobAdv.getLanguages().split(";"))

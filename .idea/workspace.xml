@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="creating generic Class that will check if String is value of Enum">
+    <list default="true" id="7424d334-1682-41f9-bc3c-a429ad21c68d" name="Changes" comment="removing the majority of auxiliaryDTOs replacing it with simple String List&#10;IMPORTANT: for now language is only find by name, there is no language level yet&#10;removing Test controller and http request">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/exceptions/ErrorResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,27 +13,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/EmploymentTypeDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/EmploymentTypeDTOs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/FormOfWorkDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/FormOfWorkDTOs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/LanguageDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/LanguageDTOs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SeniorityDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SeniorityDTOs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SkillDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/SkillDTOs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/auxiliary/TestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/finalQueriesDTO/JobAdvertisementFinalFindQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/finalQueriesDTO/JobAdvertisementFinalFindQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/finalQueriesDTO/JobSeekerFinalFindQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/dto/finalQueriesDTO/JobSeekerFinalFindQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/InputChecking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/InputCheckingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobAdvertisementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/api/controller/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/JobSeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SDEmpApp/buisness/LocalizationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/postman_alternative/test.http" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,8 +63,8 @@
         <option value="Interface" />
         <option value="package-info" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="HTTP Request" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -183,7 +165,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SDEmpAppStarter.executor": "Debug",
+    "Spring Boot.SDEmpAppStarter.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "removing-some-dto",
@@ -253,17 +235,17 @@
       <command value="gradle :flywayMigrate" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.job_seeker | find job seeker">
-    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+  <component name="RunManager" selected="HTTP Request.company | #1">
+    <configuration name="company | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="company | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/company.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="job_advertisement | find job advertisement" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_advertisement.http" index="3" requestIdentifier="find job advertisement" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="job_seeker | find job seeker" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/job_seeker.http" index="4" requestIdentifier="find job seeker" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="test | test GET" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/postman_alternative/test.http" requestIdentifier="test GET" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="SDEmpAppStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -302,20 +284,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.All in generated-requests" />
+      <item itemvalue="HTTP Request.company | #1" />
+      <item itemvalue="HTTP Request.company | #2" />
       <item itemvalue="HTTP Request.job_advertisement | find job advertisement" />
-      <item itemvalue="HTTP Request.test | test GET" />
       <item itemvalue="HTTP Request.job_seeker | find job seeker" />
       <item itemvalue="Smart Tomcat.SDEmpApp" />
       <item itemvalue="Spring Boot.SDEmpAppStarter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.job_seeker | find job seeker" />
+        <item itemvalue="HTTP Request.company | #1" />
+        <item itemvalue="HTTP Request.company | #2" />
         <item itemvalue="Spring Boot.SDEmpAppStarter" />
+        <item itemvalue="HTTP Request.job_seeker | find job seeker" />
         <item itemvalue="HTTP Request.job_advertisement | find job advertisement" />
-        <item itemvalue="HTTP Request.test | test GET" />
-        <item itemvalue="HTTP Request.All in generated-requests" />
       </list>
     </recent_temporary>
   </component>
@@ -356,7 +338,7 @@
       <workItem from="1710763394085" duration="25000" />
       <workItem from="1710785031562" duration="142574000" />
       <workItem from="1711810125458" duration="85000" />
-      <workItem from="1711810222889" duration="11285000" />
+      <workItem from="1711810222889" duration="18270000" />
     </task>
     <task id="LOCAL-00001" summary="future flyway data for test">
       <created>1691427542837</created>
@@ -455,14 +437,6 @@
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1695295469131</updated>
-    </task>
-    <task id="LOCAL-00060" summary="writing findIfIsLookingForJob in JobSeekerController - http GET method">
-      <option name="closed" value="true" />
-      <created>1710856851143</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1710856851143</updated>
     </task>
     <task id="LOCAL-00061" summary="writing findIfIsLookingForJob in JobSeekerController - http GET method">
       <option name="closed" value="true" />
@@ -736,7 +710,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711922195944</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="removing the majority of auxiliaryDTOs replacing it with simple String List&#10;IMPORTANT: for now language is only find by name, there is no language level yet&#10;removing Test controller and http request">
+      <option name="closed" value="true" />
+      <created>1711981736829</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1711981736829</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -797,7 +779,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Huge changes:&#10;&gt; you find company only by ONE GET http method, which contains all previously wrote method&#10;&gt; all method mentions above are moved to JobSeekerService&#10;&gt; JobSeekerService has one method that used all extracted methods; it is checking what our user is interested in changing (what isn't null), is searching and returning JobSeeker list&#10;&gt; in Controller there is only one method, we are mapping JobSeeker to DTO and that's it" />
     <MESSAGE value="Adding experienceNeeded to JobAdvertisement entity" />
     <MESSAGE value="writing findJobAdvertisementByLocalization in JobAdvertisementController - GET http method" />
     <MESSAGE value="adding salary_form and salary_to ROWS in job_advertisement" />
@@ -822,7 +803,8 @@
     <MESSAGE value="rewriting jobSeeker listOfSearchedJobSeekers find by finalQuery using Criteria JPA API (similar as in JobAdvertisementService)&#10;&gt; optimizing imports" />
     <MESSAGE value="fixing little issues in JobSeekerService - finding specified language and skills &#10;fixing randomBoolean method in DataForBootClasses" />
     <MESSAGE value="creating generic Class that will check if String is value of Enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating generic Class that will check if String is value of Enum" />
+    <MESSAGE value="removing the majority of auxiliaryDTOs replacing it with simple String List&#10;IMPORTANT: for now language is only find by name, there is no language level yet&#10;removing Test controller and http request" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing the majority of auxiliaryDTOs replacing it with simple String List&#10;IMPORTANT: for now language is only find by name, there is no language level yet&#10;removing Test controller and http request" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
