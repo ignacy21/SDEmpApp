@@ -2,14 +2,14 @@ POST http://localhost:7070/SDEmpApp/company/create
 Content-Type: application/json
 
 {
-  "name": "company4",
-  "description": "bardzo fajna firma",
+  "name": "Sławek's company",
+  "description": "bardzo fajna firma Sławka",
   "localization": {
   "provinceName": "Mazowieckie",
   "cityName": "Warszawa"
 },
-"email": "email4@gmail.com",
-"password": "pass"
+"email": "sławek@gmail.com",
+"password": "1234"
 }
 
 ###
@@ -37,6 +37,6 @@ GET http://localhost:7070/SDEmpApp/company/find-by-localization
 Content-Type: application/json
 
 {
-  "provinceName": "Dolnośląskie",
-  "cityName": "Bardo"
+  "provinceName": "Mazowieckie",
+  "cityName": "Warszawa"
 }

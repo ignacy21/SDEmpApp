@@ -40,27 +40,5 @@ Content-Type: application/json
   "localizationDTO": {
     "provinceName": "Mazowieckie",
     "cityName": "Warszawa"
-  },
-  "formOfWork": "IN_PLACE",
-  "experienceDTO": {
-    "experience": "MIN_2"
-  },
-  "salary": 9000,
-  "seniorities": [
-    "JUNIOR",
-    "SENIOR"
-  ],
-  "isSpecifiedSkills": true,
-  "skills": [
-    "JAVAXYZ",
-    "SQL",
-    "PYTHON",
-    "NET"
-  ],
-  "isSpecifiedLanguages": true,
-  "languages": [
-    "GREEK",
-    "SLOVAK",
-    "NORWEGIAN"
-  ]
+  }
 }

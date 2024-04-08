@@ -32,7 +32,7 @@ public interface JobAdvertisementDAO {
 
     List<JobAdvertisement> criteriaApiFindQuery(
             Localization localization,
-            String formOfWork,
+            List<String> formOfWork,
             Integer experienceOrdinal,
             BigDecimal salary,
             List<String> seniorityList

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -39,7 +40,7 @@ public class JobAdvertisementService {
 
     public List<JobAdvertisement> criteriaApiFindQuery(
             Localization localization,
-            String formOfWork,
+            List<String> formOfWork,
             Integer experienceOrdinal,
             BigDecimal salary,
             List<String> seniorityList
@@ -56,18 +57,24 @@ public class JobAdvertisementService {
     public List<JobAdvertisement> listOfSearchedJobAdvertisements(
             JobAdvertisementFinalFindQueryDTO finalQuery
     ) {
-        inputCheckingService.checkInput(FormOfWork.class, List.of(finalQuery.getFormOfWork()));
-        inputCheckingService.checkInput(Seniority.class, finalQuery.getSeniorities());
-        inputCheckingService.checkInput(Skill.class, finalQuery.getSkills());
-        inputCheckingService.checkInput(Language.class, finalQuery.getLanguages());
-
         Localization localization = finalQuery.getLocalizationDTO() != null ?
                 localizationService.findLocalization(finalQuery.getLocalizationDTO()) : null;
-        String formOfWork = finalQuery.getFormOfWork() != null ? finalQuery.getFormOfWork() : null;
+        List<String> formOfWork = finalQuery.getFormOfWork() != null ? List.of(finalQuery.getFormOfWork()) :
+                Collections.emptyList();
         Integer ordinal = finalQuery.getExperienceDTO() != null ?
                 finalQuery.getExperienceDTO().getExperience().ordinal() : null;
         BigDecimal salary = finalQuery.getSalary() != null ? finalQuery.getSalary() : null;
-        List<String> seniorityList = finalQuery.getSeniorities() != null ? finalQuery.getSeniorities() : null;
+        List<String> seniorityList = finalQuery.getSeniorities() != null ? finalQuery.getSeniorities() :
+                Collections.emptyList();
+        List<String> skills = finalQuery.getSkills() != null ? finalQuery.getSkills() : Collections.emptyList();
+        List<String> languages = finalQuery.getLanguages() != null ? finalQuery.getLanguages() :
+                Collections.emptyList();
+
+
+        inputCheckingService.checkInput(FormOfWork.class, formOfWork);
+        inputCheckingService.checkInput(Seniority.class, seniorityList);
+        inputCheckingService.checkInput(Skill.class, skills);
+        inputCheckingService.checkInput(Language.class, languages);
 
         List<JobAdvertisement> jobAdvertisements = criteriaApiFindQuery(
                 localization,

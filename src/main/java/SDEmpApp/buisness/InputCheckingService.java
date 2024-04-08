@@ -11,6 +11,9 @@ import java.util.List;
 public class InputCheckingService {
 
     public <T extends Enum<T>> void checkInput(Class<T> enumClass, List<String> inputStringList) {
+        if (inputStringList.isEmpty()) {
+            return;
+        }
         List<String> list = EnumSet.allOf(enumClass).stream()
                 .map(Enum::name)
                 .toList();

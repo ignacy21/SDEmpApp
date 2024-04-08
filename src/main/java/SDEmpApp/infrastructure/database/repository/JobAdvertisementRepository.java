@@ -101,7 +101,7 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
     @Override
     public List<JobAdvertisement> criteriaApiFindQuery(
             Localization localization,
-            String formOfWork,
+            List<String> formOfWork,
             Integer experienceOrdinal,
             BigDecimal salary,
             List<String> senioritylist
@@ -115,7 +115,7 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
             LocalizationEntity localizationEntity = localizationEntityMapper.mapToEntity(localization);
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("localization"), localizationEntity));
         }
-        if (formOfWork != null) {
+        if (!formOfWork.isEmpty()) {
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("formOfWork"), formOfWork));
         }
         if (experienceOrdinal != null) {
@@ -136,7 +136,7 @@ public class JobAdvertisementRepository implements JobAdvertisementDAO {
                     salary
             ));
         }
-        if (senioritylist != null) {
+        if (!senioritylist.isEmpty()) {
             predicate = criteriaBuilder.and(predicate, root.get("seniority").in(senioritylist));
         }
 
