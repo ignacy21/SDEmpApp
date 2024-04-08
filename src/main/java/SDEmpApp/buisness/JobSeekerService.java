@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -62,9 +63,6 @@ public class JobSeekerService {
     }
 
     public List<JobSeeker> listOfSearchedJobSeekers(JobSeekerFinalFindQueryDTO finalQuery) {
-        inputCheckingService.checkInput(FormOfWork.class, finalQuery.getFormsOfWork());
-        inputCheckingService.checkInput(Skill.class, finalQuery.getSkills());
-        inputCheckingService.checkInput(Language.class, finalQuery.getLanguages());
 
         Localization localization = finalQuery.getLocalization() != null ?
                 localizationService.findLocalization(finalQuery.getLocalization()) : null;
@@ -76,6 +74,15 @@ public class JobSeekerService {
                 finalQuery.getIsStudent() : null;
         Integer experienceOrdinal = finalQuery.getExperience() != null ?
                 finalQuery.getExperience().getExperience().ordinal() : null;
+        List<String> formsOfWork = finalQuery.getFormsOfWork() != null ?
+                finalQuery.getFormsOfWork() : Collections.emptyList();
+        List<String> skills = finalQuery.getSkills() != null ? finalQuery.getSkills() : Collections.emptyList();
+        List<String> languages = finalQuery.getLanguages() != null ?
+                finalQuery.getLanguages() : Collections.emptyList();
+
+        inputCheckingService.checkInput(FormOfWork.class, formsOfWork);
+        inputCheckingService.checkInput(Skill.class, skills);
+        inputCheckingService.checkInput(Language.class, languages);
 
         List<JobSeeker> jobSeekers = criteriaApiFindQuery(
                 localization,

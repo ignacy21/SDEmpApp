@@ -59,16 +59,16 @@ public class JobAdvertisementService {
     ) {
         Localization localization = finalQuery.getLocalizationDTO() != null ?
                 localizationService.findLocalization(finalQuery.getLocalizationDTO()) : null;
-        List<String> formOfWork = finalQuery.getFormOfWork() != null ? List.of(finalQuery.getFormOfWork()) :
-                Collections.emptyList();
+        List<String> formOfWork = finalQuery.getFormOfWork() != null ?
+                List.of(finalQuery.getFormOfWork()) : Collections.emptyList();
         Integer ordinal = finalQuery.getExperienceDTO() != null ?
                 finalQuery.getExperienceDTO().getExperience().ordinal() : null;
         BigDecimal salary = finalQuery.getSalary() != null ? finalQuery.getSalary() : null;
-        List<String> seniorityList = finalQuery.getSeniorities() != null ? finalQuery.getSeniorities() :
-                Collections.emptyList();
+        List<String> seniorityList = finalQuery.getSeniorities() != null ?
+                finalQuery.getSeniorities() : Collections.emptyList();
         List<String> skills = finalQuery.getSkills() != null ? finalQuery.getSkills() : Collections.emptyList();
-        List<String> languages = finalQuery.getLanguages() != null ? finalQuery.getLanguages() :
-                Collections.emptyList();
+        List<String> languages = finalQuery.getLanguages() != null ?
+                finalQuery.getLanguages() : Collections.emptyList();
 
 
         inputCheckingService.checkInput(FormOfWork.class, formOfWork);
