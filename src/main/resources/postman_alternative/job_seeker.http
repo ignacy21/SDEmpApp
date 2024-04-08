@@ -50,7 +50,7 @@ Content-Type: application/json
   "lookingForJob": false
 }
 
-###
+### find by name
 GET http://localhost:7070/SDEmpApp/job-seeker/find/by-username/name10 999
 
 ### find job seeker
