@@ -47,9 +47,7 @@ Content-Type: application/json
   "experienceDTO": {
     "experience": "MIN_2"
   },
-  "salary": {
-    "salary": 9000
-  },
+  "salary": 9000,
   "seniorityDTOs": {
     "seniorityDTOs": [
       {
