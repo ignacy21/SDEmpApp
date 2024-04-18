@@ -1,0 +1,42 @@
+### login user
+POST http://localhost:7070/SDEmpApp/auth/login
+Content-Type: application/json
+
+{
+  "email": "job_seeker@gmail.com",
+  "password": "1234"
+}
+
+### login admin
+POST http://localhost:7070/SDEmpApp/auth/login
+Content-Type: application/json
+
+{
+  "email": "company@gmail.com",
+  "password": "1234"
+}
+
+### register company
+POST http://localhost:7070/SDEmpApp/auth/register
+Content-Type: application/json
+
+{
+  "role": "COMPANY",
+  "email": "company@gmail.com",
+  "password": "1234"
+}
+
+### register job seeker
+POST http://localhost:7070/SDEmpApp/auth/register
+Content-Type: application/json
+
+{
+  "role": "JOB_SEEKER",
+  "email": "job_seeker@gmail.com",
+  "password": "1234"
+}
+
+### get
+GET http://localhost:7070/SDEmpApp/main-page/get1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjb21wYW55QGdtYWlsLmNvbSIsImlhdCI6MTcxMzQ1NTM0NywiZXhwIjoxNzEzNDU2ODgzfQ.lrVvu59YB1iCHDJuG-j_rUI7GOS2Druo67kLTTHd8Mr6qPSMD3h7Jcq1zlYPkvoT

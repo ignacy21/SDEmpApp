@@ -14,7 +14,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "SDEmpApp_user")
+@Table(name = "sdempapp_user")
 public class User implements UserDetails {
 
     @Id
@@ -31,11 +31,11 @@ public class User implements UserDetails {
     @Column(name = "active")
     private Boolean is_active;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn(name = "user_id_fk"),
+            inverseJoinColumns = @JoinColumn(name = "role_id_fk")
     )
     private Set<RoleEntity> roles;
 
