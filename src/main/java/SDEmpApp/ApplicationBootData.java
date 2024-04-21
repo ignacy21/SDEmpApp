@@ -1,5 +1,6 @@
 package SDEmpApp;
 
+import SDEmpApp.JWT.user.UserRepository;
 import SDEmpApp._else.PrepareCompanyData;
 import SDEmpApp._else.PrepareJobAdvertisementData;
 import SDEmpApp._else.PrepareJobSeekerData;
@@ -36,7 +37,7 @@ public class ApplicationBootData implements ApplicationRunner {
     private final JobAdvertisementJpaRepository jobAdvertisementJpaRepository;
     private final CompanyJpaRepository companyJpaRepository;
     private final JobSeekerJpaRepository jobSeekerJpaRepository;
-
+    private final UserRepository userRepository;
 
 
     @Override
@@ -49,6 +50,7 @@ public class ApplicationBootData implements ApplicationRunner {
         jobSeekerJpaRepository.deleteAll();
         jobAdvertisementJpaRepository.deleteAll();
         companyJpaRepository.deleteAll();
+        userRepository.deleteAll();
 
 
         for (int i = 0; i < numberOfJobSeekers; i++) {

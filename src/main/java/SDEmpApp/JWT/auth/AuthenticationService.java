@@ -1,8 +1,8 @@
 package SDEmpApp.JWT.auth;
 
 import SDEmpApp.JWT.config.JwtService;
+import SDEmpApp.JWT.demo.RoleService;
 import SDEmpApp.JWT.user.RoleEntity;
-import SDEmpApp.JWT.user.RoleRepository;
 import SDEmpApp.JWT.user.User;
 import SDEmpApp.JWT.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,13 +20,13 @@ import java.util.Set;
 public class AuthenticationService {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        RoleEntity roleEntity = roleRepository.findByRole(request.getRole()).orElseThrow();
+        RoleEntity roleEntity = roleService.findByName(request.getRole());
         var user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))

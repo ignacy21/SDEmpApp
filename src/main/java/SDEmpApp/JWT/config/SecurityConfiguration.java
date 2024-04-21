@@ -28,9 +28,11 @@ public class SecurityConfiguration {
         HttpSecurity build = http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/main-page/get1").permitAll()
-                        .requestMatchers("/main-page/get2").hasAnyAuthority("COMPANY")
-                        .requestMatchers("/main-page/get3").hasAnyAuthority("JOB_SEEKER")
+                        .requestMatchers("/main-page/get").permitAll()
+                        .requestMatchers("/main-page/create-role-for/**").permitAll()
+                        .requestMatchers("/main-page/user").hasAnyAuthority("USER")
+                        .requestMatchers("/main-page/job_seeker").hasAnyAuthority("JOB_SEEKER")
+                        .requestMatchers("/main-page/company").hasAnyAuthority("COMPANY")
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/**"))

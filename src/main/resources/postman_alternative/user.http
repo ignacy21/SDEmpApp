@@ -16,27 +16,48 @@ Content-Type: application/json
   "password": "1234"
 }
 
-### register company
+### register
 POST http://localhost:7070/SDEmpApp/auth/register
 Content-Type: application/json
 
 {
-  "role": "COMPANY",
+  "role": "USER",
   "email": "company@gmail.com",
   "password": "1234"
 }
 
-### register job seeker
-POST http://localhost:7070/SDEmpApp/auth/register
+### add role JOB_SEEKER
+PUT http://localhost:7070/SDEmpApp/main-page/create-role-for/14
 Content-Type: application/json
 
 {
-  "role": "JOB_SEEKER",
-  "email": "job_seeker@gmail.com",
-  "password": "1234"
+  "roleName": "JOB_SEEKER"
+}
+
+### add role COMPANY
+PUT http://localhost:7070/SDEmpApp/main-page/create-role-for/14
+Content-Type: application/json
+
+{
+  "roleName": "COMPANY"
 }
 
 ### get
-GET http://localhost:7070/SDEmpApp/main-page/get1
+GET http://localhost:7070/SDEmpApp/main-page/get
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjb21wYW55QGdtYWlsLmNvbSIsImlhdCI6MTcxMzQ1NTM0NywiZXhwIjoxNzEzNDU2ODgzfQ.lrVvu59YB1iCHDJuG-j_rUI7GOS2Druo67kLTTHd8Mr6qPSMD3h7Jcq1zlYPkvoT
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjb21wYW55QGdtYWlsLmNvbSIsImlhdCI6MTcxMzcxMzk2MywiZXhwIjoxNzEzNzE1NDk5fQ.45GJE6xmcnjNCJvlX3_qERCsyNPwh8kYtccqAU4R5lkZj-z8hHNS022Q6564GUp1
+
+### get for user
+GET http://localhost:7070/SDEmpApp/main-page/user
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjb21wYW55QGdtYWlsLmNvbSIsImlhdCI6MTcxMzcxMzk2MywiZXhwIjoxNzEzNzE1NDk5fQ.45GJE6xmcnjNCJvlX3_qERCsyNPwh8kYtccqAU4R5lkZj-z8hHNS022Q6564GUp1
+
+### get for job seeker
+GET http://localhost:7070/SDEmpApp/main-page/job_seeker
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjb21wYW55QGdtYWlsLmNvbSIsImlhdCI6MTcxMzcxMzk2MywiZXhwIjoxNzEzNzE1NDk5fQ.45GJE6xmcnjNCJvlX3_qERCsyNPwh8kYtccqAU4R5lkZj-z8hHNS022Q6564GUp1
+
+### get for company
+GET http://localhost:7070/SDEmpApp/main-page/company
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjb21wYW55QGdtYWlsLmNvbSIsImlhdCI6MTcxMzcxMzk2MywiZXhwIjoxNzEzNzE1NDk5fQ.45GJE6xmcnjNCJvlX3_qERCsyNPwh8kYtccqAU4R5lkZj-z8hHNS022Q6564GUp1
