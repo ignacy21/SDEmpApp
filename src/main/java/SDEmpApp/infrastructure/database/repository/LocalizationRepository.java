@@ -29,7 +29,7 @@ public class LocalizationRepository implements LocalizationDAO {
     }
 
     @Override
-    public List<Localization> findAvailableCitiesForProvince(String provinceName) {
+    public List<Localization> findLocalizationByProvince(String provinceName) {
         return localizationJpaRepository.findByProvinceName(provinceName).stream()
                 .map(localizationEntityMapper::mapFromEntity)
                 .toList();
@@ -58,4 +58,5 @@ public class LocalizationRepository implements LocalizationDAO {
         }
         return localizationEntityMapper.mapFromEntity(findLocalization.get());
     }
+
 }

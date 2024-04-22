@@ -1,6 +1,7 @@
 package SDEmpApp.JWT.user;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class User implements UserDetails {
     @Column(name = "user_id")
     private Integer user_id;
 
+    @Email
     @Column(name = "email")
     private String email;
 

@@ -1,0 +1,2 @@
+### find localization by province name
+GET http://localhost:7070/SDEmpApp/localization/by-province/Mazowieckie

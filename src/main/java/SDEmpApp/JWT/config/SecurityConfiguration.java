@@ -30,6 +30,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/main-page/get").permitAll()
                         .requestMatchers("/main-page/create-role-for/**").permitAll()
+                        .requestMatchers("/localization/**").permitAll()
                         .requestMatchers("/main-page/user").hasAnyAuthority("USER")
                         .requestMatchers("/main-page/job_seeker").hasAnyAuthority("JOB_SEEKER")
                         .requestMatchers("/main-page/company").hasAnyAuthority("COMPANY")

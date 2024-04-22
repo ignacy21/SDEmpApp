@@ -20,7 +20,6 @@ public class UserService {
         );
     }
 
-
     public User userData(String token) {
         Claims claims = jwtService.extractAllClaims(token);
         String email = claims.getSubject();
